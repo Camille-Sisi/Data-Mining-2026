@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>1&nbsp; Récupération de la base de données – Data Mining 2026</title>
+<title>3&nbsp; Manipulation des variables – Data Mining 2026</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -65,8 +65,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./02-Manipulation-base.html" rel="next">
-<link href="./index.html" rel="prev">
+<link href="./02-Manipulation-base.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -285,7 +284,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01-Base-de-donnees.html">Séance 1</a></li><li class="breadcrumb-item"><a href="./01-Base-de-donnees.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Récupération de la base de données</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01-Base-de-donnees.html">Séance 1</a></li><li class="breadcrumb-item"><a href="./03-Manipulation-variables.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Manipulation des variables</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -331,7 +330,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./01-Base-de-donnees.html" class="sidebar-item-text sidebar-link active">
+  <a href="./01-Base-de-donnees.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Récupération de la base de données</span></span></a>
   </div>
 </li>
@@ -343,7 +342,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./03-Manipulation-variables.html" class="sidebar-item-text sidebar-link">
+  <a href="./03-Manipulation-variables.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Manipulation des variables</span></span></a>
   </div>
 </li>
@@ -359,8 +358,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Sur cette page</h2>
    
   <ul>
-  <li><a href="#les-données-du-recensement-de-la-population-rp" id="toc-les-données-du-recensement-de-la-population-rp" class="nav-link active" data-scroll-target="#les-données-du-recensement-de-la-population-rp"><span class="header-section-number">1.1</span> Les données du Recensement de la Population (RP)</a></li>
-  <li><a href="#quelles-informations-intéressantes-dans-cette-base" id="toc-quelles-informations-intéressantes-dans-cette-base" class="nav-link" data-scroll-target="#quelles-informations-intéressantes-dans-cette-base"><span class="header-section-number">1.2</span> Quelles informations intéressantes dans cette base ?</a></li>
+  <li><a href="#manipulation-des-variables-qualitatives" id="toc-manipulation-des-variables-qualitatives" class="nav-link active" data-scroll-target="#manipulation-des-variables-qualitatives"><span class="header-section-number">3.1</span> Manipulation des variables qualitatives</a></li>
+  <li><a href="#manipulation-des-variables-quantitatives" id="toc-manipulation-des-variables-quantitatives" class="nav-link" data-scroll-target="#manipulation-des-variables-quantitatives"><span class="header-section-number">3.2</span> Manipulation des variables quantitatives</a></li>
   </ul>
 </nav>
     </div>
@@ -368,9 +367,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01-Base-de-donnees.html">Séance 1</a></li><li class="breadcrumb-item"><a href="./01-Base-de-donnees.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Récupération de la base de données</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01-Base-de-donnees.html">Séance 1</a></li><li class="breadcrumb-item"><a href="./03-Manipulation-variables.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Manipulation des variables</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span id="sec-base-donnees" class="quarto-section-identifier"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Récupération de la base de données</span></span></h1>
+<h1 class="title"><span id="sec-manipulation-variables" class="quarto-section-identifier"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Manipulation des variables</span></span></h1>
 </div>
 
 
@@ -387,80 +386,85 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>On va travailler cette année sur les données du Recensement de la Population (RP). C’est une base de données riche en informations, qui s’appuie sur les enquêtes annuelles du recensement et est produite par l’Insee. Les fichiers mis à disposition sur leur site sont au nombre de 9 : ils rassemblent des informations différentes, sur des espaces géographiques différents (canton ou ville, région), et à des niveaux d’analyse différents (individus, ménages/logements). Les derniers fichiers disponibles portent sur l’année 2022 mais nous allons travailer sur l’année 2021 qui rassemble les enquêtes annuelles de recensement (EAR) des années 2018 à 2023.</p>
-<p>Avant de rentrer plus dans les détails, on va charger les librairies principales que l’on va utiliser lors de cette séance (si elles ne sont pas installées sur votre RStudio, il faut le faire avant en utilisant la commande <code>install.packages("nom.du.package")</code>, on pourra en appeler d’autres dans les deux sections suivantes.</p>
+<p>Dans la manipulation des variables, l’une des premières choses à réaliser est de les définir dans le bon format, variables quantitatives/continues ou variables qualitatives/catégorielles.</p>
+<p>On l’a vu dans la section précédente, certaines variables sont encore codées comme des nombres entiers (“integer”) alors que ce sont des variables catégorielles. On va donc corriger cela en regardant d’abord quelles variables sont concernées, en les sélectionnant avec <code>select_if()</code> ou <code>select(where())</code> :</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Installation des librairies si nécessaire</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages("tidyverse")</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages("data.table")</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages("gt")</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Chargement des librairies</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(data.table)</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gt)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>RP_final <span class="sc">%&gt;%</span> </span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select_if</span>(is.numeric) <span class="sc">%&gt;%</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">names</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "AGED"      "AGER20"    "AGEREV"    "AGEREVQ"   "ANAI"      "CATPC"    
+ [7] "COUPLE"    "CS1"       "DEPT"      "ETUD"      "IMMI"      "INAI"     
+[13] "INATC"     "IPONDI"    "MOCO"      "MODV"      "NAIDT"     "ORIDT"    
+[19] "REGION"    "SEXE"      "STAT_CONJ" "TACT"      "TACTD16"  </code></pre>
 </div>
-<section id="les-données-du-recensement-de-la-population-rp" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="les-données-du-recensement-de-la-population-rp"><span class="header-section-number">1.1</span> Les données du Recensement de la Population (RP)</h2>
-<p>On va travailler plus précisément à partir du fichier “Individus localisés au canton-ou-ville” qui décrit les caractéristiques des individus et celles des ménages qui les occupent. Les données sont localisées au niveau de la commune et de l’IRIS. On ne va pas s’intéresser à l’ensemble de la France, pour des questions d’intérêt et d’analyse, ainsi que des questions pratiques (ces fichiers étant lourds). On va donc télécharger uniquement le fichier pour la zone A, c’est-à-dire l’Île-de-France.</p>
-<p>Le mieux est de télécharger le fichier puis le dézipper directement dans <code>R</code> comme ci-dessous en copiant le lien URL sur le site de l’Insee ; et on le stock dans le dossier “data” de notre projet <code>R</code>. Sinon, il reste possible de le télécharger <em>via</em> internet et de l’enregistrer dans un de vos dossiers bien spécifiés pour le “dézipper” ensuite.</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">download.file</span>(<span class="at">url=</span><span class="st">"https://www.insee.fr/fr/statistiques/fichier/8268848/RP2021_indcviza.zip"</span>,</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>              <span class="at">destfile =</span> <span class="st">"data/RP2021_indcviza.zip"</span>)</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Le fichier a donc été téléchargé dans le dossier intitulé "data" du projet R, on va</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co"># maintenant le dézipper et enregistrer les fichiers extraits dans le même dossier.</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="fu">unzip</span>(<span class="st">"data/RP2021_indcviza.zip"</span>, <span class="at">exdir =</span> <span class="st">"data"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>Il nous reste plus qu’à charger les données dans notre environnement RStudio : pour cela on utilise la commande <code>fread</code> du package <strong><code>data.table</code></strong>, car cela va bien plus vite que les fonctions habituelles du type <code>read.csv</code> lorsqu’on a de gros fichiers. On indique également l’option <code>stringsAsFactors=TRUE</code> pour que les variables caractères soient directement transformées en variables “factor” (dont l’utilité est indéniable dans <code>R</code>, on en reparlera plus loin), et on transforme l’objet obtenu en <code>data.frame</code>.</p>
+<p>A part les variables d’âge <code>AGED</code> et <code>AGEREV</code>, de date de naissance <code>ANAI</code> et de pondération <code>IPONDI</code>, toutes les autres variables devraient en format “factor”. Deux façons de les transformer, soit vous changer les variables une à une en utilisant les fonctions <code>mutate()</code> et <code>as.factor()</code> ; soit vous créer une liste avec le nom des variables dont le format doit être transformer et vous utilisez la fonction <code>lapply()</code> en l’appliquant à cette liste de variables :</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">#library(data.table)</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>RP <span class="ot">&lt;-</span> <span class="fu">fread</span>(<span class="st">"data/FD_INDCVIZA_2021.csv"</span>, <span class="at">stringsAsFactors=</span><span class="cn">TRUE</span>)</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>RP <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(RP)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1ère méthode</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># RP_final &lt;- RP_final %&gt;% mutate(AGER20=as.factor(AGER20),</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">#                                 AGEREVQ=as.factor(AGEREVQ),</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co">#                                 CATPC=as.factor(CATPC),</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co">#                                 COUPLE=as.factor(COUPLE),</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co">#                                 CS1=as.factor(CS1),</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co">#                                 DEPT=as.factor(DEPT),</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co">#                                 ETUD=as.factor(ETUD),</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co">#                                 IMMI=as.factor(IMMI),</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="co">#                                 INAI=as.factor(INAI),</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="co">#                                 INATC=as.factor(INATC),</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="co">#                                 MOCO=as.factor(MOCO),</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="co">#                                 MODV=as.factor(MODV),</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="co">#                                 NAIDT=as.factor(NAIDT),</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="co">#                                 ORIDT=as.factor(ORIDT),</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="co">#                                 REGION=as.factor(REGION),</span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="co">#                                 SEXE=as.factor(SEXE),</span></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a><span class="co">#                                 STAT_CONJ=as.factor(STAT_CONJ),</span></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a><span class="co">#                                 TACT=as.factor(TACT),</span></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a><span class="co">#                                 TACTD16=as.factor(TACTD16))</span></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a><span class="co"># 2nde méthode</span></span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>list_var <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"AGER20"</span>, <span class="st">"AGEREVQ"</span>, <span class="st">"CATPC"</span>, <span class="st">"COUPLE"</span>, <span class="st">"CS1"</span>, <span class="st">"DEPT"</span>, <span class="st">"ETUD"</span>, <span class="st">"IMMI"</span>, <span class="st">"INAI"</span>, <span class="st">"INATC"</span>,</span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>              <span class="st">"MOCO"</span>, <span class="st">"MODV"</span>, <span class="st">"NAIDT"</span>, <span class="st">"ORIDT"</span>, <span class="st">"REGION"</span>, <span class="st">"SEXE"</span>, <span class="st">"STAT_CONJ"</span>, <span class="st">"TACT"</span>, <span class="st">"TACTD16"</span>)</span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>RP_final[, list_var] <span class="ot">&lt;-</span> <span class="fu">lapply</span>(RP_final[, list_var], factor)</span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a><span class="co"># 3ème méthode</span></span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a><span class="co"># RP_final &lt;- RP_final %&gt;%</span></span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a><span class="co">#   mutate(across(all_of(list_var), factor))</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>On a donc 92 variables et 3 627 012 observations.</p>
-<p>Pour se renseigner sur les variables de la table, on peut télécharger également le fichier des métadonnées avec la commande <code>read.csv</code> cette fois, ce qui nous permet de voir quelles options sont utiles ici : l’argument <code>sep =</code> nous permet d’indiquer comment sont séparées les informations dans le fichier initial, l’argument <code>encoding =</code> permet que les accents aigus soient compris par <code>R</code> comme tel, et enfin la même option <code>stringsAsFactors=TRUE</code> peut être utilisée ici.</p>
+<p>On peut ensuite vérifier que ces variables sont bien des variables facteurs en regardant combien de modalités elles ont et quelles sont-elles. Par exemple, pour la variable <code>CATPC</code> :</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Téléchargement du fichier de métadonnées</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">download.file</span>(<span class="at">url=</span><span class="st">"https://www.insee.fr/fr/statistiques/fichier/8268848/varmod_indcvi_2021.csv"</span>,</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>              <span class="at">destfile =</span> <span class="st">"data/varmod_indcvi_2021.csv"</span>)</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co">#Lecture du fichier</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>meta <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="at">file =</span> <span class="st">"data/varmod_indcvi_2021.csv"</span>,</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>                 <span class="at">sep =</span> <span class="st">";"</span>,</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>                 <span class="at">encoding =</span> <span class="st">"UTF-8"</span>,</span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>                 <span class="at">stringsAsFactors =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nlevels</span>(RP_final<span class="sc">$</span>CATPC)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 3</code></pre>
 </div>
-<p>On peut enregistrer ce fichier, ainsi que celui contenant les métadonnées, dans le dossier <code>R</code> au format RDS.</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Enregistrement des fichiers</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(<span class="at">object =</span> RP, <span class="at">file =</span> <span class="st">"data/indiv2021.Rdata"</span>)</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(<span class="at">object =</span> meta, <span class="at">file =</span> <span class="st">"data/meta.Rdata"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(RP_final<span class="sc">$</span>CATPC)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "0" "1" "2"</code></pre>
 </div>
-<p>&nbsp;</p>
-</section>
-<section id="quelles-informations-intéressantes-dans-cette-base" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="quelles-informations-intéressantes-dans-cette-base"><span class="header-section-number">1.2</span> Quelles informations intéressantes dans cette base ?</h2>
-<p>On peut regarder plus précisément les variables disponibles dans cette base de données à partir de la table de métadonnées : on peut le faire avec la fonction <code>view()</code> et dans ce cas la table s’affichera dans un nouvel onglet dans votre RStudio ; sinon pour l’afficher sur notre document notebook, on peut utiliser la fonction <code>head()</code> et/ou <code>tail()</code> qui affiche respectivement les premières et les dernières lignes de la table.</p>
+</div>
+<p>Si nous n’avions pas mis l’option transformant les variables caractères en variables facteurs lors du chargement des données, nous pourrions le faire maintenant en utilisant la fonction <code>mutate_if</code> ou la combinaison de <code>mutate</code> et <code>across(where())</code> comme ceci <code>RP %&gt;% mutate_if(is.character, as.factor)</code> ou <code>RP %&gt;% mutate(across(.cols = where(is.character), .fns = as.factor))</code>.</p>
+<p>On peut enfin vérifier quelles sont les variables numériques qui restent :</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># view(meta)</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>meta <span class="sc">%&gt;%</span> <span class="fu">head</span>() <span class="sc">%&gt;%</span> <span class="fu">gt</span>() <span class="co">#La fonction gt() permet un affichage plus joli pour le document html</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># RP_final %&gt;% select_if(is.numeric) %&gt;% head() %&gt;% gt()</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>RP_final <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="fu">where</span>(is.numeric)) <span class="sc">%&gt;%</span> <span class="fu">head</span>() <span class="sc">%&gt;%</span> <span class="fu">gt</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
-<div id="tofpvoeisk" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#tofpvoeisk table {
+<div id="lkutagihzp" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#lkutagihzp table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#tofpvoeisk thead, #tofpvoeisk tbody, #tofpvoeisk tfoot, #tofpvoeisk tr, #tofpvoeisk td, #tofpvoeisk th {
+#lkutagihzp thead, #lkutagihzp tbody, #lkutagihzp tfoot, #lkutagihzp tr, #lkutagihzp td, #lkutagihzp th {
   border-style: none;
 }
 
-#tofpvoeisk p {
+#lkutagihzp p {
   margin: 0;
   padding: 0;
 }
 
-#tofpvoeisk .gt_table {
+#lkutagihzp .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -486,12 +490,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-left-color: #D3D3D3;
 }
 
-#tofpvoeisk .gt_caption {
+#lkutagihzp .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#tofpvoeisk .gt_title {
+#lkutagihzp .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -503,7 +507,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-width: 0;
 }
 
-#tofpvoeisk .gt_subtitle {
+#lkutagihzp .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -515,7 +519,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-top-width: 0;
 }
 
-#tofpvoeisk .gt_heading {
+#lkutagihzp .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -527,13 +531,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#tofpvoeisk .gt_bottom_border {
+#lkutagihzp .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#tofpvoeisk .gt_col_headings {
+#lkutagihzp .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -548,7 +552,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#tofpvoeisk .gt_col_heading {
+#lkutagihzp .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -568,7 +572,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   overflow-x: hidden;
 }
 
-#tofpvoeisk .gt_column_spanner_outer {
+#lkutagihzp .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -580,15 +584,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 4px;
 }
 
-#tofpvoeisk .gt_column_spanner_outer:first-child {
+#lkutagihzp .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#tofpvoeisk .gt_column_spanner_outer:last-child {
+#lkutagihzp .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#tofpvoeisk .gt_column_spanner {
+#lkutagihzp .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -600,11 +604,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   width: 100%;
 }
 
-#tofpvoeisk .gt_spanner_row {
+#lkutagihzp .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#tofpvoeisk .gt_group_heading {
+#lkutagihzp .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -630,7 +634,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   text-align: left;
 }
 
-#tofpvoeisk .gt_empty_group_heading {
+#lkutagihzp .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -645,15 +649,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   vertical-align: middle;
 }
 
-#tofpvoeisk .gt_from_md > :first-child {
+#lkutagihzp .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#tofpvoeisk .gt_from_md > :last-child {
+#lkutagihzp .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#tofpvoeisk .gt_row {
+#lkutagihzp .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -672,7 +676,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   overflow-x: hidden;
 }
 
-#tofpvoeisk .gt_stub {
+#lkutagihzp .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -685,7 +689,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#tofpvoeisk .gt_stub_row_group {
+#lkutagihzp .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -699,15 +703,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   vertical-align: top;
 }
 
-#tofpvoeisk .gt_row_group_first td {
+#lkutagihzp .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#tofpvoeisk .gt_row_group_first th {
+#lkutagihzp .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#tofpvoeisk .gt_summary_row {
+#lkutagihzp .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -717,16 +721,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#tofpvoeisk .gt_first_summary_row {
+#lkutagihzp .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#tofpvoeisk .gt_first_summary_row.thick {
+#lkutagihzp .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#tofpvoeisk .gt_last_summary_row {
+#lkutagihzp .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -736,7 +740,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #D3D3D3;
 }
 
-#tofpvoeisk .gt_grand_summary_row {
+#lkutagihzp .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -746,7 +750,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#tofpvoeisk .gt_first_grand_summary_row {
+#lkutagihzp .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -756,7 +760,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-top-color: #D3D3D3;
 }
 
-#tofpvoeisk .gt_last_grand_summary_row_top {
+#lkutagihzp .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -766,11 +770,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #D3D3D3;
 }
 
-#tofpvoeisk .gt_striped {
+#lkutagihzp .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#tofpvoeisk .gt_table_body {
+#lkutagihzp .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -779,7 +783,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #D3D3D3;
 }
 
-#tofpvoeisk .gt_footnotes {
+#lkutagihzp .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -793,7 +797,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#tofpvoeisk .gt_footnote {
+#lkutagihzp .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -802,7 +806,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#tofpvoeisk .gt_sourcenotes {
+#lkutagihzp .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -816,7 +820,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#tofpvoeisk .gt_sourcenote {
+#lkutagihzp .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -824,72 +828,72 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#tofpvoeisk .gt_left {
+#lkutagihzp .gt_left {
   text-align: left;
 }
 
-#tofpvoeisk .gt_center {
+#lkutagihzp .gt_center {
   text-align: center;
 }
 
-#tofpvoeisk .gt_right {
+#lkutagihzp .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#tofpvoeisk .gt_font_normal {
+#lkutagihzp .gt_font_normal {
   font-weight: normal;
 }
 
-#tofpvoeisk .gt_font_bold {
+#lkutagihzp .gt_font_bold {
   font-weight: bold;
 }
 
-#tofpvoeisk .gt_font_italic {
+#lkutagihzp .gt_font_italic {
   font-style: italic;
 }
 
-#tofpvoeisk .gt_super {
+#lkutagihzp .gt_super {
   font-size: 65%;
 }
 
-#tofpvoeisk .gt_footnote_marks {
+#lkutagihzp .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#tofpvoeisk .gt_asterisk {
+#lkutagihzp .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#tofpvoeisk .gt_indent_1 {
+#lkutagihzp .gt_indent_1 {
   text-indent: 5px;
 }
 
-#tofpvoeisk .gt_indent_2 {
+#lkutagihzp .gt_indent_2 {
   text-indent: 10px;
 }
 
-#tofpvoeisk .gt_indent_3 {
+#lkutagihzp .gt_indent_3 {
   text-indent: 15px;
 }
 
-#tofpvoeisk .gt_indent_4 {
+#lkutagihzp .gt_indent_4 {
   text-indent: 20px;
 }
 
-#tofpvoeisk .gt_indent_5 {
+#lkutagihzp .gt_indent_5 {
   text-indent: 25px;
 }
 
-#tofpvoeisk .katex-display {
+#lkutagihzp .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#tofpvoeisk div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#lkutagihzp div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -897,62 +901,691 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <table class="gt_table caption-top table table-sm table-striped small" data-quarto-bootstrap="false">
 <thead>
 <tr class="gt_col_headings header">
-<th id="COD_VAR" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">COD_VAR</th>
-<th id="LIB_VAR" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">LIB_VAR</th>
+<th id="AGED" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">AGED</th>
+<th id="AGEREV" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">AGEREV</th>
+<th id="ANAI" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">ANAI</th>
+<th id="IPONDI" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">IPONDI</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_right" headers="AGED">75</td>
+<td class="gt_row gt_right" headers="AGEREV">74</td>
+<td class="gt_row gt_right" headers="ANAI">1944</td>
+<td class="gt_row gt_right" headers="IPONDI">3.718464</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="AGED">77</td>
+<td class="gt_row gt_right" headers="AGEREV">76</td>
+<td class="gt_row gt_right" headers="ANAI">1942</td>
+<td class="gt_row gt_right" headers="IPONDI">1.329230</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="AGED">27</td>
+<td class="gt_row gt_right" headers="AGEREV">26</td>
+<td class="gt_row gt_right" headers="ANAI">1995</td>
+<td class="gt_row gt_right" headers="IPONDI">3.542206</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="AGED">29</td>
+<td class="gt_row gt_right" headers="AGEREV">28</td>
+<td class="gt_row gt_right" headers="ANAI">1993</td>
+<td class="gt_row gt_right" headers="IPONDI">3.542206</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="AGED">30</td>
+<td class="gt_row gt_right" headers="AGEREV">29</td>
+<td class="gt_row gt_right" headers="ANAI">1992</td>
+<td class="gt_row gt_right" headers="IPONDI">3.542206</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="AGED">77</td>
+<td class="gt_row gt_right" headers="AGEREV">76</td>
+<td class="gt_row gt_right" headers="ANAI">1942</td>
+<td class="gt_row gt_right" headers="IPONDI">4.183482</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>Plus généralement, il est souvent d’usage d’utiliser la fonction <code>summary()</code> pour donner un aperçu de l’ensemble des variables, soit de leur distribution pour les variables quantitatives, soit de leur répartition par modalités pour les variables qualitatives ; la fonction permet également de nous donner l’information sur l’existence et le nombre de valeurs manquantes pour chaque variable.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(RP_final)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   CANTVILLE           ACHLR            AEMMR              AGED       
+ 75ZZ   : 673655   3      :533504   9      :1736263   Min.   :  0.00  
+ 9296   :  37934   4      :517950   8      : 189324   1st Qu.: 21.00  
+ 9398   :  34902   6      :317136   7      :  97328   Median : 36.00  
+ 9399   :  34755   2      :232405   6      :  58735   Mean   : 38.58  
+ 9303   :  30482   1      :230775   Z      :  29232   3rd Qu.: 55.00  
+ 9499   :  30140   5      :219876   5      :  18029   Max.   :120.00  
+ (Other):1295017   (Other): 85239   (Other):   7974                   
+     AGER20           AGEREV          AGEREVQ             ANAI     
+ 54     :413441   Min.   :  0.00   25     : 182093   Min.   :1902  
+ 39     :335334   1st Qu.: 20.00   30     : 176705   1st Qu.:1966  
+ 64     :223001   Median : 36.00   35     : 158629   Median :1985  
+ 79     :219246   Mean   : 37.64   20     : 157606   Mean   :1982  
+ 29     :182093   3rd Qu.: 54.00   40     : 145444   3rd Qu.:2000  
+ 24     :157606   Max.   :119.00   45     : 138571   Max.   :2023  
+ (Other):606164                    (Other):1177837                 
+     ANEMR             APAF             ARM          ASCEN       BAIN       
+ 01     :531874   3      :631017   ZZZZZ  :1463230   1:1189712   X:  29232  
+ 02     :466930   0      :532148   75115  :  72066   2: 917941   Z:2107653  
+ 03     :418887   2      :495814   75118  :  61640   Z:  29232              
+ 00     :252946   1      :430894   75120  :  59333                          
+ 04     :230485   Z      : 29232   75119  :  57336                          
+ 05     :104106   6      :  7110   75113  :  56456                          
+ (Other):131657   (Other): 10670   (Other): 366824                          
+ BATI        CATIRIS     CATL        CATPC       CHAU        CHFL       
+ X:  29232   A:  25508   1:2107653   0:2107653   X:  29232   1:1147743  
+ Z:2107653   D:   1019   Z:  29232   1:  21039   Z:2107653   2: 509517  
+             H:2103677               2:   8193               3: 439025  
+             X:    939                                       4:  11368  
+             Z:   5742                                       X:  29232  
+                                                                        
+                                                                        
+ CHOS        CLIM        CMBL       COUPLE           CS1         CUIS       
+ X:  29232   X:  29232   1:474772   1: 876353   8      :732667   X:  29232  
+ Z:2107653   Z:2107653   2:864307   2:1260532   3      :391739   Z:2107653  
+                         3: 75675               7      :294306              
+                         4:629052               5      :267266              
+                         5:  6873               4      :263172              
+                         6: 56974               6      :128365              
+                         X: 29232               (Other): 59370              
+ DEPT             DIPL             DNAI        EAU         EGOUL      
+ 75:673655   18     :438445   99     :602149   X:  29232   X:  29232  
+ 92:510561   ZZ     :367744   75     :429214   Z:2107653   Z:2107653  
+ 93:515321   17     :233287   92     :212810                          
+ 94:437348   14     :205686   93     :195170                          
+             13     :188699   94     :150931                          
+             16     :156046   78     : 30941                          
+             (Other):546978   (Other):515670                          
+ ELEC             EMPL         ETUD        GARL        HLML        ILETUD     
+ X:  29232   ZZ     :1138772   1: 565458   1:1061155   1: 626368   1: 389345  
+ Z:2107653   16     : 749748   2:1571427   2:1046498   2:1481285   2:  62445  
+             15     :  84014               Z:  29232   Z:  29232   3: 100573  
+             21     :  76435                                       4:  12805  
+             22     :  39900                                       5:    178  
+             11     :  27865                                       7:    112  
+             (Other):  20151                                       Z:1571427  
+      ILT          IMMI        INAI       INATC           IPONDI       
+ Z      :1138772   1: 520850   1:594739   1:1741525   Min.   : 0.6088  
+ 3      : 445346   2:1616035   2:496092   2: 395360   1st Qu.: 1.3521  
+ 1      : 366391               3:406382               Median : 3.7138  
+ 2      : 172978               4: 36217               Mean   : 3.2044  
+ 4      :  11303               5:  1306               3rd Qu.: 4.2422  
+ 7      :   1791               6:602149               Max.   :30.0573  
+ (Other):    304                                                       
+      IRAN                IRIS         LPRF            LPRM        METRODOM   
+ 1      :1885187   751176714:   5780   0:532148   1      :996179   M:2136885  
+ 2      :  81767   ZZZZZZZZZ:   5742   1:526531   3      :615831              
+ 4      :  52296   920120303:   5431   2:410847   2      :407488              
+ 3      :  31015   930700109:   4568   3:616800   8      : 51710              
+ Z      :  29037   751187110:   3647   4: 15570   Z      : 29232              
+ 5      :  27040   920360501:   3538   5:  5757   5      : 24622              
+ (Other):  30543   (Other)  :2108179   Z: 29232   (Other): 11823              
+      MOCO           MOCO_DET      RECOMPOSEE  TAF             MODV       
+ 22     :465476   P0     :449501   0: 826813   0:356218   32     :465476  
+ 11     :455231   A0     :422042   1:  45017   1:298580   11     :455231  
+ 32     :449501   E0     :404771   2:  48877   2:826813   50     :264688  
+ 21     :356218   A3     :356218   Z:1216178   3: 93894   40     :228256  
+ 12     :182896   E1     :182896               Z:561380   20     :184813  
+ 23     :115684   A1     :115684                          12     :182896  
+ (Other):111879   (Other):205773                          (Other):355525  
+      NA17         NA5              NAIDT              NBPI       
+ ZZ     :1138772   AZ:    542   0      :1497213   03     :625952  
+ OQ     : 257621   BE:  53693   30     : 602149   04     :505930  
+ MN     : 191514   FZ:  43619   11     :  14481   02     :389167  
+ GZ     : 105256   GU: 642638   12     :  13056   05     :229089  
+ JZ     :  90502   OQ: 257621   14     :   4895   01     :226753  
+ KZ     :  65043   ZZ:1138772   13     :   3153   06     : 78244  
+ (Other): 288177                (Other):   1938   (Other): 81750  
+     ORIDT         RECH        REGION       SANI        SANIDOM     
+ 0      :2084817   0: 476303   11:2136885   0:  13584   XX:  29232  
+ 11     :  20476   1:  75529                1: 129756   ZZ:2107653  
+ 12     :  17957   2:  57115                2:1964313               
+ 14     :   6783   9: 161167                X:  29232               
+ 13     :   4219   Z:1366771                                        
+ 16     :    911                                                    
+ (Other):   1722                                                    
+ SEXE        STAT_CONJ   STATR       STOCD            SURF        TACT       
+ 1:1029199   1: 645506   1: 880983   10:804954   4      :601820   11:998113  
+ 2:1107686   2:  82350   2: 117130   21:486454   3      :465295   12:131506  
+             3: 179383   Z:1138772   22:603039   5      :351484   21:304674  
+             4:  77252               23:156866   1      :207433   22:196460  
+             5: 107903               30: 56340   2      :185635   23:367744  
+             6:1044491               ZZ: 29232   6      :150258   24: 50012  
+                                                 (Other):174960   25: 88376  
+    TACTD16       TP          TRANS           TRIRIS        TYPC       
+ 111    :933919   1: 858876   1:  34318   ZZZZZZ :  43510   1: 213818  
+ 230    :367744   2: 139237   2:  88425   931411 :   8324   2: 171237  
+ 210    :304674   Z:1138772   3:  54857   752011 :   7048   3:1696041  
+ 220    :196460               4:  34418   921011 :   6849   4:  25748  
+ 122    : 90736               5: 245582   920331 :   6410   5:    809  
+ 250    : 88376               6: 540513   920701 :   6021   Z:  29232  
+ (Other):154976               Z:1138772   (Other):2058723              
+ TYPL             TDM8        WC         
+ 1: 260831   310    :820194   X:  29232  
+ 2:1794099   100    :449501   Z:2107653  
+ 3:  27877   200    :350531              
+ 4:  18001   420    :230616              
+ 5:   1336   500    :101526              
+ 6:   5509   410    : 63272              
+ Z:  29232   (Other):121245              </code></pre>
+</div>
+</div>
+<p>Mais attention, le problème ici est que cela nous donne des fréquences non pondérées pour l’ensemble de nos variables qualitatives, donc qui n’ont finalement pas grand sens.</p>
+<section id="manipulation-des-variables-qualitatives" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="manipulation-des-variables-qualitatives"><span class="header-section-number">3.1</span> Manipulation des variables qualitatives</h2>
+<p>On peut d’abord travailler sur les variables qualitatives qui correspondent ici à l’essentiel de nos variables.</p>
+<p>Comme on le sait, on peut regarder les différents niveaux pour chacune d’entre elles, avec la fonction <code>levels()</code>. Si on veut appliquer la fonction à l’ensemble de nos variables facteurs sans avoir donc à les indiquer une par une, on peut avoir recours à la fonction <code>sapply()</code> qui permet d’appliquer la fonction indiquée entre parenthèses (ici <code>levels()</code>) à tous les éléments de notre table de données.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Pour info, ici cela s'écrirait : </span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>RP_final <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="fu">where</span>(is.factor)) <span class="sc">%&gt;%</span> <span class="fu">sapply</span>(levels)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="co"># on peut même se passer de la sélection sur les variables :</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co"># RP_final %&gt;% sapply(levels)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>On peut ensuite vouloir retravailler les modalités de ces variables, car par exemple les modalités ne sont pas parlantes puisque nommées par des codes chiffres, ou parce que les modalités sont trop nombreuses et qu’on souhaiterait les rassembler pour une analyse ultérieure.</p>
+<p>Par exemple, si l’on veut étudier la répartition de la population francilienne selon leur statut d’activité, on peut utiliser la variable <code>TACT</code>:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(RP_final<span class="sc">$</span>TACT)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "11" "12" "21" "22" "23" "24" "25"</code></pre>
+</div>
+</div>
+<p>Mais le moins qu’on puisse dire c’est que les 7 modalités de cette variable ne sont pas parlantes, on peut donc recoder les modalités de cette variable dans une étape préalable <em>DATA</em> comme ici ; on pourra bien sûr enchaîner plus tard les lignes de codes et réaliser cette étape dans une même procédure avec le tableau ou le graphique représentant cette variable. &nbsp; Commençons ici par l’étape <em>DATA</em> :</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># On cherche à quoi correspondent les modalités chiffrées de cette variable</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="co"># dans le fichier "meta"</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>meta <span class="sc">%&gt;%</span> <span class="fu">filter</span>(COD_VAR<span class="sc">==</span><span class="st">"TACT"</span>) <span class="sc">%&gt;%</span> <span class="fu">select</span>(COD_MOD, LIB_MOD) <span class="sc">%&gt;%</span> <span class="fu">gt</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div id="mblaftxaas" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#mblaftxaas table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#mblaftxaas thead, #mblaftxaas tbody, #mblaftxaas tfoot, #mblaftxaas tr, #mblaftxaas td, #mblaftxaas th {
+  border-style: none;
+}
+
+#mblaftxaas p {
+  margin: 0;
+  padding: 0;
+}
+
+#mblaftxaas .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#mblaftxaas .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#mblaftxaas .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#mblaftxaas .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#mblaftxaas .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#mblaftxaas .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#mblaftxaas .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#mblaftxaas .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#mblaftxaas .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#mblaftxaas .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#mblaftxaas .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#mblaftxaas .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#mblaftxaas .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#mblaftxaas .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#mblaftxaas .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#mblaftxaas .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#mblaftxaas .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#mblaftxaas .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#mblaftxaas .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#mblaftxaas .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#mblaftxaas .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#mblaftxaas .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#mblaftxaas .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#mblaftxaas .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#mblaftxaas .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#mblaftxaas .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#mblaftxaas .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#mblaftxaas .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#mblaftxaas .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#mblaftxaas .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#mblaftxaas .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#mblaftxaas .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#mblaftxaas .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#mblaftxaas .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#mblaftxaas .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#mblaftxaas .gt_left {
+  text-align: left;
+}
+
+#mblaftxaas .gt_center {
+  text-align: center;
+}
+
+#mblaftxaas .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#mblaftxaas .gt_font_normal {
+  font-weight: normal;
+}
+
+#mblaftxaas .gt_font_bold {
+  font-weight: bold;
+}
+
+#mblaftxaas .gt_font_italic {
+  font-style: italic;
+}
+
+#mblaftxaas .gt_super {
+  font-size: 65%;
+}
+
+#mblaftxaas .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#mblaftxaas .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#mblaftxaas .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#mblaftxaas .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#mblaftxaas .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#mblaftxaas .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#mblaftxaas .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#mblaftxaas .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#mblaftxaas div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+
+<table class="gt_table caption-top table table-sm table-striped small" data-quarto-bootstrap="false">
+<thead>
+<tr class="gt_col_headings header">
 <th id="COD_MOD" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">COD_MOD</th>
 <th id="LIB_MOD" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">LIB_MOD</th>
-<th id="TYPE_VAR" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">TYPE_VAR</th>
-<th id="LONG_VAR" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">LONG_VAR</th>
 </tr>
 </thead>
 <tbody class="gt_table_body">
 <tr class="odd">
-<td class="gt_row gt_center" headers="COD_VAR">CANTVILLE</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Département, canton-ou-ville du lieu de résidence (pseudo-canton)</td>
-<td class="gt_row gt_center" headers="COD_MOD">0101</td>
-<td class="gt_row gt_center" headers="LIB_MOD">Ambérieu-en-Bugey (0101)</td>
-<td class="gt_row gt_center" headers="TYPE_VAR">CHAR</td>
-<td class="gt_row gt_right" headers="LONG_VAR">5</td>
+<td class="gt_row gt_center" headers="COD_MOD">11</td>
+<td class="gt_row gt_center" headers="LIB_MOD">Actifs ayant un emploi, y compris sous apprentissage ou en stage rémunéré.</td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_center" headers="COD_VAR">CANTVILLE</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Département, canton-ou-ville du lieu de résidence (pseudo-canton)</td>
-<td class="gt_row gt_center" headers="COD_MOD">0102</td>
-<td class="gt_row gt_center" headers="LIB_MOD">Attignat (0102)</td>
-<td class="gt_row gt_center" headers="TYPE_VAR">CHAR</td>
-<td class="gt_row gt_right" headers="LONG_VAR">5</td>
+<td class="gt_row gt_center" headers="COD_MOD">12</td>
+<td class="gt_row gt_center" headers="LIB_MOD">Chômeurs</td>
 </tr>
 <tr class="odd">
-<td class="gt_row gt_center" headers="COD_VAR">CANTVILLE</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Département, canton-ou-ville du lieu de résidence (pseudo-canton)</td>
-<td class="gt_row gt_center" headers="COD_MOD">0103</td>
-<td class="gt_row gt_center" headers="LIB_MOD">Valserhône (0103)</td>
-<td class="gt_row gt_center" headers="TYPE_VAR">CHAR</td>
-<td class="gt_row gt_right" headers="LONG_VAR">5</td>
+<td class="gt_row gt_center" headers="COD_MOD">21</td>
+<td class="gt_row gt_center" headers="LIB_MOD">Retraités ou préretraités</td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_center" headers="COD_VAR">CANTVILLE</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Département, canton-ou-ville du lieu de résidence (pseudo-canton)</td>
-<td class="gt_row gt_center" headers="COD_MOD">0104</td>
-<td class="gt_row gt_center" headers="LIB_MOD">Belley (0104)</td>
-<td class="gt_row gt_center" headers="TYPE_VAR">CHAR</td>
-<td class="gt_row gt_right" headers="LONG_VAR">5</td>
+<td class="gt_row gt_center" headers="COD_MOD">22</td>
+<td class="gt_row gt_center" headers="LIB_MOD">Élèves, étudiants, stagiaires non rémunéré de 14 ans ou plus</td>
 </tr>
 <tr class="odd">
-<td class="gt_row gt_center" headers="COD_VAR">CANTVILLE</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Département, canton-ou-ville du lieu de résidence (pseudo-canton)</td>
-<td class="gt_row gt_center" headers="COD_MOD">0105</td>
-<td class="gt_row gt_center" headers="LIB_MOD">Bourg-en-Bresse-1 (0105)</td>
-<td class="gt_row gt_center" headers="TYPE_VAR">CHAR</td>
-<td class="gt_row gt_right" headers="LONG_VAR">5</td>
+<td class="gt_row gt_center" headers="COD_MOD">23</td>
+<td class="gt_row gt_center" headers="LIB_MOD">Moins de 14 ans</td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_center" headers="COD_VAR">CANTVILLE</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Département, canton-ou-ville du lieu de résidence (pseudo-canton)</td>
-<td class="gt_row gt_center" headers="COD_MOD">0106</td>
-<td class="gt_row gt_center" headers="LIB_MOD">Bourg-en-Bresse-2 (0106)</td>
-<td class="gt_row gt_center" headers="TYPE_VAR">CHAR</td>
-<td class="gt_row gt_right" headers="LONG_VAR">5</td>
+<td class="gt_row gt_center" headers="COD_MOD">24</td>
+<td class="gt_row gt_center" headers="LIB_MOD">Femmes ou hommes au foyer</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_center" headers="COD_MOD">25</td>
+<td class="gt_row gt_center" headers="LIB_MOD">Autres inactifs</td>
 </tr>
 </tbody>
 </table>
@@ -960,874 +1593,114 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>On peut établir la liste des variables de la base de données en utilisant la fonction <code>levels</code> qui donne les niveaux de la variable “COD_VAR” puisque c’est une variable ‘factor’.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(meta<span class="sc">$</span>COD_VAR) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># On recode à partir de ces libellés, tout en regroupant certaines modalités</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="co"># qui sont très spécifiques et nous intéressent moins :</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>RP_final <span class="ot">&lt;-</span> RP_final <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">TACT_moda =</span> <span class="fu">as.factor</span>(</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">case_when</span>(TACT <span class="sc">==</span> <span class="st">"11"</span> <span class="sc">~</span> <span class="st">"Actifs en emploi"</span>,</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>            TACT <span class="sc">==</span> <span class="st">"12"</span> <span class="sc">~</span> <span class="st">"Chômeurs"</span>,</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>            TACT <span class="sc">==</span> <span class="st">"21"</span> <span class="sc">~</span> <span class="st">"Retraités"</span>,</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>            TACT <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"22"</span>,<span class="st">"23"</span>,<span class="st">"24"</span>,<span class="st">"25"</span>) <span class="sc">~</span> <span class="st">"Autres inactifs"</span>)))</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(RP_final<span class="sc">$</span>TACT_moda)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] "ACHLR"      "AEMMR"      "AGED"       "AGER20"     "AGEREV"    
- [6] "AGEREVQ"    "ANAI"       "ANEMR"      "APAF"       "ARM"       
-[11] "ASCEN"      "BAIN"       "BATI"       "CANTVILLE"  "CATIRIS"   
-[16] "CATL"       "CATPC"      "CHAU"       "CHFL"       "CHOS"      
-[21] "CLIM"       "CMBL"       "COUPLE"     "CS1"        "CUIS"      
-[26] "DEPT"       "DEROU"      "DIPL"       "DNAI"       "EAU"       
-[31] "EGOUL"      "ELEC"       "EMPL"       "ETUD"       "GARL"      
-[36] "HLML"       "ILETUD"     "ILT"        "IMMI"       "INAI"      
-[41] "INATC"      "INFAM"      "INPER"      "INPERF"     "IPONDI"    
-[46] "IRAN"       "IRIS"       "LIENF"      "LPRF"       "LPRM"      
-[51] "METRODOM"   "MOCO"       "MOCO_DET"   "MODV"       "NA17"      
-[56] "NA5"        "NAIDT"      "NBPI"       "NE17FR"     "NE24FR"    
-[61] "NE3FR"      "NE5FR"      "NENFR"      "NPERR"      "NUMF"      
-[66] "NUMMI"      "ORIDT"      "RECH"       "RECOMPOSEE" "REGION"    
-[71] "SANI"       "SANIDOM"    "SEXE"       "SFM"        "STAT_CONJ" 
-[76] "STATR"      "STOCD"      "SURF"       "TACT"       "TACTD16"   
-[81] "TAF"        "TDM8"       "TP"         "TRANS"      "TRIRIS"    
-[86] "TYPC"       "TYPFC"      "TYPL"       "TYPMC"      "TYPMR"     
-[91] "VOIT"       "WC"        </code></pre>
+<pre><code>[1] "Actifs en emploi" "Autres inactifs"  "Chômeurs"         "Retraités"       </code></pre>
 </div>
 </div>
-<p>Les codes des variables n’étant pas très parlant, on va les afficher avec leur intitulé : pour cela, il suffit de repartir de la table <code>meta</code> en sélectionnant les 2 colonnes qui nous intéressent et en n’affichant pas les valeurs dupliquées grâce à la fonction <code>unique()</code>.</p>
+<p>Si l’on veut changer l’ordre des modalités, qui s’afficheront comme ci-dessus dans un tableau ou un graphique, on peut utiliser la fonction <code>fct_relevel()</code> du package <strong><code>forcats</code></strong> (à installer avant puis à appeler avant de l’utiliser) :</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>meta <span class="sc">%&gt;%</span> <span class="fu">select</span>(COD_VAR, LIB_VAR) <span class="sc">%&gt;%</span> <span class="fu">unique</span>() <span class="sc">%&gt;%</span> <span class="fu">gt</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output-display">
-<div id="emzjiavavt" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#emzjiavavt table {
-  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-#emzjiavavt thead, #emzjiavavt tbody, #emzjiavavt tfoot, #emzjiavavt tr, #emzjiavavt td, #emzjiavavt th {
-  border-style: none;
-}
-
-#emzjiavavt p {
-  margin: 0;
-  padding: 0;
-}
-
-#emzjiavavt .gt_table {
-  display: table;
-  border-collapse: collapse;
-  line-height: normal;
-  margin-left: auto;
-  margin-right: auto;
-  color: #333333;
-  font-size: 16px;
-  font-weight: normal;
-  font-style: normal;
-  background-color: #FFFFFF;
-  width: auto;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #A8A8A8;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #A8A8A8;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-}
-
-#emzjiavavt .gt_caption {
-  padding-top: 4px;
-  padding-bottom: 4px;
-}
-
-#emzjiavavt .gt_title {
-  color: #333333;
-  font-size: 125%;
-  font-weight: initial;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-bottom-color: #FFFFFF;
-  border-bottom-width: 0;
-}
-
-#emzjiavavt .gt_subtitle {
-  color: #333333;
-  font-size: 85%;
-  font-weight: initial;
-  padding-top: 3px;
-  padding-bottom: 5px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-top-color: #FFFFFF;
-  border-top-width: 0;
-}
-
-#emzjiavavt .gt_heading {
-  background-color: #FFFFFF;
-  text-align: center;
-  border-bottom-color: #FFFFFF;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-}
-
-#emzjiavavt .gt_bottom_border {
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-#emzjiavavt .gt_col_headings {
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-}
-
-#emzjiavavt .gt_col_heading {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: normal;
-  text-transform: inherit;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: bottom;
-  padding-top: 5px;
-  padding-bottom: 6px;
-  padding-left: 5px;
-  padding-right: 5px;
-  overflow-x: hidden;
-}
-
-#emzjiavavt .gt_column_spanner_outer {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: normal;
-  text-transform: inherit;
-  padding-top: 0;
-  padding-bottom: 0;
-  padding-left: 4px;
-  padding-right: 4px;
-}
-
-#emzjiavavt .gt_column_spanner_outer:first-child {
-  padding-left: 0;
-}
-
-#emzjiavavt .gt_column_spanner_outer:last-child {
-  padding-right: 0;
-}
-
-#emzjiavavt .gt_column_spanner {
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  vertical-align: bottom;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  overflow-x: hidden;
-  display: inline-block;
-  width: 100%;
-}
-
-#emzjiavavt .gt_spanner_row {
-  border-bottom-style: hidden;
-}
-
-#emzjiavavt .gt_group_heading {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: middle;
-  text-align: left;
-}
-
-#emzjiavavt .gt_empty_group_heading {
-  padding: 0.5px;
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  vertical-align: middle;
-}
-
-#emzjiavavt .gt_from_md > :first-child {
-  margin-top: 0;
-}
-
-#emzjiavavt .gt_from_md > :last-child {
-  margin-bottom: 0;
-}
-
-#emzjiavavt .gt_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  margin: 10px;
-  border-top-style: solid;
-  border-top-width: 1px;
-  border-top-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: middle;
-  overflow-x: hidden;
-}
-
-#emzjiavavt .gt_stub {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-right-style: solid;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#emzjiavavt .gt_stub_row_group {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-right-style: solid;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  padding-left: 5px;
-  padding-right: 5px;
-  vertical-align: top;
-}
-
-#emzjiavavt .gt_row_group_first td {
-  border-top-width: 2px;
-}
-
-#emzjiavavt .gt_row_group_first th {
-  border-top-width: 2px;
-}
-
-#emzjiavavt .gt_summary_row {
-  color: #333333;
-  background-color: #FFFFFF;
-  text-transform: inherit;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#emzjiavavt .gt_first_summary_row {
-  border-top-style: solid;
-  border-top-color: #D3D3D3;
-}
-
-#emzjiavavt .gt_first_summary_row.thick {
-  border-top-width: 2px;
-}
-
-#emzjiavavt .gt_last_summary_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-#emzjiavavt .gt_grand_summary_row {
-  color: #333333;
-  background-color: #FFFFFF;
-  text-transform: inherit;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#emzjiavavt .gt_first_grand_summary_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-top-style: double;
-  border-top-width: 6px;
-  border-top-color: #D3D3D3;
-}
-
-#emzjiavavt .gt_last_grand_summary_row_top {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-bottom-style: double;
-  border-bottom-width: 6px;
-  border-bottom-color: #D3D3D3;
-}
-
-#emzjiavavt .gt_striped {
-  background-color: rgba(128, 128, 128, 0.05);
-}
-
-#emzjiavavt .gt_table_body {
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-#emzjiavavt .gt_footnotes {
-  color: #333333;
-  background-color: #FFFFFF;
-  border-bottom-style: none;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-}
-
-#emzjiavavt .gt_footnote {
-  margin: 0px;
-  font-size: 90%;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#emzjiavavt .gt_sourcenotes {
-  color: #333333;
-  background-color: #FFFFFF;
-  border-bottom-style: none;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-}
-
-#emzjiavavt .gt_sourcenote {
-  font-size: 90%;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#emzjiavavt .gt_left {
-  text-align: left;
-}
-
-#emzjiavavt .gt_center {
-  text-align: center;
-}
-
-#emzjiavavt .gt_right {
-  text-align: right;
-  font-variant-numeric: tabular-nums;
-}
-
-#emzjiavavt .gt_font_normal {
-  font-weight: normal;
-}
-
-#emzjiavavt .gt_font_bold {
-  font-weight: bold;
-}
-
-#emzjiavavt .gt_font_italic {
-  font-style: italic;
-}
-
-#emzjiavavt .gt_super {
-  font-size: 65%;
-}
-
-#emzjiavavt .gt_footnote_marks {
-  font-size: 75%;
-  vertical-align: 0.4em;
-  position: initial;
-}
-
-#emzjiavavt .gt_asterisk {
-  font-size: 100%;
-  vertical-align: 0;
-}
-
-#emzjiavavt .gt_indent_1 {
-  text-indent: 5px;
-}
-
-#emzjiavavt .gt_indent_2 {
-  text-indent: 10px;
-}
-
-#emzjiavavt .gt_indent_3 {
-  text-indent: 15px;
-}
-
-#emzjiavavt .gt_indent_4 {
-  text-indent: 20px;
-}
-
-#emzjiavavt .gt_indent_5 {
-  text-indent: 25px;
-}
-
-#emzjiavavt .katex-display {
-  display: inline-flex !important;
-  margin-bottom: 0.75em !important;
-}
-
-#emzjiavavt div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
-  height: 0px !important;
-}
-</style>
-
-<table class="gt_table caption-top table table-sm table-striped small" data-quarto-bootstrap="false">
-<thead>
-<tr class="gt_col_headings header">
-<th id="COD_VAR" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">COD_VAR</th>
-<th id="LIB_VAR" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">LIB_VAR</th>
-</tr>
-</thead>
-<tbody class="gt_table_body">
-<tr class="odd">
-<td class="gt_row gt_center" headers="COD_VAR">CANTVILLE</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Département, canton-ou-ville du lieu de résidence (pseudo-canton)</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center" headers="COD_VAR">NUMMI</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Numéro du ménage dans le canton-ou-ville (anonymisé)</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center" headers="COD_VAR">ACHLR</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Période regroupée d'achèvement de la construction de la maison ou de l'immeuble</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center" headers="COD_VAR">AEMMR</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Année d'emménagement dans le logement (regroupée)</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center" headers="COD_VAR">AGED</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Âge détaillé (en différence de millésimes)</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center" headers="COD_VAR">AGER20</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Âge en années révolues (âge au dernier anniversaire) en 13 classes d'âge, détaillées autour de 20 ans</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center" headers="COD_VAR">AGEREV</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Âge en années révolues détaillé</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center" headers="COD_VAR">AGEREVQ</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Âge quinquennal en années révolues</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center" headers="COD_VAR">ANAI</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Année de naissance</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center" headers="COD_VAR">ANEMR</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Ancienneté d'emménagement dans le logement (regroupée)</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center" headers="COD_VAR">APAF</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Appartenance à une famille</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center" headers="COD_VAR">ARM</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Arrondissement municipal de résidence (Paris, Lyon et Marseille)</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center" headers="COD_VAR">ASCEN</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Desserte par un ascenseur</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center" headers="COD_VAR">BAIN</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Baignoire ou douche (DOM)</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center" headers="COD_VAR">BATI</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Aspect du bâti (DOM)</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center" headers="COD_VAR">CATIRIS</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Catégorie de l'IRIS</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center" headers="COD_VAR">CATL</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Catégorie de logement</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center" headers="COD_VAR">CATPC</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Catégorie de population condensée</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center" headers="COD_VAR">CHAU</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Moyen de chauffage du logement (DOM)</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center" headers="COD_VAR">CHFL</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Chauffage central du logement (France métropolitaine)</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center" headers="COD_VAR">CHOS</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Chauffe-eau solaire (DOM)</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center" headers="COD_VAR">CLIM</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Existence d'au moins une pièce climatisée (DOM)</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center" headers="COD_VAR">CMBL</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Combustible principal du logement (France métropolitaine)</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center" headers="COD_VAR">COUPLE</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Déclaration de vie en couple</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center" headers="COD_VAR">CS1</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Catégorie socioprofessionnelle en 8 postes</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center" headers="COD_VAR">CUIS</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Cuisine intérieure avec évier (DOM)</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center" headers="COD_VAR">DEPT</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Département du lieu de résidence</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center" headers="COD_VAR">DEROU</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Nombre de deux-roues à moteur du ménage (DOM)</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center" headers="COD_VAR">DIPL</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Diplôme le plus élevé</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center" headers="COD_VAR">DNAI</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Département de naissance (si né en France)</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center" headers="COD_VAR">EAU</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Point d'eau potable à l'intérieur du logement (DOM)</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center" headers="COD_VAR">EGOUL</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Mode d'évacuation des eaux usées (DOM)</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center" headers="COD_VAR">ELEC</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Électricité dans le logement (DOM)</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center" headers="COD_VAR">EMPL</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Condition d'emploi</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center" headers="COD_VAR">ETUD</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Inscription dans un établissement d'enseignement</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center" headers="COD_VAR">GARL</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Emplacement réservé de stationnement</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center" headers="COD_VAR">HLML</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Appartenance du logement à un organisme HLM</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center" headers="COD_VAR">ILETUD</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Indicateur du lieu d'études</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center" headers="COD_VAR">ILT</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Indicateur du lieu de travail</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center" headers="COD_VAR">IMMI</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Situation quant à l'immigration</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center" headers="COD_VAR">INAI</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Indicateur du lieu de naissance</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center" headers="COD_VAR">INATC</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Indicateur de nationalité condensé (Français/Étranger)</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center" headers="COD_VAR">INFAM</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Nombre de familles du ménage</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center" headers="COD_VAR">INPER</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Nombre de personnes du ménage</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center" headers="COD_VAR">INPERF</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Nombre de personnes de la famille</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center" headers="COD_VAR">IPONDI</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Poids de l'individu</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center" headers="COD_VAR">IRAN</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Indicateur de résidence antérieure au 1er janvier de l'année précédente</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center" headers="COD_VAR">IRIS</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Code IRIS du lieu de résidence</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center" headers="COD_VAR">LIENF</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Lien familial</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center" headers="COD_VAR">LPRF</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Lien à la personne de référence de la famille</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center" headers="COD_VAR">LPRM</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Lien à la personne de référence du ménage</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center" headers="COD_VAR">METRODOM</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Indicateur Métropole ou DOM du lieu de résidence</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center" headers="COD_VAR">MOCO</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Mode de cohabitation</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center" headers="COD_VAR">MOCO_DET</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Mode de cohabitation détaillée d'une personne</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center" headers="COD_VAR">RECOMPOSEE</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Indicateur de recomposition d'une famille</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center" headers="COD_VAR">TAF</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Type agrégé de famille</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center" headers="COD_VAR">MODV</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Mode de vie</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center" headers="COD_VAR">NA17</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Activité économique en 17 postes (NA - A17)</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center" headers="COD_VAR">NA5</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Activité économique regroupée en 5 postes</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center" headers="COD_VAR">NAIDT</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Naissance dans un DOM-TOM-COM</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center" headers="COD_VAR">NBPI</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Nombre de pièces du logement</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center" headers="COD_VAR">NE17FR</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Nombre d'enfants âgés de 17 ans ou moins de la famille (regroupé)</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center" headers="COD_VAR">NE24FR</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Nombre d'enfants âgés de 24 ans ou moins de la famille (regroupé)</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center" headers="COD_VAR">NE3FR</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Nombre d'enfants âgés de 3 ans ou moins de la famille (regroupé)</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center" headers="COD_VAR">NE5FR</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Nombre d'enfants âgés de 5 ans ou moins de la famille (regroupé)</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center" headers="COD_VAR">NENFR</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Nombre d'enfants de la famille (regroupé)</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center" headers="COD_VAR">NPERR</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Nombre de personnes du ménage (regroupé)</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center" headers="COD_VAR">NUMF</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Numéro de famille</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center" headers="COD_VAR">ORIDT</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Originaire d'un DOM-TOM-COM</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center" headers="COD_VAR">RECH</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Ancienneté de recherche d'emploi</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center" headers="COD_VAR">REGION</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Région du lieu de résidence</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center" headers="COD_VAR">SANI</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Installations sanitaires (France métropolitaine)</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center" headers="COD_VAR">SANIDOM</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Installations sanitaires (DOM)</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center" headers="COD_VAR">SEXE</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Sexe</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center" headers="COD_VAR">SFM</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Structure familiale du ménage</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center" headers="COD_VAR">STAT_CONJ</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Statut conjugal</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center" headers="COD_VAR">STATR</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Statut professionnel regroupé</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center" headers="COD_VAR">STOCD</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Statut d'occupation détaillé du logement</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center" headers="COD_VAR">SURF</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Superficie du logement</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center" headers="COD_VAR">TACT</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Type d'activité</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center" headers="COD_VAR">TACTD16</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Type d'activité détaillé en 16 postes</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center" headers="COD_VAR">TP</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Temps de travail</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center" headers="COD_VAR">TRANS</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Mode de transport principal le plus souvent utilisé pour aller travailler</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center" headers="COD_VAR">TRIRIS</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Code TRIRIS du lieu de résidence</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center" headers="COD_VAR">TYPC</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Type de construction</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center" headers="COD_VAR">TYPFC</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Type de famille condensé</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center" headers="COD_VAR">TYPL</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Type de logement</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center" headers="COD_VAR">TYPMC</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Type de ménage regroupé (en 4 postes)</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center" headers="COD_VAR">TYPMR</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Type de ménage regroupé (en 9 postes)</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center" headers="COD_VAR">TDM8</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Type détaillé du ménage en 8 postes</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center" headers="COD_VAR">VOIT</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Nombre de voitures du ménage</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center" headers="COD_VAR">WC</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Présence de W.-C. à l'intérieur du logement (DOM)</td>
-</tr>
-</tbody>
-</table>
-
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.package("forcats")</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(forcats)</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>RP_final <span class="ot">&lt;-</span> RP_final <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">TACT_moda =</span> </span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>                                  <span class="fu">fct_relevel</span>(TACT_moda, </span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>                                              <span class="fu">c</span>(<span class="st">"Actifs en emploi"</span>,<span class="st">"Chômeurs"</span>,</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>                                                <span class="st">"Retraités"</span>, <span class="st">"Autres inactifs"</span>)))</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(RP_final<span class="sc">$</span>TACT_moda)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Actifs en emploi" "Chômeurs"         "Retraités"        "Autres inactifs" </code></pre>
 </div>
 </div>
-</div>
-<p>Ou si on veut les afficher par ordre alphabétique selon le nom de la variable, on peut utiliser la fonction <code>arrange()</code>, qui permet de trier une table de données selon la variable indiquée :</p>
+<p>Plus largement, pour travailler sur des variables qualitatives en particulier lorsqu’elles sont en format facteur, le package <strong><code>forcats</code></strong> est très utile. Outre une fonction de transformation d’une variable caractère en facteur (<code>as_factor()</code> proche de la version de baseR <code>as.factor()</code> utilisée en début de section), elle contient plein d’autres fonctions : <code>fct_collapse()</code> utilisée pour renommer ou regrouper des modalités d’une variable (au lieu de la double fonction <code>as.factor()</code> et <code>case_when()</code>) ; <code>fct_relevel()</code> utilisée également au-dessus pour trier les modalités comme on le souhaite ; <code>fct_drop()</code> pour enlever des niveaux de facteurs vides/sans effectifs ; <code>fct_explicit_na()</code> pour rendre les NA explicites en créant une modalité “(missing)” ; <code>fct_reorder()</code> et <code>fct_reorder2()</code> pour réordonner les modalités d’une variable, très utile pour les graphiques car utilisables directement dans <code>ggplot()</code> ; <code>fct_lump()</code> pour regrouper les modalités les plus communes (ou au contraire les moins communes) en lui indiquant entre parenthèses le nombre <code>n=</code> de modalités souhaitées ou la proportion minimum souhaitée <code>prop=</code>, et en sélectionnant la variable avec la fonction <code>pull()</code> avant car elle doit être en format vecteur et non data.frame ; ou encore <code>fct_recode()</code> pour changer le niveau des facteurs ; <code>fct_other()</code> ; <code>fct_infreq()</code> et <code>fct_inorder()</code> ; etc. Un bon récapitulatif de ces fonctions est présenté <a href="https://thinkr.fr/forcats-forcats-vous-avez-dit-forcats/" target="_blank">ici</a>.</p>
+<p>&nbsp;</p>
+</section>
+<section id="manipulation-des-variables-quantitatives" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="manipulation-des-variables-quantitatives"><span class="header-section-number">3.2</span> Manipulation des variables quantitatives</h2>
+<p>Comme nous l’avons vu plus haut, il y a peu de variables quantitatives dans cette base et l’une d’entre elles est la pondération, donc on va regarder plus précisément la variable <code>AGED</code>. Cependant, celle-ci aussi est particulière car c’est une variable numérique constituée d’entiers naturels (et non de valeurs réelles) qui vont de 0 à 120 ; dans le fichier des métadonnées (ou le dictionnaire des variables disponible également sur le site de l’Insee), on se rend compte que la variable a été pensée comme catégorielle avec des modalités d’abord codées comme “000”, “001”, etc.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>meta <span class="sc">%&gt;%</span> <span class="fu">select</span>(COD_VAR, LIB_VAR) <span class="sc">%&gt;%</span> <span class="fu">unique</span>() <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(COD_VAR) <span class="sc">%&gt;%</span> <span class="fu">gt</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>meta <span class="sc">%&gt;%</span> <span class="fu">filter</span>(COD_VAR<span class="sc">==</span><span class="st">"AGED"</span>) <span class="sc">%&gt;%</span> <span class="fu">select</span>(COD_MOD, LIB_MOD) <span class="sc">%&gt;%</span> <span class="fu">tail</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    COD_MOD LIB_MOD
+116     115 115 ans
+117     116 116 ans
+118     117 117 ans
+119     118 118 ans
+120     119 119 ans
+121     120 120 ans</code></pre>
 </div>
-<p>L’une des difficultés pour l’analyse de cette base de données réside dans les différents niveaux présents : “individu” pour la personne de référence du ménage ; “ménage” regroupant l’ensemble des occupants d’une résidence principale, qu’ils aient ou non des liens de parenté ; “famille” partie d’un ménage comprenant au moins 2 personnes (par exemple, un couple, ou un adulte avec un enfant…) ; et enfin “logement” qui comprend ici les résidences principales et rassemble des informations décrivant les types de logement.</p>
-<p>Il faut bien comprendre comment utiliser à bon escient ces différents niveaux, en particulier ici le niveau logement : pour toute variable de ce niveau, il faudra utiliser un filtre, c’est-à-dire ne prendre que la personne de référence du ménage (<code>LPRM=="1"</code>).</p>
-<p>Il faut également penser que les données sont pondérées, donc pour sortir des statistiques descriptives, il faut à chaque fois mettre la variable de pondération <code>IPONDI</code>.</p>
+</div>
+<p>On peut alors regarder rapidement la distribution de cette variable.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(RP_final<span class="sc">$</span>AGED)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   0.00   21.00   36.00   38.58   55.00  120.00 </code></pre>
+</div>
+</div>
+<p>&nbsp;</p>
+<p>On peut aussi construire des variables continues en agrégeant certaines informations au niveau des communes par exemple. Reprenons la variable d’activité dont nous avons recoder et regrouper les modalités et calculons-là pour avoir le nombre de chaque modalité par commune. Il faut pour cela créer la variable de commune, qu’on appelera <code>COM</code>, à partir de l’IRIS :</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>RP_final <span class="ot">&lt;-</span> RP_final <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">COM=</span><span class="fu">substr</span>(IRIS, <span class="dv">1</span>, <span class="dv">5</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>On va ensuite sommer chaque modalité de la variable <code>TACT_moda</code> en utilisant la pondération en groupant par commune.</p>
+<p><strong>EXERCICE</strong> :<br>
+Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</code> et <code>n</code>. Vous pouvez utiliser les fonctions <code>group_by</code> suivi soit de <code>count</code>, soit de <code>summarise</code> ; on cherchera finalement à arrondir ces valeurs à l’unité avec la fonction <code>round()</code>. Vous devez obtenir le tableau suivant :</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>Tab_com_TACT <span class="ot">&lt;-</span> RP_final <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(COM) <span class="sc">%&gt;%</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(TACT_moda, <span class="at">wt=</span>IPONDI) <span class="sc">%&gt;%</span> </span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">n=</span><span class="fu">round</span>(n))</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a><span class="co"># RP_final %&gt;% group_by(COM, TACT_moda) %&gt;% </span></span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a><span class="co">#   summarise(n=sum(IPONDI)) %&gt;% </span></span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a><span class="co">#   mutate(n=round(n))</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
+</div>
+<p>On voit qu’on a un tableau dans un format “long” puisqu’il y a plusieurs observations pour une seule commune. On va utiliser la fonction <code>pivot_wider()</code> mentionnée précédemment pour n’avoir qu’une ligne par commune et en colonne les types de statut avec leur nombre respectif.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>Tab_com_TACT <span class="ot">&lt;-</span> Tab_com_TACT <span class="sc">%&gt;%</span> </span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>                   <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> TACT_moda, <span class="at">values_from =</span> n, )</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>Tab_com_TACT</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 137 × 5
+# Groups:   COM [137]
+   COM   `Actifs en emploi` Chômeurs Retraités `Autres inactifs`
+   &lt;chr&gt;              &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;             &lt;dbl&gt;
+ 1 75101               9032      802      2542              3541
+ 2 75102              12719     1247      2249              4902
+ 3 75103              18692     1803      4684              7632
+ 4 75104              14909     1727      4625              7057
+ 5 75105              26942     2464      9990             17425
+ 6 75106              18450     1430      8246             12055
+ 7 75107              23195     1825      9566             13339
+ 8 75108              18321     1465      5058             10316
+ 9 75109              34074     3199      7136             14551
+10 75110              45549     5481     10823             21730
+# ℹ 127 more rows</code></pre>
+</div>
+</div>
+<p>&nbsp;</p>
 
 
 </section>
@@ -2248,14 +2121,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./index.html" class="pagination-link" aria-label="Présentation">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Présentation</span>
+      <a href="./02-Manipulation-base.html" class="pagination-link" aria-label="Manipulation de la base">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Manipulation de la base</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./02-Manipulation-base.html" class="pagination-link" aria-label="Manipulation de la base">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Manipulation de la base</span></span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->

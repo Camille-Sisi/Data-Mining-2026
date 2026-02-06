@@ -1,5 +1,55 @@
 [
   {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Data Mining 2026",
+    "section": "",
+    "text": "Présentation",
+    "crumbs": [
+      "Présentation"
+    ]
+  },
+  {
+    "objectID": "index.html#à-propos-de-ce-document",
+    "href": "index.html#à-propos-de-ce-document",
+    "title": "Data Mining 2026",
+    "section": "À propos de ce document",
+    "text": "À propos de ce document\nCe document est la version 2026 du cours de Data Mining dispensé aux étudiants de deuxième année de l’option Data du master MECI parcours PISE et CCESE. Ce cours est partagé avec Claude Grasland.\nCe document est régulièrement corrigé et mis à jour. La version de référence est disponible en ligne à l’adresse suivante :\n\nhttps://github.com/Camille-Sisi/Data-Mining-2026.\n\nPour toute suggestion ou correction, n’hésitez pas à me contacter par mail.",
+    "crumbs": [
+      "Présentation"
+    ]
+  },
+  {
+    "objectID": "index.html#prérequis",
+    "href": "index.html#prérequis",
+    "title": "Data Mining 2026",
+    "section": "Prérequis",
+    "text": "Prérequis\nLe seul prérequis pour suivre ce document est d’avoir installé R et RStudio sur votre ordinateur. Il s’agit de deux logiciels libres, gratuits, téléchargeables en ligne et fonctionnant sous PC, Mac et Linux.\nPour installer R, il suffit de se rendre sur une des pages suivantes1:\n\nInstaller R sous Windows\nInstaller R sous Mac\n\nPour installer RStudio, rendez-vous sur la page suivante et téléchargez la version adaptée à votre système :\n\nhttps://www.rstudio.com/products/rstudio/download/#download",
+    "crumbs": [
+      "Présentation"
+    ]
+  },
+  {
+    "objectID": "index.html#licence",
+    "href": "index.html#licence",
+    "title": "Data Mining 2026",
+    "section": "Licence",
+    "text": "Licence\nCe document est mis à disposition selon les termes de la Licence Creative Commons Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 4.0 International.",
+    "crumbs": [
+      "Présentation"
+    ]
+  },
+  {
+    "objectID": "index.html#footnotes",
+    "href": "index.html#footnotes",
+    "title": "Data Mining 2026",
+    "section": "",
+    "text": "Sous Linux, utilisez votre gestionnaire de packages habituel.↩︎",
+    "crumbs": [
+      "Présentation"
+    ]
+  },
+  {
     "objectID": "01-Base-de-donnees.html",
     "href": "01-Base-de-donnees.html",
     "title": "1  Récupération de la base de données",
@@ -19,6 +69,61 @@
     "crumbs": [
       "Séance 1",
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Récupération de la base de données</span>"
+    ]
+  },
+  {
+    "objectID": "02-Manipulation-base.html",
+    "href": "02-Manipulation-base.html",
+    "title": "2  Manipulation de la base",
+    "section": "",
+    "text": "2.1 Format des données - WIDE ou LONG\nOn peut maintenant regarder à quoi ressemble la table principale, celle des données.\nLa fonction str(), ou son équivalent en langage dplyr la fonction glimpse, nous donne la liste des variables avec cette fois leur format et leurs modalités (les premières seulement s’il y en a beaucoup).\nLes variables sont en format, soit ‘int’ (“integer” - nombres entiers), soit ‘fct’ (“factor”), ou encore ‘dbl’ (“double” - nombres réels). On remarque que la plupart des variables ont des modalités en chiffres et/ou lettres, ce qui signifie qu’il faudra probablement recoder ces modalités pour leur donner des libellés plus claires dans nos analyses descriptives (tableaux ou graphiques).\nPar ailleurs, certaines variables ont été laissées en format ‘integer’ bien que l’on avait mis l’option stringsAsFactors=TRUE lors du chargement des données, or ces chiffres correspondent bien à des modalités d’une variable catégorielle, il faudra donc corriger cela ultérieurement.\nDernière remarque, si on avait eu des valeurs manquantes sur certaines variables, elles se seraient ici affichées avec la modalité NA, cela ne semble pas le cas, mais à vérifier par la suite. En revanche, on voit parfois des modalités “z” ou “zz”, il faudra vérifier là aussi ce qu’elles indiquent.\nLa question du format de la table de données est importante, on distingue généralement le format wide du format long :\nIci, chaque ligne correspond à un individu auquel est associé un logement, un ménage ou encore une famille ; on est bien dans un format wide. L’unité statistique de base est donc l’individu (généralement on a une variable d’identifiant permettant de voir cela rapidement, ce n’est pas le cas ici), mais on peut vouloir choisir de se mettre au niveau logement ou ménage ou famille, pour étudier les caractéristiques de ces unités. Autre exemple, on peut aussi considérer que notre niveau d’analyse est la commune, on verra alors qu’on dispose de plusieurs lignes par commune et si l’on veut garder quelques informations à ce niveau en n’ayant plus qu’une ligne par commune, il faudra sommer ces informations.\nLe package tidyverse contient deux fonctions qui permettent de passer d’un format à un autre : pivot_longer() et pivot_wider() présentés en détails ici. Nous aurons l’occasion de les utiliser ultérieurement dans ce cours.",
+    "crumbs": [
+      "Séance 1",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Manipulation de la base</span>"
+    ]
+  },
+  {
+    "objectID": "02-Manipulation-base.html#format-des-données---wide-ou-long",
+    "href": "02-Manipulation-base.html#format-des-données---wide-ou-long",
+    "title": "2  Manipulation de la base",
+    "section": "",
+    "text": "le premier renvoie au cas où chaque ligne correspond a un et un seul individu (ou dans une autre type d’analyse : une entreprise, un ménage, un logement, etc.), et toutes les informations le concernant sont données en colonnes (ce qui peut augmenter rapidement le nombre de colonnes), c’est l’exemple d’une information que l’on a sur plusieurs années, chaque colonne correspondant à l’information de l’année en question ;\nle second, au contraire, multiplie les lignes pour un seul individu, mais il y a alors moins de colonnes, à partir du même exemple précédent, il y aura cette fois une colonne indiquant l’année et une colonne contenant l’information.",
+    "crumbs": [
+      "Séance 1",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Manipulation de la base</span>"
+    ]
+  },
+  {
+    "objectID": "02-Manipulation-base.html#sélectionner-un-champ-réduit-de-la-base-séparer-les-données",
+    "href": "02-Manipulation-base.html#sélectionner-un-champ-réduit-de-la-base-séparer-les-données",
+    "title": "2  Manipulation de la base",
+    "section": "2.2 Sélectionner un champ réduit de la base, séparer les données",
+    "text": "2.2 Sélectionner un champ réduit de la base, séparer les données\nManipuler une base de données, c’est aussi travailler ou créer une table réduite, surtout quand on a des données volumineuses comme ici : c’est donc choisir un champ particulier de la base.\nOn peut par exemple choisir un champ géographique plus réduit au sein de l’Île-de-France, à partir de la commune : Paris et sa petite couronne.\nOn peut aussi choisir de séparer les données en créant 2 tables selon l’unité statistique : l’individu ; ou le logement avec la seule personne de référence du ménage.\nComme vous le savez très probablement, dans le langage tidyverse, pour faire des sélections sur les lignes ou observations dans une table de données, on utilise la fonction filter() ; pour faire des sélections sur les colonnes ou variables, on utilise la fonction select() ; pour supprimer des variables, on utilise également select() avec un “-” devant la (ou les) variable(s) à supprimer (dans le langage R de base, on peut aussi utiliser la fonction subset()).\nEXERCICES : Créer trois nouvelles bases selon les indications suivantes :\n\nla première que vous nommerez “RP_Paris” et qui rassemblera les données pour le seul département de Paris ;\nla deuxième que nous nommerez “RP_indiv” et qui comprendra les données pour les seules variables décrivant l’individu (et ce sera celle de la personne de référence du ménage) ;\nla troisième que vous nommerez “RP_final”, qui rassemblera les données pour les départements de Paris et de sa petite couronne, et qui comprendra toutes les variables décrivant l’individu, le logement et enfin les variables géographiques.\n\n\n\n\n\n\n\n\nTipSolution\n\n\n\n\n\n\nRP_Paris &lt;- RP %&gt;% filter(DEPT == \"75\")\n\nRP_indiv &lt;- RP %&gt;% select(\"AEMMR\", \"AGED\", \"AGER20\", \"AGEREV\",\"AGEREVQ\",\"ANAI\",\n                          \"ANEMR\",\"APAF\",\"COUPLE\",\"CS1\",\"DIPL\",\"DNAI\",\"EMPL\",\n                          \"ETUD\",\"ILETUD\",\"ILT\",\"IMMI\",\"INAI\",\"INATC\",\"IPONDI\",\n                          \"IRAN\",\"LPRF\",\"LPRM\",\"MOCO\",\"MODV\",\"NA17\",\n                          \"NA5\",\"NAIDT\",\"ORIDT\",\"RECH\",\"SEXE\",\"STAT_CONJ\",\n                          \"STATR\",\"TACT\",\"TACTD16\",\"TP\",\"TRANS\")\n  \nRP_final  &lt;- RP %&gt;% filter(DEPT %in% c(\"75\",\"92\",\"93\",\"94\")) %&gt;% \n                        select(-c(\"NUMMI\",\"INPERF\",\"DEROU\",\"LIENF\",\"INFAM\",\n                                  \"NE17FR\",\"INPER\", \"NE24FR\",\"NPERR\",   \"NE3FR\",\n                                  \"SFM\",    \"NE5FR\", \"TYPMC\",   \"NENFR\",\"TYPMR\",\n                                  \"NUMF\",\"VOIT\",    \"TYPFC\"))\n\n\n\n\nOn va dorénavant travailler sur cette dernière table RP_final, on l’enregistre donc dans notre dossier “data”, ainsi que le fichier meta que nous avons modifié précédemments :\n\n# Enregistrement des fichiers\nsaveRDS(object = RP_final , file = \"data/RP_final.Rdata\") \nsaveRDS(object = meta, file = \"data/meta.Rdata\")",
+    "crumbs": [
+      "Séance 1",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Manipulation de la base</span>"
+    ]
+  },
+  {
+    "objectID": "03-Manipulation-variables.html",
+    "href": "03-Manipulation-variables.html",
+    "title": "3  Manipulation des variables",
+    "section": "",
+    "text": "3.1 Manipulation des variables qualitatives\nDans la manipulation des variables, l’une des premières choses à réaliser est de les définir dans le bon format, variables quantitatives/continues ou variables qualitatives/catégorielles.\nOn l’a vu dans la section précédente, certaines variables sont encore codées comme des nombres entiers (“integer”) alors que ce sont des variables catégorielles. On va donc corriger cela en regardant d’abord quelles variables sont concernées, en les sélectionnant avec select_if() ou select(where()) :\nA part les variables d’âge AGED et AGEREV, de date de naissance ANAI et de pondération IPONDI, toutes les autres variables devraient en format “factor”. Deux façons de les transformer, soit vous changer les variables une à une en utilisant les fonctions mutate() et as.factor() ; soit vous créer une liste avec le nom des variables dont le format doit être transformer et vous utilisez la fonction lapply() en l’appliquant à cette liste de variables :\nOn peut ensuite vérifier que ces variables sont bien des variables facteurs en regardant combien de modalités elles ont et quelles sont-elles. Par exemple, pour la variable CATPC :\nSi nous n’avions pas mis l’option transformant les variables caractères en variables facteurs lors du chargement des données, nous pourrions le faire maintenant en utilisant la fonction mutate_if ou la combinaison de mutate et across(where()) comme ceci RP %&gt;% mutate_if(is.character, as.factor) ou RP %&gt;% mutate(across(.cols = where(is.character), .fns = as.factor)).\nOn peut enfin vérifier quelles sont les variables numériques qui restent :\nPlus généralement, il est souvent d’usage d’utiliser la fonction summary() pour donner un aperçu de l’ensemble des variables, soit de leur distribution pour les variables quantitatives, soit de leur répartition par modalités pour les variables qualitatives ; la fonction permet également de nous donner l’information sur l’existence et le nombre de valeurs manquantes pour chaque variable.\nMais attention, le problème ici est que cela nous donne des fréquences non pondérées pour l’ensemble de nos variables qualitatives, donc qui n’ont finalement pas grand sens.\nOn peut d’abord travailler sur les variables qualitatives qui correspondent ici à l’essentiel de nos variables.\nComme on le sait, on peut regarder les différents niveaux pour chacune d’entre elles, avec la fonction levels(). Si on veut appliquer la fonction à l’ensemble de nos variables facteurs sans avoir donc à les indiquer une par une, on peut avoir recours à la fonction sapply() qui permet d’appliquer la fonction indiquée entre parenthèses (ici levels()) à tous les éléments de notre table de données.\n# Pour info, ici cela s'écrirait : \nRP_final %&gt;% select(where(is.factor)) %&gt;% sapply(levels)\n# on peut même se passer de la sélection sur les variables :\n# RP_final %&gt;% sapply(levels)\nOn peut ensuite vouloir retravailler les modalités de ces variables, car par exemple les modalités ne sont pas parlantes puisque nommées par des codes chiffres, ou parce que les modalités sont trop nombreuses et qu’on souhaiterait les rassembler pour une analyse ultérieure.\nPar exemple, si l’on veut étudier la répartition de la population francilienne selon leur statut d’activité, on peut utiliser la variable TACT:\nlevels(RP_final$TACT)\n\n[1] \"11\" \"12\" \"21\" \"22\" \"23\" \"24\" \"25\"\nMais le moins qu’on puisse dire c’est que les 7 modalités de cette variable ne sont pas parlantes, on peut donc recoder les modalités de cette variable dans une étape préalable DATA comme ici ; on pourra bien sûr enchaîner plus tard les lignes de codes et réaliser cette étape dans une même procédure avec le tableau ou le graphique représentant cette variable.   Commençons ici par l’étape DATA :\n# On cherche à quoi correspondent les modalités chiffrées de cette variable\n# dans le fichier \"meta\"\nmeta %&gt;% filter(COD_VAR==\"TACT\") %&gt;% select(COD_MOD, LIB_MOD) %&gt;% gt()\n\n\n\n\n\n\n\nCOD_MOD\nLIB_MOD\n\n\n\n\n11\nActifs ayant un emploi, y compris sous apprentissage ou en stage rémunéré.\n\n\n12\nChômeurs\n\n\n21\nRetraités ou préretraités\n\n\n22\nÉlèves, étudiants, stagiaires non rémunéré de 14 ans ou plus\n\n\n23\nMoins de 14 ans\n\n\n24\nFemmes ou hommes au foyer\n\n\n25\nAutres inactifs\n# On recode à partir de ces libellés, tout en regroupant certaines modalités\n# qui sont très spécifiques et nous intéressent moins :\nRP_final &lt;- RP_final %&gt;% mutate(TACT_moda = as.factor(\n  case_when(TACT == \"11\" ~ \"Actifs en emploi\",\n            TACT == \"12\" ~ \"Chômeurs\",\n            TACT == \"21\" ~ \"Retraités\",\n            TACT %in% c(\"22\",\"23\",\"24\",\"25\") ~ \"Autres inactifs\")))\nlevels(RP_final$TACT_moda)\n\n[1] \"Actifs en emploi\" \"Autres inactifs\"  \"Chômeurs\"         \"Retraités\"\nSi l’on veut changer l’ordre des modalités, qui s’afficheront comme ci-dessus dans un tableau ou un graphique, on peut utiliser la fonction fct_relevel() du package forcats (à installer avant puis à appeler avant de l’utiliser) :\n# install.package(\"forcats\")\nlibrary(forcats)\nRP_final &lt;- RP_final %&gt;% mutate(TACT_moda = \n                                  fct_relevel(TACT_moda, \n                                              c(\"Actifs en emploi\",\"Chômeurs\",\n                                                \"Retraités\", \"Autres inactifs\")))\nlevels(RP_final$TACT_moda)\n\n[1] \"Actifs en emploi\" \"Chômeurs\"         \"Retraités\"        \"Autres inactifs\"\nPlus largement, pour travailler sur des variables qualitatives en particulier lorsqu’elles sont en format facteur, le package forcats est très utile. Outre une fonction de transformation d’une variable caractère en facteur (as_factor() proche de la version de baseR as.factor() utilisée en début de section), elle contient plein d’autres fonctions : fct_collapse() utilisée pour renommer ou regrouper des modalités d’une variable (au lieu de la double fonction as.factor() et case_when()) ; fct_relevel() utilisée également au-dessus pour trier les modalités comme on le souhaite ; fct_drop() pour enlever des niveaux de facteurs vides/sans effectifs ; fct_explicit_na() pour rendre les NA explicites en créant une modalité “(missing)” ; fct_reorder() et fct_reorder2() pour réordonner les modalités d’une variable, très utile pour les graphiques car utilisables directement dans ggplot() ; fct_lump() pour regrouper les modalités les plus communes (ou au contraire les moins communes) en lui indiquant entre parenthèses le nombre n= de modalités souhaitées ou la proportion minimum souhaitée prop=, et en sélectionnant la variable avec la fonction pull() avant car elle doit être en format vecteur et non data.frame ; ou encore fct_recode() pour changer le niveau des facteurs ; fct_other() ; fct_infreq() et fct_inorder() ; etc. Un bon récapitulatif de ces fonctions est présenté ici.",
+    "crumbs": [
+      "Séance 1",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Manipulation des variables</span>"
+    ]
+  },
+  {
+    "objectID": "03-Manipulation-variables.html#manipulation-des-variables-quantitatives",
+    "href": "03-Manipulation-variables.html#manipulation-des-variables-quantitatives",
+    "title": "3  Manipulation des variables",
+    "section": "3.2 Manipulation des variables quantitatives",
+    "text": "3.2 Manipulation des variables quantitatives\nComme nous l’avons vu plus haut, il y a peu de variables quantitatives dans cette base et l’une d’entre elles est la pondération, donc on va regarder plus précisément la variable AGED. Cependant, celle-ci aussi est particulière car c’est une variable numérique constituée d’entiers naturels (et non de valeurs réelles) qui vont de 0 à 120 ; dans le fichier des métadonnées (ou le dictionnaire des variables disponible également sur le site de l’Insee), on se rend compte que la variable a été pensée comme catégorielle avec des modalités d’abord codées comme “000”, “001”, etc.\n\nmeta %&gt;% filter(COD_VAR==\"AGED\") %&gt;% select(COD_MOD, LIB_MOD) %&gt;% tail()\n\n    COD_MOD LIB_MOD\n116     115 115 ans\n117     116 116 ans\n118     117 117 ans\n119     118 118 ans\n120     119 119 ans\n121     120 120 ans\n\n\nOn peut alors regarder rapidement la distribution de cette variable.\n\nsummary(RP_final$AGED)\n\n   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. \n   0.00   21.00   36.00   38.58   55.00  120.00 \n\n\n \nOn peut aussi construire des variables continues en agrégeant certaines informations au niveau des communes par exemple. Reprenons la variable d’activité dont nous avons recoder et regrouper les modalités et calculons-là pour avoir le nombre de chaque modalité par commune. Il faut pour cela créer la variable de commune, qu’on appelera COM, à partir de l’IRIS :\n\nRP_final &lt;- RP_final %&gt;% mutate(COM=substr(IRIS, 1, 5))\n\nOn va ensuite sommer chaque modalité de la variable TACT_moda en utilisant la pondération en groupant par commune.\nEXERCICE :\nCréer donc un tableau qui aura 3 colonnes COM, TACT_moda et n. Vous pouvez utiliser les fonctions group_by suivi soit de count, soit de summarise ; on cherchera finalement à arrondir ces valeurs à l’unité avec la fonction round(). Vous devez obtenir le tableau suivant :\n\n\n\n\n\n\nTipSolution\n\n\n\n\n\n\nTab_com_TACT &lt;- RP_final %&gt;% group_by(COM) %&gt;%\n  count(TACT_moda, wt=IPONDI) %&gt;% \n  mutate(n=round(n))\n\n# RP_final %&gt;% group_by(COM, TACT_moda) %&gt;% \n#   summarise(n=sum(IPONDI)) %&gt;% \n#   mutate(n=round(n))\n\n\n\n\nOn voit qu’on a un tableau dans un format “long” puisqu’il y a plusieurs observations pour une seule commune. On va utiliser la fonction pivot_wider() mentionnée précédemment pour n’avoir qu’une ligne par commune et en colonne les types de statut avec leur nombre respectif.\n\nTab_com_TACT &lt;- Tab_com_TACT %&gt;% \n                   pivot_wider(names_from = TACT_moda, values_from = n, )\nTab_com_TACT\n\n# A tibble: 137 × 5\n# Groups:   COM [137]\n   COM   `Actifs en emploi` Chômeurs Retraités `Autres inactifs`\n   &lt;chr&gt;              &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;             &lt;dbl&gt;\n 1 75101               9032      802      2542              3541\n 2 75102              12719     1247      2249              4902\n 3 75103              18692     1803      4684              7632\n 4 75104              14909     1727      4625              7057\n 5 75105              26942     2464      9990             17425\n 6 75106              18450     1430      8246             12055\n 7 75107              23195     1825      9566             13339\n 8 75108              18321     1465      5058             10316\n 9 75109              34074     3199      7136             14551\n10 75110              45549     5481     10823             21730\n# ℹ 127 more rows",
+    "crumbs": [
+      "Séance 1",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Manipulation des variables</span>"
     ]
   }
 ]

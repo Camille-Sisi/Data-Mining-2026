@@ -18,8 +18,8 @@ book:
     - part: "Séance 1"
       chapters:
       - 01-Base-de-donnees.qmd
-      # - 02-Manipulation-base.qmd
-      # - 03-Manipulation-variables.qmd
+      - 02-Manipulation-base.qmd
+      - 03-Manipulation-variables.qmd
       # - 04-Récapitulatif.qmd
 
 format:
