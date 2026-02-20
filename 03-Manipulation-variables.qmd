@@ -429,7 +429,7 @@ dvf_ParisPC %>%  tabyl(px_m2_outliers) %>%
   gt()
 ```
 
-On y lit que pour cette variable, il y aurait près de 3,1% de valeurs aberrantes telles qu'indiquées par le boxplot, ce qui correspondant à 13 794 observations, c'est beaucoup ! On peut regarder plus précisément à quelles observations elles correspondent, en sélectionnant avec la variable créée et en triant par ordre croissant ou décroissant.
+On y lit que pour cette variable, il y aurait près de 3,1% de valeurs aberrantes telles qu'indiquées par le boxplot, ce qui correspondant à 14429 observations, c'est beaucoup ! On peut regarder plus précisément à quelles observations elles correspondent, en sélectionnant avec la variable créée et en triant par ordre croissant ou décroissant.
 
 ```{r}
 dvf_ParisPC %>% filter(px_m2_outliers=='Vrai') %>% 

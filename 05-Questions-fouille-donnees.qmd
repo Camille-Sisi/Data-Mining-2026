@@ -141,7 +141,7 @@ RP_final <- RP_final %>% mutate(CS1_moda=factor(CS1, levels = levels_CS1,
                                                 labels = labels_CS1))
 
 col2 <- RP_final %>% 
-  filter(DEPT == "75" & AGER20>14 & AGER20<65 &
+  filter(DEPT == "75" & AGEREV>14 & AGEREV<65 &
            TACT %in% c("11", "12")) %>% 
   count(CS1_moda, wt=IPONDI) %>% 
   mutate(n=round(n)) %>% 
@@ -150,9 +150,7 @@ col2 <- RP_final %>%
   slice(-7)
 
 col3 <- RP_final %>% 
-  filter(DEPT == "75" & !AGEREVQ %in% c("0", "5", "10", "65", "70", "75", "80",
-                                        "85", "90", "95", "100", "105", "110", 
-                                        "115", "120") &
+  filter(DEPT == "75" & AGEREV>14 & AGEREV<65 & 
            TACT %in% c("11")) %>% 
   count(CS1_moda, wt=IPONDI) %>% 
   mutate(n=round(n)) %>% 
