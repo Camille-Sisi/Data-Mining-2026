@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>1&nbsp; Récupération de la base de données – Data Mining 2026</title>
+<title>5&nbsp; Quelles questions intéressantes pour une “fouille de données” sur la base des RP ? – Data Mining 2026</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -65,8 +65,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./02-Manipulation-base.html" rel="next">
-<link href="./index.html" rel="prev">
+<link href="./04-Récapitulatif.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -285,7 +284,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01-Base-de-donnees.html">Séance 1</a></li><li class="breadcrumb-item"><a href="./01-Base-de-donnees.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Récupération de la base de données</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./05-Questions-fouille-donnees.html">Séance 2</a></li><li class="breadcrumb-item"><a href="./05-Questions-fouille-donnees.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Quelles questions intéressantes pour une “fouille de données” sur la base des RP ?</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -331,7 +330,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./01-Base-de-donnees.html" class="sidebar-item-text sidebar-link active">
+  <a href="./01-Base-de-donnees.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Récupération de la base de données</span></span></a>
   </div>
 </li>
@@ -366,7 +365,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./05-Questions-fouille-donnees.html" class="sidebar-item-text sidebar-link">
+  <a href="./05-Questions-fouille-donnees.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Quelles questions intéressantes pour une “fouille de données” sur la base des RP ?</span></span></a>
   </div>
 </li>
@@ -382,8 +381,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Sur cette page</h2>
    
   <ul>
-  <li><a href="#les-données-du-recensement-de-la-population-rp" id="toc-les-données-du-recensement-de-la-population-rp" class="nav-link active" data-scroll-target="#les-données-du-recensement-de-la-population-rp"><span class="header-section-number">1.1</span> Les données du Recensement de la Population (RP)</a></li>
-  <li><a href="#quelles-informations-intéressantes-dans-cette-base" id="toc-quelles-informations-intéressantes-dans-cette-base" class="nav-link" data-scroll-target="#quelles-informations-intéressantes-dans-cette-base"><span class="header-section-number">1.2</span> Quelles informations intéressantes dans cette base ?</a></li>
+  <li><a href="#caractéristiques-de-la-population-résidant-à-paris" id="toc-caractéristiques-de-la-population-résidant-à-paris" class="nav-link active" data-scroll-target="#caractéristiques-de-la-population-résidant-à-paris"><span class="header-section-number">5.1</span> Caractéristiques de la population résidant à Paris</a></li>
+  <li><a href="#caractéristiques-de-la-population-active-résidant-à-paris" id="toc-caractéristiques-de-la-population-active-résidant-à-paris" class="nav-link" data-scroll-target="#caractéristiques-de-la-population-active-résidant-à-paris"><span class="header-section-number">5.2</span> Caractéristiques de la population active résidant à Paris</a></li>
+  <li><a href="#caractéristiques-des-logements-parisiens" id="toc-caractéristiques-des-logements-parisiens" class="nav-link" data-scroll-target="#caractéristiques-des-logements-parisiens"><span class="header-section-number">5.3</span> Caractéristiques des logements parisiens</a></li>
   </ul>
 </nav>
     </div>
@@ -391,9 +391,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01-Base-de-donnees.html">Séance 1</a></li><li class="breadcrumb-item"><a href="./01-Base-de-donnees.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Récupération de la base de données</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./05-Questions-fouille-donnees.html">Séance 2</a></li><li class="breadcrumb-item"><a href="./05-Questions-fouille-donnees.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Quelles questions intéressantes pour une “fouille de données” sur la base des RP ?</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span id="sec-base-donnees" class="quarto-section-identifier"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Récupération de la base de données</span></span></h1>
+<h1 class="title"><span id="sec-Questions-fouille-donnees" class="quarto-section-identifier"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Quelles questions intéressantes pour une “fouille de données” sur la base des RP ?</span></span></h1>
 </div>
 
 
@@ -410,1447 +410,1188 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>On va travailler cette année sur les données du Recensement de la Population (RP). C’est une base de données riche en informations, qui s’appuie sur les enquêtes annuelles du recensement et est produite par l’Insee. Les fichiers mis à disposition sur leur site sont au nombre de 9 : ils rassemblent des informations différentes, sur des espaces géographiques différents (canton ou ville, région), et à des niveaux d’analyse différents (individus, ménages/logements). Les derniers fichiers disponibles portent sur l’année 2022 mais nous allons travailer sur l’année 2021 qui rassemble les enquêtes annuelles de recensement (EAR) des années 2018 à 2023.</p>
-<p>Avant de rentrer plus dans les détails, on va charger les librairies principales que l’on va utiliser lors de cette séance (si elles ne sont pas installées sur votre RStudio, il faut le faire avant en utilisant la commande <code>install.packages("nom.du.package")</code>, on pourra en appeler d’autres dans les deux sections suivantes.</p>
+<p>Quelles sont les questions intéressantes que l’on peut se poser ? Qu’est-ce qu’on va pouvoir mettre en évidence à partir de ces données ?</p>
+<p>D’abord, on peut caractériser la population de Paris et sa petite couronne selon des variables socio-démographiques (sexe, âge, diplôme, statut conjugal, nombre d’enfants, …) et d’emploi (statut d’activité, PCS, condition d’emploi - contrat, temps de travail -, secteur d’activité, …). Ensuite, on peut décrire les logements de Paris et sa petite couronne, selon le type (appartement, maison, HLM, …), la superficie, le nombre de pièces, le nombre de personnes y habitant, le statut d’occupation (propriétaire, locataire, …), l’ancienneté d’occupation. Enfin, on peut décrire plus précisément les pièces du logement en termes de confort (baignoire / douche, salle climatisée, moyen de chauffage), ainsi que les parties communes de l’immeuble (ascenseur, place de stationnement). Enfin, on pourrait étudier les caractéristiques des occupants de ces logements, et en premier lieu ici ce que l’Insee appelle la “personne de référence du ménage”. Par ailleurs, toutes ces analyses peuvent être réalisées en comparant les différentes communes de Paris et sa petite couronne, ou à un niveau géographique plus fin par quartiers, arrondissements ou encore IRIS.</p>
+<p>Pour manipuler cette base et répondre à quelques-unes de ces questions, nous allons nous concentrer sur la commune de Paris, et allons chercher à reproduire des statistiques publiées sur le site de l’Insee. Nous produirons principalement, lors de cette séance, des tableaux de statistiques, l’analyse graphique fera en effet l’objet de la séance suivante car elle nécessite la présentation détaillée de la “grammaire” <strong><code>Ggplot</code></strong>.</p>
+<p>Avant cela, si les tables de données (“RP_final” et “meta”) ne sont plus dans votre environnement local, il faut de nouveau les importer à partir de l’enregistrement précédemment effectué dans le dossier ‘data’ de votre projet. Pour cela, il faut utiliser la fonction <code>readRDS()</code>, comme ci-dessous :</p>
+<section id="caractéristiques-de-la-population-résidant-à-paris" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="caractéristiques-de-la-population-résidant-à-paris"><span class="header-section-number">5.1</span> Caractéristiques de la population résidant à Paris</h2>
+<p>Sur le site de l’Insee, vous pouvez trouver les statistiques générales sur les individus à Paris en 2021 <a href="https://www.insee.fr/fr/statistiques/8200783?geo=DEP-75" target="_blank">ici</a> et <a href="https://www.insee.fr/fr/statistiques/8201650?geo=DEP-75" target="_blank">là</a>.</p>
+<p>Comme déjà vu lors de la 1ère séance, l’application de la pondération pour avoir des statistiques représentatives de la population peut être utilisée à l’intérieur de la fonction <code>count()</code> avec l’argument <code>wt=</code>. Cela nous donnera le nombre d’individus concernés par la caractéristique étudiée (par défaut, la variable créée s’appelle “n”, on peut la renommer dans une étape ultérieure avec la fonction <code>rename()</code>). Souvent, on souhaite aussi avoir les pourcentages, on peut alors créer une variable rapportant le nombre de chaque catégorie sur le nombre total d’individus, avec la fonction <code>prop.table()</code> utilisée dans la fonction <code>mutate()</code>. Le package <strong><code>janitor</code></strong> peut permettre enfin d’ajouter une ligne totale (ou une colonne totale selon ce qu’on souhaite faire) avec la fonction <code>adorn_totals()</code>, argument “row” pour avoir le total en ligne ou “col” pour l’avoir en colonne. Des fonctions supplémentaires liées au package <strong><code>gt()</code></strong> peuvent ensuite être utilisées pour mettre en forme le tableau : <code>fmt_number()</code>, <code>tab_header()</code> ou encore <code>tab_source_note()</code>.</p>
+<p>A partir de ces indications, afficher le tableau suivant à partir d’un code utilisant le langage <strong>tidyverse</strong> et en une seule procédure (sans créer de table dans votre environnement) :</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Installation des librairies si nécessaire</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages("tidyverse")</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages("data.table")</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages("gt")</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Chargement des librairies</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(data.table)</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gt)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div id="bugvbfxhfc" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#bugvbfxhfc table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#bugvbfxhfc thead, #bugvbfxhfc tbody, #bugvbfxhfc tfoot, #bugvbfxhfc tr, #bugvbfxhfc td, #bugvbfxhfc th {
+  border-style: none;
+}
+
+#bugvbfxhfc p {
+  margin: 0;
+  padding: 0;
+}
+
+#bugvbfxhfc .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#bugvbfxhfc .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#bugvbfxhfc .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#bugvbfxhfc .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#bugvbfxhfc .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#bugvbfxhfc .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#bugvbfxhfc .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#bugvbfxhfc .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#bugvbfxhfc .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#bugvbfxhfc .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#bugvbfxhfc .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#bugvbfxhfc .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#bugvbfxhfc .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#bugvbfxhfc .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#bugvbfxhfc .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#bugvbfxhfc .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#bugvbfxhfc .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#bugvbfxhfc .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#bugvbfxhfc .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#bugvbfxhfc .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#bugvbfxhfc .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#bugvbfxhfc .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#bugvbfxhfc .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#bugvbfxhfc .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#bugvbfxhfc .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#bugvbfxhfc .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#bugvbfxhfc .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#bugvbfxhfc .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#bugvbfxhfc .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#bugvbfxhfc .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#bugvbfxhfc .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#bugvbfxhfc .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#bugvbfxhfc .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#bugvbfxhfc .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#bugvbfxhfc .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#bugvbfxhfc .gt_left {
+  text-align: left;
+}
+
+#bugvbfxhfc .gt_center {
+  text-align: center;
+}
+
+#bugvbfxhfc .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#bugvbfxhfc .gt_font_normal {
+  font-weight: normal;
+}
+
+#bugvbfxhfc .gt_font_bold {
+  font-weight: bold;
+}
+
+#bugvbfxhfc .gt_font_italic {
+  font-style: italic;
+}
+
+#bugvbfxhfc .gt_super {
+  font-size: 65%;
+}
+
+#bugvbfxhfc .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#bugvbfxhfc .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#bugvbfxhfc .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#bugvbfxhfc .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#bugvbfxhfc .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#bugvbfxhfc .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#bugvbfxhfc .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#bugvbfxhfc .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#bugvbfxhfc div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+
+<table class="gt_table caption-top table table-sm table-striped small" data-quarto-bootstrap="false">
+<thead>
+<tr class="gt_heading header">
+<td colspan="3" class="gt_heading gt_title gt_font_normal gt_bottom_border">Population par sexe en 2021</td>
+</tr>
+<tr class="gt_col_headings even">
+<th id="Sexe" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Sexe</th>
+<th id="Effectif" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Effectif</th>
+<th id="Pourcentage" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Pourcentage</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_left" headers="Sexe">Femmes</td>
+<td class="gt_row gt_right" headers="Effectif">1 129 308</td>
+<td class="gt_row gt_right" headers="Pourcentage">53.1</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Sexe">Hommes</td>
+<td class="gt_row gt_right" headers="Effectif">999 264</td>
+<td class="gt_row gt_right" headers="Pourcentage">46.9</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Sexe">Total</td>
+<td class="gt_row gt_right" headers="Effectif">2 128 572</td>
+<td class="gt_row gt_right" headers="Pourcentage">100.0</td>
+</tr>
+</tbody><tfoot>
+<tr class="gt_sourcenotes odd">
+<td colspan="3" class="gt_sourcenote">Source : Insee, RP 2021 ; Champ : Paris.</td>
+</tr>
+</tfoot>
+
+</table>
+
 </div>
-<section id="les-données-du-recensement-de-la-population-rp" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="les-données-du-recensement-de-la-population-rp"><span class="header-section-number">1.1</span> Les données du Recensement de la Population (RP)</h2>
-<p>On va travailler plus précisément à partir du fichier “Individus localisés au canton-ou-ville” qui décrit les caractéristiques des individus et celles des ménages qui les occupent. Les données sont localisées au niveau de la commune et de l’IRIS. On ne va pas s’intéresser à l’ensemble de la France, pour des questions d’intérêt et d’analyse, ainsi que des questions pratiques (ces fichiers étant lourds). On va donc télécharger uniquement le fichier pour la zone A, c’est-à-dire l’Île-de-France.</p>
-<p>Le mieux est de télécharger le fichier puis le dézipper directement dans <code>R</code> comme ci-dessous en copiant le lien URL sur le site de l’Insee ; et on le stock dans le dossier “data” de notre projet <code>R</code>. Sinon, il reste possible de le télécharger <em>via</em> internet et de l’enregistrer dans un de vos dossiers bien spécifiés pour le “dézipper” ensuite.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">download.file</span>(<span class="at">url=</span><span class="st">"https://www.insee.fr/fr/statistiques/fichier/8268848/RP2021_indcviza.zip"</span>,</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>              <span class="at">destfile =</span> <span class="st">"data/RP2021_indcviza.zip"</span>)</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Le fichier a donc été téléchargé dans le dossier intitulé "data" du projet R, on va</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co"># maintenant le dézipper et enregistrer les fichiers extraits dans le même dossier.</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="fu">unzip</span>(<span class="st">"data/RP2021_indcviza.zip"</span>, <span class="at">exdir =</span> <span class="st">"data"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gt)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>RP_final <span class="sc">%&gt;%</span> </span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(DEPT <span class="sc">==</span> <span class="st">"75"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">SEXE=</span><span class="fu">case_when</span>(SEXE<span class="sc">==</span><span class="st">"1"</span> <span class="sc">~</span> <span class="st">"Hommes"</span>, SEXE<span class="sc">==</span><span class="st">"2"</span> <span class="sc">~</span> <span class="st">"Femmes"</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(SEXE, <span class="at">wt=</span>IPONDI) <span class="sc">%&gt;%</span> </span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Pourcentage=</span><span class="fu">round</span>(<span class="fu">prop.table</span>(n)<span class="sc">*</span><span class="dv">100</span>, <span class="dv">1</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">adorn_totals</span>(<span class="st">"row"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">Effectif=</span>n, <span class="st">'Sexe'</span><span class="ot">=</span>SEXE) <span class="sc">%&gt;%</span> </span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gt</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fmt_number</span>(<span class="at">columns =</span> <span class="dv">2</span>, <span class="at">sep_mark =</span> <span class="st">" "</span>, <span class="at">decimals =</span> <span class="dv">0</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_source_note</span>(<span class="at">source_note =</span> <span class="st">"Source : Insee, RP 2021 ; Champ : Paris."</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_header</span>(<span class="at">title =</span> <span class="st">"Population par sexe en 2021"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>Il nous reste plus qu’à charger les données dans notre environnement RStudio : pour cela on utilise la commande <code>fread</code> du package <strong><code>data.table</code></strong>, car cela va bien plus vite que les fonctions habituelles du type <code>read.csv</code> lorsqu’on a de gros fichiers. On indique également l’option <code>stringsAsFactors=TRUE</code> pour que les variables caractères soient directement transformées en variables “factor” (dont l’utilité est indéniable dans <code>R</code>, on en reparlera plus loin), et on transforme l’objet obtenu en <code>data.frame</code>.</p>
+</div>
+</div>
+</div>
+<p>Il y a plus de femmes habitant Paris en 2021, environ 53%.</p>
+<p>Cherchons maintenant la répartition de la population parisienne par type d’activité : quelle est la proportion d’actifs ayant un emploi par rapport à la part des chômeurs ou encore des retraités ? Attention au champ sur lequel porte ces statistiques (lire le titre du tableau pour cela…).</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">#library(data.table)</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>RP <span class="ot">&lt;-</span> <span class="fu">fread</span>(<span class="st">"data/FD_INDCVIZA_2021.csv"</span>, <span class="at">stringsAsFactors=</span><span class="cn">TRUE</span>)</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>RP <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(RP)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div id="swjdoohvxj" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#swjdoohvxj table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#swjdoohvxj thead, #swjdoohvxj tbody, #swjdoohvxj tfoot, #swjdoohvxj tr, #swjdoohvxj td, #swjdoohvxj th {
+  border-style: none;
+}
+
+#swjdoohvxj p {
+  margin: 0;
+  padding: 0;
+}
+
+#swjdoohvxj .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#swjdoohvxj .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#swjdoohvxj .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#swjdoohvxj .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#swjdoohvxj .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#swjdoohvxj .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#swjdoohvxj .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#swjdoohvxj .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#swjdoohvxj .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#swjdoohvxj .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#swjdoohvxj .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#swjdoohvxj .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#swjdoohvxj .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#swjdoohvxj .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#swjdoohvxj .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#swjdoohvxj .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#swjdoohvxj .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#swjdoohvxj .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#swjdoohvxj .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#swjdoohvxj .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#swjdoohvxj .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#swjdoohvxj .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#swjdoohvxj .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#swjdoohvxj .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#swjdoohvxj .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#swjdoohvxj .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#swjdoohvxj .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#swjdoohvxj .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#swjdoohvxj .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#swjdoohvxj .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#swjdoohvxj .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#swjdoohvxj .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#swjdoohvxj .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#swjdoohvxj .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#swjdoohvxj .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#swjdoohvxj .gt_left {
+  text-align: left;
+}
+
+#swjdoohvxj .gt_center {
+  text-align: center;
+}
+
+#swjdoohvxj .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#swjdoohvxj .gt_font_normal {
+  font-weight: normal;
+}
+
+#swjdoohvxj .gt_font_bold {
+  font-weight: bold;
+}
+
+#swjdoohvxj .gt_font_italic {
+  font-style: italic;
+}
+
+#swjdoohvxj .gt_super {
+  font-size: 65%;
+}
+
+#swjdoohvxj .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#swjdoohvxj .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#swjdoohvxj .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#swjdoohvxj .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#swjdoohvxj .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#swjdoohvxj .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#swjdoohvxj .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#swjdoohvxj .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#swjdoohvxj div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+
+<table class="gt_table caption-top table table-sm table-striped small" data-quarto-bootstrap="false">
+<thead>
+<tr class="gt_heading header">
+<td colspan="3" class="gt_heading gt_title gt_font_normal gt_bottom_border">Population des 15-64 ans par type d'activité en 2021</td>
+</tr>
+<tr class="gt_col_headings even">
+<th id="Type-d'activité" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">Type d'activité</th>
+<th id="Effectif" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Effectif</th>
+<th id="Pourcentage" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Pourcentage</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_center" headers="Type d'activité">Actifs ayant un emploi</td>
+<td class="gt_row gt_right" headers="Effectif">1 039 083</td>
+<td class="gt_row gt_right" headers="Pourcentage">70.3</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="Type d'activité">Chômeurs</td>
+<td class="gt_row gt_right" headers="Effectif">119 868</td>
+<td class="gt_row gt_right" headers="Pourcentage">8.1</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_center" headers="Type d'activité">Élèves, étudiants et stagiaires non rémunérés</td>
+<td class="gt_row gt_right" headers="Effectif">188 456</td>
+<td class="gt_row gt_right" headers="Pourcentage">12.8</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="Type d'activité">Retraités ou préretraités</td>
+<td class="gt_row gt_right" headers="Effectif">33 258</td>
+<td class="gt_row gt_right" headers="Pourcentage">2.3</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_center" headers="Type d'activité">Autres inactifs</td>
+<td class="gt_row gt_right" headers="Effectif">96 728</td>
+<td class="gt_row gt_right" headers="Pourcentage">6.5</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="Type d'activité">Total</td>
+<td class="gt_row gt_right" headers="Effectif">1 477 393</td>
+<td class="gt_row gt_right" headers="Pourcentage">100.0</td>
+</tr>
+</tbody><tfoot>
+<tr class="gt_sourcenotes odd">
+<td colspan="3" class="gt_sourcenote">Source : Insee, RP 2021 ; Champ : Paris.</td>
+</tr>
+</tfoot>
+
+</table>
+
 </div>
-<p>On a donc 92 variables et 3 627 012 observations.</p>
-<p>Pour se renseigner sur les variables de la table, on peut télécharger également le fichier des métadonnées avec la commande <code>read.csv</code> cette fois, ce qui nous permet de voir quelles options sont utiles ici : l’argument <code>sep =</code> nous permet d’indiquer comment sont séparées les informations dans le fichier initial, l’argument <code>encoding =</code> permet que les accents aigus soient compris par <code>R</code> comme tel, et enfin la même option <code>stringsAsFactors=TRUE</code> peut être utilisée ici.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Téléchargement du fichier de métadonnées</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">download.file</span>(<span class="at">url=</span><span class="st">"https://www.insee.fr/fr/statistiques/fichier/8268848/varmod_indcvi_2021.csv"</span>,</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>              <span class="at">destfile =</span> <span class="st">"data/varmod_indcvi_2021.csv"</span>)</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co">#Lecture du fichier</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>meta <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="at">file =</span> <span class="st">"data/varmod_indcvi_2021.csv"</span>,</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>                 <span class="at">sep =</span> <span class="st">";"</span>,</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>                 <span class="at">encoding =</span> <span class="st">"UTF-8"</span>,</span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>                 <span class="at">stringsAsFactors =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>RP_final <span class="sc">%&gt;%</span> </span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(DEPT <span class="sc">==</span> <span class="st">"75"</span> <span class="sc">&amp;</span> AGEREV<span class="sc">&gt;</span><span class="dv">14</span> <span class="sc">&amp;</span> AGEREV<span class="sc">&lt;</span><span class="dv">65</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">TACT=</span><span class="fu">case_when</span>(TACT <span class="sc">==</span> <span class="st">"11"</span> <span class="sc">~</span> <span class="st">"Actifs ayant un emploi"</span>,</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>                             TACT <span class="sc">==</span> <span class="st">"12"</span> <span class="sc">~</span> <span class="st">"Chômeurs"</span>,</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>                             TACT <span class="sc">==</span> <span class="st">"22"</span> <span class="sc">~</span> <span class="st">"Élèves, étudiants et stagiaires non rémunérés"</span>,</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>                             TACT <span class="sc">==</span> <span class="st">"21"</span> <span class="sc">~</span> <span class="st">"Retraités ou préretraités"</span>,</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>                             <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">"Autres inactifs"</span>),</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>         <span class="at">TACT=</span><span class="fu">fct_relevel</span>(TACT, <span class="fu">c</span>(<span class="st">"Actifs ayant un emploi"</span>, <span class="st">"Chômeurs"</span>,</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>                                            <span class="st">"Élèves, étudiants et stagiaires non rémunérés"</span>, </span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>                                            <span class="st">"Retraités ou préretraités"</span>, <span class="st">"Autres inactifs"</span>))) <span class="sc">%&gt;%</span> </span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(TACT, <span class="at">wt=</span>IPONDI) <span class="sc">%&gt;%</span> </span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Pourcentage=</span><span class="fu">round</span>(<span class="fu">prop.table</span>(n)<span class="sc">*</span><span class="dv">100</span>,<span class="dv">1</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">adorn_totals</span>(<span class="st">"row"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">Effectif=</span>n, <span class="st">"Type d'activité"</span><span class="ot">=</span>TACT) <span class="sc">%&gt;%</span> </span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gt</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fmt_number</span>(<span class="at">columns =</span> <span class="dv">2</span>, <span class="at">sep_mark =</span> <span class="st">" "</span>, <span class="at">decimals =</span> <span class="dv">0</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_header</span>(<span class="at">title =</span> <span class="st">"Population des 15-64 ans par type d'activité en 2021"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_source_note</span>(<span class="at">source_note =</span> <span class="st">"Source : Insee, RP 2021 ; Champ : Paris."</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>On peut enregistrer ce fichier, ainsi que celui contenant les métadonnées, dans le dossier <code>R</code> au format RDS.</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Enregistrement des fichiers</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(<span class="at">object =</span> RP, <span class="at">file =</span> <span class="st">"data/indiv2021.Rdata"</span>)</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(<span class="at">object =</span> meta, <span class="at">file =</span> <span class="st">"data/meta.Rdata"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>&nbsp;</p>
+</div>
+</div>
+<p>En 2021, la population parisienne comportait un peu plus de 78% d’actifs dont 70% ayant un emploi et 8% au chômage, le taux de chômage à Paris était donc de 10,3% (119868/(1039083+119868))*100). La part des étudiants ou autres élèves était plus élevée que celle des retraités (ou préretaités) : 12,8% contre 2,3%. &nbsp;</p>
 </section>
-<section id="quelles-informations-intéressantes-dans-cette-base" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="quelles-informations-intéressantes-dans-cette-base"><span class="header-section-number">1.2</span> Quelles informations intéressantes dans cette base ?</h2>
-<p>On peut regarder plus précisément les variables disponibles dans cette base de données à partir de la table de métadonnées : on peut le faire avec la fonction <code>view()</code> et dans ce cas la table s’affichera dans un nouvel onglet dans votre RStudio ; sinon pour l’afficher sur notre document notebook, on peut utiliser la fonction <code>head()</code> et/ou <code>tail()</code> qui affiche respectivement les premières et les dernières lignes de la table.</p>
+<section id="caractéristiques-de-la-population-active-résidant-à-paris" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="caractéristiques-de-la-population-active-résidant-à-paris"><span class="header-section-number">5.2</span> Caractéristiques de la population active résidant à Paris</h2>
+<p>Maintenant, affichons les deux dernières colonnes (‘2021’ et ‘dont actifs ayant un emploi’) de ce tableau tiré du site de l’Insee, en mettant la ligne “Ensemble” plutôt en fin de tableau (ces 2 usages sont possibles, question de préférence…). Attention encore une fois au champ de ce tableau… Pour cela, on va :</p>
+<ul>
+<li>récupérer les libellés des modalités de la variable CS1 à partir du fichier ‘meta’, en créant 2 vecteurs correspondant aux modalités pour le 1er et aux libellés pour le 2nd, puis en créant une variable ‘CS1_moda’ à partir de ces vecteurs ;</li>
+<li>créer une 1ère table qu’on appellera ‘col2’ qui comportera la 1ère colonne avec les intitulés des PCS et la colonne ‘2021’, attention, il y a une modalité qui ne nous intéresse pas car non affiché dans le tableau de l’Insee, il faudra supprimer cette ligne (vous pouvez utiliser pour cela la fonction <code>slice()</code>) ;</li>
+<li>créer une 2ème table qu’on appellera ‘col3’ qui comportera la 1ère colonne avec les intitulés des PCS et la colonne ‘dont actifs ayant un emploi’, attention le champ n’est donc pas tout à fait le même ;</li>
+<li>joindre ces deux tables et appliquer les fonctions <code>gt()</code> et suivantes pour la mise en forme du tableau final.</li>
+</ul>
+<p><img src="images/Tab. Insee 1.png" class="img-fluid"></p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># view(meta)</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>meta <span class="sc">%&gt;%</span> <span class="fu">head</span>() <span class="sc">%&gt;%</span> <span class="fu">gt</span>() <span class="co">#La fonction gt() permet un affichage plus joli pour le document html</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output-display">
-<div id="jvihunbrts" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#jvihunbrts table {
-  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-#jvihunbrts thead, #jvihunbrts tbody, #jvihunbrts tfoot, #jvihunbrts tr, #jvihunbrts td, #jvihunbrts th {
-  border-style: none;
-}
-
-#jvihunbrts p {
-  margin: 0;
-  padding: 0;
-}
-
-#jvihunbrts .gt_table {
-  display: table;
-  border-collapse: collapse;
-  line-height: normal;
-  margin-left: auto;
-  margin-right: auto;
-  color: #333333;
-  font-size: 16px;
-  font-weight: normal;
-  font-style: normal;
-  background-color: #FFFFFF;
-  width: auto;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #A8A8A8;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #A8A8A8;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-}
-
-#jvihunbrts .gt_caption {
-  padding-top: 4px;
-  padding-bottom: 4px;
-}
-
-#jvihunbrts .gt_title {
-  color: #333333;
-  font-size: 125%;
-  font-weight: initial;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-bottom-color: #FFFFFF;
-  border-bottom-width: 0;
-}
-
-#jvihunbrts .gt_subtitle {
-  color: #333333;
-  font-size: 85%;
-  font-weight: initial;
-  padding-top: 3px;
-  padding-bottom: 5px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-top-color: #FFFFFF;
-  border-top-width: 0;
-}
-
-#jvihunbrts .gt_heading {
-  background-color: #FFFFFF;
-  text-align: center;
-  border-bottom-color: #FFFFFF;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-}
-
-#jvihunbrts .gt_bottom_border {
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-#jvihunbrts .gt_col_headings {
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-}
-
-#jvihunbrts .gt_col_heading {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: normal;
-  text-transform: inherit;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: bottom;
-  padding-top: 5px;
-  padding-bottom: 6px;
-  padding-left: 5px;
-  padding-right: 5px;
-  overflow-x: hidden;
-}
-
-#jvihunbrts .gt_column_spanner_outer {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: normal;
-  text-transform: inherit;
-  padding-top: 0;
-  padding-bottom: 0;
-  padding-left: 4px;
-  padding-right: 4px;
-}
-
-#jvihunbrts .gt_column_spanner_outer:first-child {
-  padding-left: 0;
-}
-
-#jvihunbrts .gt_column_spanner_outer:last-child {
-  padding-right: 0;
-}
-
-#jvihunbrts .gt_column_spanner {
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  vertical-align: bottom;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  overflow-x: hidden;
-  display: inline-block;
-  width: 100%;
-}
-
-#jvihunbrts .gt_spanner_row {
-  border-bottom-style: hidden;
-}
-
-#jvihunbrts .gt_group_heading {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: middle;
-  text-align: left;
-}
-
-#jvihunbrts .gt_empty_group_heading {
-  padding: 0.5px;
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  vertical-align: middle;
-}
-
-#jvihunbrts .gt_from_md > :first-child {
-  margin-top: 0;
-}
-
-#jvihunbrts .gt_from_md > :last-child {
-  margin-bottom: 0;
-}
-
-#jvihunbrts .gt_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  margin: 10px;
-  border-top-style: solid;
-  border-top-width: 1px;
-  border-top-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: middle;
-  overflow-x: hidden;
-}
-
-#jvihunbrts .gt_stub {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-right-style: solid;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#jvihunbrts .gt_stub_row_group {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-right-style: solid;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  padding-left: 5px;
-  padding-right: 5px;
-  vertical-align: top;
-}
-
-#jvihunbrts .gt_row_group_first td {
-  border-top-width: 2px;
-}
-
-#jvihunbrts .gt_row_group_first th {
-  border-top-width: 2px;
-}
-
-#jvihunbrts .gt_summary_row {
-  color: #333333;
-  background-color: #FFFFFF;
-  text-transform: inherit;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#jvihunbrts .gt_first_summary_row {
-  border-top-style: solid;
-  border-top-color: #D3D3D3;
-}
-
-#jvihunbrts .gt_first_summary_row.thick {
-  border-top-width: 2px;
-}
-
-#jvihunbrts .gt_last_summary_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-#jvihunbrts .gt_grand_summary_row {
-  color: #333333;
-  background-color: #FFFFFF;
-  text-transform: inherit;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#jvihunbrts .gt_first_grand_summary_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-top-style: double;
-  border-top-width: 6px;
-  border-top-color: #D3D3D3;
-}
-
-#jvihunbrts .gt_last_grand_summary_row_top {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-bottom-style: double;
-  border-bottom-width: 6px;
-  border-bottom-color: #D3D3D3;
-}
-
-#jvihunbrts .gt_striped {
-  background-color: rgba(128, 128, 128, 0.05);
-}
-
-#jvihunbrts .gt_table_body {
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-#jvihunbrts .gt_footnotes {
-  color: #333333;
-  background-color: #FFFFFF;
-  border-bottom-style: none;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-}
-
-#jvihunbrts .gt_footnote {
-  margin: 0px;
-  font-size: 90%;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#jvihunbrts .gt_sourcenotes {
-  color: #333333;
-  background-color: #FFFFFF;
-  border-bottom-style: none;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-}
-
-#jvihunbrts .gt_sourcenote {
-  font-size: 90%;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#jvihunbrts .gt_left {
-  text-align: left;
-}
-
-#jvihunbrts .gt_center {
-  text-align: center;
-}
-
-#jvihunbrts .gt_right {
-  text-align: right;
-  font-variant-numeric: tabular-nums;
-}
-
-#jvihunbrts .gt_font_normal {
-  font-weight: normal;
-}
-
-#jvihunbrts .gt_font_bold {
-  font-weight: bold;
-}
-
-#jvihunbrts .gt_font_italic {
-  font-style: italic;
-}
-
-#jvihunbrts .gt_super {
-  font-size: 65%;
-}
-
-#jvihunbrts .gt_footnote_marks {
-  font-size: 75%;
-  vertical-align: 0.4em;
-  position: initial;
-}
-
-#jvihunbrts .gt_asterisk {
-  font-size: 100%;
-  vertical-align: 0;
-}
-
-#jvihunbrts .gt_indent_1 {
-  text-indent: 5px;
-}
-
-#jvihunbrts .gt_indent_2 {
-  text-indent: 10px;
-}
-
-#jvihunbrts .gt_indent_3 {
-  text-indent: 15px;
-}
-
-#jvihunbrts .gt_indent_4 {
-  text-indent: 20px;
-}
-
-#jvihunbrts .gt_indent_5 {
-  text-indent: 25px;
-}
-
-#jvihunbrts .katex-display {
-  display: inline-flex !important;
-  margin-bottom: 0.75em !important;
-}
-
-#jvihunbrts div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
-  height: 0px !important;
-}
-</style>
-
-<table class="gt_table caption-top table table-sm table-striped small" data-quarto-bootstrap="false">
-<thead>
-<tr class="gt_col_headings header">
-<th id="COD_VAR" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">COD_VAR</th>
-<th id="LIB_VAR" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">LIB_VAR</th>
-<th id="COD_MOD" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">COD_MOD</th>
-<th id="LIB_MOD" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">LIB_MOD</th>
-<th id="TYPE_VAR" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">TYPE_VAR</th>
-<th id="LONG_VAR" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">LONG_VAR</th>
-</tr>
-</thead>
-<tbody class="gt_table_body">
-<tr class="odd">
-<td class="gt_row gt_center" headers="COD_VAR">CANTVILLE</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Département, canton-ou-ville du lieu de résidence (pseudo-canton)</td>
-<td class="gt_row gt_center" headers="COD_MOD">0101</td>
-<td class="gt_row gt_center" headers="LIB_MOD">Ambérieu-en-Bugey (0101)</td>
-<td class="gt_row gt_center" headers="TYPE_VAR">CHAR</td>
-<td class="gt_row gt_right" headers="LONG_VAR">5</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center" headers="COD_VAR">CANTVILLE</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Département, canton-ou-ville du lieu de résidence (pseudo-canton)</td>
-<td class="gt_row gt_center" headers="COD_MOD">0102</td>
-<td class="gt_row gt_center" headers="LIB_MOD">Attignat (0102)</td>
-<td class="gt_row gt_center" headers="TYPE_VAR">CHAR</td>
-<td class="gt_row gt_right" headers="LONG_VAR">5</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center" headers="COD_VAR">CANTVILLE</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Département, canton-ou-ville du lieu de résidence (pseudo-canton)</td>
-<td class="gt_row gt_center" headers="COD_MOD">0103</td>
-<td class="gt_row gt_center" headers="LIB_MOD">Valserhône (0103)</td>
-<td class="gt_row gt_center" headers="TYPE_VAR">CHAR</td>
-<td class="gt_row gt_right" headers="LONG_VAR">5</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center" headers="COD_VAR">CANTVILLE</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Département, canton-ou-ville du lieu de résidence (pseudo-canton)</td>
-<td class="gt_row gt_center" headers="COD_MOD">0104</td>
-<td class="gt_row gt_center" headers="LIB_MOD">Belley (0104)</td>
-<td class="gt_row gt_center" headers="TYPE_VAR">CHAR</td>
-<td class="gt_row gt_right" headers="LONG_VAR">5</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center" headers="COD_VAR">CANTVILLE</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Département, canton-ou-ville du lieu de résidence (pseudo-canton)</td>
-<td class="gt_row gt_center" headers="COD_MOD">0105</td>
-<td class="gt_row gt_center" headers="LIB_MOD">Bourg-en-Bresse-1 (0105)</td>
-<td class="gt_row gt_center" headers="TYPE_VAR">CHAR</td>
-<td class="gt_row gt_right" headers="LONG_VAR">5</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center" headers="COD_VAR">CANTVILLE</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Département, canton-ou-ville du lieu de résidence (pseudo-canton)</td>
-<td class="gt_row gt_center" headers="COD_MOD">0106</td>
-<td class="gt_row gt_center" headers="LIB_MOD">Bourg-en-Bresse-2 (0106)</td>
-<td class="gt_row gt_center" headers="TYPE_VAR">CHAR</td>
-<td class="gt_row gt_right" headers="LONG_VAR">5</td>
-</tr>
-</tbody>
-</table>
-
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># On va récupérer les libellés des modalités de la variable CS1 à partir du </span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co">#  fichier meta :</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>levels_CS1 <span class="ot">&lt;-</span> meta[meta<span class="sc">$</span>COD_VAR<span class="sc">==</span><span class="st">"CS1"</span>, ]<span class="sc">$</span>COD_MOD</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>labels_CS1 <span class="ot">&lt;-</span> meta[meta<span class="sc">$</span>COD_VAR<span class="sc">==</span><span class="st">"CS1"</span>, ]<span class="sc">$</span>LIB_MOD</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>RP_final <span class="ot">&lt;-</span> RP_final <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">CS1_moda=</span><span class="fu">factor</span>(CS1, <span class="at">levels =</span> levels_CS1, </span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>                                                <span class="at">labels =</span> labels_CS1))</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>col2 <span class="ot">&lt;-</span> RP_final <span class="sc">%&gt;%</span> </span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(DEPT <span class="sc">==</span> <span class="st">"75"</span> <span class="sc">&amp;</span> AGER20<span class="sc">&gt;</span><span class="dv">14</span> <span class="sc">&amp;</span> AGER20<span class="sc">&lt;</span><span class="dv">65</span> <span class="sc">&amp;</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>           TACT <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"11"</span>, <span class="st">"12"</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(CS1_moda, <span class="at">wt=</span>IPONDI) <span class="sc">%&gt;%</span> </span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">n=</span><span class="fu">round</span>(n)) <span class="sc">%&gt;%</span> </span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="st">'2021'</span><span class="ot">=</span>n, <span class="st">'PCS'</span><span class="ot">=</span>CS1_moda) <span class="sc">%&gt;%</span> </span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">adorn_totals</span>(<span class="st">"row"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice</span>(<span class="sc">-</span><span class="dv">7</span>)</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>col3 <span class="ot">&lt;-</span> RP_final <span class="sc">%&gt;%</span> </span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(DEPT <span class="sc">==</span> <span class="st">"75"</span> <span class="sc">&amp;</span> <span class="sc">!</span>AGEREVQ <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"0"</span>, <span class="st">"5"</span>, <span class="st">"10"</span>, <span class="st">"65"</span>, <span class="st">"70"</span>, <span class="st">"75"</span>, <span class="st">"80"</span>,</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>                                        <span class="st">"85"</span>, <span class="st">"90"</span>, <span class="st">"95"</span>, <span class="st">"100"</span>, <span class="st">"105"</span>, <span class="st">"110"</span>, </span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>                                        <span class="st">"115"</span>, <span class="st">"120"</span>) <span class="sc">&amp;</span></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>           TACT <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"11"</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(CS1_moda, <span class="at">wt=</span>IPONDI) <span class="sc">%&gt;%</span> </span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">n=</span><span class="fu">round</span>(n)) <span class="sc">%&gt;%</span> </span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="st">'dont actifs ayant un emploi'</span><span class="ot">=</span>n, <span class="st">'PCS'</span><span class="ot">=</span>CS1_moda) <span class="sc">%&gt;%</span> </span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">adorn_totals</span>(<span class="st">"row"</span>)</span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>col2 <span class="sc">%&gt;%</span> <span class="fu">left_join</span>(col3) <span class="sc">%&gt;%</span>  </span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gt</span>()  <span class="sc">%&gt;%</span> </span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fmt_number</span>(<span class="at">columns =</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">3</span>), <span class="at">sep_mark =</span> <span class="st">" "</span>, <span class="at">decimals =</span> <span class="dv">0</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_header</span>(<span class="at">title =</span> <span class="st">"Population active de 15-64 ans selon la </span></span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a><span class="st">             catégorie socioprofessionnelle en 2021"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_source_note</span>(<span class="at">source_note =</span> <span class="st">"Source : Insee, RP 2021 ; Champ : Paris."</span>)</span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a><span class="co"># On supprime les tableaux intermédiaires</span></span>
+<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(col2, col3)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div>
-<p>On peut établir la liste des variables de la base de données en utilisant la fonction <code>levels</code> qui donne les niveaux de la variable “COD_VAR” puisque c’est une variable ‘factor’.</p>
+</div>
+<p>A Paris, la population active comprend en 2021 plus de 540 000 personnes appartenant à la catégorie “cadres et professions intellectuelles supérieures”, des 2 colonnes on peut en déduire qu’il y a environ 28 000 personnes relevant de cette PCS qui sont au chômage. Les cadres sont suivis des professions intermédiaires (environ 258 000 actifs) et des employés (environ 206 000). Il y a très peu d’agriculteurs exploitants, ce qui semble assez logique sur le territoire de Paris ! &nbsp;</p>
+</section>
+<section id="caractéristiques-des-logements-parisiens" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="caractéristiques-des-logements-parisiens"><span class="header-section-number">5.3</span> Caractéristiques des logements parisiens</h2>
+<p>Enfin, pour donner un exemple sur l’étude des caractéristiques des logements parisiens, essayons de même de reproduire le tableau de l’Insee ci-dessous. Souvenez-vous que cette base a plusieurs unités statistiques/niveaux : individus, logements/ménages, etc. Il faut donc faire attention :</p>
+<ul>
+<li>au champ du tableau donc les filtres à utiliser ici ;</li>
+<li>à avoir d’abord les moyennes sur ces deux types de logements, donc utiliser à la suite les fonctions <code>group_by()</code> et <code>summarise()</code> ;</li>
+<li>à ajouter ensuite une ligne sur l’ensemble des résidences principales avec la fonction <code>bind_rows()</code> ;</li>
+<li>à changer les dénominations des colonnes et des modalités, avec les fonctions du package <code>gt()</code> comme <code>cols_label()</code> ou <code>text_case_match()</code>.</li>
+</ul>
+<p><img src="images/Tab. Insee 2.png" class="img-fluid"></p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(meta<span class="sc">$</span>COD_VAR) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code> [1] "ACHLR"      "AEMMR"      "AGED"       "AGER20"     "AGEREV"    
- [6] "AGEREVQ"    "ANAI"       "ANEMR"      "APAF"       "ARM"       
-[11] "ASCEN"      "BAIN"       "BATI"       "CANTVILLE"  "CATIRIS"   
-[16] "CATL"       "CATPC"      "CHAU"       "CHFL"       "CHOS"      
-[21] "CLIM"       "CMBL"       "COUPLE"     "CS1"        "CUIS"      
-[26] "DEPT"       "DEROU"      "DIPL"       "DNAI"       "EAU"       
-[31] "EGOUL"      "ELEC"       "EMPL"       "ETUD"       "GARL"      
-[36] "HLML"       "ILETUD"     "ILT"        "IMMI"       "INAI"      
-[41] "INATC"      "INFAM"      "INPER"      "INPERF"     "IPONDI"    
-[46] "IRAN"       "IRIS"       "LIENF"      "LPRF"       "LPRM"      
-[51] "METRODOM"   "MOCO"       "MOCO_DET"   "MODV"       "NA17"      
-[56] "NA5"        "NAIDT"      "NBPI"       "NE17FR"     "NE24FR"    
-[61] "NE3FR"      "NE5FR"      "NENFR"      "NPERR"      "NUMF"      
-[66] "NUMMI"      "ORIDT"      "RECH"       "RECOMPOSEE" "REGION"    
-[71] "SANI"       "SANIDOM"    "SEXE"       "SFM"        "STAT_CONJ" 
-[76] "STATR"      "STOCD"      "SURF"       "TACT"       "TACTD16"   
-[81] "TAF"        "TDM8"       "TP"         "TRANS"      "TRIRIS"    
-[86] "TYPC"       "TYPFC"      "TYPL"       "TYPMC"      "TYPMR"     
-[91] "VOIT"       "WC"        </code></pre>
-</div>
-</div>
-<p>Les codes des variables n’étant pas très parlant, on va les afficher avec leur intitulé : pour cela, il suffit de repartir de la table <code>meta</code> en sélectionnant les 2 colonnes qui nous intéressent et en n’affichant pas les valeurs dupliquées grâce à la fonction <code>unique()</code>.</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>meta <span class="sc">%&gt;%</span> <span class="fu">select</span>(COD_VAR, LIB_VAR) <span class="sc">%&gt;%</span> <span class="fu">unique</span>() <span class="sc">%&gt;%</span> <span class="fu">gt</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output-display">
-<div id="zglxryxetp" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#zglxryxetp table {
-  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-#zglxryxetp thead, #zglxryxetp tbody, #zglxryxetp tfoot, #zglxryxetp tr, #zglxryxetp td, #zglxryxetp th {
-  border-style: none;
-}
-
-#zglxryxetp p {
-  margin: 0;
-  padding: 0;
-}
-
-#zglxryxetp .gt_table {
-  display: table;
-  border-collapse: collapse;
-  line-height: normal;
-  margin-left: auto;
-  margin-right: auto;
-  color: #333333;
-  font-size: 16px;
-  font-weight: normal;
-  font-style: normal;
-  background-color: #FFFFFF;
-  width: auto;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #A8A8A8;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #A8A8A8;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-}
-
-#zglxryxetp .gt_caption {
-  padding-top: 4px;
-  padding-bottom: 4px;
-}
-
-#zglxryxetp .gt_title {
-  color: #333333;
-  font-size: 125%;
-  font-weight: initial;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-bottom-color: #FFFFFF;
-  border-bottom-width: 0;
-}
-
-#zglxryxetp .gt_subtitle {
-  color: #333333;
-  font-size: 85%;
-  font-weight: initial;
-  padding-top: 3px;
-  padding-bottom: 5px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-top-color: #FFFFFF;
-  border-top-width: 0;
-}
-
-#zglxryxetp .gt_heading {
-  background-color: #FFFFFF;
-  text-align: center;
-  border-bottom-color: #FFFFFF;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-}
-
-#zglxryxetp .gt_bottom_border {
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-#zglxryxetp .gt_col_headings {
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-}
-
-#zglxryxetp .gt_col_heading {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: normal;
-  text-transform: inherit;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: bottom;
-  padding-top: 5px;
-  padding-bottom: 6px;
-  padding-left: 5px;
-  padding-right: 5px;
-  overflow-x: hidden;
-}
-
-#zglxryxetp .gt_column_spanner_outer {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: normal;
-  text-transform: inherit;
-  padding-top: 0;
-  padding-bottom: 0;
-  padding-left: 4px;
-  padding-right: 4px;
-}
-
-#zglxryxetp .gt_column_spanner_outer:first-child {
-  padding-left: 0;
-}
-
-#zglxryxetp .gt_column_spanner_outer:last-child {
-  padding-right: 0;
-}
-
-#zglxryxetp .gt_column_spanner {
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  vertical-align: bottom;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  overflow-x: hidden;
-  display: inline-block;
-  width: 100%;
-}
-
-#zglxryxetp .gt_spanner_row {
-  border-bottom-style: hidden;
-}
-
-#zglxryxetp .gt_group_heading {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: middle;
-  text-align: left;
-}
-
-#zglxryxetp .gt_empty_group_heading {
-  padding: 0.5px;
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  vertical-align: middle;
-}
-
-#zglxryxetp .gt_from_md > :first-child {
-  margin-top: 0;
-}
-
-#zglxryxetp .gt_from_md > :last-child {
-  margin-bottom: 0;
-}
-
-#zglxryxetp .gt_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  margin: 10px;
-  border-top-style: solid;
-  border-top-width: 1px;
-  border-top-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: middle;
-  overflow-x: hidden;
-}
-
-#zglxryxetp .gt_stub {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-right-style: solid;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#zglxryxetp .gt_stub_row_group {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-right-style: solid;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  padding-left: 5px;
-  padding-right: 5px;
-  vertical-align: top;
-}
-
-#zglxryxetp .gt_row_group_first td {
-  border-top-width: 2px;
-}
-
-#zglxryxetp .gt_row_group_first th {
-  border-top-width: 2px;
-}
-
-#zglxryxetp .gt_summary_row {
-  color: #333333;
-  background-color: #FFFFFF;
-  text-transform: inherit;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#zglxryxetp .gt_first_summary_row {
-  border-top-style: solid;
-  border-top-color: #D3D3D3;
-}
-
-#zglxryxetp .gt_first_summary_row.thick {
-  border-top-width: 2px;
-}
-
-#zglxryxetp .gt_last_summary_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-#zglxryxetp .gt_grand_summary_row {
-  color: #333333;
-  background-color: #FFFFFF;
-  text-transform: inherit;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#zglxryxetp .gt_first_grand_summary_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-top-style: double;
-  border-top-width: 6px;
-  border-top-color: #D3D3D3;
-}
-
-#zglxryxetp .gt_last_grand_summary_row_top {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-bottom-style: double;
-  border-bottom-width: 6px;
-  border-bottom-color: #D3D3D3;
-}
-
-#zglxryxetp .gt_striped {
-  background-color: rgba(128, 128, 128, 0.05);
-}
-
-#zglxryxetp .gt_table_body {
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-#zglxryxetp .gt_footnotes {
-  color: #333333;
-  background-color: #FFFFFF;
-  border-bottom-style: none;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-}
-
-#zglxryxetp .gt_footnote {
-  margin: 0px;
-  font-size: 90%;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#zglxryxetp .gt_sourcenotes {
-  color: #333333;
-  background-color: #FFFFFF;
-  border-bottom-style: none;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-}
-
-#zglxryxetp .gt_sourcenote {
-  font-size: 90%;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#zglxryxetp .gt_left {
-  text-align: left;
-}
-
-#zglxryxetp .gt_center {
-  text-align: center;
-}
-
-#zglxryxetp .gt_right {
-  text-align: right;
-  font-variant-numeric: tabular-nums;
-}
-
-#zglxryxetp .gt_font_normal {
-  font-weight: normal;
-}
-
-#zglxryxetp .gt_font_bold {
-  font-weight: bold;
-}
-
-#zglxryxetp .gt_font_italic {
-  font-style: italic;
-}
-
-#zglxryxetp .gt_super {
-  font-size: 65%;
-}
-
-#zglxryxetp .gt_footnote_marks {
-  font-size: 75%;
-  vertical-align: 0.4em;
-  position: initial;
-}
-
-#zglxryxetp .gt_asterisk {
-  font-size: 100%;
-  vertical-align: 0;
-}
-
-#zglxryxetp .gt_indent_1 {
-  text-indent: 5px;
-}
-
-#zglxryxetp .gt_indent_2 {
-  text-indent: 10px;
-}
-
-#zglxryxetp .gt_indent_3 {
-  text-indent: 15px;
-}
-
-#zglxryxetp .gt_indent_4 {
-  text-indent: 20px;
-}
-
-#zglxryxetp .gt_indent_5 {
-  text-indent: 25px;
-}
-
-#zglxryxetp .katex-display {
-  display: inline-flex !important;
-  margin-bottom: 0.75em !important;
-}
-
-#zglxryxetp div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
-  height: 0px !important;
-}
-</style>
-
-<table class="gt_table caption-top table table-sm table-striped small" data-quarto-bootstrap="false">
-<thead>
-<tr class="gt_col_headings header">
-<th id="COD_VAR" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">COD_VAR</th>
-<th id="LIB_VAR" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">LIB_VAR</th>
-</tr>
-</thead>
-<tbody class="gt_table_body">
-<tr class="odd">
-<td class="gt_row gt_center" headers="COD_VAR">CANTVILLE</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Département, canton-ou-ville du lieu de résidence (pseudo-canton)</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center" headers="COD_VAR">NUMMI</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Numéro du ménage dans le canton-ou-ville (anonymisé)</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center" headers="COD_VAR">ACHLR</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Période regroupée d'achèvement de la construction de la maison ou de l'immeuble</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center" headers="COD_VAR">AEMMR</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Année d'emménagement dans le logement (regroupée)</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center" headers="COD_VAR">AGED</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Âge détaillé (en différence de millésimes)</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center" headers="COD_VAR">AGER20</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Âge en années révolues (âge au dernier anniversaire) en 13 classes d'âge, détaillées autour de 20 ans</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center" headers="COD_VAR">AGEREV</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Âge en années révolues détaillé</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center" headers="COD_VAR">AGEREVQ</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Âge quinquennal en années révolues</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center" headers="COD_VAR">ANAI</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Année de naissance</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center" headers="COD_VAR">ANEMR</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Ancienneté d'emménagement dans le logement (regroupée)</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center" headers="COD_VAR">APAF</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Appartenance à une famille</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center" headers="COD_VAR">ARM</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Arrondissement municipal de résidence (Paris, Lyon et Marseille)</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center" headers="COD_VAR">ASCEN</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Desserte par un ascenseur</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center" headers="COD_VAR">BAIN</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Baignoire ou douche (DOM)</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center" headers="COD_VAR">BATI</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Aspect du bâti (DOM)</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center" headers="COD_VAR">CATIRIS</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Catégorie de l'IRIS</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center" headers="COD_VAR">CATL</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Catégorie de logement</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center" headers="COD_VAR">CATPC</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Catégorie de population condensée</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center" headers="COD_VAR">CHAU</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Moyen de chauffage du logement (DOM)</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center" headers="COD_VAR">CHFL</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Chauffage central du logement (France métropolitaine)</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center" headers="COD_VAR">CHOS</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Chauffe-eau solaire (DOM)</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center" headers="COD_VAR">CLIM</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Existence d'au moins une pièce climatisée (DOM)</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center" headers="COD_VAR">CMBL</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Combustible principal du logement (France métropolitaine)</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center" headers="COD_VAR">COUPLE</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Déclaration de vie en couple</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center" headers="COD_VAR">CS1</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Catégorie socioprofessionnelle en 8 postes</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center" headers="COD_VAR">CUIS</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Cuisine intérieure avec évier (DOM)</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center" headers="COD_VAR">DEPT</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Département du lieu de résidence</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center" headers="COD_VAR">DEROU</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Nombre de deux-roues à moteur du ménage (DOM)</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center" headers="COD_VAR">DIPL</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Diplôme le plus élevé</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center" headers="COD_VAR">DNAI</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Département de naissance (si né en France)</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center" headers="COD_VAR">EAU</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Point d'eau potable à l'intérieur du logement (DOM)</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center" headers="COD_VAR">EGOUL</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Mode d'évacuation des eaux usées (DOM)</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center" headers="COD_VAR">ELEC</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Électricité dans le logement (DOM)</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center" headers="COD_VAR">EMPL</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Condition d'emploi</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center" headers="COD_VAR">ETUD</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Inscription dans un établissement d'enseignement</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center" headers="COD_VAR">GARL</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Emplacement réservé de stationnement</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center" headers="COD_VAR">HLML</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Appartenance du logement à un organisme HLM</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center" headers="COD_VAR">ILETUD</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Indicateur du lieu d'études</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center" headers="COD_VAR">ILT</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Indicateur du lieu de travail</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center" headers="COD_VAR">IMMI</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Situation quant à l'immigration</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center" headers="COD_VAR">INAI</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Indicateur du lieu de naissance</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center" headers="COD_VAR">INATC</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Indicateur de nationalité condensé (Français/Étranger)</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center" headers="COD_VAR">INFAM</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Nombre de familles du ménage</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center" headers="COD_VAR">INPER</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Nombre de personnes du ménage</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center" headers="COD_VAR">INPERF</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Nombre de personnes de la famille</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center" headers="COD_VAR">IPONDI</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Poids de l'individu</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center" headers="COD_VAR">IRAN</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Indicateur de résidence antérieure au 1er janvier de l'année précédente</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center" headers="COD_VAR">IRIS</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Code IRIS du lieu de résidence</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center" headers="COD_VAR">LIENF</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Lien familial</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center" headers="COD_VAR">LPRF</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Lien à la personne de référence de la famille</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center" headers="COD_VAR">LPRM</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Lien à la personne de référence du ménage</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center" headers="COD_VAR">METRODOM</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Indicateur Métropole ou DOM du lieu de résidence</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center" headers="COD_VAR">MOCO</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Mode de cohabitation</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center" headers="COD_VAR">MOCO_DET</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Mode de cohabitation détaillée d'une personne</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center" headers="COD_VAR">RECOMPOSEE</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Indicateur de recomposition d'une famille</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center" headers="COD_VAR">TAF</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Type agrégé de famille</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center" headers="COD_VAR">MODV</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Mode de vie</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center" headers="COD_VAR">NA17</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Activité économique en 17 postes (NA - A17)</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center" headers="COD_VAR">NA5</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Activité économique regroupée en 5 postes</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center" headers="COD_VAR">NAIDT</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Naissance dans un DOM-TOM-COM</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center" headers="COD_VAR">NBPI</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Nombre de pièces du logement</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center" headers="COD_VAR">NE17FR</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Nombre d'enfants âgés de 17 ans ou moins de la famille (regroupé)</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center" headers="COD_VAR">NE24FR</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Nombre d'enfants âgés de 24 ans ou moins de la famille (regroupé)</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center" headers="COD_VAR">NE3FR</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Nombre d'enfants âgés de 3 ans ou moins de la famille (regroupé)</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center" headers="COD_VAR">NE5FR</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Nombre d'enfants âgés de 5 ans ou moins de la famille (regroupé)</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center" headers="COD_VAR">NENFR</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Nombre d'enfants de la famille (regroupé)</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center" headers="COD_VAR">NPERR</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Nombre de personnes du ménage (regroupé)</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center" headers="COD_VAR">NUMF</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Numéro de famille</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center" headers="COD_VAR">ORIDT</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Originaire d'un DOM-TOM-COM</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center" headers="COD_VAR">RECH</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Ancienneté de recherche d'emploi</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center" headers="COD_VAR">REGION</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Région du lieu de résidence</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center" headers="COD_VAR">SANI</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Installations sanitaires (France métropolitaine)</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center" headers="COD_VAR">SANIDOM</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Installations sanitaires (DOM)</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center" headers="COD_VAR">SEXE</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Sexe</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center" headers="COD_VAR">SFM</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Structure familiale du ménage</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center" headers="COD_VAR">STAT_CONJ</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Statut conjugal</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center" headers="COD_VAR">STATR</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Statut professionnel regroupé</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center" headers="COD_VAR">STOCD</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Statut d'occupation détaillé du logement</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center" headers="COD_VAR">SURF</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Superficie du logement</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center" headers="COD_VAR">TACT</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Type d'activité</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center" headers="COD_VAR">TACTD16</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Type d'activité détaillé en 16 postes</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center" headers="COD_VAR">TP</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Temps de travail</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center" headers="COD_VAR">TRANS</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Mode de transport principal le plus souvent utilisé pour aller travailler</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center" headers="COD_VAR">TRIRIS</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Code TRIRIS du lieu de résidence</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center" headers="COD_VAR">TYPC</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Type de construction</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center" headers="COD_VAR">TYPFC</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Type de famille condensé</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center" headers="COD_VAR">TYPL</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Type de logement</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center" headers="COD_VAR">TYPMC</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Type de ménage regroupé (en 4 postes)</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center" headers="COD_VAR">TYPMR</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Type de ménage regroupé (en 9 postes)</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center" headers="COD_VAR">TDM8</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Type détaillé du ménage en 8 postes</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center" headers="COD_VAR">VOIT</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Nombre de voitures du ménage</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center" headers="COD_VAR">WC</td>
-<td class="gt_row gt_center" headers="LIB_VAR">Présence de W.-C. à l'intérieur du logement (DOM)</td>
-</tr>
-</tbody>
-</table>
-
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>RP_final <span class="sc">%&gt;%</span> </span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(DEPT <span class="sc">==</span> <span class="st">"75"</span> <span class="sc">&amp;</span> LPRM<span class="sc">==</span><span class="st">"1"</span> <span class="sc">&amp;</span> CATL<span class="sc">==</span><span class="st">"1"</span> <span class="sc">&amp;</span> TYPL <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"1"</span>, <span class="st">"2"</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(TYPL) <span class="sc">%&gt;%</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">Moy_pieces =</span> <span class="fu">weighted.mean</span>(<span class="fu">as.numeric</span>(<span class="fu">as.character</span>(NBPI)), </span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>                                       IPONDI, <span class="at">na.rm=</span>T)) <span class="sc">%&gt;%</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bind_rows</span>(<span class="fu">summarise</span>(<span class="at">TYPL =</span> <span class="st">"Ensemble des résidences principales"</span>, </span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>                      RP_final[RP_final<span class="sc">$</span>DEPT <span class="sc">==</span> <span class="st">"75"</span> <span class="sc">&amp;</span> RP_final<span class="sc">$</span>LPRM<span class="sc">==</span><span class="st">"1"</span> <span class="sc">&amp;</span> </span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>                                 RP_final<span class="sc">$</span>CATL <span class="sc">==</span> <span class="st">"1"</span> <span class="sc">&amp;</span> RP_final<span class="sc">$</span>TYPL <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"1"</span>, <span class="st">"2"</span>), ], </span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>                      <span class="at">Moy_pieces =</span> <span class="fu">weighted.mean</span>(<span class="fu">as.numeric</span>(<span class="fu">as.character</span>(NBPI)), </span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>                                                 IPONDI, <span class="at">na.rm=</span>T))) <span class="sc">%&gt;%</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gt</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fmt_number</span>(<span class="at">columns =</span> <span class="dv">2</span>, <span class="at">dec_mark =</span> <span class="st">","</span>, <span class="at">decimals =</span> <span class="dv">1</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cols_label</span>(<span class="at">TYPL=</span><span class="st">"Type de logement"</span>, <span class="at">Moy_pieces=</span><span class="st">"2021"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">text_case_match</span>(<span class="st">"1"</span> <span class="sc">~</span> <span class="st">"Maison"</span>, <span class="st">"2"</span> <span class="sc">~</span> (<span class="st">"Appartement"</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_header</span>(<span class="at">title =</span> <span class="st">"Nombre moyen de pièces des résidences principales"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_source_note</span>(<span class="at">source_note =</span> <span class="st">"Source : Insee, RP 2021 ; Champ : Paris."</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div>
-<p>Ou si on veut les afficher par ordre alphabétique selon le nom de la variable, on peut utiliser la fonction <code>arrange()</code>, qui permet de trier une table de données selon la variable indiquée :</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>meta <span class="sc">%&gt;%</span> <span class="fu">select</span>(COD_VAR, LIB_VAR) <span class="sc">%&gt;%</span> <span class="fu">unique</span>() <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(COD_VAR) <span class="sc">%&gt;%</span> <span class="fu">gt</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>L’une des difficultés pour l’analyse de cette base de données réside dans les différents niveaux présents : “individu” pour la personne de référence du ménage ; “ménage” regroupant l’ensemble des occupants d’une résidence principale, qu’ils aient ou non des liens de parenté ; “famille” partie d’un ménage comprenant au moins 2 personnes (par exemple, un couple, ou un adulte avec un enfant…) ; et enfin “logement” qui comprend ici les résidences principales et rassemble des informations décrivant les types de logement.</p>
-<p>Il faut bien comprendre comment utiliser à bon escient ces différents niveaux, en particulier ici le niveau logement : pour toute variable de ce niveau, il faudra utiliser un filtre, c’est-à-dire ne prendre que la personne de référence du ménage (<code>LPRM=="1"</code>).</p>
-<p>Il faut également penser que les données sont pondérées, donc pour sortir des statistiques descriptives, il faut à chaque fois mettre la variable de pondération <code>IPONDI</code>.</p>
+<p>Ainsi, si l’on veut créer des tableaux de répartition à une seule variable, on peut utiliser ces procédures qui se structurent toujours de la même façon. Au lieu de faire un copié-collé du code et de changer le nom des variables, autrement dit pour systématiser nos procédures, une astuce est de créer ses propres fonctions. C’est ce que nous allons étudier maintenant.</p>
 
 
 </section>
@@ -2271,14 +2012,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./index.html" class="pagination-link" aria-label="Présentation">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Présentation</span>
+      <a href="./04-Récapitulatif.html" class="pagination-link" aria-label="Récapitulatif séance 1 - Data Wrangling">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Récapitulatif séance 1 - Data Wrangling</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./02-Manipulation-base.html" class="pagination-link" aria-label="Manipulation de la base">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Manipulation de la base</span></span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->

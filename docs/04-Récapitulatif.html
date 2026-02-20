@@ -6,10 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Camille Signoretto">
-<meta name="dcterms.date" content="2026-01-01">
 
-<title>Data Mining 2026</title>
+<title>4&nbsp; Récapitulatif séance 1 - Data Wrangling – Data Mining 2026</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -22,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -32,7 +65,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./01-Base-de-donnees.html" rel="next">
+<link href="./05-Questions-fouille-donnees.html" rel="next">
+<link href="./03-Manipulation-variables.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -251,7 +285,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Présentation</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01-Base-de-donnees.html">Séance 1</a></li><li class="breadcrumb-item"><a href="./04-Récapitulatif.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Récapitulatif séance 1 - Data Wrangling</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -282,7 +316,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Présentation</span></a>
   </div>
 </li>
@@ -315,7 +349,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./04-Récapitulatif.html" class="sidebar-item-text sidebar-link">
+  <a href="./04-Récapitulatif.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Récapitulatif séance 1 - Data Wrangling</span></span></a>
   </div>
 </li>
@@ -348,12 +382,8 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Sur cette page</h2>
    
   <ul>
-  <li><a href="#présentation" id="toc-présentation" class="nav-link active" data-scroll-target="#présentation">Présentation</a>
-  <ul class="collapse">
-  <li><a href="#à-propos-de-ce-document" id="toc-à-propos-de-ce-document" class="nav-link" data-scroll-target="#à-propos-de-ce-document">À propos de ce document</a></li>
-  <li><a href="#prérequis" id="toc-prérequis" class="nav-link" data-scroll-target="#prérequis">Prérequis</a></li>
-  <li><a href="#licence" id="toc-licence" class="nav-link" data-scroll-target="#licence">Licence</a></li>
-  </ul></li>
+  <li><a href="#ce-quon-a-appris" id="toc-ce-quon-a-appris" class="nav-link active" data-scroll-target="#ce-quon-a-appris"><span class="header-section-number">4.1</span> Ce qu’on a appris</a></li>
+  <li><a href="#enregistrement-des-tables" id="toc-enregistrement-des-tables" class="nav-link" data-scroll-target="#enregistrement-des-tables"><span class="header-section-number">4.2</span> Enregistrement des tables</a></li>
   </ul>
 </nav>
     </div>
@@ -361,29 +391,16 @@ ul.task-list li input[type="checkbox"] {
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01-Base-de-donnees.html">Séance 1</a></li><li class="breadcrumb-item"><a href="./04-Récapitulatif.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Récapitulatif séance 1 - Data Wrangling</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Data Mining 2026</h1>
-<p class="subtitle lead">Master Meci - Parcours PISE et CCESE - Option Data</p>
+<h1 class="title"><span id="sec-recapitulatif" class="quarto-section-identifier"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Récapitulatif séance 1 - Data Wrangling</span></span></h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Camille Signoretto </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">January 1, 2026</p>
-    </div>
-  </div>
   
     
   </div>
@@ -393,42 +410,28 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="présentation" class="level1 unnumbered">
-<h1 class="unnumbered">Présentation</h1>
-<section id="à-propos-de-ce-document" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="à-propos-de-ce-document">À propos de ce document</h2>
-<p>Ce document est la version 2026 du cours de Data Mining dispensé aux étudiants de deuxième année de l’option Data du master MECI parcours PISE et CCESE. Ce cours est partagé avec <a href="https://github.com/ClaudeGrasland">Claude Grasland</a>.</p>
-<p>Ce document est régulièrement corrigé et mis à jour. La version de référence est disponible en ligne à l’adresse suivante :</p>
+<section id="ce-quon-a-appris" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="ce-quon-a-appris"><span class="header-section-number">4.1</span> Ce qu’on a appris</h2>
+<p>Cette séance sur la préparation et nettoyage d’une base de données - phase appelée aussi Data Wrangling - nous a permis d’apprendre à :</p>
 <ul>
-<li><a href="https://github.com/Camille-Sisi/Data-Mining-2026" class="uri">https://github.com/Camille-Sisi/Data-Mining-2026</a>.</li>
+<li>charger des bases de données, y compris dans le cas d’un fichier lourd avec la fonction <code>fread()</code> du package <strong><code>data.table</code></strong> ;</li>
+<li>repérer les informations intéressantes contenues dans cette base, notamment en allant voir le fichier “annexe”, celui des métadonneés (ou dictionnaire des codes) ; mais ce type de fichier n’est pas toujours disponible, si vous avez des données d’une entreprise, peut-être que l’information décrivant cette base est plus informelle, ou même si vous “aspirez” des données <em>via</em> le web vous n’aurez alors pas du tout d’information décrivant la base… :</li>
+<li>manipuler la base de données : en identifiant d’abord le format des données, en sélectionnant un champ différent (moins de lignes/d’observations), et/ou des variables spécifiques (moins de colonnes/d’informations), avec les fonctions <code>filter()</code>, <code>select()</code>, <code>subset()</code>, <code>pivot_wider()</code>, <code>pivot_longer()</code>, <code>unique()</code>, <code>arrange()</code>, etc.;</li>
+<li>manipuler des variables : en identifiant le format des variables, en les mettant dans le bon format, en (re)travaillant les modalités d’une variable qualitative (avec notamment les fonctions <code>mutate()</code>, <code>case_when()</code>, <code>as.factor()</code>, ou encore celles du package <strong><code>factors</code></strong>), en détectant/visualisant/gérant les valeurs manquantes d’une variable quantitative avec entre autres le package <strong><code>naniar</code></strong>, en détectant/visualiant/gérant les valeurs aberrantes d’une variable quantitative à partir en particulier des statistiques de la “boîte à moustaches” (fonction <code>geom_boxplot()</code> à utiliser avec <code>ggplot()</code>, fonction <code>boxplot.stats()</code>), et enfin, en transformant une variable quantitative en variable qualitative (avec la fonction <code>cut()</code>).</li>
 </ul>
-<p>Pour toute suggestion ou correction, n’hésitez pas à me contacter <a href="mailto:camille.signoretto@u-paris.fr">par mail</a>.</p>
+<p>L’usage pour cette phase du langage <code>dplyr</code> ou plus généralement du <code>tidyverse</code> est particulièrement conseillée, cela permet d’“enchaîner” des fonctions en une seule instruction.</p>
 </section>
-<section id="prérequis" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="prérequis">Prérequis</h2>
-<p>Le seul prérequis pour suivre ce document est d’avoir installé R et RStudio sur votre ordinateur. Il s’agit de deux logiciels libres, gratuits, téléchargeables en ligne et fonctionnant sous PC, Mac et Linux.</p>
-<p>Pour installer R, il suffit de se rendre sur une des pages suivantes<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>:</p>
-<ul>
-<li><a href="https://cloud.r-project.org/bin/windows/base/">Installer R sous Windows</a></li>
-<li><a href="https://cloud.r-project.org/bin/macosx/">Installer R sous Mac</a></li>
-</ul>
-<p>Pour installer RStudio, rendez-vous sur la page suivante et téléchargez la version adaptée à votre système :</p>
-<ul>
-<li><a href="https://www.rstudio.com/products/rstudio/download/#download" class="uri">https://www.rstudio.com/products/rstudio/download/#download</a></li>
-</ul>
-</section>
-<section id="licence" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="licence">Licence</h2>
-<p>Ce document est mis à disposition selon les termes de la <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Licence Creative Commons Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 4.0 International</a>.</p>
+<section id="enregistrement-des-tables" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="enregistrement-des-tables"><span class="header-section-number">4.2</span> Enregistrement des tables</h2>
+<p>Et voilà, on a bien “trituré” ces deux bases de données, maintenant on peut les enregistrer dans notre projet pour pouvoir les réutiliser lors de la prochaine séance.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># On enregistre les tables de données pour les utiliser ultérieurement</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(<span class="at">object =</span> RP_final,  <span class="at">file =</span> <span class="st">"data/RP_final.Rdata"</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(<span class="at">object =</span> meta,  <span class="at">file =</span> <span class="st">"data/meta.Rdata"</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(<span class="at">object =</span> dvf_ParisPC, <span class="at">file =</span> <span class="st">"data/dvf_ParisPC.Rdata"</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 
 
-</section>
-</section>
-<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
-<hr>
-<ol>
-<li id="fn1"><p>Sous Linux, utilisez votre gestionnaire de packages habituel.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-</ol>
 </section>
 
 </main> <!-- /main -->
@@ -847,10 +850,13 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./03-Manipulation-variables.html" class="pagination-link" aria-label="Manipulation des variables">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Manipulation des variables</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./01-Base-de-donnees.html" class="pagination-link" aria-label="Récupération de la base de données">
-        <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Récupération de la base de données</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./05-Questions-fouille-donnees.html" class="pagination-link" aria-label="Quelles questions intéressantes pour une &quot;fouille de données&quot; sur la base des RP ?">
+        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Quelles questions intéressantes pour une “fouille de données” sur la base des RP ?</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
