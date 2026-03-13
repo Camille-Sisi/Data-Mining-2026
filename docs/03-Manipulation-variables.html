@@ -399,6 +399,35 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Quelles questions intéressantes pour une “fouille de données” sur la base des RP ?</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06-Fonctions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Systématiser nos procédures : construire une fonction</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Séance 3</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07-Ggplot-theorique.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Data Visualization et Ggplot2 : aspects théoriques</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08-Ggplot-pratique.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Data Mining et Data Visualization en pratique</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -507,23 +536,23 @@ window.Quarto = {
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># RP_final %&gt;% select_if(is.numeric) %&gt;% head() %&gt;% gt()</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>RP_final <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="fu">where</span>(is.numeric)) <span class="sc">%&gt;%</span> <span class="fu">head</span>() <span class="sc">%&gt;%</span> <span class="fu">gt</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
-<div id="knaipqdndk" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#knaipqdndk table {
+<div id="wbjykkufne" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#wbjykkufne table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#knaipqdndk thead, #knaipqdndk tbody, #knaipqdndk tfoot, #knaipqdndk tr, #knaipqdndk td, #knaipqdndk th {
+#wbjykkufne thead, #wbjykkufne tbody, #wbjykkufne tfoot, #wbjykkufne tr, #wbjykkufne td, #wbjykkufne th {
   border-style: none;
 }
 
-#knaipqdndk p {
+#wbjykkufne p {
   margin: 0;
   padding: 0;
 }
 
-#knaipqdndk .gt_table {
+#wbjykkufne .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -549,12 +578,12 @@ window.Quarto = {
   border-left-color: #D3D3D3;
 }
 
-#knaipqdndk .gt_caption {
+#wbjykkufne .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#knaipqdndk .gt_title {
+#wbjykkufne .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -566,7 +595,7 @@ window.Quarto = {
   border-bottom-width: 0;
 }
 
-#knaipqdndk .gt_subtitle {
+#wbjykkufne .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -578,7 +607,7 @@ window.Quarto = {
   border-top-width: 0;
 }
 
-#knaipqdndk .gt_heading {
+#wbjykkufne .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -590,13 +619,13 @@ window.Quarto = {
   border-right-color: #D3D3D3;
 }
 
-#knaipqdndk .gt_bottom_border {
+#wbjykkufne .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#knaipqdndk .gt_col_headings {
+#wbjykkufne .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -611,7 +640,7 @@ window.Quarto = {
   border-right-color: #D3D3D3;
 }
 
-#knaipqdndk .gt_col_heading {
+#wbjykkufne .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -631,7 +660,7 @@ window.Quarto = {
   overflow-x: hidden;
 }
 
-#knaipqdndk .gt_column_spanner_outer {
+#wbjykkufne .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -643,15 +672,15 @@ window.Quarto = {
   padding-right: 4px;
 }
 
-#knaipqdndk .gt_column_spanner_outer:first-child {
+#wbjykkufne .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#knaipqdndk .gt_column_spanner_outer:last-child {
+#wbjykkufne .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#knaipqdndk .gt_column_spanner {
+#wbjykkufne .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -663,11 +692,11 @@ window.Quarto = {
   width: 100%;
 }
 
-#knaipqdndk .gt_spanner_row {
+#wbjykkufne .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#knaipqdndk .gt_group_heading {
+#wbjykkufne .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -693,7 +722,7 @@ window.Quarto = {
   text-align: left;
 }
 
-#knaipqdndk .gt_empty_group_heading {
+#wbjykkufne .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -708,15 +737,15 @@ window.Quarto = {
   vertical-align: middle;
 }
 
-#knaipqdndk .gt_from_md > :first-child {
+#wbjykkufne .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#knaipqdndk .gt_from_md > :last-child {
+#wbjykkufne .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#knaipqdndk .gt_row {
+#wbjykkufne .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -735,7 +764,7 @@ window.Quarto = {
   overflow-x: hidden;
 }
 
-#knaipqdndk .gt_stub {
+#wbjykkufne .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -748,7 +777,7 @@ window.Quarto = {
   padding-right: 5px;
 }
 
-#knaipqdndk .gt_stub_row_group {
+#wbjykkufne .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -762,15 +791,15 @@ window.Quarto = {
   vertical-align: top;
 }
 
-#knaipqdndk .gt_row_group_first td {
+#wbjykkufne .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#knaipqdndk .gt_row_group_first th {
+#wbjykkufne .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#knaipqdndk .gt_summary_row {
+#wbjykkufne .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -780,16 +809,16 @@ window.Quarto = {
   padding-right: 5px;
 }
 
-#knaipqdndk .gt_first_summary_row {
+#wbjykkufne .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#knaipqdndk .gt_first_summary_row.thick {
+#wbjykkufne .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#knaipqdndk .gt_last_summary_row {
+#wbjykkufne .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -799,7 +828,7 @@ window.Quarto = {
   border-bottom-color: #D3D3D3;
 }
 
-#knaipqdndk .gt_grand_summary_row {
+#wbjykkufne .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -809,7 +838,7 @@ window.Quarto = {
   padding-right: 5px;
 }
 
-#knaipqdndk .gt_first_grand_summary_row {
+#wbjykkufne .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -819,7 +848,7 @@ window.Quarto = {
   border-top-color: #D3D3D3;
 }
 
-#knaipqdndk .gt_last_grand_summary_row_top {
+#wbjykkufne .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -829,11 +858,11 @@ window.Quarto = {
   border-bottom-color: #D3D3D3;
 }
 
-#knaipqdndk .gt_striped {
+#wbjykkufne .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#knaipqdndk .gt_table_body {
+#wbjykkufne .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -842,7 +871,7 @@ window.Quarto = {
   border-bottom-color: #D3D3D3;
 }
 
-#knaipqdndk .gt_footnotes {
+#wbjykkufne .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -856,7 +885,7 @@ window.Quarto = {
   border-right-color: #D3D3D3;
 }
 
-#knaipqdndk .gt_footnote {
+#wbjykkufne .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -865,7 +894,7 @@ window.Quarto = {
   padding-right: 5px;
 }
 
-#knaipqdndk .gt_sourcenotes {
+#wbjykkufne .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -879,7 +908,7 @@ window.Quarto = {
   border-right-color: #D3D3D3;
 }
 
-#knaipqdndk .gt_sourcenote {
+#wbjykkufne .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -887,72 +916,72 @@ window.Quarto = {
   padding-right: 5px;
 }
 
-#knaipqdndk .gt_left {
+#wbjykkufne .gt_left {
   text-align: left;
 }
 
-#knaipqdndk .gt_center {
+#wbjykkufne .gt_center {
   text-align: center;
 }
 
-#knaipqdndk .gt_right {
+#wbjykkufne .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#knaipqdndk .gt_font_normal {
+#wbjykkufne .gt_font_normal {
   font-weight: normal;
 }
 
-#knaipqdndk .gt_font_bold {
+#wbjykkufne .gt_font_bold {
   font-weight: bold;
 }
 
-#knaipqdndk .gt_font_italic {
+#wbjykkufne .gt_font_italic {
   font-style: italic;
 }
 
-#knaipqdndk .gt_super {
+#wbjykkufne .gt_super {
   font-size: 65%;
 }
 
-#knaipqdndk .gt_footnote_marks {
+#wbjykkufne .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#knaipqdndk .gt_asterisk {
+#wbjykkufne .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#knaipqdndk .gt_indent_1 {
+#wbjykkufne .gt_indent_1 {
   text-indent: 5px;
 }
 
-#knaipqdndk .gt_indent_2 {
+#wbjykkufne .gt_indent_2 {
   text-indent: 10px;
 }
 
-#knaipqdndk .gt_indent_3 {
+#wbjykkufne .gt_indent_3 {
   text-indent: 15px;
 }
 
-#knaipqdndk .gt_indent_4 {
+#wbjykkufne .gt_indent_4 {
   text-indent: 20px;
 }
 
-#knaipqdndk .gt_indent_5 {
+#wbjykkufne .gt_indent_5 {
   text-indent: 25px;
 }
 
-#knaipqdndk .katex-display {
+#wbjykkufne .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#knaipqdndk div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#wbjykkufne div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -1160,23 +1189,23 @@ window.Quarto = {
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="co"># dans le fichier "meta"</span></span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>meta <span class="sc">%&gt;%</span> <span class="fu">filter</span>(COD_VAR<span class="sc">==</span><span class="st">"TACT"</span>) <span class="sc">%&gt;%</span> <span class="fu">select</span>(COD_MOD, LIB_MOD) <span class="sc">%&gt;%</span> <span class="fu">gt</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
-<div id="cvnrdypnzq" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#cvnrdypnzq table {
+<div id="ehbhsnmkau" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#ehbhsnmkau table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#cvnrdypnzq thead, #cvnrdypnzq tbody, #cvnrdypnzq tfoot, #cvnrdypnzq tr, #cvnrdypnzq td, #cvnrdypnzq th {
+#ehbhsnmkau thead, #ehbhsnmkau tbody, #ehbhsnmkau tfoot, #ehbhsnmkau tr, #ehbhsnmkau td, #ehbhsnmkau th {
   border-style: none;
 }
 
-#cvnrdypnzq p {
+#ehbhsnmkau p {
   margin: 0;
   padding: 0;
 }
 
-#cvnrdypnzq .gt_table {
+#ehbhsnmkau .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -1202,12 +1231,12 @@ window.Quarto = {
   border-left-color: #D3D3D3;
 }
 
-#cvnrdypnzq .gt_caption {
+#ehbhsnmkau .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#cvnrdypnzq .gt_title {
+#ehbhsnmkau .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1219,7 +1248,7 @@ window.Quarto = {
   border-bottom-width: 0;
 }
 
-#cvnrdypnzq .gt_subtitle {
+#ehbhsnmkau .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1231,7 +1260,7 @@ window.Quarto = {
   border-top-width: 0;
 }
 
-#cvnrdypnzq .gt_heading {
+#ehbhsnmkau .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1243,13 +1272,13 @@ window.Quarto = {
   border-right-color: #D3D3D3;
 }
 
-#cvnrdypnzq .gt_bottom_border {
+#ehbhsnmkau .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#cvnrdypnzq .gt_col_headings {
+#ehbhsnmkau .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1264,7 +1293,7 @@ window.Quarto = {
   border-right-color: #D3D3D3;
 }
 
-#cvnrdypnzq .gt_col_heading {
+#ehbhsnmkau .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1284,7 +1313,7 @@ window.Quarto = {
   overflow-x: hidden;
 }
 
-#cvnrdypnzq .gt_column_spanner_outer {
+#ehbhsnmkau .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1296,15 +1325,15 @@ window.Quarto = {
   padding-right: 4px;
 }
 
-#cvnrdypnzq .gt_column_spanner_outer:first-child {
+#ehbhsnmkau .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#cvnrdypnzq .gt_column_spanner_outer:last-child {
+#ehbhsnmkau .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#cvnrdypnzq .gt_column_spanner {
+#ehbhsnmkau .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1316,11 +1345,11 @@ window.Quarto = {
   width: 100%;
 }
 
-#cvnrdypnzq .gt_spanner_row {
+#ehbhsnmkau .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#cvnrdypnzq .gt_group_heading {
+#ehbhsnmkau .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1346,7 +1375,7 @@ window.Quarto = {
   text-align: left;
 }
 
-#cvnrdypnzq .gt_empty_group_heading {
+#ehbhsnmkau .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1361,15 +1390,15 @@ window.Quarto = {
   vertical-align: middle;
 }
 
-#cvnrdypnzq .gt_from_md > :first-child {
+#ehbhsnmkau .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#cvnrdypnzq .gt_from_md > :last-child {
+#ehbhsnmkau .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#cvnrdypnzq .gt_row {
+#ehbhsnmkau .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1388,7 +1417,7 @@ window.Quarto = {
   overflow-x: hidden;
 }
 
-#cvnrdypnzq .gt_stub {
+#ehbhsnmkau .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1401,7 +1430,7 @@ window.Quarto = {
   padding-right: 5px;
 }
 
-#cvnrdypnzq .gt_stub_row_group {
+#ehbhsnmkau .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1415,15 +1444,15 @@ window.Quarto = {
   vertical-align: top;
 }
 
-#cvnrdypnzq .gt_row_group_first td {
+#ehbhsnmkau .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#cvnrdypnzq .gt_row_group_first th {
+#ehbhsnmkau .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#cvnrdypnzq .gt_summary_row {
+#ehbhsnmkau .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1433,16 +1462,16 @@ window.Quarto = {
   padding-right: 5px;
 }
 
-#cvnrdypnzq .gt_first_summary_row {
+#ehbhsnmkau .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#cvnrdypnzq .gt_first_summary_row.thick {
+#ehbhsnmkau .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#cvnrdypnzq .gt_last_summary_row {
+#ehbhsnmkau .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1452,7 +1481,7 @@ window.Quarto = {
   border-bottom-color: #D3D3D3;
 }
 
-#cvnrdypnzq .gt_grand_summary_row {
+#ehbhsnmkau .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1462,7 +1491,7 @@ window.Quarto = {
   padding-right: 5px;
 }
 
-#cvnrdypnzq .gt_first_grand_summary_row {
+#ehbhsnmkau .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1472,7 +1501,7 @@ window.Quarto = {
   border-top-color: #D3D3D3;
 }
 
-#cvnrdypnzq .gt_last_grand_summary_row_top {
+#ehbhsnmkau .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1482,11 +1511,11 @@ window.Quarto = {
   border-bottom-color: #D3D3D3;
 }
 
-#cvnrdypnzq .gt_striped {
+#ehbhsnmkau .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#cvnrdypnzq .gt_table_body {
+#ehbhsnmkau .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1495,7 +1524,7 @@ window.Quarto = {
   border-bottom-color: #D3D3D3;
 }
 
-#cvnrdypnzq .gt_footnotes {
+#ehbhsnmkau .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1509,7 +1538,7 @@ window.Quarto = {
   border-right-color: #D3D3D3;
 }
 
-#cvnrdypnzq .gt_footnote {
+#ehbhsnmkau .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1518,7 +1547,7 @@ window.Quarto = {
   padding-right: 5px;
 }
 
-#cvnrdypnzq .gt_sourcenotes {
+#ehbhsnmkau .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1532,7 +1561,7 @@ window.Quarto = {
   border-right-color: #D3D3D3;
 }
 
-#cvnrdypnzq .gt_sourcenote {
+#ehbhsnmkau .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1540,72 +1569,72 @@ window.Quarto = {
   padding-right: 5px;
 }
 
-#cvnrdypnzq .gt_left {
+#ehbhsnmkau .gt_left {
   text-align: left;
 }
 
-#cvnrdypnzq .gt_center {
+#ehbhsnmkau .gt_center {
   text-align: center;
 }
 
-#cvnrdypnzq .gt_right {
+#ehbhsnmkau .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#cvnrdypnzq .gt_font_normal {
+#ehbhsnmkau .gt_font_normal {
   font-weight: normal;
 }
 
-#cvnrdypnzq .gt_font_bold {
+#ehbhsnmkau .gt_font_bold {
   font-weight: bold;
 }
 
-#cvnrdypnzq .gt_font_italic {
+#ehbhsnmkau .gt_font_italic {
   font-style: italic;
 }
 
-#cvnrdypnzq .gt_super {
+#ehbhsnmkau .gt_super {
   font-size: 65%;
 }
 
-#cvnrdypnzq .gt_footnote_marks {
+#ehbhsnmkau .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#cvnrdypnzq .gt_asterisk {
+#ehbhsnmkau .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#cvnrdypnzq .gt_indent_1 {
+#ehbhsnmkau .gt_indent_1 {
   text-indent: 5px;
 }
 
-#cvnrdypnzq .gt_indent_2 {
+#ehbhsnmkau .gt_indent_2 {
   text-indent: 10px;
 }
 
-#cvnrdypnzq .gt_indent_3 {
+#ehbhsnmkau .gt_indent_3 {
   text-indent: 15px;
 }
 
-#cvnrdypnzq .gt_indent_4 {
+#ehbhsnmkau .gt_indent_4 {
   text-indent: 20px;
 }
 
-#cvnrdypnzq .gt_indent_5 {
+#ehbhsnmkau .gt_indent_5 {
   text-indent: 25px;
 }
 
-#cvnrdypnzq .katex-display {
+#ehbhsnmkau .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#cvnrdypnzq div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#ehbhsnmkau div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -1767,23 +1796,23 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>dvf_ParisPC <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="at">file =</span><span class="st">"data/dvf_ParisPC.Rdata"</span>)</span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>dvf_ParisPC <span class="sc">%&gt;%</span> <span class="fu">head</span>() <span class="sc">%&gt;%</span> <span class="fu">gt</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
-<div id="czwvvoxamt" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#czwvvoxamt table {
+<div id="wemzsylfpe" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#wemzsylfpe table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#czwvvoxamt thead, #czwvvoxamt tbody, #czwvvoxamt tfoot, #czwvvoxamt tr, #czwvvoxamt td, #czwvvoxamt th {
+#wemzsylfpe thead, #wemzsylfpe tbody, #wemzsylfpe tfoot, #wemzsylfpe tr, #wemzsylfpe td, #wemzsylfpe th {
   border-style: none;
 }
 
-#czwvvoxamt p {
+#wemzsylfpe p {
   margin: 0;
   padding: 0;
 }
 
-#czwvvoxamt .gt_table {
+#wemzsylfpe .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -1809,12 +1838,12 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   border-left-color: #D3D3D3;
 }
 
-#czwvvoxamt .gt_caption {
+#wemzsylfpe .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#czwvvoxamt .gt_title {
+#wemzsylfpe .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1826,7 +1855,7 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   border-bottom-width: 0;
 }
 
-#czwvvoxamt .gt_subtitle {
+#wemzsylfpe .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1838,7 +1867,7 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   border-top-width: 0;
 }
 
-#czwvvoxamt .gt_heading {
+#wemzsylfpe .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1850,13 +1879,13 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   border-right-color: #D3D3D3;
 }
 
-#czwvvoxamt .gt_bottom_border {
+#wemzsylfpe .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#czwvvoxamt .gt_col_headings {
+#wemzsylfpe .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1871,7 +1900,7 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   border-right-color: #D3D3D3;
 }
 
-#czwvvoxamt .gt_col_heading {
+#wemzsylfpe .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1891,7 +1920,7 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   overflow-x: hidden;
 }
 
-#czwvvoxamt .gt_column_spanner_outer {
+#wemzsylfpe .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1903,15 +1932,15 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   padding-right: 4px;
 }
 
-#czwvvoxamt .gt_column_spanner_outer:first-child {
+#wemzsylfpe .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#czwvvoxamt .gt_column_spanner_outer:last-child {
+#wemzsylfpe .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#czwvvoxamt .gt_column_spanner {
+#wemzsylfpe .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1923,11 +1952,11 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   width: 100%;
 }
 
-#czwvvoxamt .gt_spanner_row {
+#wemzsylfpe .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#czwvvoxamt .gt_group_heading {
+#wemzsylfpe .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1953,7 +1982,7 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   text-align: left;
 }
 
-#czwvvoxamt .gt_empty_group_heading {
+#wemzsylfpe .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1968,15 +1997,15 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   vertical-align: middle;
 }
 
-#czwvvoxamt .gt_from_md > :first-child {
+#wemzsylfpe .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#czwvvoxamt .gt_from_md > :last-child {
+#wemzsylfpe .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#czwvvoxamt .gt_row {
+#wemzsylfpe .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1995,7 +2024,7 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   overflow-x: hidden;
 }
 
-#czwvvoxamt .gt_stub {
+#wemzsylfpe .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2008,7 +2037,7 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   padding-right: 5px;
 }
 
-#czwvvoxamt .gt_stub_row_group {
+#wemzsylfpe .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2022,15 +2051,15 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   vertical-align: top;
 }
 
-#czwvvoxamt .gt_row_group_first td {
+#wemzsylfpe .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#czwvvoxamt .gt_row_group_first th {
+#wemzsylfpe .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#czwvvoxamt .gt_summary_row {
+#wemzsylfpe .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2040,16 +2069,16 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   padding-right: 5px;
 }
 
-#czwvvoxamt .gt_first_summary_row {
+#wemzsylfpe .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#czwvvoxamt .gt_first_summary_row.thick {
+#wemzsylfpe .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#czwvvoxamt .gt_last_summary_row {
+#wemzsylfpe .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2059,7 +2088,7 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   border-bottom-color: #D3D3D3;
 }
 
-#czwvvoxamt .gt_grand_summary_row {
+#wemzsylfpe .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2069,7 +2098,7 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   padding-right: 5px;
 }
 
-#czwvvoxamt .gt_first_grand_summary_row {
+#wemzsylfpe .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2079,7 +2108,7 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   border-top-color: #D3D3D3;
 }
 
-#czwvvoxamt .gt_last_grand_summary_row_top {
+#wemzsylfpe .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2089,11 +2118,11 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   border-bottom-color: #D3D3D3;
 }
 
-#czwvvoxamt .gt_striped {
+#wemzsylfpe .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#czwvvoxamt .gt_table_body {
+#wemzsylfpe .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2102,7 +2131,7 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   border-bottom-color: #D3D3D3;
 }
 
-#czwvvoxamt .gt_footnotes {
+#wemzsylfpe .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2116,7 +2145,7 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   border-right-color: #D3D3D3;
 }
 
-#czwvvoxamt .gt_footnote {
+#wemzsylfpe .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -2125,7 +2154,7 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   padding-right: 5px;
 }
 
-#czwvvoxamt .gt_sourcenotes {
+#wemzsylfpe .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2139,7 +2168,7 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   border-right-color: #D3D3D3;
 }
 
-#czwvvoxamt .gt_sourcenote {
+#wemzsylfpe .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -2147,72 +2176,72 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   padding-right: 5px;
 }
 
-#czwvvoxamt .gt_left {
+#wemzsylfpe .gt_left {
   text-align: left;
 }
 
-#czwvvoxamt .gt_center {
+#wemzsylfpe .gt_center {
   text-align: center;
 }
 
-#czwvvoxamt .gt_right {
+#wemzsylfpe .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#czwvvoxamt .gt_font_normal {
+#wemzsylfpe .gt_font_normal {
   font-weight: normal;
 }
 
-#czwvvoxamt .gt_font_bold {
+#wemzsylfpe .gt_font_bold {
   font-weight: bold;
 }
 
-#czwvvoxamt .gt_font_italic {
+#wemzsylfpe .gt_font_italic {
   font-style: italic;
 }
 
-#czwvvoxamt .gt_super {
+#wemzsylfpe .gt_super {
   font-size: 65%;
 }
 
-#czwvvoxamt .gt_footnote_marks {
+#wemzsylfpe .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#czwvvoxamt .gt_asterisk {
+#wemzsylfpe .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#czwvvoxamt .gt_indent_1 {
+#wemzsylfpe .gt_indent_1 {
   text-indent: 5px;
 }
 
-#czwvvoxamt .gt_indent_2 {
+#wemzsylfpe .gt_indent_2 {
   text-indent: 10px;
 }
 
-#czwvvoxamt .gt_indent_3 {
+#wemzsylfpe .gt_indent_3 {
   text-indent: 15px;
 }
 
-#czwvvoxamt .gt_indent_4 {
+#wemzsylfpe .gt_indent_4 {
   text-indent: 20px;
 }
 
-#czwvvoxamt .gt_indent_5 {
+#wemzsylfpe .gt_indent_5 {
   text-indent: 25px;
 }
 
-#czwvvoxamt .katex-display {
+#wemzsylfpe .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#czwvvoxamt div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#wemzsylfpe div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -2247,6 +2276,7 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
 <th id="type_local" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">type_local</th>
 <th id="surface_reelle" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">surface_reelle</th>
 <th id="nb_pieces" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">nb_pieces</th>
+<th id="Surface-du-terrain" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Surface du terrain</th>
 <th id="Longitude" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Longitude</th>
 <th id="Latitude" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Latitude</th>
 <th id="Code-Officiel-EPCI" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Code Officiel EPCI</th>
@@ -2289,6 +2319,7 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
 <td class="gt_row gt_left" headers="type_local">Maison</td>
 <td class="gt_row gt_right" headers="surface_reelle">140</td>
 <td class="gt_row gt_right" headers="nb_pieces">6</td>
+<td class="gt_row gt_right" headers="Surface du terrain">720</td>
 <td class="gt_row gt_right" headers="Longitude">2.560453</td>
 <td class="gt_row gt_right" headers="Latitude">48.85037</td>
 <td class="gt_row gt_right" headers="Code Officiel EPCI">200054781</td>
@@ -2329,6 +2360,7 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
 <td class="gt_row gt_left" headers="type_local">Appartement</td>
 <td class="gt_row gt_right" headers="surface_reelle">65</td>
 <td class="gt_row gt_right" headers="nb_pieces">3</td>
+<td class="gt_row gt_right" headers="Surface du terrain">NA</td>
 <td class="gt_row gt_right" headers="Longitude">2.411196</td>
 <td class="gt_row gt_right" headers="Latitude">48.92188</td>
 <td class="gt_row gt_right" headers="Code Officiel EPCI">200054781</td>
@@ -2369,6 +2401,7 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
 <td class="gt_row gt_left" headers="type_local">Appartement</td>
 <td class="gt_row gt_right" headers="surface_reelle">43</td>
 <td class="gt_row gt_right" headers="nb_pieces">2</td>
+<td class="gt_row gt_right" headers="Surface du terrain">NA</td>
 <td class="gt_row gt_right" headers="Longitude">2.462002</td>
 <td class="gt_row gt_right" headers="Latitude">48.93736</td>
 <td class="gt_row gt_right" headers="Code Officiel EPCI">200054781</td>
@@ -2409,6 +2442,7 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
 <td class="gt_row gt_left" headers="type_local">Appartement</td>
 <td class="gt_row gt_right" headers="surface_reelle">43</td>
 <td class="gt_row gt_right" headers="nb_pieces">2</td>
+<td class="gt_row gt_right" headers="Surface du terrain">NA</td>
 <td class="gt_row gt_right" headers="Longitude">2.521297</td>
 <td class="gt_row gt_right" headers="Latitude">48.90722</td>
 <td class="gt_row gt_right" headers="Code Officiel EPCI">200054781</td>
@@ -2449,6 +2483,7 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
 <td class="gt_row gt_left" headers="type_local">Maison</td>
 <td class="gt_row gt_right" headers="surface_reelle">68</td>
 <td class="gt_row gt_right" headers="nb_pieces">3</td>
+<td class="gt_row gt_right" headers="Surface du terrain">133</td>
 <td class="gt_row gt_right" headers="Longitude">2.484355</td>
 <td class="gt_row gt_right" headers="Latitude">48.92389</td>
 <td class="gt_row gt_right" headers="Code Officiel EPCI">200054781</td>
@@ -2489,6 +2524,7 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
 <td class="gt_row gt_left" headers="type_local">Appartement</td>
 <td class="gt_row gt_right" headers="surface_reelle">75</td>
 <td class="gt_row gt_right" headers="nb_pieces">4</td>
+<td class="gt_row gt_right" headers="Surface du terrain">NA</td>
 <td class="gt_row gt_right" headers="Longitude">2.492604</td>
 <td class="gt_row gt_right" headers="Latitude">48.95806</td>
 <td class="gt_row gt_right" headers="Code Officiel EPCI">200054781</td>
@@ -2572,30 +2608,38 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
  3rd Qu.: 2.000                      3rd Qu.:  77.00   3rd Qu.: 4.000  
  Max.   :31.000                      Max.   :3160.00   Max.   :78.000  
                                      NA's   :6         NA's   :6       
-   Longitude        Latitude     Code Officiel EPCI  Nom Officiel EPCI 
- Min.   :2.146   Min.   :48.69   Min.   :200035129   Length:480647     
- 1st Qu.:2.292   1st Qu.:48.83   1st Qu.:200054781   Class :character  
- Median :2.350   Median :48.86   Median :200054781   Mode  :character  
- Mean   :2.363   Mean   :48.86   Mean   :200326182                     
- 3rd Qu.:2.419   3rd Qu.:48.89   3rd Qu.:200054781                     
- Max.   :2.598   Max.   :48.99   Max.   :249740119                     
- NA's   :2788    NA's   :2788                                          
- nom_departement    Code INSEE de la région Nom de la région  
- Length:480647      Min.   :11              Length:480647     
- Class :character   1st Qu.:11              Class :character  
- Mode  :character   Median :11              Mode  :character  
-                    Mean   :11                                
-                    3rd Qu.:11                                
-                    Max.   :11                                
+ Surface du terrain   Longitude        Latitude     Code Officiel EPCI 
+ Min.   :     1.0   Min.   :2.146   Min.   :48.69   Min.   :200035129  
+ 1st Qu.:   201.0   1st Qu.:2.292   1st Qu.:48.83   1st Qu.:200054781  
+ Median :   310.0   Median :2.350   Median :48.86   Median :200054781  
+ Mean   :   383.8   Mean   :2.363   Mean   :48.86   Mean   :200326182  
+ 3rd Qu.:   435.0   3rd Qu.:2.419   3rd Qu.:48.89   3rd Qu.:200054781  
+ Max.   :155773.0   Max.   :2.598   Max.   :48.99   Max.   :249740119  
+ NA's   :416999     NA's   :2788    NA's   :2788                       
+ Nom Officiel EPCI  nom_departement    Code INSEE de la région
+ Length:480647      Length:480647      Min.   :11             
+ Class :character   Class :character   1st Qu.:11             
+ Mode  :character   Mode  :character   Median :11             
+                                       Mean   :11             
+                                       3rd Qu.:11             
+                                       Max.   :11             
                                                               
-    geoloc           annee_vente   prix_metre_carrez      nb_ident     
- Length:480647      Min.   :2018   Min.   :        0   Min.   : 1.000  
- Class :character   1st Qu.:2019   1st Qu.:     4600   1st Qu.: 1.000  
- Mode  :character   Median :2021   Median :     7320   Median : 1.000  
-                    Mean   :2021   Mean   :    11049   Mean   : 1.022  
-                    3rd Qu.:2022   3rd Qu.:    10339   3rd Qu.: 1.000  
-                    Max.   :2023   Max.   :124913203   Max.   :43.000  
-                                   NA's   :347                         </code></pre>
+ Nom de la région      geoloc           annee_vente   prix_metre_carrez  
+ Length:480647      Length:480647      Min.   :2018   Min.   :        0  
+ Class :character   Class :character   1st Qu.:2019   1st Qu.:     4600  
+ Mode  :character   Mode  :character   Median :2021   Median :     7320  
+                                       Mean   :2021   Mean   :    11049  
+                                       3rd Qu.:2022   3rd Qu.:    10339  
+                                       Max.   :2023   Max.   :124913203  
+                                                      NA's   :347        
+    nb_ident     
+ Min.   : 1.000  
+ 1st Qu.: 1.000  
+ Median : 1.000  
+ Mean   : 1.022  
+ 3rd Qu.: 1.000  
+ Max.   :43.000  
+                 </code></pre>
 </div>
 </div>
 <p>La fonction <code>summary()</code> permet en effet de donner une première information sur les valeurs manquantes des différentes variables. Pour se concentrer sur cette seule information, on peut compter le nombre de valeurs manquantes <code>NA</code> pour chacune des variables avec la fonction <code>colSums()</code> ; pour les avoir en proportion du nombre total d’observations (lignes), on peut utiliser la fonction <code>colMeans()</code> ; sinon, on peut utiliser la fonction <code>summarise</code> combinée avec <code>across(where()), )</code> si l’on veut sélectionner uniquement les variables numériques et leur appliquer la fonction sommant les <code>NA</code> :</p>
@@ -2628,18 +2672,20 @@ Identifiant de la parcelle cadastrale                              no_lot_1
                                480332                                     0 
                            type_local                        surface_reelle 
                                     0                                     6 
-                            nb_pieces                             Longitude 
-                                    6                                  2788 
-                             Latitude                    Code Officiel EPCI 
-                                 2788                                     0 
-                    Nom Officiel EPCI                       nom_departement 
+                            nb_pieces                    Surface du terrain 
+                                    6                                416999 
+                            Longitude                              Latitude 
+                                 2788                                  2788 
+                   Code Officiel EPCI                     Nom Officiel EPCI 
                                     0                                     0 
-              Code INSEE de la région                      Nom de la région 
+                      nom_departement               Code INSEE de la région 
                                     0                                     0 
-                               geoloc                           annee_vente 
+                     Nom de la région                                geoloc 
                                     0                                     0 
-                    prix_metre_carrez                              nb_ident 
-                                  347                                     0 </code></pre>
+                          annee_vente                     prix_metre_carrez 
+                                    0                                   347 
+                             nb_ident 
+                                    0 </code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Pour les avoir en proportion par rapport au nombre total d'observations</span></span>
 <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="co"># et arrondies à 2 chiffres après la virgule :</span></span>
@@ -2671,41 +2717,43 @@ Identifiant de la parcelle cadastrale                              no_lot_1
                                 99.93                                  0.00 
                            type_local                        surface_reelle 
                                  0.00                                  0.00 
-                            nb_pieces                             Longitude 
-                                 0.00                                  0.58 
-                             Latitude                    Code Officiel EPCI 
-                                 0.58                                  0.00 
-                    Nom Officiel EPCI                       nom_departement 
+                            nb_pieces                    Surface du terrain 
+                                 0.00                                 86.76 
+                            Longitude                              Latitude 
+                                 0.58                                  0.58 
+                   Code Officiel EPCI                     Nom Officiel EPCI 
                                  0.00                                  0.00 
-              Code INSEE de la région                      Nom de la région 
+                      nom_departement               Code INSEE de la région 
                                  0.00                                  0.00 
-                               geoloc                           annee_vente 
+                     Nom de la région                                geoloc 
                                  0.00                                  0.00 
-                    prix_metre_carrez                              nb_ident 
-                                 0.07                                  0.00 </code></pre>
+                          annee_vente                     prix_metre_carrez 
+                                 0.00                                  0.07 
+                             nb_ident 
+                                 0.00 </code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Ou en langage tidyverse sur les seules variables numériques :</span></span>
 <span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>dvf_ParisPC <span class="sc">%&gt;%</span> </span>
 <span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="fu">across</span>(<span class="at">.cols =</span> <span class="fu">where</span>(is.numeric), <span class="at">.fns =</span> <span class="sc">~</span> <span class="fu">sum</span>(<span class="fu">is.na</span>(.)))) <span class="sc">%&gt;%</span> </span>
 <span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gt</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
-<div id="qisckwonuc" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#qisckwonuc table {
+<div id="xltyitztro" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#xltyitztro table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#qisckwonuc thead, #qisckwonuc tbody, #qisckwonuc tfoot, #qisckwonuc tr, #qisckwonuc td, #qisckwonuc th {
+#xltyitztro thead, #xltyitztro tbody, #xltyitztro tfoot, #xltyitztro tr, #xltyitztro td, #xltyitztro th {
   border-style: none;
 }
 
-#qisckwonuc p {
+#xltyitztro p {
   margin: 0;
   padding: 0;
 }
 
-#qisckwonuc .gt_table {
+#xltyitztro .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -2731,12 +2779,12 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   border-left-color: #D3D3D3;
 }
 
-#qisckwonuc .gt_caption {
+#xltyitztro .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#qisckwonuc .gt_title {
+#xltyitztro .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -2748,7 +2796,7 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   border-bottom-width: 0;
 }
 
-#qisckwonuc .gt_subtitle {
+#xltyitztro .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -2760,7 +2808,7 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   border-top-width: 0;
 }
 
-#qisckwonuc .gt_heading {
+#xltyitztro .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -2772,13 +2820,13 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   border-right-color: #D3D3D3;
 }
 
-#qisckwonuc .gt_bottom_border {
+#xltyitztro .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#qisckwonuc .gt_col_headings {
+#xltyitztro .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2793,7 +2841,7 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   border-right-color: #D3D3D3;
 }
 
-#qisckwonuc .gt_col_heading {
+#xltyitztro .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2813,7 +2861,7 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   overflow-x: hidden;
 }
 
-#qisckwonuc .gt_column_spanner_outer {
+#xltyitztro .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2825,15 +2873,15 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   padding-right: 4px;
 }
 
-#qisckwonuc .gt_column_spanner_outer:first-child {
+#xltyitztro .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#qisckwonuc .gt_column_spanner_outer:last-child {
+#xltyitztro .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#qisckwonuc .gt_column_spanner {
+#xltyitztro .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -2845,11 +2893,11 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   width: 100%;
 }
 
-#qisckwonuc .gt_spanner_row {
+#xltyitztro .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#qisckwonuc .gt_group_heading {
+#xltyitztro .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2875,7 +2923,7 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   text-align: left;
 }
 
-#qisckwonuc .gt_empty_group_heading {
+#xltyitztro .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -2890,15 +2938,15 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   vertical-align: middle;
 }
 
-#qisckwonuc .gt_from_md > :first-child {
+#xltyitztro .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#qisckwonuc .gt_from_md > :last-child {
+#xltyitztro .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#qisckwonuc .gt_row {
+#xltyitztro .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2917,7 +2965,7 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   overflow-x: hidden;
 }
 
-#qisckwonuc .gt_stub {
+#xltyitztro .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2930,7 +2978,7 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   padding-right: 5px;
 }
 
-#qisckwonuc .gt_stub_row_group {
+#xltyitztro .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2944,15 +2992,15 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   vertical-align: top;
 }
 
-#qisckwonuc .gt_row_group_first td {
+#xltyitztro .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#qisckwonuc .gt_row_group_first th {
+#xltyitztro .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#qisckwonuc .gt_summary_row {
+#xltyitztro .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2962,16 +3010,16 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   padding-right: 5px;
 }
 
-#qisckwonuc .gt_first_summary_row {
+#xltyitztro .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#qisckwonuc .gt_first_summary_row.thick {
+#xltyitztro .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#qisckwonuc .gt_last_summary_row {
+#xltyitztro .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2981,7 +3029,7 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   border-bottom-color: #D3D3D3;
 }
 
-#qisckwonuc .gt_grand_summary_row {
+#xltyitztro .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2991,7 +3039,7 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   padding-right: 5px;
 }
 
-#qisckwonuc .gt_first_grand_summary_row {
+#xltyitztro .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3001,7 +3049,7 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   border-top-color: #D3D3D3;
 }
 
-#qisckwonuc .gt_last_grand_summary_row_top {
+#xltyitztro .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3011,11 +3059,11 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   border-bottom-color: #D3D3D3;
 }
 
-#qisckwonuc .gt_striped {
+#xltyitztro .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#qisckwonuc .gt_table_body {
+#xltyitztro .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -3024,7 +3072,7 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   border-bottom-color: #D3D3D3;
 }
 
-#qisckwonuc .gt_footnotes {
+#xltyitztro .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -3038,7 +3086,7 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   border-right-color: #D3D3D3;
 }
 
-#qisckwonuc .gt_footnote {
+#xltyitztro .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -3047,7 +3095,7 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   padding-right: 5px;
 }
 
-#qisckwonuc .gt_sourcenotes {
+#xltyitztro .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -3061,7 +3109,7 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   border-right-color: #D3D3D3;
 }
 
-#qisckwonuc .gt_sourcenote {
+#xltyitztro .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -3069,72 +3117,72 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   padding-right: 5px;
 }
 
-#qisckwonuc .gt_left {
+#xltyitztro .gt_left {
   text-align: left;
 }
 
-#qisckwonuc .gt_center {
+#xltyitztro .gt_center {
   text-align: center;
 }
 
-#qisckwonuc .gt_right {
+#xltyitztro .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#qisckwonuc .gt_font_normal {
+#xltyitztro .gt_font_normal {
   font-weight: normal;
 }
 
-#qisckwonuc .gt_font_bold {
+#xltyitztro .gt_font_bold {
   font-weight: bold;
 }
 
-#qisckwonuc .gt_font_italic {
+#xltyitztro .gt_font_italic {
   font-style: italic;
 }
 
-#qisckwonuc .gt_super {
+#xltyitztro .gt_super {
   font-size: 65%;
 }
 
-#qisckwonuc .gt_footnote_marks {
+#xltyitztro .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#qisckwonuc .gt_asterisk {
+#xltyitztro .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#qisckwonuc .gt_indent_1 {
+#xltyitztro .gt_indent_1 {
   text-indent: 5px;
 }
 
-#qisckwonuc .gt_indent_2 {
+#xltyitztro .gt_indent_2 {
   text-indent: 10px;
 }
 
-#qisckwonuc .gt_indent_3 {
+#xltyitztro .gt_indent_3 {
   text-indent: 15px;
 }
 
-#qisckwonuc .gt_indent_4 {
+#xltyitztro .gt_indent_4 {
   text-indent: 20px;
 }
 
-#qisckwonuc .gt_indent_5 {
+#xltyitztro .gt_indent_5 {
   text-indent: 25px;
 }
 
-#qisckwonuc .katex-display {
+#xltyitztro .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#qisckwonuc div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#xltyitztro div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -3157,6 +3205,7 @@ Identifiant de la parcelle cadastrale                              no_lot_1
 <th id="nb_lots" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">nb_lots</th>
 <th id="surface_reelle" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">surface_reelle</th>
 <th id="nb_pieces" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">nb_pieces</th>
+<th id="Surface-du-terrain" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Surface du terrain</th>
 <th id="Longitude" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Longitude</th>
 <th id="Latitude" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Latitude</th>
 <th id="Code-Officiel-EPCI" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Code Officiel EPCI</th>
@@ -3183,6 +3232,7 @@ Identifiant de la parcelle cadastrale                              no_lot_1
 <td class="gt_row gt_right" headers="nb_lots">0</td>
 <td class="gt_row gt_right" headers="surface_reelle">6</td>
 <td class="gt_row gt_right" headers="nb_pieces">6</td>
+<td class="gt_row gt_right" headers="Surface du terrain">416999</td>
 <td class="gt_row gt_right" headers="Longitude">2788</td>
 <td class="gt_row gt_right" headers="Latitude">2788</td>
 <td class="gt_row gt_right" headers="Code Officiel EPCI">0</td>
@@ -3206,25 +3256,25 @@ Identifiant de la parcelle cadastrale                              no_lot_1
 <span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a><span class="co"># qui correspondent à des valeurs manquantes :</span></span>
 <span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a><span class="fu">n_miss</span>(dvf_ParisPC) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 2557090</code></pre>
+<pre><code>[1] 2974089</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Pour les avoir en proportion du nombre total de cellules du tableau</span></span>
 <span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="co"># et non des seules lignes comme précédemment, </span></span>
 <span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a><span class="co"># le résultat est déjà en pourcentage, sinon utiliser `prop_miss(RP)`)</span></span>
 <span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a><span class="fu">pct_miss</span>(dvf_ParisPC) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 14.00026</code></pre>
+<pre><code>[1] 15.86584</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Ci-dessous : nombre de cellules du tableau ou de n_ij d'une matrice </span></span>
 <span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="co"># qui correspondent à des valeurs renseignées :</span></span>
 <span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a><span class="fu">n_complete</span>(dvf_ParisPC) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 15707496</code></pre>
+<pre><code>[1] 15771144</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="co">#en proportion</span></span>
 <span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a><span class="fu">pct_complete</span>(dvf_ParisPC) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 85.99974</code></pre>
+<pre><code>[1] 84.13416</code></pre>
 </div>
 </div>
 <p>On peut ensuite visualiser le nombre de valeurs manquantes par variable, avec la fonction <code>gg_miss_var()</code> du même package. On peut également demander dans <code>gg_miss_var()</code> à ce que les valeurs soient en pourcentage, avec l’argument <code>show_pct=TRUE</code>.</p>
@@ -3366,23 +3416,23 @@ Identifiant de la parcelle cadastrale                              no_lot_1
 <span id="cb55-6"><a href="#cb55-6" aria-hidden="true" tabindex="-1"></a>                    <span class="at">show=</span><span class="fu">c</span>(<span class="st">"n"</span>,<span class="st">"mean"</span>, <span class="st">"median"</span>, <span class="st">"min"</span>, <span class="st">"max"</span>,<span class="st">"q1"</span>, <span class="st">"q3"</span>)) <span class="sc">%&gt;%</span> </span>
 <span id="cb55-7"><a href="#cb55-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gt</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
-<div id="fydpkyuaqk" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#fydpkyuaqk table {
+<div id="qzkxhwivih" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#qzkxhwivih table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#fydpkyuaqk thead, #fydpkyuaqk tbody, #fydpkyuaqk tfoot, #fydpkyuaqk tr, #fydpkyuaqk td, #fydpkyuaqk th {
+#qzkxhwivih thead, #qzkxhwivih tbody, #qzkxhwivih tfoot, #qzkxhwivih tr, #qzkxhwivih td, #qzkxhwivih th {
   border-style: none;
 }
 
-#fydpkyuaqk p {
+#qzkxhwivih p {
   margin: 0;
   padding: 0;
 }
 
-#fydpkyuaqk .gt_table {
+#qzkxhwivih .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -3408,12 +3458,12 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   border-left-color: #D3D3D3;
 }
 
-#fydpkyuaqk .gt_caption {
+#qzkxhwivih .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#fydpkyuaqk .gt_title {
+#qzkxhwivih .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -3425,7 +3475,7 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   border-bottom-width: 0;
 }
 
-#fydpkyuaqk .gt_subtitle {
+#qzkxhwivih .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -3437,7 +3487,7 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   border-top-width: 0;
 }
 
-#fydpkyuaqk .gt_heading {
+#qzkxhwivih .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -3449,13 +3499,13 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   border-right-color: #D3D3D3;
 }
 
-#fydpkyuaqk .gt_bottom_border {
+#qzkxhwivih .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#fydpkyuaqk .gt_col_headings {
+#qzkxhwivih .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -3470,7 +3520,7 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   border-right-color: #D3D3D3;
 }
 
-#fydpkyuaqk .gt_col_heading {
+#qzkxhwivih .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3490,7 +3540,7 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   overflow-x: hidden;
 }
 
-#fydpkyuaqk .gt_column_spanner_outer {
+#qzkxhwivih .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3502,15 +3552,15 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   padding-right: 4px;
 }
 
-#fydpkyuaqk .gt_column_spanner_outer:first-child {
+#qzkxhwivih .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#fydpkyuaqk .gt_column_spanner_outer:last-child {
+#qzkxhwivih .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#fydpkyuaqk .gt_column_spanner {
+#qzkxhwivih .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -3522,11 +3572,11 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   width: 100%;
 }
 
-#fydpkyuaqk .gt_spanner_row {
+#qzkxhwivih .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#fydpkyuaqk .gt_group_heading {
+#qzkxhwivih .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3552,7 +3602,7 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   text-align: left;
 }
 
-#fydpkyuaqk .gt_empty_group_heading {
+#qzkxhwivih .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -3567,15 +3617,15 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   vertical-align: middle;
 }
 
-#fydpkyuaqk .gt_from_md > :first-child {
+#qzkxhwivih .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#fydpkyuaqk .gt_from_md > :last-child {
+#qzkxhwivih .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#fydpkyuaqk .gt_row {
+#qzkxhwivih .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3594,7 +3644,7 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   overflow-x: hidden;
 }
 
-#fydpkyuaqk .gt_stub {
+#qzkxhwivih .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3607,7 +3657,7 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   padding-right: 5px;
 }
 
-#fydpkyuaqk .gt_stub_row_group {
+#qzkxhwivih .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3621,15 +3671,15 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   vertical-align: top;
 }
 
-#fydpkyuaqk .gt_row_group_first td {
+#qzkxhwivih .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#fydpkyuaqk .gt_row_group_first th {
+#qzkxhwivih .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#fydpkyuaqk .gt_summary_row {
+#qzkxhwivih .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -3639,16 +3689,16 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   padding-right: 5px;
 }
 
-#fydpkyuaqk .gt_first_summary_row {
+#qzkxhwivih .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#fydpkyuaqk .gt_first_summary_row.thick {
+#qzkxhwivih .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#fydpkyuaqk .gt_last_summary_row {
+#qzkxhwivih .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3658,7 +3708,7 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   border-bottom-color: #D3D3D3;
 }
 
-#fydpkyuaqk .gt_grand_summary_row {
+#qzkxhwivih .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -3668,7 +3718,7 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   padding-right: 5px;
 }
 
-#fydpkyuaqk .gt_first_grand_summary_row {
+#qzkxhwivih .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3678,7 +3728,7 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   border-top-color: #D3D3D3;
 }
 
-#fydpkyuaqk .gt_last_grand_summary_row_top {
+#qzkxhwivih .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3688,11 +3738,11 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   border-bottom-color: #D3D3D3;
 }
 
-#fydpkyuaqk .gt_striped {
+#qzkxhwivih .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#fydpkyuaqk .gt_table_body {
+#qzkxhwivih .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -3701,7 +3751,7 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   border-bottom-color: #D3D3D3;
 }
 
-#fydpkyuaqk .gt_footnotes {
+#qzkxhwivih .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -3715,7 +3765,7 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   border-right-color: #D3D3D3;
 }
 
-#fydpkyuaqk .gt_footnote {
+#qzkxhwivih .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -3724,7 +3774,7 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   padding-right: 5px;
 }
 
-#fydpkyuaqk .gt_sourcenotes {
+#qzkxhwivih .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -3738,7 +3788,7 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   border-right-color: #D3D3D3;
 }
 
-#fydpkyuaqk .gt_sourcenote {
+#qzkxhwivih .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -3746,72 +3796,72 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   padding-right: 5px;
 }
 
-#fydpkyuaqk .gt_left {
+#qzkxhwivih .gt_left {
   text-align: left;
 }
 
-#fydpkyuaqk .gt_center {
+#qzkxhwivih .gt_center {
   text-align: center;
 }
 
-#fydpkyuaqk .gt_right {
+#qzkxhwivih .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#fydpkyuaqk .gt_font_normal {
+#qzkxhwivih .gt_font_normal {
   font-weight: normal;
 }
 
-#fydpkyuaqk .gt_font_bold {
+#qzkxhwivih .gt_font_bold {
   font-weight: bold;
 }
 
-#fydpkyuaqk .gt_font_italic {
+#qzkxhwivih .gt_font_italic {
   font-style: italic;
 }
 
-#fydpkyuaqk .gt_super {
+#qzkxhwivih .gt_super {
   font-size: 65%;
 }
 
-#fydpkyuaqk .gt_footnote_marks {
+#qzkxhwivih .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#fydpkyuaqk .gt_asterisk {
+#qzkxhwivih .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#fydpkyuaqk .gt_indent_1 {
+#qzkxhwivih .gt_indent_1 {
   text-indent: 5px;
 }
 
-#fydpkyuaqk .gt_indent_2 {
+#qzkxhwivih .gt_indent_2 {
   text-indent: 10px;
 }
 
-#fydpkyuaqk .gt_indent_3 {
+#qzkxhwivih .gt_indent_3 {
   text-indent: 15px;
 }
 
-#fydpkyuaqk .gt_indent_4 {
+#qzkxhwivih .gt_indent_4 {
   text-indent: 20px;
 }
 
-#fydpkyuaqk .gt_indent_5 {
+#qzkxhwivih .gt_indent_5 {
   text-indent: 25px;
 }
 
-#fydpkyuaqk .katex-display {
+#qzkxhwivih .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#fydpkyuaqk div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#qzkxhwivih div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -3906,23 +3956,23 @@ Identifiant de la parcelle cadastrale                              no_lot_1
 <span id="cb57-5"><a href="#cb57-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gt</span>() <span class="sc">%&gt;%</span> </span>
 <span id="cb57-6"><a href="#cb57-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fmt_number</span>(<span class="at">columns =</span> <span class="dv">3</span><span class="sc">:</span><span class="dv">8</span>, <span class="at">sep_mark =</span> <span class="st">" "</span>, <span class="at">decimals =</span> <span class="dv">1</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
-<div id="hngzsxbzws" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#hngzsxbzws table {
+<div id="ucusjwivci" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#ucusjwivci table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#hngzsxbzws thead, #hngzsxbzws tbody, #hngzsxbzws tfoot, #hngzsxbzws tr, #hngzsxbzws td, #hngzsxbzws th {
+#ucusjwivci thead, #ucusjwivci tbody, #ucusjwivci tfoot, #ucusjwivci tr, #ucusjwivci td, #ucusjwivci th {
   border-style: none;
 }
 
-#hngzsxbzws p {
+#ucusjwivci p {
   margin: 0;
   padding: 0;
 }
 
-#hngzsxbzws .gt_table {
+#ucusjwivci .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -3948,12 +3998,12 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   border-left-color: #D3D3D3;
 }
 
-#hngzsxbzws .gt_caption {
+#ucusjwivci .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#hngzsxbzws .gt_title {
+#ucusjwivci .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -3965,7 +4015,7 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   border-bottom-width: 0;
 }
 
-#hngzsxbzws .gt_subtitle {
+#ucusjwivci .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -3977,7 +4027,7 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   border-top-width: 0;
 }
 
-#hngzsxbzws .gt_heading {
+#ucusjwivci .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -3989,13 +4039,13 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   border-right-color: #D3D3D3;
 }
 
-#hngzsxbzws .gt_bottom_border {
+#ucusjwivci .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#hngzsxbzws .gt_col_headings {
+#ucusjwivci .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -4010,7 +4060,7 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   border-right-color: #D3D3D3;
 }
 
-#hngzsxbzws .gt_col_heading {
+#ucusjwivci .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -4030,7 +4080,7 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   overflow-x: hidden;
 }
 
-#hngzsxbzws .gt_column_spanner_outer {
+#ucusjwivci .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -4042,15 +4092,15 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   padding-right: 4px;
 }
 
-#hngzsxbzws .gt_column_spanner_outer:first-child {
+#ucusjwivci .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#hngzsxbzws .gt_column_spanner_outer:last-child {
+#ucusjwivci .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#hngzsxbzws .gt_column_spanner {
+#ucusjwivci .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -4062,11 +4112,11 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   width: 100%;
 }
 
-#hngzsxbzws .gt_spanner_row {
+#ucusjwivci .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#hngzsxbzws .gt_group_heading {
+#ucusjwivci .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -4092,7 +4142,7 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   text-align: left;
 }
 
-#hngzsxbzws .gt_empty_group_heading {
+#ucusjwivci .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -4107,15 +4157,15 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   vertical-align: middle;
 }
 
-#hngzsxbzws .gt_from_md > :first-child {
+#ucusjwivci .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#hngzsxbzws .gt_from_md > :last-child {
+#ucusjwivci .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#hngzsxbzws .gt_row {
+#ucusjwivci .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -4134,7 +4184,7 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   overflow-x: hidden;
 }
 
-#hngzsxbzws .gt_stub {
+#ucusjwivci .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -4147,7 +4197,7 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   padding-right: 5px;
 }
 
-#hngzsxbzws .gt_stub_row_group {
+#ucusjwivci .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -4161,15 +4211,15 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   vertical-align: top;
 }
 
-#hngzsxbzws .gt_row_group_first td {
+#ucusjwivci .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#hngzsxbzws .gt_row_group_first th {
+#ucusjwivci .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#hngzsxbzws .gt_summary_row {
+#ucusjwivci .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -4179,16 +4229,16 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   padding-right: 5px;
 }
 
-#hngzsxbzws .gt_first_summary_row {
+#ucusjwivci .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#hngzsxbzws .gt_first_summary_row.thick {
+#ucusjwivci .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#hngzsxbzws .gt_last_summary_row {
+#ucusjwivci .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -4198,7 +4248,7 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   border-bottom-color: #D3D3D3;
 }
 
-#hngzsxbzws .gt_grand_summary_row {
+#ucusjwivci .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -4208,7 +4258,7 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   padding-right: 5px;
 }
 
-#hngzsxbzws .gt_first_grand_summary_row {
+#ucusjwivci .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -4218,7 +4268,7 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   border-top-color: #D3D3D3;
 }
 
-#hngzsxbzws .gt_last_grand_summary_row_top {
+#ucusjwivci .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -4228,11 +4278,11 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   border-bottom-color: #D3D3D3;
 }
 
-#hngzsxbzws .gt_striped {
+#ucusjwivci .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#hngzsxbzws .gt_table_body {
+#ucusjwivci .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -4241,7 +4291,7 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   border-bottom-color: #D3D3D3;
 }
 
-#hngzsxbzws .gt_footnotes {
+#ucusjwivci .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -4255,7 +4305,7 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   border-right-color: #D3D3D3;
 }
 
-#hngzsxbzws .gt_footnote {
+#ucusjwivci .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -4264,7 +4314,7 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   padding-right: 5px;
 }
 
-#hngzsxbzws .gt_sourcenotes {
+#ucusjwivci .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -4278,7 +4328,7 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   border-right-color: #D3D3D3;
 }
 
-#hngzsxbzws .gt_sourcenote {
+#ucusjwivci .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -4286,72 +4336,72 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   padding-right: 5px;
 }
 
-#hngzsxbzws .gt_left {
+#ucusjwivci .gt_left {
   text-align: left;
 }
 
-#hngzsxbzws .gt_center {
+#ucusjwivci .gt_center {
   text-align: center;
 }
 
-#hngzsxbzws .gt_right {
+#ucusjwivci .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#hngzsxbzws .gt_font_normal {
+#ucusjwivci .gt_font_normal {
   font-weight: normal;
 }
 
-#hngzsxbzws .gt_font_bold {
+#ucusjwivci .gt_font_bold {
   font-weight: bold;
 }
 
-#hngzsxbzws .gt_font_italic {
+#ucusjwivci .gt_font_italic {
   font-style: italic;
 }
 
-#hngzsxbzws .gt_super {
+#ucusjwivci .gt_super {
   font-size: 65%;
 }
 
-#hngzsxbzws .gt_footnote_marks {
+#ucusjwivci .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#hngzsxbzws .gt_asterisk {
+#ucusjwivci .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#hngzsxbzws .gt_indent_1 {
+#ucusjwivci .gt_indent_1 {
   text-indent: 5px;
 }
 
-#hngzsxbzws .gt_indent_2 {
+#ucusjwivci .gt_indent_2 {
   text-indent: 10px;
 }
 
-#hngzsxbzws .gt_indent_3 {
+#ucusjwivci .gt_indent_3 {
   text-indent: 15px;
 }
 
-#hngzsxbzws .gt_indent_4 {
+#ucusjwivci .gt_indent_4 {
   text-indent: 20px;
 }
 
-#hngzsxbzws .gt_indent_5 {
+#ucusjwivci .gt_indent_5 {
   text-indent: 25px;
 }
 
-#hngzsxbzws .katex-display {
+#ucusjwivci .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#hngzsxbzws div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#ucusjwivci div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -4480,23 +4530,23 @@ Identifiant de la parcelle cadastrale                              no_lot_1
 <span id="cb60-19"><a href="#cb60-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">adorn_totals</span>(<span class="st">"row"</span>) <span class="sc">%&gt;%</span> <span class="fu">adorn_pct_formatting</span>() <span class="sc">%&gt;%</span> </span>
 <span id="cb60-20"><a href="#cb60-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gt</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
-<div id="pmwveyhroz" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#pmwveyhroz table {
+<div id="tdjkwljixa" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#tdjkwljixa table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#pmwveyhroz thead, #pmwveyhroz tbody, #pmwveyhroz tfoot, #pmwveyhroz tr, #pmwveyhroz td, #pmwveyhroz th {
+#tdjkwljixa thead, #tdjkwljixa tbody, #tdjkwljixa tfoot, #tdjkwljixa tr, #tdjkwljixa td, #tdjkwljixa th {
   border-style: none;
 }
 
-#pmwveyhroz p {
+#tdjkwljixa p {
   margin: 0;
   padding: 0;
 }
 
-#pmwveyhroz .gt_table {
+#tdjkwljixa .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -4522,12 +4572,12 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   border-left-color: #D3D3D3;
 }
 
-#pmwveyhroz .gt_caption {
+#tdjkwljixa .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#pmwveyhroz .gt_title {
+#tdjkwljixa .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -4539,7 +4589,7 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   border-bottom-width: 0;
 }
 
-#pmwveyhroz .gt_subtitle {
+#tdjkwljixa .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -4551,7 +4601,7 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   border-top-width: 0;
 }
 
-#pmwveyhroz .gt_heading {
+#tdjkwljixa .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -4563,13 +4613,13 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   border-right-color: #D3D3D3;
 }
 
-#pmwveyhroz .gt_bottom_border {
+#tdjkwljixa .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#pmwveyhroz .gt_col_headings {
+#tdjkwljixa .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -4584,7 +4634,7 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   border-right-color: #D3D3D3;
 }
 
-#pmwveyhroz .gt_col_heading {
+#tdjkwljixa .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -4604,7 +4654,7 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   overflow-x: hidden;
 }
 
-#pmwveyhroz .gt_column_spanner_outer {
+#tdjkwljixa .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -4616,15 +4666,15 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   padding-right: 4px;
 }
 
-#pmwveyhroz .gt_column_spanner_outer:first-child {
+#tdjkwljixa .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#pmwveyhroz .gt_column_spanner_outer:last-child {
+#tdjkwljixa .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#pmwveyhroz .gt_column_spanner {
+#tdjkwljixa .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -4636,11 +4686,11 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   width: 100%;
 }
 
-#pmwveyhroz .gt_spanner_row {
+#tdjkwljixa .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#pmwveyhroz .gt_group_heading {
+#tdjkwljixa .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -4666,7 +4716,7 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   text-align: left;
 }
 
-#pmwveyhroz .gt_empty_group_heading {
+#tdjkwljixa .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -4681,15 +4731,15 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   vertical-align: middle;
 }
 
-#pmwveyhroz .gt_from_md > :first-child {
+#tdjkwljixa .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#pmwveyhroz .gt_from_md > :last-child {
+#tdjkwljixa .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#pmwveyhroz .gt_row {
+#tdjkwljixa .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -4708,7 +4758,7 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   overflow-x: hidden;
 }
 
-#pmwveyhroz .gt_stub {
+#tdjkwljixa .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -4721,7 +4771,7 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   padding-right: 5px;
 }
 
-#pmwveyhroz .gt_stub_row_group {
+#tdjkwljixa .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -4735,15 +4785,15 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   vertical-align: top;
 }
 
-#pmwveyhroz .gt_row_group_first td {
+#tdjkwljixa .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#pmwveyhroz .gt_row_group_first th {
+#tdjkwljixa .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#pmwveyhroz .gt_summary_row {
+#tdjkwljixa .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -4753,16 +4803,16 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   padding-right: 5px;
 }
 
-#pmwveyhroz .gt_first_summary_row {
+#tdjkwljixa .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#pmwveyhroz .gt_first_summary_row.thick {
+#tdjkwljixa .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#pmwveyhroz .gt_last_summary_row {
+#tdjkwljixa .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -4772,7 +4822,7 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   border-bottom-color: #D3D3D3;
 }
 
-#pmwveyhroz .gt_grand_summary_row {
+#tdjkwljixa .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -4782,7 +4832,7 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   padding-right: 5px;
 }
 
-#pmwveyhroz .gt_first_grand_summary_row {
+#tdjkwljixa .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -4792,7 +4842,7 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   border-top-color: #D3D3D3;
 }
 
-#pmwveyhroz .gt_last_grand_summary_row_top {
+#tdjkwljixa .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -4802,11 +4852,11 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   border-bottom-color: #D3D3D3;
 }
 
-#pmwveyhroz .gt_striped {
+#tdjkwljixa .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#pmwveyhroz .gt_table_body {
+#tdjkwljixa .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -4815,7 +4865,7 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   border-bottom-color: #D3D3D3;
 }
 
-#pmwveyhroz .gt_footnotes {
+#tdjkwljixa .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -4829,7 +4879,7 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   border-right-color: #D3D3D3;
 }
 
-#pmwveyhroz .gt_footnote {
+#tdjkwljixa .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -4838,7 +4888,7 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   padding-right: 5px;
 }
 
-#pmwveyhroz .gt_sourcenotes {
+#tdjkwljixa .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -4852,7 +4902,7 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   border-right-color: #D3D3D3;
 }
 
-#pmwveyhroz .gt_sourcenote {
+#tdjkwljixa .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -4860,72 +4910,72 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   padding-right: 5px;
 }
 
-#pmwveyhroz .gt_left {
+#tdjkwljixa .gt_left {
   text-align: left;
 }
 
-#pmwveyhroz .gt_center {
+#tdjkwljixa .gt_center {
   text-align: center;
 }
 
-#pmwveyhroz .gt_right {
+#tdjkwljixa .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#pmwveyhroz .gt_font_normal {
+#tdjkwljixa .gt_font_normal {
   font-weight: normal;
 }
 
-#pmwveyhroz .gt_font_bold {
+#tdjkwljixa .gt_font_bold {
   font-weight: bold;
 }
 
-#pmwveyhroz .gt_font_italic {
+#tdjkwljixa .gt_font_italic {
   font-style: italic;
 }
 
-#pmwveyhroz .gt_super {
+#tdjkwljixa .gt_super {
   font-size: 65%;
 }
 
-#pmwveyhroz .gt_footnote_marks {
+#tdjkwljixa .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#pmwveyhroz .gt_asterisk {
+#tdjkwljixa .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#pmwveyhroz .gt_indent_1 {
+#tdjkwljixa .gt_indent_1 {
   text-indent: 5px;
 }
 
-#pmwveyhroz .gt_indent_2 {
+#tdjkwljixa .gt_indent_2 {
   text-indent: 10px;
 }
 
-#pmwveyhroz .gt_indent_3 {
+#tdjkwljixa .gt_indent_3 {
   text-indent: 15px;
 }
 
-#pmwveyhroz .gt_indent_4 {
+#tdjkwljixa .gt_indent_4 {
   text-indent: 20px;
 }
 
-#pmwveyhroz .gt_indent_5 {
+#tdjkwljixa .gt_indent_5 {
   text-indent: 25px;
 }
 
-#pmwveyhroz .katex-display {
+#tdjkwljixa .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#pmwveyhroz div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#tdjkwljixa div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -4968,23 +5018,23 @@ Identifiant de la parcelle cadastrale                              no_lot_1
 <span id="cb61-4"><a href="#cb61-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(prix_metre_carrez) <span class="sc">%&gt;%</span> <span class="fu">head</span>(<span class="dv">5</span>) <span class="sc">%&gt;%</span> </span>
 <span id="cb61-5"><a href="#cb61-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gt</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
-<div id="ptcyqmvcgl" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#ptcyqmvcgl table {
+<div id="bckjnbvxsr" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#bckjnbvxsr table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#ptcyqmvcgl thead, #ptcyqmvcgl tbody, #ptcyqmvcgl tfoot, #ptcyqmvcgl tr, #ptcyqmvcgl td, #ptcyqmvcgl th {
+#bckjnbvxsr thead, #bckjnbvxsr tbody, #bckjnbvxsr tfoot, #bckjnbvxsr tr, #bckjnbvxsr td, #bckjnbvxsr th {
   border-style: none;
 }
 
-#ptcyqmvcgl p {
+#bckjnbvxsr p {
   margin: 0;
   padding: 0;
 }
 
-#ptcyqmvcgl .gt_table {
+#bckjnbvxsr .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -5010,12 +5060,12 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   border-left-color: #D3D3D3;
 }
 
-#ptcyqmvcgl .gt_caption {
+#bckjnbvxsr .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#ptcyqmvcgl .gt_title {
+#bckjnbvxsr .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -5027,7 +5077,7 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   border-bottom-width: 0;
 }
 
-#ptcyqmvcgl .gt_subtitle {
+#bckjnbvxsr .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -5039,7 +5089,7 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   border-top-width: 0;
 }
 
-#ptcyqmvcgl .gt_heading {
+#bckjnbvxsr .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -5051,13 +5101,13 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   border-right-color: #D3D3D3;
 }
 
-#ptcyqmvcgl .gt_bottom_border {
+#bckjnbvxsr .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#ptcyqmvcgl .gt_col_headings {
+#bckjnbvxsr .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -5072,7 +5122,7 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   border-right-color: #D3D3D3;
 }
 
-#ptcyqmvcgl .gt_col_heading {
+#bckjnbvxsr .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -5092,7 +5142,7 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   overflow-x: hidden;
 }
 
-#ptcyqmvcgl .gt_column_spanner_outer {
+#bckjnbvxsr .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -5104,15 +5154,15 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   padding-right: 4px;
 }
 
-#ptcyqmvcgl .gt_column_spanner_outer:first-child {
+#bckjnbvxsr .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#ptcyqmvcgl .gt_column_spanner_outer:last-child {
+#bckjnbvxsr .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#ptcyqmvcgl .gt_column_spanner {
+#bckjnbvxsr .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -5124,11 +5174,11 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   width: 100%;
 }
 
-#ptcyqmvcgl .gt_spanner_row {
+#bckjnbvxsr .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#ptcyqmvcgl .gt_group_heading {
+#bckjnbvxsr .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -5154,7 +5204,7 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   text-align: left;
 }
 
-#ptcyqmvcgl .gt_empty_group_heading {
+#bckjnbvxsr .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -5169,15 +5219,15 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   vertical-align: middle;
 }
 
-#ptcyqmvcgl .gt_from_md > :first-child {
+#bckjnbvxsr .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#ptcyqmvcgl .gt_from_md > :last-child {
+#bckjnbvxsr .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#ptcyqmvcgl .gt_row {
+#bckjnbvxsr .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -5196,7 +5246,7 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   overflow-x: hidden;
 }
 
-#ptcyqmvcgl .gt_stub {
+#bckjnbvxsr .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -5209,7 +5259,7 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   padding-right: 5px;
 }
 
-#ptcyqmvcgl .gt_stub_row_group {
+#bckjnbvxsr .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -5223,15 +5273,15 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   vertical-align: top;
 }
 
-#ptcyqmvcgl .gt_row_group_first td {
+#bckjnbvxsr .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#ptcyqmvcgl .gt_row_group_first th {
+#bckjnbvxsr .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#ptcyqmvcgl .gt_summary_row {
+#bckjnbvxsr .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -5241,16 +5291,16 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   padding-right: 5px;
 }
 
-#ptcyqmvcgl .gt_first_summary_row {
+#bckjnbvxsr .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#ptcyqmvcgl .gt_first_summary_row.thick {
+#bckjnbvxsr .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#ptcyqmvcgl .gt_last_summary_row {
+#bckjnbvxsr .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -5260,7 +5310,7 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   border-bottom-color: #D3D3D3;
 }
 
-#ptcyqmvcgl .gt_grand_summary_row {
+#bckjnbvxsr .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -5270,7 +5320,7 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   padding-right: 5px;
 }
 
-#ptcyqmvcgl .gt_first_grand_summary_row {
+#bckjnbvxsr .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -5280,7 +5330,7 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   border-top-color: #D3D3D3;
 }
 
-#ptcyqmvcgl .gt_last_grand_summary_row_top {
+#bckjnbvxsr .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -5290,11 +5340,11 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   border-bottom-color: #D3D3D3;
 }
 
-#ptcyqmvcgl .gt_striped {
+#bckjnbvxsr .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#ptcyqmvcgl .gt_table_body {
+#bckjnbvxsr .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -5303,7 +5353,7 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   border-bottom-color: #D3D3D3;
 }
 
-#ptcyqmvcgl .gt_footnotes {
+#bckjnbvxsr .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -5317,7 +5367,7 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   border-right-color: #D3D3D3;
 }
 
-#ptcyqmvcgl .gt_footnote {
+#bckjnbvxsr .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -5326,7 +5376,7 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   padding-right: 5px;
 }
 
-#ptcyqmvcgl .gt_sourcenotes {
+#bckjnbvxsr .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -5340,7 +5390,7 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   border-right-color: #D3D3D3;
 }
 
-#ptcyqmvcgl .gt_sourcenote {
+#bckjnbvxsr .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -5348,72 +5398,72 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   padding-right: 5px;
 }
 
-#ptcyqmvcgl .gt_left {
+#bckjnbvxsr .gt_left {
   text-align: left;
 }
 
-#ptcyqmvcgl .gt_center {
+#bckjnbvxsr .gt_center {
   text-align: center;
 }
 
-#ptcyqmvcgl .gt_right {
+#bckjnbvxsr .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#ptcyqmvcgl .gt_font_normal {
+#bckjnbvxsr .gt_font_normal {
   font-weight: normal;
 }
 
-#ptcyqmvcgl .gt_font_bold {
+#bckjnbvxsr .gt_font_bold {
   font-weight: bold;
 }
 
-#ptcyqmvcgl .gt_font_italic {
+#bckjnbvxsr .gt_font_italic {
   font-style: italic;
 }
 
-#ptcyqmvcgl .gt_super {
+#bckjnbvxsr .gt_super {
   font-size: 65%;
 }
 
-#ptcyqmvcgl .gt_footnote_marks {
+#bckjnbvxsr .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#ptcyqmvcgl .gt_asterisk {
+#bckjnbvxsr .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#ptcyqmvcgl .gt_indent_1 {
+#bckjnbvxsr .gt_indent_1 {
   text-indent: 5px;
 }
 
-#ptcyqmvcgl .gt_indent_2 {
+#bckjnbvxsr .gt_indent_2 {
   text-indent: 10px;
 }
 
-#ptcyqmvcgl .gt_indent_3 {
+#bckjnbvxsr .gt_indent_3 {
   text-indent: 15px;
 }
 
-#ptcyqmvcgl .gt_indent_4 {
+#bckjnbvxsr .gt_indent_4 {
   text-indent: 20px;
 }
 
-#ptcyqmvcgl .gt_indent_5 {
+#bckjnbvxsr .gt_indent_5 {
   text-indent: 25px;
 }
 
-#ptcyqmvcgl .katex-display {
+#bckjnbvxsr .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#ptcyqmvcgl div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#bckjnbvxsr div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -5469,23 +5519,23 @@ Identifiant de la parcelle cadastrale                              no_lot_1
 <span id="cb62-4"><a href="#cb62-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(prix_metre_carrez)) <span class="sc">%&gt;%</span> <span class="fu">head</span>(<span class="dv">5</span>) <span class="sc">%&gt;%</span> </span>
 <span id="cb62-5"><a href="#cb62-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gt</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
-<div id="juhwbsusbq" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#juhwbsusbq table {
+<div id="sttvtdttzd" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#sttvtdttzd table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#juhwbsusbq thead, #juhwbsusbq tbody, #juhwbsusbq tfoot, #juhwbsusbq tr, #juhwbsusbq td, #juhwbsusbq th {
+#sttvtdttzd thead, #sttvtdttzd tbody, #sttvtdttzd tfoot, #sttvtdttzd tr, #sttvtdttzd td, #sttvtdttzd th {
   border-style: none;
 }
 
-#juhwbsusbq p {
+#sttvtdttzd p {
   margin: 0;
   padding: 0;
 }
 
-#juhwbsusbq .gt_table {
+#sttvtdttzd .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -5511,12 +5561,12 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   border-left-color: #D3D3D3;
 }
 
-#juhwbsusbq .gt_caption {
+#sttvtdttzd .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#juhwbsusbq .gt_title {
+#sttvtdttzd .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -5528,7 +5578,7 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   border-bottom-width: 0;
 }
 
-#juhwbsusbq .gt_subtitle {
+#sttvtdttzd .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -5540,7 +5590,7 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   border-top-width: 0;
 }
 
-#juhwbsusbq .gt_heading {
+#sttvtdttzd .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -5552,13 +5602,13 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   border-right-color: #D3D3D3;
 }
 
-#juhwbsusbq .gt_bottom_border {
+#sttvtdttzd .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#juhwbsusbq .gt_col_headings {
+#sttvtdttzd .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -5573,7 +5623,7 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   border-right-color: #D3D3D3;
 }
 
-#juhwbsusbq .gt_col_heading {
+#sttvtdttzd .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -5593,7 +5643,7 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   overflow-x: hidden;
 }
 
-#juhwbsusbq .gt_column_spanner_outer {
+#sttvtdttzd .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -5605,15 +5655,15 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   padding-right: 4px;
 }
 
-#juhwbsusbq .gt_column_spanner_outer:first-child {
+#sttvtdttzd .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#juhwbsusbq .gt_column_spanner_outer:last-child {
+#sttvtdttzd .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#juhwbsusbq .gt_column_spanner {
+#sttvtdttzd .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -5625,11 +5675,11 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   width: 100%;
 }
 
-#juhwbsusbq .gt_spanner_row {
+#sttvtdttzd .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#juhwbsusbq .gt_group_heading {
+#sttvtdttzd .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -5655,7 +5705,7 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   text-align: left;
 }
 
-#juhwbsusbq .gt_empty_group_heading {
+#sttvtdttzd .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -5670,15 +5720,15 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   vertical-align: middle;
 }
 
-#juhwbsusbq .gt_from_md > :first-child {
+#sttvtdttzd .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#juhwbsusbq .gt_from_md > :last-child {
+#sttvtdttzd .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#juhwbsusbq .gt_row {
+#sttvtdttzd .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -5697,7 +5747,7 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   overflow-x: hidden;
 }
 
-#juhwbsusbq .gt_stub {
+#sttvtdttzd .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -5710,7 +5760,7 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   padding-right: 5px;
 }
 
-#juhwbsusbq .gt_stub_row_group {
+#sttvtdttzd .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -5724,15 +5774,15 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   vertical-align: top;
 }
 
-#juhwbsusbq .gt_row_group_first td {
+#sttvtdttzd .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#juhwbsusbq .gt_row_group_first th {
+#sttvtdttzd .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#juhwbsusbq .gt_summary_row {
+#sttvtdttzd .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -5742,16 +5792,16 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   padding-right: 5px;
 }
 
-#juhwbsusbq .gt_first_summary_row {
+#sttvtdttzd .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#juhwbsusbq .gt_first_summary_row.thick {
+#sttvtdttzd .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#juhwbsusbq .gt_last_summary_row {
+#sttvtdttzd .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -5761,7 +5811,7 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   border-bottom-color: #D3D3D3;
 }
 
-#juhwbsusbq .gt_grand_summary_row {
+#sttvtdttzd .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -5771,7 +5821,7 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   padding-right: 5px;
 }
 
-#juhwbsusbq .gt_first_grand_summary_row {
+#sttvtdttzd .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -5781,7 +5831,7 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   border-top-color: #D3D3D3;
 }
 
-#juhwbsusbq .gt_last_grand_summary_row_top {
+#sttvtdttzd .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -5791,11 +5841,11 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   border-bottom-color: #D3D3D3;
 }
 
-#juhwbsusbq .gt_striped {
+#sttvtdttzd .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#juhwbsusbq .gt_table_body {
+#sttvtdttzd .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -5804,7 +5854,7 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   border-bottom-color: #D3D3D3;
 }
 
-#juhwbsusbq .gt_footnotes {
+#sttvtdttzd .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -5818,7 +5868,7 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   border-right-color: #D3D3D3;
 }
 
-#juhwbsusbq .gt_footnote {
+#sttvtdttzd .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -5827,7 +5877,7 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   padding-right: 5px;
 }
 
-#juhwbsusbq .gt_sourcenotes {
+#sttvtdttzd .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -5841,7 +5891,7 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   border-right-color: #D3D3D3;
 }
 
-#juhwbsusbq .gt_sourcenote {
+#sttvtdttzd .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -5849,72 +5899,72 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   padding-right: 5px;
 }
 
-#juhwbsusbq .gt_left {
+#sttvtdttzd .gt_left {
   text-align: left;
 }
 
-#juhwbsusbq .gt_center {
+#sttvtdttzd .gt_center {
   text-align: center;
 }
 
-#juhwbsusbq .gt_right {
+#sttvtdttzd .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#juhwbsusbq .gt_font_normal {
+#sttvtdttzd .gt_font_normal {
   font-weight: normal;
 }
 
-#juhwbsusbq .gt_font_bold {
+#sttvtdttzd .gt_font_bold {
   font-weight: bold;
 }
 
-#juhwbsusbq .gt_font_italic {
+#sttvtdttzd .gt_font_italic {
   font-style: italic;
 }
 
-#juhwbsusbq .gt_super {
+#sttvtdttzd .gt_super {
   font-size: 65%;
 }
 
-#juhwbsusbq .gt_footnote_marks {
+#sttvtdttzd .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#juhwbsusbq .gt_asterisk {
+#sttvtdttzd .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#juhwbsusbq .gt_indent_1 {
+#sttvtdttzd .gt_indent_1 {
   text-indent: 5px;
 }
 
-#juhwbsusbq .gt_indent_2 {
+#sttvtdttzd .gt_indent_2 {
   text-indent: 10px;
 }
 
-#juhwbsusbq .gt_indent_3 {
+#sttvtdttzd .gt_indent_3 {
   text-indent: 15px;
 }
 
-#juhwbsusbq .gt_indent_4 {
+#sttvtdttzd .gt_indent_4 {
   text-indent: 20px;
 }
 
-#juhwbsusbq .gt_indent_5 {
+#sttvtdttzd .gt_indent_5 {
   text-indent: 25px;
 }
 
-#juhwbsusbq .katex-display {
+#sttvtdttzd .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#juhwbsusbq div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#sttvtdttzd div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -6041,23 +6091,23 @@ Identifiant de la parcelle cadastrale                              no_lot_1
 <span id="cb67-6"><a href="#cb67-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gt</span>() <span class="sc">%&gt;%</span> </span>
 <span id="cb67-7"><a href="#cb67-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fmt_number</span>(<span class="at">columns =</span> <span class="dv">3</span><span class="sc">:</span><span class="dv">8</span>, <span class="at">sep_mark =</span> <span class="st">" "</span>, <span class="at">decimals =</span> <span class="dv">1</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
-<div id="issyawcswg" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#issyawcswg table {
+<div id="jrzmynjjzv" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#jrzmynjjzv table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#issyawcswg thead, #issyawcswg tbody, #issyawcswg tfoot, #issyawcswg tr, #issyawcswg td, #issyawcswg th {
+#jrzmynjjzv thead, #jrzmynjjzv tbody, #jrzmynjjzv tfoot, #jrzmynjjzv tr, #jrzmynjjzv td, #jrzmynjjzv th {
   border-style: none;
 }
 
-#issyawcswg p {
+#jrzmynjjzv p {
   margin: 0;
   padding: 0;
 }
 
-#issyawcswg .gt_table {
+#jrzmynjjzv .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -6083,12 +6133,12 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   border-left-color: #D3D3D3;
 }
 
-#issyawcswg .gt_caption {
+#jrzmynjjzv .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#issyawcswg .gt_title {
+#jrzmynjjzv .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -6100,7 +6150,7 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   border-bottom-width: 0;
 }
 
-#issyawcswg .gt_subtitle {
+#jrzmynjjzv .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -6112,7 +6162,7 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   border-top-width: 0;
 }
 
-#issyawcswg .gt_heading {
+#jrzmynjjzv .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -6124,13 +6174,13 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   border-right-color: #D3D3D3;
 }
 
-#issyawcswg .gt_bottom_border {
+#jrzmynjjzv .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#issyawcswg .gt_col_headings {
+#jrzmynjjzv .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -6145,7 +6195,7 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   border-right-color: #D3D3D3;
 }
 
-#issyawcswg .gt_col_heading {
+#jrzmynjjzv .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -6165,7 +6215,7 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   overflow-x: hidden;
 }
 
-#issyawcswg .gt_column_spanner_outer {
+#jrzmynjjzv .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -6177,15 +6227,15 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   padding-right: 4px;
 }
 
-#issyawcswg .gt_column_spanner_outer:first-child {
+#jrzmynjjzv .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#issyawcswg .gt_column_spanner_outer:last-child {
+#jrzmynjjzv .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#issyawcswg .gt_column_spanner {
+#jrzmynjjzv .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -6197,11 +6247,11 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   width: 100%;
 }
 
-#issyawcswg .gt_spanner_row {
+#jrzmynjjzv .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#issyawcswg .gt_group_heading {
+#jrzmynjjzv .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -6227,7 +6277,7 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   text-align: left;
 }
 
-#issyawcswg .gt_empty_group_heading {
+#jrzmynjjzv .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -6242,15 +6292,15 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   vertical-align: middle;
 }
 
-#issyawcswg .gt_from_md > :first-child {
+#jrzmynjjzv .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#issyawcswg .gt_from_md > :last-child {
+#jrzmynjjzv .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#issyawcswg .gt_row {
+#jrzmynjjzv .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -6269,7 +6319,7 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   overflow-x: hidden;
 }
 
-#issyawcswg .gt_stub {
+#jrzmynjjzv .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -6282,7 +6332,7 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   padding-right: 5px;
 }
 
-#issyawcswg .gt_stub_row_group {
+#jrzmynjjzv .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -6296,15 +6346,15 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   vertical-align: top;
 }
 
-#issyawcswg .gt_row_group_first td {
+#jrzmynjjzv .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#issyawcswg .gt_row_group_first th {
+#jrzmynjjzv .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#issyawcswg .gt_summary_row {
+#jrzmynjjzv .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -6314,16 +6364,16 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   padding-right: 5px;
 }
 
-#issyawcswg .gt_first_summary_row {
+#jrzmynjjzv .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#issyawcswg .gt_first_summary_row.thick {
+#jrzmynjjzv .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#issyawcswg .gt_last_summary_row {
+#jrzmynjjzv .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -6333,7 +6383,7 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   border-bottom-color: #D3D3D3;
 }
 
-#issyawcswg .gt_grand_summary_row {
+#jrzmynjjzv .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -6343,7 +6393,7 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   padding-right: 5px;
 }
 
-#issyawcswg .gt_first_grand_summary_row {
+#jrzmynjjzv .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -6353,7 +6403,7 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   border-top-color: #D3D3D3;
 }
 
-#issyawcswg .gt_last_grand_summary_row_top {
+#jrzmynjjzv .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -6363,11 +6413,11 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   border-bottom-color: #D3D3D3;
 }
 
-#issyawcswg .gt_striped {
+#jrzmynjjzv .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#issyawcswg .gt_table_body {
+#jrzmynjjzv .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -6376,7 +6426,7 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   border-bottom-color: #D3D3D3;
 }
 
-#issyawcswg .gt_footnotes {
+#jrzmynjjzv .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -6390,7 +6440,7 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   border-right-color: #D3D3D3;
 }
 
-#issyawcswg .gt_footnote {
+#jrzmynjjzv .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -6399,7 +6449,7 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   padding-right: 5px;
 }
 
-#issyawcswg .gt_sourcenotes {
+#jrzmynjjzv .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -6413,7 +6463,7 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   border-right-color: #D3D3D3;
 }
 
-#issyawcswg .gt_sourcenote {
+#jrzmynjjzv .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -6421,72 +6471,72 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   padding-right: 5px;
 }
 
-#issyawcswg .gt_left {
+#jrzmynjjzv .gt_left {
   text-align: left;
 }
 
-#issyawcswg .gt_center {
+#jrzmynjjzv .gt_center {
   text-align: center;
 }
 
-#issyawcswg .gt_right {
+#jrzmynjjzv .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#issyawcswg .gt_font_normal {
+#jrzmynjjzv .gt_font_normal {
   font-weight: normal;
 }
 
-#issyawcswg .gt_font_bold {
+#jrzmynjjzv .gt_font_bold {
   font-weight: bold;
 }
 
-#issyawcswg .gt_font_italic {
+#jrzmynjjzv .gt_font_italic {
   font-style: italic;
 }
 
-#issyawcswg .gt_super {
+#jrzmynjjzv .gt_super {
   font-size: 65%;
 }
 
-#issyawcswg .gt_footnote_marks {
+#jrzmynjjzv .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#issyawcswg .gt_asterisk {
+#jrzmynjjzv .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#issyawcswg .gt_indent_1 {
+#jrzmynjjzv .gt_indent_1 {
   text-indent: 5px;
 }
 
-#issyawcswg .gt_indent_2 {
+#jrzmynjjzv .gt_indent_2 {
   text-indent: 10px;
 }
 
-#issyawcswg .gt_indent_3 {
+#jrzmynjjzv .gt_indent_3 {
   text-indent: 15px;
 }
 
-#issyawcswg .gt_indent_4 {
+#jrzmynjjzv .gt_indent_4 {
   text-indent: 20px;
 }
 
-#issyawcswg .gt_indent_5 {
+#jrzmynjjzv .gt_indent_5 {
   text-indent: 25px;
 }
 
-#issyawcswg .katex-display {
+#jrzmynjjzv .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#issyawcswg div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#jrzmynjjzv div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -6848,36 +6898,36 @@ Identifiant de la parcelle cadastrale                              no_lot_1
 <h3 data-number="3.2.4" class="anchored" data-anchor-id="découper-une-variable-quantitative-en-classes"><span class="header-section-number">3.2.4</span> Découper une variable quantitative en classes</h3>
 <p>On peut enfin découper en classes une variable quantitative et en faire donc une variable qualitative. On utilise pour cela la fonction <code>cut()</code> du langage de base de <code>R</code>. On peut par exemple découper la variable selon les principaux indicateurs de la distribution.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb68"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="co">#dvf_ParisPC %&gt;% get_summary_stats(prix_metre_carrez)</span></span>
-<span id="cb68-2"><a href="#cb68-2" aria-hidden="true" tabindex="-1"></a>dvf_ParisPC<span class="sc">$</span>px_m2_cat <span class="ot">&lt;-</span> <span class="fu">cut</span>(dvf_ParisPC<span class="sc">$</span>prix_metre_carrez,</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb68"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="co">#dvf_ParisPC_final %&gt;% get_summary_stats(prix_metre_carrez)</span></span>
+<span id="cb68-2"><a href="#cb68-2" aria-hidden="true" tabindex="-1"></a>dvf_ParisPC_final<span class="sc">$</span>px_m2_cat <span class="ot">&lt;-</span> <span class="fu">cut</span>(dvf_ParisPC_final<span class="sc">$</span>prix_metre_carrez,</span>
 <span id="cb68-3"><a href="#cb68-3" aria-hidden="true" tabindex="-1"></a>                                <span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">0</span>,</span>
-<span id="cb68-4"><a href="#cb68-4" aria-hidden="true" tabindex="-1"></a>                                           <span class="fu">quantile</span>(dvf_ParisPC[<span class="sc">!</span><span class="fu">is.na</span>(dvf_ParisPC<span class="sc">$</span>prix_metre_carrez),]<span class="sc">$</span>prix_metre_carrez,<span class="fl">0.25</span>),  </span>
-<span id="cb68-5"><a href="#cb68-5" aria-hidden="true" tabindex="-1"></a>                                           <span class="fu">mean</span>(dvf_ParisPC[<span class="sc">!</span><span class="fu">is.na</span>(dvf_ParisPC<span class="sc">$</span>prix_metre_carrez),]<span class="sc">$</span>prix_metre_carrez),</span>
-<span id="cb68-6"><a href="#cb68-6" aria-hidden="true" tabindex="-1"></a>                                           <span class="fu">max</span>(dvf_ParisPC[<span class="sc">!</span><span class="fu">is.na</span>(dvf_ParisPC<span class="sc">$</span>prix_metre_carrez),]<span class="sc">$</span>prix_metre_carrez)),</span>
-<span id="cb68-7"><a href="#cb68-7" aria-hidden="true" tabindex="-1"></a>                                <span class="at">labels=</span><span class="fu">c</span>(<span class="st">"Entre 1,042 et le Q1(4581€)"</span>,</span>
-<span id="cb68-8"><a href="#cb68-8" aria-hidden="true" tabindex="-1"></a>                                         <span class="st">"Entre le Q1 et la moyenne (10923.5€)"</span>,</span>
-<span id="cb68-9"><a href="#cb68-9" aria-hidden="true" tabindex="-1"></a>                                         <span class="st">"Entre la moyenne et le maximum (124913203€)"</span>))</span>
+<span id="cb68-4"><a href="#cb68-4" aria-hidden="true" tabindex="-1"></a>                                           <span class="fu">quantile</span>(dvf_ParisPC_final[<span class="sc">!</span><span class="fu">is.na</span>(dvf_ParisPC_final<span class="sc">$</span>prix_metre_carrez),]<span class="sc">$</span>prix_metre_carrez,<span class="fl">0.25</span>),  </span>
+<span id="cb68-5"><a href="#cb68-5" aria-hidden="true" tabindex="-1"></a>                                           <span class="fu">mean</span>(dvf_ParisPC_final[<span class="sc">!</span><span class="fu">is.na</span>(dvf_ParisPC_final<span class="sc">$</span>prix_metre_carrez),]<span class="sc">$</span>prix_metre_carrez),</span>
+<span id="cb68-6"><a href="#cb68-6" aria-hidden="true" tabindex="-1"></a>                                           <span class="fu">max</span>(dvf_ParisPC_final[<span class="sc">!</span><span class="fu">is.na</span>(dvf_ParisPC_final<span class="sc">$</span>prix_metre_carrez),]<span class="sc">$</span>prix_metre_carrez)),</span>
+<span id="cb68-7"><a href="#cb68-7" aria-hidden="true" tabindex="-1"></a>                                <span class="at">labels=</span><span class="fu">c</span>(<span class="st">"Entre 1,042 et le Q1(4682.5€)"</span>,</span>
+<span id="cb68-8"><a href="#cb68-8" aria-hidden="true" tabindex="-1"></a>                                         <span class="st">"Entre le Q1 et la moyenne (7744€)"</span>,</span>
+<span id="cb68-9"><a href="#cb68-9" aria-hidden="true" tabindex="-1"></a>                                         <span class="st">"Entre la moyenne et le maximum (38630€)"</span>))</span>
 <span id="cb68-10"><a href="#cb68-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb68-11"><a href="#cb68-11" aria-hidden="true" tabindex="-1"></a>dvf_ParisPC <span class="sc">%&gt;%</span> <span class="fu">tabyl</span>(px_m2_cat) <span class="sc">%&gt;%</span> <span class="fu">adorn_totals</span>(<span class="st">"row"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb68-11"><a href="#cb68-11" aria-hidden="true" tabindex="-1"></a>dvf_ParisPC_final <span class="sc">%&gt;%</span> <span class="fu">tabyl</span>(px_m2_cat) <span class="sc">%&gt;%</span> <span class="fu">adorn_totals</span>(<span class="st">"row"</span>) <span class="sc">%&gt;%</span> </span>
 <span id="cb68-12"><a href="#cb68-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">adorn_pct_formatting</span>() <span class="sc">%&gt;%</span> <span class="fu">gt</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
-<div id="jcycbznnwr" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#jcycbznnwr table {
+<div id="hxvsrarewd" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#hxvsrarewd table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#jcycbznnwr thead, #jcycbznnwr tbody, #jcycbznnwr tfoot, #jcycbznnwr tr, #jcycbznnwr td, #jcycbznnwr th {
+#hxvsrarewd thead, #hxvsrarewd tbody, #hxvsrarewd tfoot, #hxvsrarewd tr, #hxvsrarewd td, #hxvsrarewd th {
   border-style: none;
 }
 
-#jcycbznnwr p {
+#hxvsrarewd p {
   margin: 0;
   padding: 0;
 }
 
-#jcycbznnwr .gt_table {
+#hxvsrarewd .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -6903,12 +6953,12 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   border-left-color: #D3D3D3;
 }
 
-#jcycbznnwr .gt_caption {
+#hxvsrarewd .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#jcycbznnwr .gt_title {
+#hxvsrarewd .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -6920,7 +6970,7 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   border-bottom-width: 0;
 }
 
-#jcycbznnwr .gt_subtitle {
+#hxvsrarewd .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -6932,7 +6982,7 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   border-top-width: 0;
 }
 
-#jcycbznnwr .gt_heading {
+#hxvsrarewd .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -6944,13 +6994,13 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   border-right-color: #D3D3D3;
 }
 
-#jcycbznnwr .gt_bottom_border {
+#hxvsrarewd .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#jcycbznnwr .gt_col_headings {
+#hxvsrarewd .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -6965,7 +7015,7 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   border-right-color: #D3D3D3;
 }
 
-#jcycbznnwr .gt_col_heading {
+#hxvsrarewd .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -6985,7 +7035,7 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   overflow-x: hidden;
 }
 
-#jcycbznnwr .gt_column_spanner_outer {
+#hxvsrarewd .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -6997,15 +7047,15 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   padding-right: 4px;
 }
 
-#jcycbznnwr .gt_column_spanner_outer:first-child {
+#hxvsrarewd .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#jcycbznnwr .gt_column_spanner_outer:last-child {
+#hxvsrarewd .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#jcycbznnwr .gt_column_spanner {
+#hxvsrarewd .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -7017,11 +7067,11 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   width: 100%;
 }
 
-#jcycbznnwr .gt_spanner_row {
+#hxvsrarewd .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#jcycbznnwr .gt_group_heading {
+#hxvsrarewd .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -7047,7 +7097,7 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   text-align: left;
 }
 
-#jcycbznnwr .gt_empty_group_heading {
+#hxvsrarewd .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -7062,15 +7112,15 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   vertical-align: middle;
 }
 
-#jcycbznnwr .gt_from_md > :first-child {
+#hxvsrarewd .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#jcycbznnwr .gt_from_md > :last-child {
+#hxvsrarewd .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#jcycbznnwr .gt_row {
+#hxvsrarewd .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -7089,7 +7139,7 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   overflow-x: hidden;
 }
 
-#jcycbznnwr .gt_stub {
+#hxvsrarewd .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -7102,7 +7152,7 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   padding-right: 5px;
 }
 
-#jcycbznnwr .gt_stub_row_group {
+#hxvsrarewd .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -7116,15 +7166,15 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   vertical-align: top;
 }
 
-#jcycbznnwr .gt_row_group_first td {
+#hxvsrarewd .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#jcycbznnwr .gt_row_group_first th {
+#hxvsrarewd .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#jcycbznnwr .gt_summary_row {
+#hxvsrarewd .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -7134,16 +7184,16 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   padding-right: 5px;
 }
 
-#jcycbznnwr .gt_first_summary_row {
+#hxvsrarewd .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#jcycbznnwr .gt_first_summary_row.thick {
+#hxvsrarewd .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#jcycbznnwr .gt_last_summary_row {
+#hxvsrarewd .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -7153,7 +7203,7 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   border-bottom-color: #D3D3D3;
 }
 
-#jcycbznnwr .gt_grand_summary_row {
+#hxvsrarewd .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -7163,7 +7213,7 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   padding-right: 5px;
 }
 
-#jcycbznnwr .gt_first_grand_summary_row {
+#hxvsrarewd .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -7173,7 +7223,7 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   border-top-color: #D3D3D3;
 }
 
-#jcycbznnwr .gt_last_grand_summary_row_top {
+#hxvsrarewd .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -7183,11 +7233,11 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   border-bottom-color: #D3D3D3;
 }
 
-#jcycbznnwr .gt_striped {
+#hxvsrarewd .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#jcycbznnwr .gt_table_body {
+#hxvsrarewd .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -7196,7 +7246,7 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   border-bottom-color: #D3D3D3;
 }
 
-#jcycbznnwr .gt_footnotes {
+#hxvsrarewd .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -7210,7 +7260,7 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   border-right-color: #D3D3D3;
 }
 
-#jcycbznnwr .gt_footnote {
+#hxvsrarewd .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -7219,7 +7269,7 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   padding-right: 5px;
 }
 
-#jcycbznnwr .gt_sourcenotes {
+#hxvsrarewd .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -7233,7 +7283,7 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   border-right-color: #D3D3D3;
 }
 
-#jcycbznnwr .gt_sourcenote {
+#hxvsrarewd .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -7241,72 +7291,72 @@ Identifiant de la parcelle cadastrale                              no_lot_1
   padding-right: 5px;
 }
 
-#jcycbznnwr .gt_left {
+#hxvsrarewd .gt_left {
   text-align: left;
 }
 
-#jcycbznnwr .gt_center {
+#hxvsrarewd .gt_center {
   text-align: center;
 }
 
-#jcycbznnwr .gt_right {
+#hxvsrarewd .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#jcycbznnwr .gt_font_normal {
+#hxvsrarewd .gt_font_normal {
   font-weight: normal;
 }
 
-#jcycbznnwr .gt_font_bold {
+#hxvsrarewd .gt_font_bold {
   font-weight: bold;
 }
 
-#jcycbznnwr .gt_font_italic {
+#hxvsrarewd .gt_font_italic {
   font-style: italic;
 }
 
-#jcycbznnwr .gt_super {
+#hxvsrarewd .gt_super {
   font-size: 65%;
 }
 
-#jcycbznnwr .gt_footnote_marks {
+#hxvsrarewd .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#jcycbznnwr .gt_asterisk {
+#hxvsrarewd .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#jcycbznnwr .gt_indent_1 {
+#hxvsrarewd .gt_indent_1 {
   text-indent: 5px;
 }
 
-#jcycbznnwr .gt_indent_2 {
+#hxvsrarewd .gt_indent_2 {
   text-indent: 10px;
 }
 
-#jcycbznnwr .gt_indent_3 {
+#hxvsrarewd .gt_indent_3 {
   text-indent: 15px;
 }
 
-#jcycbznnwr .gt_indent_4 {
+#hxvsrarewd .gt_indent_4 {
   text-indent: 20px;
 }
 
-#jcycbznnwr .gt_indent_5 {
+#hxvsrarewd .gt_indent_5 {
   text-indent: 25px;
 }
 
-#jcycbznnwr .katex-display {
+#hxvsrarewd .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#jcycbznnwr div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#hxvsrarewd div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -7321,23 +7371,23 @@ Identifiant de la parcelle cadastrale                              no_lot_1
 </thead>
 <tbody class="gt_table_body">
 <tr class="odd">
-<td class="gt_row gt_center" headers="px_m2_cat">Entre 1,042 et le Q1(4581€)</td>
-<td class="gt_row gt_right" headers="n">117175</td>
+<td class="gt_row gt_center" headers="px_m2_cat">Entre 1,042 et le Q1(4682.5€)</td>
+<td class="gt_row gt_right" headers="n">112486</td>
 <td class="gt_row gt_right" headers="percent">25.0%</td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_center" headers="px_m2_cat">Entre le Q1 et la moyenne (10923.5€)</td>
-<td class="gt_row gt_right" headers="n">256823</td>
-<td class="gt_row gt_right" headers="percent">54.8%</td>
+<td class="gt_row gt_center" headers="px_m2_cat">Entre le Q1 et la moyenne (7744€)</td>
+<td class="gt_row gt_right" headers="n">130993</td>
+<td class="gt_row gt_right" headers="percent">29.1%</td>
 </tr>
 <tr class="odd">
-<td class="gt_row gt_center" headers="px_m2_cat">Entre la moyenne et le maximum (124913203€)</td>
-<td class="gt_row gt_right" headers="n">94700</td>
-<td class="gt_row gt_right" headers="percent">20.2%</td>
+<td class="gt_row gt_center" headers="px_m2_cat">Entre la moyenne et le maximum (38630€)</td>
+<td class="gt_row gt_right" headers="n">206428</td>
+<td class="gt_row gt_right" headers="percent">45.9%</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_center" headers="px_m2_cat">Total</td>
-<td class="gt_row gt_right" headers="n">468698</td>
+<td class="gt_row gt_right" headers="n">449907</td>
 <td class="gt_row gt_right" headers="percent">100.0%</td>
 </tr>
 </tbody>
@@ -7348,6 +7398,11 @@ Identifiant de la parcelle cadastrale                              no_lot_1
 </div>
 <p>On a une classe majoritaire (du Q1 à la moyenne), mais cela nous permet de distinguer 2 classes pour lesquelles le montant du prix au m2 est soit plutôt faible, soit plutôt élevé.</p>
 <p>À noter que si la variable quantitative en question a des valeurs manquantes, il faudra utiliser la fonction <code>fancycut()</code> ou <code>wafflecut()</code> du package <strong><code>fancycut</code></strong>, l’inconvénient est que cela nous oblige à indiquer les valeurs des différents indicateurs de la distribution.</p>
+<p>&nbsp; &nbsp; on enregistre la base plus propre des DVF pour la garder dans notre projet :</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb69"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Enregistrement des fichiers</span></span>
+<span id="cb69-2"><a href="#cb69-2" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(<span class="at">object =</span> dvf_ParisPC_final , <span class="at">file =</span> <span class="st">"data/dvf_ParisPC_final.Rdata"</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 <!-- Pour trouver le même résultat que précédemment, le code serait alors le suivant : -->
 
 

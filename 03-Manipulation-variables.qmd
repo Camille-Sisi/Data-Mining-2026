@@ -519,23 +519,44 @@ dvf_ParisPC_final %>%
 On peut enfin découper en classes une variable quantitative et en faire donc une variable qualitative. On utilise pour cela la fonction `cut()` du langage de base de `R`. On peut par exemple découper la variable selon les principaux indicateurs de la distribution.
 
 ```{r message=FALSE}
-#dvf_ParisPC %>% get_summary_stats(prix_metre_carrez)
-dvf_ParisPC$px_m2_cat <- cut(dvf_ParisPC$prix_metre_carrez,
+#dvf_ParisPC_final %>% get_summary_stats(prix_metre_carrez)
+dvf_ParisPC_final$px_m2_cat <- cut(dvf_ParisPC_final$prix_metre_carrez,
                                 breaks = c(0,
-                                           quantile(dvf_ParisPC[!is.na(dvf_ParisPC$prix_metre_carrez),]$prix_metre_carrez,0.25),  
-                                           mean(dvf_ParisPC[!is.na(dvf_ParisPC$prix_metre_carrez),]$prix_metre_carrez),
-                                           max(dvf_ParisPC[!is.na(dvf_ParisPC$prix_metre_carrez),]$prix_metre_carrez)),
-                                labels=c("Entre 1,042 et le Q1(4581€)",
-                                         "Entre le Q1 et la moyenne (10923.5€)",
-                                         "Entre la moyenne et le maximum (124913203€)"))
+                                           quantile(dvf_ParisPC_final[!is.na(dvf_ParisPC_final$prix_metre_carrez),]$prix_metre_carrez,0.25),  
+                                           mean(dvf_ParisPC_final[!is.na(dvf_ParisPC_final$prix_metre_carrez),]$prix_metre_carrez),
+                                           max(dvf_ParisPC_final[!is.na(dvf_ParisPC_final$prix_metre_carrez),]$prix_metre_carrez)),
+                                labels=c("Entre 1,042 et le Q1(4682.5€)",
+                                         "Entre le Q1 et la moyenne (7744€)",
+                                         "Entre la moyenne et le maximum (38630€)"))
 
-dvf_ParisPC %>% tabyl(px_m2_cat) %>% adorn_totals("row") %>% 
+dvf_ParisPC_final %>% tabyl(px_m2_cat) %>% adorn_totals("row") %>% 
   adorn_pct_formatting() %>% gt()
 ```
 
 On a une classe majoritaire (du Q1 à la moyenne), mais cela nous permet de distinguer 2 classes pour lesquelles le montant du prix au m2 est soit plutôt faible, soit plutôt élevé.
 
 À noter que si la variable quantitative en question a des valeurs manquantes, il faudra utiliser la fonction `fancycut()` ou `wafflecut()` du package **`fancycut`**, l'inconvénient est que cela nous oblige à indiquer les valeurs des différents indicateurs de la distribution.
+
+\ 
+\ 
+on enregistre la base plus propre des DVF pour la garder dans notre projet :
+```{r eval=FALSE}
+# Enregistrement des fichiers
+saveRDS(object = dvf_ParisPC_final , file = "data/dvf_ParisPC_final.Rdata") 
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

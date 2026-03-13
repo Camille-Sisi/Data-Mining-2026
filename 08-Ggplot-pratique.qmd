@@ -1,0 +1,75 @@
+# Data Mining et Data Visualization en pratique {#sec-Ggplot-pratique}
+
+Reprenons la base de données sur les demandes de valeurs foncières sur laquelle nous avons travaillé dans la section 3, et commençons notre analyse descriptive des informations présentes dans cette base en construisant des graphiques pour répondre à certaines questions relatives aux prix auquels se sont vendus les appartements de la ville de Paris entre 2019 et 2022. On pourra ainsi étudier l'évolution dans le temps de ces prix.
+
+```{r warning=FALSE, message=FALSE}
+# Chargement des librairies
+library(tidyverse)
+library(gt)
+
+# Appelons la table si elle n'est pas déjà dans votre environnement
+dvf_ParisPC_final <- readRDS("data/dvf_ParisPC_final.Rdata")
+
+# Rappel des variables présentes et de leurs noms
+colnames(dvf_ParisPC_final)
+```
+
+## Exemple de la construction d'un graphique pas à pas
+On va  chercher à représenter la distribution du prix du m2 des ventes d'appartements en fonction de l'année. Notre variable principale est donc `prix_metre_carrez`, et la variable "secondaire" ou fonction de la première est `annee`.
+
+Pour représenter la distribution d'une variable quantitative ou continue, on peut utiliser un histogramme (ou/et une courbe de densité), mais comme ici on veut la représenter selon une autre variable, peut-être serait-il mieux d'utiliser une boîte à moustache qui donnera les principaux éléments de description de la distribution de cette variable.
+
+Nous avons déjà vu ces deux graphiques précédemment, mais reprenons-les pour voir dans le détail comment nous les construisons !\ 
+**D'abord**, on va créer une **boîte à moustache pour représenter la distribution de la variable `prix_metre_carrez`**:
+
+```{r warning=FALSE, message=FALSE}
+dvf_ParisPC_final %>% 
+  ggplot() + aes(x = prix_metre_carrez) + geom_boxplot()
+```
+
+Comme on le voit, il reste des valeurs aberrantes (points noirs qui forment même une ligne), mais on avait déjà procédé à un élagage de la variable (cf. section 3.2.3. de la séance 1 de ce cours). ce qu'on peut faire par conséquent si on estime que cela gène la lecture du graphique, c'est de jouer sur des paramétrages supplémentaires.
+\ 
+On peut par exemple **utiliser une option pour mettre une échelle moins grande en abcisse**. Plusieurs manières de faire existent, mais l'une d'entre elles équivaut à supprimer les valeurs, alors qu'une autre permet de les garder et juste de ne pas les faire apparaître sur le graphique, cela peut-être important si ensuite nous voulons ajoutons des statistiques comme la moyenne sur le boxplot, comme nous allons le voir.
+
+La première manière est d'utiliser l'argument `scale_x_continuous()` et l'option `limits=c()` pour indiquer les nouvelles valeurs de l'échelle, par exemple ici entre 1250 et 22500, mais un avertissement est alors donné : 3896 lignes ont été supprimées, si nous ajoutons ensuite la moyenne, elle sera calculée sans ces 3896 observations, cela peut donc changer les indicateurs de moyenne, voire de médiane, ce n'est donc pas rigoureux.
+
+Utilisons plutôt la seconde méthode maintenant, avec l'option `xlim()` à intégrer dans la fonction `coord_cartesian()` qui fait l'équivalent d'un zoom sur le graphique sans supprimer des observations :
+
+```{r}
+# 1ère méthode :
+# dvf_ParisPC_final %>% ggplot() + aes(x = prix_metre_carrez) + geom_boxplot() +
+#   scale_x_continuous(limits = c(1250, 22500))
+
+# 2nde méthode plus rigoureuse :
+dvf_ParisPC_final %>% ggplot() + aes(x = prix_metre_carrez) + geom_boxplot() + 
+  coord_cartesian(xlim=c(1250,22500))
+```
+
+**Ensuite**, nous souhaitons **représenter la distribution de cette variable selon l'année**) : nous allons pour cela ajouter dans l'`aes()` une variable `y=` qui doit, attention, être définie en factor, sinon les niveaux/modalités de la variable ne sont pas reconnu(e)s . Comme ce n'est pas le cas ici, il faut ajouter la fonction `factor()` pour la variable d'année. Nous allons aussi en profiter pour préciser un peu l'échelle des abscisses (réduire le "pas" avec l'option `breaks=seq()`) : 
+
+```{r}
+dvf_ParisPC_final %>% ggplot() + 
+  aes(x = prix_metre_carrez, y=factor(annee_vente)) + 
+  geom_boxplot() + 
+  coord_cartesian(xlim=c(1250,22500))  + 
+  scale_x_continuous(breaks=seq(1250,22500,1750))
+```
+On voit une augmentation de la médiane entre 2019 et 2022 puis une très légère baisse en 2023. 
+
+Nous pouvons **également ajouter la moyenne**, puisqu'ici nous voyons de gauche à droite, le minimum, le 1er quartile, la médiane, le 3ème quartile, le maximum et les "outliers" (points aberrants selon les statistiques de la boxplot). Pour cela, il faut utiliser la "couche" *statistique* de `ggplot()` avec la fonction `stat_summary()` et les options `fun = mean` pour la moyenne, `geom = point` pour qu'elle soit représentée par un point, `color="gray50"` pour qu'elle se différencie des autres points et soit en gris, et éventuellement `size=2` pour jouer sur la taille du point. 
+
+```{r}
+# Pour infos, les options de `geom =` dans `stat_summary()` sont par exemple :  
+# "point", "pointrange", "crossbar", "bar" (cell-ci à ne pas utiliser ici néanmoins !)
+dvf_ParisPC_final %>% 
+  ggplot() + aes(x = prix_metre_carrez, y=factor(annee_vente)) + 
+  geom_boxplot() + 
+  stat_summary(fun=mean, geom="point", color="gray50", size=2) +
+  coord_cartesian(xlim=c(1250,22500)) + 
+  scale_x_continuous(breaks=seq(1250,22500,1750))
+```
+
+On observe ainsi des différences entre la moyenne et la médiane, puisque la moyenne est toujours supérieure à la médiane puisque tirée par des valeurs plus souvent très élevées que très faibles (plus de points au-delà du maximum que l'inverse). Elle suit en revanche la même évolution.
+
+On peut aussi vouloir enlever les outliers avec l'option `outlier.shape` de `geom_boxplot()` comme ceci : `geom_boxplot(outlier.shape = NA)` [ou avec l'option `outliers=FALSE`].
+

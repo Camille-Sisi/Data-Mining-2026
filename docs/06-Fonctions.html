@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>5&nbsp; Quelles questions intéressantes pour une “fouille de données” sur la base des RP ? – Data Mining 2026</title>
+<title>6&nbsp; Systématiser nos procédures : construire une fonction – Data Mining 2026</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -65,8 +65,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./06-Fonctions.html" rel="next">
-<link href="./04-Récapitulatif.html" rel="prev">
+<link href="./07-Ggplot-theorique.html" rel="next">
+<link href="./05-Questions-fouille-donnees.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -285,7 +285,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./05-Questions-fouille-donnees.html">Séance 2</a></li><li class="breadcrumb-item"><a href="./05-Questions-fouille-donnees.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Quelles questions intéressantes pour une “fouille de données” sur la base des RP ?</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./05-Questions-fouille-donnees.html">Séance 2</a></li><li class="breadcrumb-item"><a href="./06-Fonctions.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Systématiser nos procédures : construire une fonction</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -366,13 +366,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./05-Questions-fouille-donnees.html" class="sidebar-item-text sidebar-link active">
+  <a href="./05-Questions-fouille-donnees.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Quelles questions intéressantes pour une “fouille de données” sur la base des RP ?</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./06-Fonctions.html" class="sidebar-item-text sidebar-link">
+  <a href="./06-Fonctions.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Systématiser nos procédures : construire une fonction</span></span></a>
   </div>
 </li>
@@ -411,9 +411,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Sur cette page</h2>
    
   <ul>
-  <li><a href="#caractéristiques-de-la-population-résidant-à-paris" id="toc-caractéristiques-de-la-population-résidant-à-paris" class="nav-link active" data-scroll-target="#caractéristiques-de-la-population-résidant-à-paris"><span class="header-section-number">5.1</span> Caractéristiques de la population résidant à Paris</a></li>
-  <li><a href="#caractéristiques-de-la-population-active-résidant-à-paris" id="toc-caractéristiques-de-la-population-active-résidant-à-paris" class="nav-link" data-scroll-target="#caractéristiques-de-la-population-active-résidant-à-paris"><span class="header-section-number">5.2</span> Caractéristiques de la population active résidant à Paris</a></li>
-  <li><a href="#caractéristiques-des-logements-parisiens" id="toc-caractéristiques-des-logements-parisiens" class="nav-link" data-scroll-target="#caractéristiques-des-logements-parisiens"><span class="header-section-number">5.3</span> Caractéristiques des logements parisiens</a></li>
+  <li><a href="#principes-généraux-dune-fonction" id="toc-principes-généraux-dune-fonction" class="nav-link active" data-scroll-target="#principes-généraux-dune-fonction"><span class="header-section-number">6.1</span> Principes généraux d’une fonction</a></li>
+  <li><a href="#exemples-de-fonctions" id="toc-exemples-de-fonctions" class="nav-link" data-scroll-target="#exemples-de-fonctions"><span class="header-section-number">6.2</span> Exemples de fonctions</a></li>
   </ul>
 </nav>
     </div>
@@ -421,9 +420,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./05-Questions-fouille-donnees.html">Séance 2</a></li><li class="breadcrumb-item"><a href="./05-Questions-fouille-donnees.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Quelles questions intéressantes pour une “fouille de données” sur la base des RP ?</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./05-Questions-fouille-donnees.html">Séance 2</a></li><li class="breadcrumb-item"><a href="./06-Fonctions.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Systématiser nos procédures : construire une fonction</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span id="sec-Questions-fouille-donnees" class="quarto-section-identifier"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Quelles questions intéressantes pour une “fouille de données” sur la base des RP ?</span></span></h1>
+<h1 class="title"><span id="sec-Fonctions" class="quarto-section-identifier"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Systématiser nos procédures : construire une fonction</span></span></h1>
 </div>
 
 
@@ -440,34 +439,114 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>Quelles sont les questions intéressantes que l’on peut se poser ? Qu’est-ce qu’on va pouvoir mettre en évidence à partir de ces données ?</p>
-<p>D’abord, on peut caractériser la population de Paris et sa petite couronne selon des variables socio-démographiques (sexe, âge, diplôme, statut conjugal, nombre d’enfants, …) et d’emploi (statut d’activité, PCS, condition d’emploi - contrat, temps de travail -, secteur d’activité, …). Ensuite, on peut décrire les logements de Paris et sa petite couronne, selon le type (appartement, maison, HLM, …), la superficie, le nombre de pièces, le nombre de personnes y habitant, le statut d’occupation (propriétaire, locataire, …), l’ancienneté d’occupation. Enfin, on peut décrire plus précisément les pièces du logement en termes de confort (baignoire / douche, salle climatisée, moyen de chauffage), ainsi que les parties communes de l’immeuble (ascenseur, place de stationnement). Enfin, on pourrait étudier les caractéristiques des occupants de ces logements, et en premier lieu ici ce que l’Insee appelle la “personne de référence du ménage”. Par ailleurs, toutes ces analyses peuvent être réalisées en comparant les différentes communes de Paris et sa petite couronne, ou à un niveau géographique plus fin par quartiers, arrondissements ou encore IRIS.</p>
-<p>Pour manipuler cette base et répondre à quelques-unes de ces questions, nous allons nous concentrer sur la commune de Paris, et allons chercher à reproduire des statistiques publiées sur le site de l’Insee. Nous produirons principalement, lors de cette séance, des tableaux de statistiques, l’analyse graphique fera en effet l’objet de la séance suivante car elle nécessite la présentation détaillée de la “grammaire” <strong><code>Ggplot</code></strong>.</p>
-<p>Avant cela, si les tables de données (“RP_final” et “meta”) ne sont plus dans votre environnement local, il faut de nouveau les importer à partir de l’enregistrement précédemment effectué dans le dossier ‘data’ de votre projet. Pour cela, il faut utiliser la fonction <code>readRDS()</code>, comme ci-dessous :</p>
-<section id="caractéristiques-de-la-population-résidant-à-paris" class="level2" data-number="5.1">
-<h2 data-number="5.1" class="anchored" data-anchor-id="caractéristiques-de-la-population-résidant-à-paris"><span class="header-section-number">5.1</span> Caractéristiques de la population résidant à Paris</h2>
-<p>Sur le site de l’Insee, vous pouvez trouver les statistiques générales sur les individus à Paris en 2021 <a href="https://www.insee.fr/fr/statistiques/8200783?geo=DEP-75" target="_blank">ici</a> et <a href="https://www.insee.fr/fr/statistiques/8201650?geo=DEP-75" target="_blank">là</a>.</p>
-<p>Comme déjà vu lors de la 1ère séance, l’application de la pondération pour avoir des statistiques représentatives de la population peut être utilisée à l’intérieur de la fonction <code>count()</code> avec l’argument <code>wt=</code>. Cela nous donnera le nombre d’individus concernés par la caractéristique étudiée (par défaut, la variable créée s’appelle “n”, on peut la renommer dans une étape ultérieure avec la fonction <code>rename()</code>). Souvent, on souhaite aussi avoir les pourcentages, on peut alors créer une variable rapportant le nombre de chaque catégorie sur le nombre total d’individus, avec la fonction <code>prop.table()</code> utilisée dans la fonction <code>mutate()</code>. Le package <strong><code>janitor</code></strong> peut permettre enfin d’ajouter une ligne totale (ou une colonne totale selon ce qu’on souhaite faire) avec la fonction <code>adorn_totals()</code>, argument “row” pour avoir le total en ligne ou “col” pour l’avoir en colonne. Des fonctions supplémentaires liées au package <strong><code>gt()</code></strong> peuvent ensuite être utilisées pour mettre en forme le tableau : <code>fmt_number()</code>, <code>tab_header()</code> ou encore <code>tab_source_note()</code>.</p>
-<p>A partir de ces indications, afficher le tableau suivant à partir d’un code utilisant le langage <strong>tidyverse</strong> et en une seule procédure (sans créer de table dans votre environnement) :</p>
+<p>Pour ré-utiliser un code de façon plus automatique, créer des fonctions est très utile (et on peut même les stocker dans un fichier <code>.r</code> pour les réutiliser plus tard pour une autre étude).</p>
+<section id="principes-généraux-dune-fonction" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="principes-généraux-dune-fonction"><span class="header-section-number">6.1</span> Principes généraux d’une fonction</h2>
+<p>L’idée est qu’à partir d’un bloc d’instructions ou de lignes de codes, on l’intègre dans une fonction qui portera un nom et qui pourra être appliquée sur les paramètres que l’on veut (table/objet différent, variables différentes) et qui nous retournera une valeur en sortie (qu’il faut préciser donc). Par exemple :</p>
 <div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Exemple fonction avec 3 arguments</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>nom_fonction <span class="ot">&lt;-</span> <span class="cf">function</span>(data, var1, var2) {</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  expression...  <span class="co"># Ce que la fonction fait</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>()  <span class="co"># Optionnel, mais la plupart du temps utilisé (!), </span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>               <span class="co"># pour sortir le résultat de la fonction</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co"># L'appel de la fonction devra ainsi préciser la table de données sur laquelle </span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co"># l'appliquer et les autres arguments : </span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="fu">nom_fonction</span>(<span class="at">data =</span> nom_de_ma_table, </span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>             <span class="at">var1 =</span> nom_de_ma_variable1,  </span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>             <span class="at">var2 =</span> nom_de_ma_variable2)</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="co"># De plus, on pourra créer un nouvel objet (ici "tab_var") pour stocker la table </span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="co"># qui est en valeur de sortie de la fonction : </span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>tab_var <span class="ot">&lt;-</span> <span class="fu">nom_fonction</span>(<span class="at">data =</span> nom_de_ma_table , </span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>                        <span class="at">var1 =</span> nom_de_ma_variable1,</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>                        <span class="at">var2 =</span> nom_de_ma_variable2)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Les arguments doivent donc être précisés en entrée de notre fonction, si on ne les précise pas cela nous retournera une erreur… à moins que l’on ait spécifié des valeurs par défaut (ce qui peut être utile si on utilise souvent les mêmes paramètres, par exemple la même base de données) ; il peut y avoir autant d’arguments que l’on souhaite.</p>
+<p>Si l’on utilise le langage tidyverse, il faut connaître quelques petits “trucs” pour écrire une fonction. Le schéma suivant réalisé par Julien Barnier du CNRS nous sera très utile.</p>
+<p><img src="images/Schéma tidyverse functions_Julien Barnier.jpg" class="img-fluid" alt="Pour une fonction utilisant le langage tidyverse"> <em>Source</em> : Julien Barnier, <a href="https://twitter.com/lapply/status/1493908215796535296?s=20&amp;t=p4aYIEV4GsGS3TGftPa0Nw" target="_blank">https://twitter.com/lapply/status/1493908215796535296?s=20&amp;t=p4aYIEV4GsGS3TGftPa0Nw</a>.</p>
+<p>Vous trouverez également des informations utiles <a href="https://thinkr.fr/comment-creer-des-fonctions-dans-le-tidyverse-avec-la-tidyeval-et-le-stash-stash/" target="_blank">ici</a> ou <a href="https://www.vishalkatti.com/posts/2021-07-17-programmingwithdplyr/" target="_blank">là</a>. &nbsp;</p>
+</section>
+<section id="exemples-de-fonctions" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="exemples-de-fonctions"><span class="header-section-number">6.2</span> Exemples de fonctions</h2>
+<p>On peut d’abord créer une fonction reprenant le code de la section précédente pour la construction de tableau. On l’appelle <code>tableau</code>, et on lui donne comme arguments “data”, “filtre_dept”, “var_quali”, “pond” et “nom_var_quali”.</p>
+<p>Dans le langage tidyverse, au sein d’une fonction, il faut appeler une variable avec des doubles-accolades <code>{  }</code>.</p>
+<p>Si l’on utilise une fonction <code>summarise()</code>, une autre subtilité à connaître est que cette syntaxe <code>summarise({{ nom_var }} = mean({{ var }}, na.rm=TRUE))</code> ne sera pas reconnue, car il faut indiquer non pas un <code>=</code> mais un <code>:=</code> pour que la fonction puisse être lue lorsque le nom donné à la variable est de type caractère ou “string”.</p>
+<p>Enfin, il ne faut pas oublier de retourner un objet en sortie avec <code>return()</code>.</p>
+<p>Essayez donc de créer une fonction <code>tableau()</code>, reprenant le premier code de la section précédente et remise ci-dessous pour information :</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>RP_final <span class="sc">%&gt;%</span> </span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(DEPT <span class="sc">==</span> <span class="st">"75"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># mutate(SEXE = case_when(SEXE=="1" ~ "Hommes", SEXE=="2" ~ "Femmes")) %&gt;% # Ne pas mettre cette ligne dans la fonction</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(SEXE, <span class="at">wt =</span> IPONDI) <span class="sc">%&gt;%</span> </span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Pourcentage =</span> <span class="fu">round</span>(<span class="fu">prop.table</span>(n)<span class="sc">*</span><span class="dv">100</span>, <span class="dv">1</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">adorn_totals</span>(<span class="st">"row"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">Effectif =</span> n, <span class="st">'Sexe'</span> <span class="ot">=</span> SEXE) <span class="sc">%&gt;%</span> </span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co"># gt() %&gt;%  # De même, ne pas mettre cette ligne dans la fonction</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co"># fmt_number(columns = 2, sep_mark = " ", decimals = 0) %&gt;% </span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co"># tab_header(title = "Population par sexe en 2021") %&gt;% </span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="co"># tab_source_note(source_note = "Source : Insee, RP 2021 ; Champ : Paris.")</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>tableau <span class="ot">&lt;-</span> <span class="cf">function</span>(data, filtre_dept, var_quali, <span class="at">pond=</span>IPONDI, nom_var_quali){</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  tab <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span> </span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(DEPT <span class="sc">==</span> filtre_dept) <span class="sc">%&gt;%</span> </span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">count</span>({{ var_quali }}, <span class="at">wt=</span>{{ pond }}) <span class="sc">%&gt;%</span> </span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">Pourcentage =</span> <span class="fu">round</span>(<span class="fu">prop.table</span>(n)<span class="sc">*</span><span class="dv">100</span>, <span class="dv">1</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">adorn_totals</span>(<span class="st">"row"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">rename</span>(<span class="at">Effectif =</span> n, {{nom_var_quali}} <span class="sc">:</span><span class="er">=</span> {{ var_quali }}) </span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(tab)</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
+</div>
+<p>On peut vérifier qu’on obtient bien la même chose :</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>RP_final <span class="sc">%&gt;%</span> </span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">SEXE_moda=</span><span class="fu">case_when</span>(SEXE<span class="sc">==</span><span class="st">"1"</span> <span class="sc">~</span> <span class="st">"Hommes"</span>, SEXE<span class="sc">==</span><span class="st">"2"</span> <span class="sc">~</span> <span class="st">"Femmes"</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tableau</span>(<span class="at">filtre_dept=</span><span class="st">"75"</span>, <span class="at">var_quali=</span>SEXE_moda, <span class="at">nom_var_quali=</span><span class="st">"Sexe"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gt</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fmt_number</span>(<span class="at">columns =</span> <span class="dv">2</span>, <span class="at">sep_mark =</span> <span class="st">" "</span>, <span class="at">decimals =</span> <span class="dv">0</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_header</span>(<span class="at">title =</span> <span class="st">"Population par sexe en 2021"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_source_note</span>(<span class="at">source_note =</span> <span class="st">"Source : Insee, RP 2021 ; Champ : Paris."</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
-<div id="nhtxhdhomu" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#nhtxhdhomu table {
+<div id="yytbwpoqxn" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#yytbwpoqxn table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#nhtxhdhomu thead, #nhtxhdhomu tbody, #nhtxhdhomu tfoot, #nhtxhdhomu tr, #nhtxhdhomu td, #nhtxhdhomu th {
+#yytbwpoqxn thead, #yytbwpoqxn tbody, #yytbwpoqxn tfoot, #yytbwpoqxn tr, #yytbwpoqxn td, #yytbwpoqxn th {
   border-style: none;
 }
 
-#nhtxhdhomu p {
+#yytbwpoqxn p {
   margin: 0;
   padding: 0;
 }
 
-#nhtxhdhomu .gt_table {
+#yytbwpoqxn .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -493,12 +572,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-left-color: #D3D3D3;
 }
 
-#nhtxhdhomu .gt_caption {
+#yytbwpoqxn .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#nhtxhdhomu .gt_title {
+#yytbwpoqxn .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -510,7 +589,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-width: 0;
 }
 
-#nhtxhdhomu .gt_subtitle {
+#yytbwpoqxn .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -522,7 +601,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-top-width: 0;
 }
 
-#nhtxhdhomu .gt_heading {
+#yytbwpoqxn .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -534,13 +613,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#nhtxhdhomu .gt_bottom_border {
+#yytbwpoqxn .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#nhtxhdhomu .gt_col_headings {
+#yytbwpoqxn .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -555,7 +634,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#nhtxhdhomu .gt_col_heading {
+#yytbwpoqxn .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -575,7 +654,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   overflow-x: hidden;
 }
 
-#nhtxhdhomu .gt_column_spanner_outer {
+#yytbwpoqxn .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -587,15 +666,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 4px;
 }
 
-#nhtxhdhomu .gt_column_spanner_outer:first-child {
+#yytbwpoqxn .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#nhtxhdhomu .gt_column_spanner_outer:last-child {
+#yytbwpoqxn .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#nhtxhdhomu .gt_column_spanner {
+#yytbwpoqxn .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -607,11 +686,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   width: 100%;
 }
 
-#nhtxhdhomu .gt_spanner_row {
+#yytbwpoqxn .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#nhtxhdhomu .gt_group_heading {
+#yytbwpoqxn .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -637,7 +716,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   text-align: left;
 }
 
-#nhtxhdhomu .gt_empty_group_heading {
+#yytbwpoqxn .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -652,15 +731,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   vertical-align: middle;
 }
 
-#nhtxhdhomu .gt_from_md > :first-child {
+#yytbwpoqxn .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#nhtxhdhomu .gt_from_md > :last-child {
+#yytbwpoqxn .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#nhtxhdhomu .gt_row {
+#yytbwpoqxn .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -679,7 +758,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   overflow-x: hidden;
 }
 
-#nhtxhdhomu .gt_stub {
+#yytbwpoqxn .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -692,7 +771,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#nhtxhdhomu .gt_stub_row_group {
+#yytbwpoqxn .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -706,15 +785,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   vertical-align: top;
 }
 
-#nhtxhdhomu .gt_row_group_first td {
+#yytbwpoqxn .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#nhtxhdhomu .gt_row_group_first th {
+#yytbwpoqxn .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#nhtxhdhomu .gt_summary_row {
+#yytbwpoqxn .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -724,16 +803,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#nhtxhdhomu .gt_first_summary_row {
+#yytbwpoqxn .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#nhtxhdhomu .gt_first_summary_row.thick {
+#yytbwpoqxn .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#nhtxhdhomu .gt_last_summary_row {
+#yytbwpoqxn .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -743,7 +822,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #D3D3D3;
 }
 
-#nhtxhdhomu .gt_grand_summary_row {
+#yytbwpoqxn .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -753,7 +832,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#nhtxhdhomu .gt_first_grand_summary_row {
+#yytbwpoqxn .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -763,7 +842,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-top-color: #D3D3D3;
 }
 
-#nhtxhdhomu .gt_last_grand_summary_row_top {
+#yytbwpoqxn .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -773,11 +852,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #D3D3D3;
 }
 
-#nhtxhdhomu .gt_striped {
+#yytbwpoqxn .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#nhtxhdhomu .gt_table_body {
+#yytbwpoqxn .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -786,7 +865,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #D3D3D3;
 }
 
-#nhtxhdhomu .gt_footnotes {
+#yytbwpoqxn .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -800,7 +879,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#nhtxhdhomu .gt_footnote {
+#yytbwpoqxn .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -809,7 +888,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#nhtxhdhomu .gt_sourcenotes {
+#yytbwpoqxn .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -823,7 +902,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#nhtxhdhomu .gt_sourcenote {
+#yytbwpoqxn .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -831,72 +910,72 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#nhtxhdhomu .gt_left {
+#yytbwpoqxn .gt_left {
   text-align: left;
 }
 
-#nhtxhdhomu .gt_center {
+#yytbwpoqxn .gt_center {
   text-align: center;
 }
 
-#nhtxhdhomu .gt_right {
+#yytbwpoqxn .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#nhtxhdhomu .gt_font_normal {
+#yytbwpoqxn .gt_font_normal {
   font-weight: normal;
 }
 
-#nhtxhdhomu .gt_font_bold {
+#yytbwpoqxn .gt_font_bold {
   font-weight: bold;
 }
 
-#nhtxhdhomu .gt_font_italic {
+#yytbwpoqxn .gt_font_italic {
   font-style: italic;
 }
 
-#nhtxhdhomu .gt_super {
+#yytbwpoqxn .gt_super {
   font-size: 65%;
 }
 
-#nhtxhdhomu .gt_footnote_marks {
+#yytbwpoqxn .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#nhtxhdhomu .gt_asterisk {
+#yytbwpoqxn .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#nhtxhdhomu .gt_indent_1 {
+#yytbwpoqxn .gt_indent_1 {
   text-indent: 5px;
 }
 
-#nhtxhdhomu .gt_indent_2 {
+#yytbwpoqxn .gt_indent_2 {
   text-indent: 10px;
 }
 
-#nhtxhdhomu .gt_indent_3 {
+#yytbwpoqxn .gt_indent_3 {
   text-indent: 15px;
 }
 
-#nhtxhdhomu .gt_indent_4 {
+#yytbwpoqxn .gt_indent_4 {
   text-indent: 20px;
 }
 
-#nhtxhdhomu .gt_indent_5 {
+#yytbwpoqxn .gt_indent_5 {
   text-indent: 25px;
 }
 
-#nhtxhdhomu .katex-display {
+#yytbwpoqxn .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#nhtxhdhomu div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#yytbwpoqxn div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -939,58 +1018,55 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Solution
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
+<p>On a gagné 5 lignes de codes !</p>
+<p>Si on a plusieurs filtres à mettre, comme on a pu le voir avec le 2nd tableau, on peut utiliser l’argument “…” (lire “dot”) : cet argument est très pratique si l’on ne sait pas combien il y aura de variable(s) dans la fonction à laquelle elle s’applique, c’est-à-dire autant 0 variable, 1 variable ou plus d’une variable ; mais elle peut aussi être “dangereuse” si on ne se souvient plus qu’on l’a créée et/ou si on ne fait pas attention à bien remplir les autres arguments avec les noms correspondants. Si on réécrit la fonction tableau et qu’on l’applique au 2nd tableau créé précédemment, cela donnerait ceci :</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gt)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>RP_final <span class="sc">%&gt;%</span> </span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(DEPT <span class="sc">==</span> <span class="st">"75"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">SEXE=</span><span class="fu">case_when</span>(SEXE<span class="sc">==</span><span class="st">"1"</span> <span class="sc">~</span> <span class="st">"Hommes"</span>, SEXE<span class="sc">==</span><span class="st">"2"</span> <span class="sc">~</span> <span class="st">"Femmes"</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(SEXE, <span class="at">wt=</span>IPONDI) <span class="sc">%&gt;%</span> </span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Pourcentage=</span><span class="fu">round</span>(<span class="fu">prop.table</span>(n)<span class="sc">*</span><span class="dv">100</span>, <span class="dv">1</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">adorn_totals</span>(<span class="st">"row"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">Effectif=</span>n, <span class="st">'Sexe'</span><span class="ot">=</span>SEXE) <span class="sc">%&gt;%</span> </span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gt</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fmt_number</span>(<span class="at">columns =</span> <span class="dv">2</span>, <span class="at">sep_mark =</span> <span class="st">" "</span>, <span class="at">decimals =</span> <span class="dv">0</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_source_note</span>(<span class="at">source_note =</span> <span class="st">"Source : Insee, RP 2021 ; Champ : Paris."</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_header</span>(<span class="at">title =</span> <span class="st">"Population par sexe en 2021"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</div>
-</div>
-</div>
-<p>Il y a plus de femmes habitant Paris en 2021, environ 53%.</p>
-<p>Cherchons maintenant la répartition de la population parisienne par type d’activité : quelle est la proportion d’actifs ayant un emploi par rapport à la part des chômeurs ou encore des retraités ? Attention au champ sur lequel porte ces statistiques (lire le titre du tableau pour cela…).</p>
-<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>tableau <span class="ot">&lt;-</span> <span class="cf">function</span>(data, ..., var_quali, <span class="at">pond=</span>IPONDI, nom_var_quali){</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  tab <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span> </span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(...) <span class="sc">%&gt;%</span> </span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">count</span>({{ var_quali }}, <span class="at">wt=</span>{{ pond }}) <span class="sc">%&gt;%</span> </span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">Pourcentage=</span><span class="fu">round</span>(<span class="fu">prop.table</span>(n)<span class="sc">*</span><span class="dv">100</span>, <span class="dv">1</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">adorn_totals</span>(<span class="st">"row"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">rename</span>(<span class="at">Effectif=</span>n, {{nom_var_quali}}<span class="sc">:</span><span class="er">=</span>{{ var_quali }}) </span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(tab)</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>RP_final <span class="sc">%&gt;%</span> </span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">TACT_moda=</span><span class="fu">case_when</span>(TACT <span class="sc">==</span> <span class="st">"11"</span> <span class="sc">~</span> <span class="st">"Actifs ayant un emploi"</span>,</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>                             TACT <span class="sc">==</span> <span class="st">"12"</span> <span class="sc">~</span> <span class="st">"Chômeurs"</span>,</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>                             TACT <span class="sc">==</span> <span class="st">"22"</span> <span class="sc">~</span> <span class="st">"Élèves, étudiants et stagiaires non rémunérés"</span>,</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>                             TACT <span class="sc">==</span> <span class="st">"21"</span> <span class="sc">~</span> <span class="st">"Retraités ou préretraités"</span>,</span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>                             <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">"Autres inactifs"</span>),</span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>         <span class="at">TACT_moda=</span><span class="fu">fct_relevel</span>(TACT_moda, <span class="fu">c</span>(<span class="st">"Actifs ayant un emploi"</span>, <span class="st">"Chômeurs"</span>,</span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>                                            <span class="st">"Élèves, étudiants et stagiaires non rémunérés"</span>, </span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>                                            <span class="st">"Retraités ou préretraités"</span>, <span class="st">"Autres inactifs"</span>))) <span class="sc">%&gt;%</span> </span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tableau</span>(DEPT <span class="sc">==</span> <span class="st">"75"</span> <span class="sc">&amp;</span> AGER20<span class="sc">&gt;</span><span class="dv">14</span> <span class="sc">&amp;</span> AGER20<span class="sc">&lt;</span><span class="dv">65</span>,</span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>          <span class="at">var_quali=</span>TACT_moda, <span class="at">nom_var_quali=</span><span class="st">"Type d'activité"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gt</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fmt_number</span>(<span class="at">columns =</span> <span class="dv">2</span>, <span class="at">sep_mark =</span> <span class="st">" "</span>, <span class="at">decimals =</span> <span class="dv">0</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_header</span>(<span class="at">title =</span> <span class="st">"Population de 15-64 ans par type d'activité en 2021"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_source_note</span>(<span class="at">source_note =</span> <span class="st">"Source : Insee, RP 2021 ; Champ : Paris."</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
-<div id="anhahyslcl" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#anhahyslcl table {
+<div id="jhgvosyxqe" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#jhgvosyxqe table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#anhahyslcl thead, #anhahyslcl tbody, #anhahyslcl tfoot, #anhahyslcl tr, #anhahyslcl td, #anhahyslcl th {
+#jhgvosyxqe thead, #jhgvosyxqe tbody, #jhgvosyxqe tfoot, #jhgvosyxqe tr, #jhgvosyxqe td, #jhgvosyxqe th {
   border-style: none;
 }
 
-#anhahyslcl p {
+#jhgvosyxqe p {
   margin: 0;
   padding: 0;
 }
 
-#anhahyslcl .gt_table {
+#jhgvosyxqe .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -1016,12 +1092,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-left-color: #D3D3D3;
 }
 
-#anhahyslcl .gt_caption {
+#jhgvosyxqe .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#anhahyslcl .gt_title {
+#jhgvosyxqe .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1033,7 +1109,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-width: 0;
 }
 
-#anhahyslcl .gt_subtitle {
+#jhgvosyxqe .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1045,7 +1121,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-top-width: 0;
 }
 
-#anhahyslcl .gt_heading {
+#jhgvosyxqe .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1057,13 +1133,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#anhahyslcl .gt_bottom_border {
+#jhgvosyxqe .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#anhahyslcl .gt_col_headings {
+#jhgvosyxqe .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1078,7 +1154,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#anhahyslcl .gt_col_heading {
+#jhgvosyxqe .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1098,7 +1174,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   overflow-x: hidden;
 }
 
-#anhahyslcl .gt_column_spanner_outer {
+#jhgvosyxqe .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1110,15 +1186,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 4px;
 }
 
-#anhahyslcl .gt_column_spanner_outer:first-child {
+#jhgvosyxqe .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#anhahyslcl .gt_column_spanner_outer:last-child {
+#jhgvosyxqe .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#anhahyslcl .gt_column_spanner {
+#jhgvosyxqe .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1130,11 +1206,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   width: 100%;
 }
 
-#anhahyslcl .gt_spanner_row {
+#jhgvosyxqe .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#anhahyslcl .gt_group_heading {
+#jhgvosyxqe .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1160,7 +1236,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   text-align: left;
 }
 
-#anhahyslcl .gt_empty_group_heading {
+#jhgvosyxqe .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1175,15 +1251,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   vertical-align: middle;
 }
 
-#anhahyslcl .gt_from_md > :first-child {
+#jhgvosyxqe .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#anhahyslcl .gt_from_md > :last-child {
+#jhgvosyxqe .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#anhahyslcl .gt_row {
+#jhgvosyxqe .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1202,7 +1278,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   overflow-x: hidden;
 }
 
-#anhahyslcl .gt_stub {
+#jhgvosyxqe .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1215,7 +1291,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#anhahyslcl .gt_stub_row_group {
+#jhgvosyxqe .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1229,15 +1305,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   vertical-align: top;
 }
 
-#anhahyslcl .gt_row_group_first td {
+#jhgvosyxqe .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#anhahyslcl .gt_row_group_first th {
+#jhgvosyxqe .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#anhahyslcl .gt_summary_row {
+#jhgvosyxqe .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1247,16 +1323,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#anhahyslcl .gt_first_summary_row {
+#jhgvosyxqe .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#anhahyslcl .gt_first_summary_row.thick {
+#jhgvosyxqe .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#anhahyslcl .gt_last_summary_row {
+#jhgvosyxqe .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1266,7 +1342,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #D3D3D3;
 }
 
-#anhahyslcl .gt_grand_summary_row {
+#jhgvosyxqe .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1276,7 +1352,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#anhahyslcl .gt_first_grand_summary_row {
+#jhgvosyxqe .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1286,7 +1362,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-top-color: #D3D3D3;
 }
 
-#anhahyslcl .gt_last_grand_summary_row_top {
+#jhgvosyxqe .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1296,11 +1372,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #D3D3D3;
 }
 
-#anhahyslcl .gt_striped {
+#jhgvosyxqe .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#anhahyslcl .gt_table_body {
+#jhgvosyxqe .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1309,7 +1385,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #D3D3D3;
 }
 
-#anhahyslcl .gt_footnotes {
+#jhgvosyxqe .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1323,7 +1399,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#anhahyslcl .gt_footnote {
+#jhgvosyxqe .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1332,7 +1408,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#anhahyslcl .gt_sourcenotes {
+#jhgvosyxqe .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1346,7 +1422,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#anhahyslcl .gt_sourcenote {
+#jhgvosyxqe .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1354,72 +1430,72 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#anhahyslcl .gt_left {
+#jhgvosyxqe .gt_left {
   text-align: left;
 }
 
-#anhahyslcl .gt_center {
+#jhgvosyxqe .gt_center {
   text-align: center;
 }
 
-#anhahyslcl .gt_right {
+#jhgvosyxqe .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#anhahyslcl .gt_font_normal {
+#jhgvosyxqe .gt_font_normal {
   font-weight: normal;
 }
 
-#anhahyslcl .gt_font_bold {
+#jhgvosyxqe .gt_font_bold {
   font-weight: bold;
 }
 
-#anhahyslcl .gt_font_italic {
+#jhgvosyxqe .gt_font_italic {
   font-style: italic;
 }
 
-#anhahyslcl .gt_super {
+#jhgvosyxqe .gt_super {
   font-size: 65%;
 }
 
-#anhahyslcl .gt_footnote_marks {
+#jhgvosyxqe .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#anhahyslcl .gt_asterisk {
+#jhgvosyxqe .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#anhahyslcl .gt_indent_1 {
+#jhgvosyxqe .gt_indent_1 {
   text-indent: 5px;
 }
 
-#anhahyslcl .gt_indent_2 {
+#jhgvosyxqe .gt_indent_2 {
   text-indent: 10px;
 }
 
-#anhahyslcl .gt_indent_3 {
+#jhgvosyxqe .gt_indent_3 {
   text-indent: 15px;
 }
 
-#anhahyslcl .gt_indent_4 {
+#jhgvosyxqe .gt_indent_4 {
   text-indent: 20px;
 }
 
-#anhahyslcl .gt_indent_5 {
+#jhgvosyxqe .gt_indent_5 {
   text-indent: 25px;
 }
 
-#anhahyslcl .katex-display {
+#jhgvosyxqe .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#anhahyslcl div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#jhgvosyxqe div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -1427,7 +1503,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <table class="gt_table caption-top table table-sm table-striped small" data-quarto-bootstrap="false">
 <thead>
 <tr class="gt_heading header">
-<td colspan="3" class="gt_heading gt_title gt_font_normal gt_bottom_border">Population des 15-64 ans par type d'activité en 2021</td>
+<td colspan="3" class="gt_heading gt_title gt_font_normal gt_bottom_border">Population de 15-64 ans par type d'activité en 2021</td>
 </tr>
 <tr class="gt_col_headings even">
 <th id="Type-d'activité" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">Type d'activité</th>
@@ -1477,6 +1553,79 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
+<p>Une autre façon de faire serait de créer un vecteur qui contiendrait ces différents filtres mais qu’il faudrait combiner dans une chaîne de caractères, ce qui est possible avec la fonction <code>paste0()</code>, et l’insérer ensuite dans la ligne de code <code>dplir</code> en utilisant <code>eval(parse(text=))</code> pour convertir cette chaîne de caractéres en une expression (<code>parse(text=)</code>) pour que <code>R</code> puisse l’évaluer/le calculer avec la fonction <code>eval()</code>.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>tableau_bis <span class="ot">&lt;-</span> <span class="cf">function</span>(data, vars_filtre, var_quali, <span class="at">pond=</span>IPONDI, nom_var_quali){</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  text_filtre <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">"("</span>, vars_filtre, <span class="st">")"</span>, <span class="at">collapse =</span> <span class="st">" &amp; "</span>)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  tab1 <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(<span class="fu">eval</span>(<span class="fu">parse</span>(<span class="at">text =</span> text_filtre))) <span class="sc">%&gt;%</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">count</span>({{ var_quali }}, <span class="at">wt=</span>{{ pond }}) <span class="sc">%&gt;%</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">Pourcentage=</span><span class="fu">round</span>(<span class="fu">prop.table</span>(n)<span class="sc">*</span><span class="dv">100</span>, <span class="dv">1</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">adorn_totals</span>(<span class="st">"row"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">rename</span>(<span class="at">Effectif=</span>n, {{nom_var_quali}}<span class="sc">:</span><span class="er">=</span>{{ var_quali }}) </span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(tab1)</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Attention, comme les filtres sont contenues dans des " ", il faut à l'intérieur des  </span></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a><span class="co">#  filtres utiliser les ' ' plutôt que les " "</span></span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>mes_filtres <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"DEPT == '75'"</span>, <span class="st">"AGER20&gt;14"</span>, <span class="st">"AGER20&lt;65"</span>)</span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>RP_final <span class="sc">%&gt;%</span> </span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">TACT_moda=</span><span class="fu">case_when</span>(TACT <span class="sc">==</span> <span class="st">"11"</span> <span class="sc">~</span> <span class="st">"Actifs ayant un emploi"</span>,</span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>                             TACT <span class="sc">==</span> <span class="st">"12"</span> <span class="sc">~</span> <span class="st">"Chômeurs"</span>,</span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>                             TACT <span class="sc">==</span> <span class="st">"22"</span> <span class="sc">~</span> <span class="st">"Élèves, étudiants et stagiaires non rémunérés"</span>,</span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>                             TACT <span class="sc">==</span> <span class="st">"21"</span> <span class="sc">~</span> <span class="st">"Retraités ou préretraités"</span>,</span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>                             <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">"Autres inactifs"</span>),</span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>         <span class="at">TACT_moda=</span><span class="fu">fct_relevel</span>(TACT_moda, <span class="fu">c</span>(<span class="st">"Actifs ayant un emploi"</span>, <span class="st">"Chômeurs"</span>,</span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>                                            <span class="st">"Élèves, étudiants et stagiaires non rémunérés"</span>, </span>
+<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a>                                            <span class="st">"Retraités ou préretraités"</span>, <span class="st">"Autres inactifs"</span>))) <span class="sc">%&gt;%</span> </span>
+<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tableau_bis</span>(mes_filtres, <span class="at">var_quali=</span>TACT_moda, <span class="at">nom_var_quali=</span><span class="st">"Type d'activité"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gt</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fmt_number</span>(<span class="at">columns =</span> <span class="dv">2</span>, <span class="at">sep_mark =</span> <span class="st">" "</span>, <span class="at">decimals =</span> <span class="dv">0</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_header</span>(<span class="at">title =</span> <span class="st">"Population de 15-64 ans par type d'activité en 2021"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_source_note</span>(<span class="at">source_note =</span> <span class="st">"Source : Insee, RP 2021 ; Champ : Paris."</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>On peut également créer une fonction pour permettre de récupérer plus rapidement les libellés des variables à partir du fichier de métadonnées :</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Pour la fonction mutate, on est de nouveau obligé d'utiliser l'expression </span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co">#  'eval(parse(text={{ cod_var }}))' sinon R ne comprend pas que la variable </span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co">#  utilisée est une expression de type caractère</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>libelles_var <span class="ot">&lt;-</span> <span class="cf">function</span>(data, cod_var, new_var){</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  levels_var <span class="ot">&lt;-</span> meta[meta<span class="sc">$</span>COD_VAR<span class="sc">==</span>{{ cod_var }}, ]<span class="sc">$</span>COD_MOD</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  labels_var <span class="ot">&lt;-</span> meta[meta<span class="sc">$</span>COD_VAR<span class="sc">==</span>{{ cod_var }}, ]<span class="sc">$</span>LIB_MOD</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>  data <span class="sc">%&gt;%</span> <span class="fu">mutate</span>({{ new_var }} <span class="sc">:</span><span class="er">=</span> <span class="fu">factor</span>(<span class="fu">eval</span>(<span class="fu">parse</span>(<span class="at">text=</span>{{ cod_var }})), </span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>                                          <span class="at">levels =</span> levels_var, <span class="at">labels =</span> labels_var))</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Autre possibilité, utiliser la fonction `sym()` (qui crée un symbole à partir </span></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a><span class="co"># d'une chaîne de caractères) avec les "!!" (opérateur bang-bang qui permet de </span></span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a><span class="co"># forcer l'évaluation d'une partie d'une expression avant le reste) : </span></span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a><span class="co"># libelles_var &lt;- function(data, cod_var, new_var){</span></span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a><span class="co">#   </span></span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a><span class="co">#   levels_var &lt;- meta[meta$COD_VAR=={{ cod_var }}, ]$COD_MOD</span></span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a><span class="co">#   labels_var &lt;- meta[meta$COD_VAR=={{ cod_var }}, ]$LIB_MOD</span></span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a><span class="co">#   data %&gt;% mutate({{ new_var }} := factor(!!sym({{ cod_var }}), </span></span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a><span class="co">#                                           levels = levels_var, </span></span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a><span class="co">#                                           labels = labels_var))</span></span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a><span class="co">#   </span></span>
+<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a><span class="co"># }</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Enfin, essayez d’écrire une seconde fonction <code>somme()</code> permettant de systématiser le code utilisée en fin de 1ère séance et qui donnait un tableau de contingence du nombre de personnes caractériées par son statut par commune (cela nous servira pour plus tard…) ; le voici pour rappel :</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>RP_final <span class="sc">%&gt;%</span> </span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(COM) <span class="sc">%&gt;%</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(TACT, <span class="at">wt=</span>IPONDI) <span class="sc">%&gt;%</span> </span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">n=</span><span class="fu">round</span>(n)) <span class="sc">%&gt;%</span> </span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> TACT, <span class="at">values_from =</span> n)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -1490,136 +1639,47 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>RP_final <span class="sc">%&gt;%</span> </span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(DEPT <span class="sc">==</span> <span class="st">"75"</span> <span class="sc">&amp;</span> AGEREV<span class="sc">&gt;</span><span class="dv">14</span> <span class="sc">&amp;</span> AGEREV<span class="sc">&lt;</span><span class="dv">65</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">TACT=</span><span class="fu">case_when</span>(TACT <span class="sc">==</span> <span class="st">"11"</span> <span class="sc">~</span> <span class="st">"Actifs ayant un emploi"</span>,</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>                             TACT <span class="sc">==</span> <span class="st">"12"</span> <span class="sc">~</span> <span class="st">"Chômeurs"</span>,</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>                             TACT <span class="sc">==</span> <span class="st">"22"</span> <span class="sc">~</span> <span class="st">"Élèves, étudiants et stagiaires non rémunérés"</span>,</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>                             TACT <span class="sc">==</span> <span class="st">"21"</span> <span class="sc">~</span> <span class="st">"Retraités ou préretraités"</span>,</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>                             <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">"Autres inactifs"</span>),</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>         <span class="at">TACT=</span><span class="fu">fct_relevel</span>(TACT, <span class="fu">c</span>(<span class="st">"Actifs ayant un emploi"</span>, <span class="st">"Chômeurs"</span>,</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>                                            <span class="st">"Élèves, étudiants et stagiaires non rémunérés"</span>, </span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>                                            <span class="st">"Retraités ou préretraités"</span>, <span class="st">"Autres inactifs"</span>))) <span class="sc">%&gt;%</span> </span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(TACT, <span class="at">wt=</span>IPONDI) <span class="sc">%&gt;%</span> </span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Pourcentage=</span><span class="fu">round</span>(<span class="fu">prop.table</span>(n)<span class="sc">*</span><span class="dv">100</span>,<span class="dv">1</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">adorn_totals</span>(<span class="st">"row"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">Effectif=</span>n, <span class="st">"Type d'activité"</span><span class="ot">=</span>TACT) <span class="sc">%&gt;%</span> </span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gt</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fmt_number</span>(<span class="at">columns =</span> <span class="dv">2</span>, <span class="at">sep_mark =</span> <span class="st">" "</span>, <span class="at">decimals =</span> <span class="dv">0</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_header</span>(<span class="at">title =</span> <span class="st">"Population des 15-64 ans par type d'activité en 2021"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_source_note</span>(<span class="at">source_note =</span> <span class="st">"Source : Insee, RP 2021 ; Champ : Paris."</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>somme <span class="ot">&lt;-</span> <span class="cf">function</span>(data, var_gpe, nom_var){</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  som <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span> </span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>({{var_gpe}}) <span class="sc">%&gt;%</span> </span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">count</span>({{nom_var}}, <span class="at">wt=</span>IPONDI) <span class="sc">%&gt;%</span> </span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">n=</span><span class="fu">round</span>(n)) <span class="sc">%&gt;%</span> </span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> {{nom_var}}, <span class="at">values_from =</span> n)</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(som)</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div>
 </div>
-<p>En 2021, la population parisienne comportait un peu plus de 78% d’actifs dont 70% ayant un emploi et 8% au chômage, le taux de chômage à Paris était donc de 10,3% (119868/(1039083+119868))*100). La part des étudiants ou autres élèves était plus élevée que celle des retraités (ou préretaités) : 12,8% contre 2,3%. &nbsp;</p>
-</section>
-<section id="caractéristiques-de-la-population-active-résidant-à-paris" class="level2" data-number="5.2">
-<h2 data-number="5.2" class="anchored" data-anchor-id="caractéristiques-de-la-population-active-résidant-à-paris"><span class="header-section-number">5.2</span> Caractéristiques de la population active résidant à Paris</h2>
-<p>Maintenant, affichons les deux dernières colonnes (‘2021’ et ‘dont actifs ayant un emploi’) de ce tableau tiré du site de l’Insee, en mettant la ligne “Ensemble” plutôt en fin de tableau (ces 2 usages sont possibles, question de préférence…). Attention encore une fois au champ de ce tableau… Pour cela, on va :</p>
-<ul>
-<li>récupérer les libellés des modalités de la variable CS1 à partir du fichier ‘meta’, en créant 2 vecteurs correspondant aux modalités pour le 1er et aux libellés pour le 2nd, puis en créant une variable ‘CS1_moda’ à partir de ces vecteurs ;</li>
-<li>créer une 1ère table qu’on appellera ‘col2’ qui comportera la 1ère colonne avec les intitulés des PCS et la colonne ‘2021’, attention, il y a une modalité qui ne nous intéresse pas car non affiché dans le tableau de l’Insee, il faudra supprimer cette ligne (vous pouvez utiliser pour cela la fonction <code>slice()</code>) ;</li>
-<li>créer une 2ème table qu’on appellera ‘col3’ qui comportera la 1ère colonne avec les intitulés des PCS et la colonne ‘dont actifs ayant un emploi’, attention le champ n’est donc pas tout à fait le même ;</li>
-<li>joindre ces deux tables et appliquer les fonctions <code>gt()</code> et suivantes pour la mise en forme du tableau final.</li>
-</ul>
-<p><img src="images/Tab. Insee 1.png" class="img-fluid"></p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Solution
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
+<p>Vérifions :</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># On va récupérer les libellés des modalités de la variable CS1 à partir du </span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co">#  fichier meta :</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>levels_CS1 <span class="ot">&lt;-</span> meta[meta<span class="sc">$</span>COD_VAR<span class="sc">==</span><span class="st">"CS1"</span>, ]<span class="sc">$</span>COD_MOD</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>labels_CS1 <span class="ot">&lt;-</span> meta[meta<span class="sc">$</span>COD_VAR<span class="sc">==</span><span class="st">"CS1"</span>, ]<span class="sc">$</span>LIB_MOD</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>RP_final <span class="ot">&lt;-</span> RP_final <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">CS1_moda=</span><span class="fu">factor</span>(CS1, <span class="at">levels =</span> levels_CS1, </span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>                                                <span class="at">labels =</span> labels_CS1))</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>col2 <span class="ot">&lt;-</span> RP_final <span class="sc">%&gt;%</span> </span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(DEPT <span class="sc">==</span> <span class="st">"75"</span> <span class="sc">&amp;</span> AGEREV<span class="sc">&gt;</span><span class="dv">14</span> <span class="sc">&amp;</span> AGEREV<span class="sc">&lt;</span><span class="dv">65</span> <span class="sc">&amp;</span></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>           TACT <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"11"</span>, <span class="st">"12"</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(CS1_moda, <span class="at">wt=</span>IPONDI) <span class="sc">%&gt;%</span> </span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">n=</span><span class="fu">round</span>(n)) <span class="sc">%&gt;%</span> </span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="st">'2021'</span><span class="ot">=</span>n, <span class="st">'PCS'</span><span class="ot">=</span>CS1_moda) <span class="sc">%&gt;%</span> </span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">adorn_totals</span>(<span class="st">"row"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice</span>(<span class="sc">-</span><span class="dv">7</span>)</span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>col3 <span class="ot">&lt;-</span> RP_final <span class="sc">%&gt;%</span> </span>
-<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(DEPT <span class="sc">==</span> <span class="st">"75"</span> <span class="sc">&amp;</span> AGEREV<span class="sc">&gt;</span><span class="dv">14</span> <span class="sc">&amp;</span> AGEREV<span class="sc">&lt;</span><span class="dv">65</span> <span class="sc">&amp;</span> </span>
-<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>           TACT <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"11"</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(CS1_moda, <span class="at">wt=</span>IPONDI) <span class="sc">%&gt;%</span> </span>
-<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">n=</span><span class="fu">round</span>(n)) <span class="sc">%&gt;%</span> </span>
-<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="st">'dont actifs ayant un emploi'</span><span class="ot">=</span>n, <span class="st">'PCS'</span><span class="ot">=</span>CS1_moda) <span class="sc">%&gt;%</span> </span>
-<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">adorn_totals</span>(<span class="st">"row"</span>)</span>
-<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>col2 <span class="sc">%&gt;%</span> <span class="fu">left_join</span>(col3) <span class="sc">%&gt;%</span>  </span>
-<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gt</span>()  <span class="sc">%&gt;%</span> </span>
-<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fmt_number</span>(<span class="at">columns =</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">3</span>), <span class="at">sep_mark =</span> <span class="st">" "</span>, <span class="at">decimals =</span> <span class="dv">0</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_header</span>(<span class="at">title =</span> <span class="st">"Population active de 15-64 ans selon la </span></span>
-<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a><span class="st">             catégorie socioprofessionnelle en 2021"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_source_note</span>(<span class="at">source_note =</span> <span class="st">"Source : Insee, RP 2021 ; Champ : Paris."</span>)</span>
-<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a><span class="co"># On supprime les tableaux intermédiaires</span></span>
-<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(col2, col3)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">somme</span>(<span class="at">data=</span>RP_final, COM, TACT)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 137 × 8
+# Groups:   COM [137]
+   COM    `11`  `12`  `21`  `22`  `23`  `24`  `25`
+   &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+ 1 75101  9032   802  2542  1257  1491   257   535
+ 2 75102 12719  1247  2249  1759  2277   267   598
+ 3 75103 18692  1803  4684  3010  3147   382  1093
+ 4 75104 14909  1727  4625  2699  2894   467   997
+ 5 75105 26942  2464  9990  9396  5670   883  1476
+ 6 75106 18450  1430  8246  6359  3732   999   966
+ 7 75107 23195  1825  9566  5617  4980  1608  1134
+ 8 75108 18321  1465  5058  3759  4723   930   903
+ 9 75109 34074  3199  7136  5228  7164   746  1413
+10 75110 45549  5481 10823  6855 10521  1109  3246
+# ℹ 127 more rows</code></pre>
 </div>
 </div>
-</div>
-</div>
-<p>A Paris, la population active comprend en 2021 plus de 540 000 personnes appartenant à la catégorie “cadres et professions intellectuelles supérieures”, des 2 colonnes on peut en déduire qu’il y a environ 28 000 personnes relevant de cette PCS qui sont au chômage. Les cadres sont suivis des professions intermédiaires (environ 258 000 actifs) et des employés (environ 206 000). Il y a très peu d’agriculteurs exploitants, ce qui semble assez logique sur le territoire de Paris ! &nbsp;</p>
-</section>
-<section id="caractéristiques-des-logements-parisiens" class="level2" data-number="5.3">
-<h2 data-number="5.3" class="anchored" data-anchor-id="caractéristiques-des-logements-parisiens"><span class="header-section-number">5.3</span> Caractéristiques des logements parisiens</h2>
-<p>Enfin, pour donner un exemple sur l’étude des caractéristiques des logements parisiens, essayons de même de reproduire le tableau de l’Insee ci-dessous. Souvenez-vous que cette base a plusieurs unités statistiques/niveaux : individus, logements/ménages, etc. Il faut donc faire attention :</p>
-<ul>
-<li>au champ du tableau donc les filtres à utiliser ici ;</li>
-<li>à avoir d’abord les moyennes sur ces deux types de logements, donc utiliser à la suite les fonctions <code>group_by()</code> et <code>summarise()</code> ;</li>
-<li>à ajouter ensuite une ligne sur l’ensemble des résidences principales avec la fonction <code>bind_rows()</code> ;</li>
-<li>à changer les dénominations des colonnes et des modalités, avec les fonctions du package <code>gt()</code> comme <code>cols_label()</code> ou <code>text_case_match()</code>.</li>
-</ul>
-<p><img src="images/Tab. Insee 2.png" class="img-fluid"></p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Solution
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-4" class="callout-4-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
+<p>La création de fonctions est donc très utile pour avoir un code plus efficace ; il faut toutefois réfléchir à son usage avant de la créer pour savoir à quel point il faut systématiser les procédures utilisées, certains éléments devant être laissés probablement en-dehors de la fonction, comme dans l’exemple précédent le fait d’arrondir les chiffres. Il faut par ailleurs toujours vérfier, sur un ou deux exemples, que la fonction fonctionne bien, c’est-à-dire donne les mêmes résultats que le code initial.</p>
+<p>Pour pouvoir les réutiliser ultérieurement, on peut les réécrire dans un nouveau script qu’on enregistre dans un dossier de notre projet qu’on intitule “fonctions” ; il suffira ensuite d’appeler ce programme avec la fonction <code>source()</code> :</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>RP_final <span class="sc">%&gt;%</span> </span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(DEPT <span class="sc">==</span> <span class="st">"75"</span> <span class="sc">&amp;</span> LPRM<span class="sc">==</span><span class="st">"1"</span> <span class="sc">&amp;</span> CATL<span class="sc">==</span><span class="st">"1"</span> <span class="sc">&amp;</span> TYPL <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"1"</span>, <span class="st">"2"</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(TYPL) <span class="sc">%&gt;%</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">Moy_pieces =</span> <span class="fu">weighted.mean</span>(<span class="fu">as.numeric</span>(<span class="fu">as.character</span>(NBPI)), </span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>                                       IPONDI, <span class="at">na.rm=</span>T)) <span class="sc">%&gt;%</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bind_rows</span>(<span class="fu">summarise</span>(<span class="at">TYPL =</span> <span class="st">"Ensemble des résidences principales"</span>, </span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>                      RP_final[RP_final<span class="sc">$</span>DEPT <span class="sc">==</span> <span class="st">"75"</span> <span class="sc">&amp;</span> RP_final<span class="sc">$</span>LPRM<span class="sc">==</span><span class="st">"1"</span> <span class="sc">&amp;</span> </span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>                                 RP_final<span class="sc">$</span>CATL <span class="sc">==</span> <span class="st">"1"</span> <span class="sc">&amp;</span> RP_final<span class="sc">$</span>TYPL <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"1"</span>, <span class="st">"2"</span>), ], </span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>                      <span class="at">Moy_pieces =</span> <span class="fu">weighted.mean</span>(<span class="fu">as.numeric</span>(<span class="fu">as.character</span>(NBPI)), </span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>                                                 IPONDI, <span class="at">na.rm=</span>T))) <span class="sc">%&gt;%</span></span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gt</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fmt_number</span>(<span class="at">columns =</span> <span class="dv">2</span>, <span class="at">dec_mark =</span> <span class="st">","</span>, <span class="at">decimals =</span> <span class="dv">1</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cols_label</span>(<span class="at">TYPL=</span><span class="st">"Type de logement"</span>, <span class="at">Moy_pieces=</span><span class="st">"2021"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">text_case_match</span>(<span class="st">"1"</span> <span class="sc">~</span> <span class="st">"Maison"</span>, <span class="st">"2"</span> <span class="sc">~</span> (<span class="st">"Appartement"</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_header</span>(<span class="at">title =</span> <span class="st">"Nombre moyen de pièces des résidences principales"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_source_note</span>(<span class="at">source_note =</span> <span class="st">"Source : Insee, RP 2021 ; Champ : Paris."</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"fonctions/fonctions.R"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-</div>
-</div>
-</div>
-<p>Ainsi, si l’on veut créer des tableaux de répartition à une seule variable, on peut utiliser ces procédures qui se structurent toujours de la même façon. Au lieu de faire un copié-collé du code et de changer le nom des variables, autrement dit pour systématiser nos procédures, une astuce est de créer ses propres fonctions. C’est ce que nous allons étudier maintenant.</p>
 
 
 </section>
@@ -2040,13 +2100,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./04-Récapitulatif.html" class="pagination-link" aria-label="Récapitulatif séance 1 - Data Wrangling">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Récapitulatif séance 1 - Data Wrangling</span></span>
+      <a href="./05-Questions-fouille-donnees.html" class="pagination-link" aria-label="Quelles questions intéressantes pour une &quot;fouille de données&quot; sur la base des RP ?">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Quelles questions intéressantes pour une “fouille de données” sur la base des RP ?</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./06-Fonctions.html" class="pagination-link" aria-label="Systématiser nos procédures : construire une fonction">
-        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Systématiser nos procédures : construire une fonction</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./07-Ggplot-theorique.html" class="pagination-link" aria-label="Data Visualization et Ggplot2 : aspects théoriques">
+        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Data Visualization et Ggplot2 : aspects théoriques</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

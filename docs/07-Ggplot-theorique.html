@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>4&nbsp; Récapitulatif séance 1 - Data Wrangling – Data Mining 2026</title>
+<title>7&nbsp; Data Visualization et Ggplot2 : aspects théoriques – Data Mining 2026</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -65,8 +65,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./05-Questions-fouille-donnees.html" rel="next">
-<link href="./03-Manipulation-variables.html" rel="prev">
+<link href="./08-Ggplot-pratique.html" rel="next">
+<link href="./06-Fonctions.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -285,7 +285,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01-Base-de-donnees.html">Séance 1</a></li><li class="breadcrumb-item"><a href="./04-Récapitulatif.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Récapitulatif séance 1 - Data Wrangling</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./07-Ggplot-theorique.html">Séance 3</a></li><li class="breadcrumb-item"><a href="./07-Ggplot-theorique.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Data Visualization et Ggplot2 : aspects théoriques</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -349,7 +349,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./04-Récapitulatif.html" class="sidebar-item-text sidebar-link active">
+  <a href="./04-Récapitulatif.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Récapitulatif séance 1 - Data Wrangling</span></span></a>
   </div>
 </li>
@@ -389,7 +389,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./07-Ggplot-theorique.html" class="sidebar-item-text sidebar-link">
+  <a href="./07-Ggplot-theorique.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Data Visualization et Ggplot2 : aspects théoriques</span></span></a>
   </div>
 </li>
@@ -411,8 +411,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Sur cette page</h2>
    
   <ul>
-  <li><a href="#ce-quon-a-appris" id="toc-ce-quon-a-appris" class="nav-link active" data-scroll-target="#ce-quon-a-appris"><span class="header-section-number">4.1</span> Ce qu’on a appris</a></li>
-  <li><a href="#enregistrement-des-tables" id="toc-enregistrement-des-tables" class="nav-link" data-scroll-target="#enregistrement-des-tables"><span class="header-section-number">4.2</span> Enregistrement des tables</a></li>
+  <li><a href="#présentation-générale-de-ggplot2" id="toc-présentation-générale-de-ggplot2" class="nav-link active" data-scroll-target="#présentation-générale-de-ggplot2"><span class="header-section-number">7.1</span> Présentation générale de Ggplot2</a>
+  <ul class="collapse">
+  <li><a href="#les-aesthetics-ou-arguments-esthétiques" id="toc-les-aesthetics-ou-arguments-esthétiques" class="nav-link" data-scroll-target="#les-aesthetics-ou-arguments-esthétiques"><span class="header-section-number">7.1.1</span> Les “aesthetics” ou arguments esthétiques</a></li>
+  <li><a href="#les-géométries" id="toc-les-géométries" class="nav-link" data-scroll-target="#les-géométries"><span class="header-section-number">7.1.2</span> Les géométries</a></li>
+  <li><a href="#les-facettes" id="toc-les-facettes" class="nav-link" data-scroll-target="#les-facettes"><span class="header-section-number">7.1.3</span> Les facettes</a></li>
+  <li><a href="#les-statistiques" id="toc-les-statistiques" class="nav-link" data-scroll-target="#les-statistiques"><span class="header-section-number">7.1.4</span> Les statistiques</a></li>
+  <li><a href="#les-coordonnées" id="toc-les-coordonnées" class="nav-link" data-scroll-target="#les-coordonnées"><span class="header-section-number">7.1.5</span> Les coordonnées</a></li>
+  <li><a href="#les-thèmes" id="toc-les-thèmes" class="nav-link" data-scroll-target="#les-thèmes"><span class="header-section-number">7.1.6</span> Les thèmes</a></li>
+  <li><a href="#les-autres-options-graphiques-titres-échelles-des-axes-etc." id="toc-les-autres-options-graphiques-titres-échelles-des-axes-etc." class="nav-link" data-scroll-target="#les-autres-options-graphiques-titres-échelles-des-axes-etc."><span class="header-section-number">7.1.7</span> Les autres options graphiques : titres, échelles des axes, etc.</a></li>
+  <li><a href="#code-minimal" id="toc-code-minimal" class="nav-link" data-scroll-target="#code-minimal"><span class="header-section-number">7.1.8</span> Code minimal</a></li>
+  <li><a href="#liens-utiles-pour-aller-plus-loin" id="toc-liens-utiles-pour-aller-plus-loin" class="nav-link" data-scroll-target="#liens-utiles-pour-aller-plus-loin"><span class="header-section-number">7.1.9</span> Liens utiles pour aller plus loin</a></li>
+  </ul></li>
+  <li><a href="#les-grands-principes-de-data-visualization" id="toc-les-grands-principes-de-data-visualization" class="nav-link" data-scroll-target="#les-grands-principes-de-data-visualization"><span class="header-section-number">7.2</span> Les grands principes de data visualization</a></li>
   </ul>
 </nav>
     </div>
@@ -420,9 +431,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01-Base-de-donnees.html">Séance 1</a></li><li class="breadcrumb-item"><a href="./04-Récapitulatif.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Récapitulatif séance 1 - Data Wrangling</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./07-Ggplot-theorique.html">Séance 3</a></li><li class="breadcrumb-item"><a href="./07-Ggplot-theorique.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Data Visualization et Ggplot2 : aspects théoriques</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span id="sec-recapitulatif" class="quarto-section-identifier"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Récapitulatif séance 1 - Data Wrangling</span></span></h1>
+<h1 class="title"><span id="sec-Ggplot-theorique" class="quarto-section-identifier"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Data Visualization et Ggplot2 : aspects théoriques</span></span></h1>
 </div>
 
 
@@ -439,26 +450,203 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="ce-quon-a-appris" class="level2" data-number="4.1">
-<h2 data-number="4.1" class="anchored" data-anchor-id="ce-quon-a-appris"><span class="header-section-number">4.1</span> Ce qu’on a appris</h2>
-<p>Cette séance sur la préparation et nettoyage d’une base de données - phase appelée aussi Data Wrangling - nous a permis d’apprendre à :</p>
+<section id="présentation-générale-de-ggplot2" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="présentation-générale-de-ggplot2"><span class="header-section-number">7.1</span> Présentation générale de Ggplot2</h2>
+<p>Le package <strong><code>ggplot2</code></strong> (inclus dans le package <code>tidyverse</code>) est l’un des atouts de <strong><code>R</code></strong> et permet de réaliser de beaux graphiques ; vous en trouverez <a href="https://ggplot2.tidyverse.org/index.html" target="_blank">ici</a> la présentation officielle. L’inconvénient, surtout pour quelqu’un qui serait habitué à construire des graphiques sous excel, est qu’il faut (presque) tout paramétrer, ce qui peut finalement donner un code très long.&nbsp; L’architecture globale de <strong><code>ggplot2</code></strong> est souvent représentée par le schéma ci-dessous :</p>
+<p><img src="images/Structure_generale_Ggplot2.png" class="img-fluid"></p>
+<p>Pour le lire, il faut partir du bas du schéma :</p>
 <ul>
-<li>charger des bases de données, y compris dans le cas d’un fichier lourd avec la fonction <code>fread()</code> du package <strong><code>data.table</code></strong> ;</li>
-<li>repérer les informations intéressantes contenues dans cette base, notamment en allant voir le fichier “annexe”, celui des métadonneés (ou dictionnaire des codes) ; mais ce type de fichier n’est pas toujours disponible, si vous avez des données d’une entreprise, peut-être que l’information décrivant cette base est plus informelle, ou même si vous “aspirez” des données <em>via</em> le web vous n’aurez alors pas du tout d’information décrivant la base… :</li>
-<li>manipuler la base de données : en identifiant d’abord le format des données, en sélectionnant un champ différent (moins de lignes/d’observations), et/ou des variables spécifiques (moins de colonnes/d’informations), avec les fonctions <code>filter()</code>, <code>select()</code>, <code>subset()</code>, <code>pivot_wider()</code>, <code>pivot_longer()</code>, <code>unique()</code>, <code>arrange()</code>, etc.;</li>
-<li>manipuler des variables : en identifiant le format des variables, en les mettant dans le bon format, en (re)travaillant les modalités d’une variable qualitative (avec notamment les fonctions <code>mutate()</code>, <code>case_when()</code>, <code>as.factor()</code>, ou encore celles du package <strong><code>factors</code></strong>), en détectant/visualisant/gérant les valeurs manquantes d’une variable quantitative avec entre autres le package <strong><code>naniar</code></strong>, en détectant/visualiant/gérant les valeurs aberrantes d’une variable quantitative à partir en particulier des statistiques de la “boîte à moustaches” (fonction <code>geom_boxplot()</code> à utiliser avec <code>ggplot()</code>, fonction <code>boxplot.stats()</code>), et enfin, en transformant une variable quantitative en variable qualitative (avec la fonction <code>cut()</code>).</li>
+<li>par “Data”, nous devons d’abord préciser la base ou le tableau de données utilisé(e) qui contient la ou les variables qui seront représentées ;</li>
+<li>par “aesthetics”, nous allons ensuite indiquer les variables qui seront projetées sur le graphe ;</li>
+<li>par “geometries”, nous indiquons le type de graphique utilisé ou la forme géométrique ;</li>
+<li>par “facets”, nous pouvons <em>éventuellement</em> (facultatif donc) diviser ou découper le graphique en plusieurs graphes (ou “panneaux”) dépendant d’une autre variable par exemple ;</li>
+<li>par “statistics”, nous pouvons <em>là aussi éventuellement</em> ajouter des statistiques ;</li>
+<li>par “coordinates”, nous pouvons <em>là aussi éventuellement</em> changer le sens du graphique ;</li>
+<li>enfin, par “theme”, nous pouvons utiliser <em>éventuellement</em> l’un des thèmes graphiques diponibles et/ou ajouter un certain nombre d’options sur ce qui “entoure” le graphique, c’est-à-dire les positions et/ou couleurs et/ou taille, etc., des axes, titre, légende, etc.</li>
 </ul>
-<p>L’usage pour cette phase du langage <code>dplyr</code> ou plus généralement du <code>tidyverse</code> est particulièrement conseillée, cela permet d’“enchaîner” des fonctions en une seule instruction.</p>
+<section id="les-aesthetics-ou-arguments-esthétiques" class="level3" data-number="7.1.1">
+<h3 data-number="7.1.1" class="anchored" data-anchor-id="les-aesthetics-ou-arguments-esthétiques"><span class="header-section-number">7.1.1</span> Les “aesthetics” ou arguments esthétiques</h3>
+<p>Il s’agit principalement d’indiquer quelle variable sera utilisée en abcisse (<code>x=</code>), et laquelle sera éventuellement utilisée en ordonnée (<code>y=</code>).<br>
+Mais on peut aussi ajouter des variables supplémentaires qui seront différenciées par :</p>
+<ul>
+<li>couleur, avec <code>color=</code> (pour des points, lignes ou symboles) ou <code>fill=</code> (pour le contenu des bâtons ou symboles) ;</li>
+<li>taille avec <code>size=</code> ;</li>
+<li>symbole avec <code>shape=</code> ;</li>
+<li>type de lignes avec <code>linetype=</code> ;</li>
+<li>degré de transparence avec <code>alpha=</code> (mais non conseillé pour les variables discrètes).</li>
+</ul>
+<p>La <strong>nuance à bien comprendre</strong> est qu’utiliser ces options à l’intérieur de la fonction <code>aes()</code> revient à ajouter une 3ème variable (une légende apparaîtra alors automatiquement), alors que si l’on veut simplement changer l’aspect des points, lignes, barres, etc., d’une variable déjà projetée, il faut appeler (souvent) ces mêmes options à l’intérieur de la fonction <code>geom_***()</code> par exemple. Dans ce cas-là, on peut changer la couleur des points avec <code>color=</code> , la taille des points ou lignes avec <code>size=</code>, l’épaisseur des barres avec <code>width=</code>, etc. C’est la différence entre le “mapping” et les “settings”.</p>
+<p>Chacune de ces options ont des modalités différentes, il peut être bien d’avoir des mémos rangés dans un dossier créé pour cela pour éviter de les chercher à chaque fois.&nbsp; Par exemple, pour les couleurs, vous trouverez un mémo <a href="https://www.datanovia.com/en/blog/awesome-list-of-657-r-color-names/" target="_blank">ici</a>, ou un bon récapitulatif <a href="https://larmarange.github.io/analyse-R/couleurs.html" target="_blank">là</a>. On peut également utiliser la fonction <code>colours()</code> dans <code>R</code> pour voir la liste complète des couleurs standard.</p>
+<p>Pour la liste des symboles (“shape”) et le numéro correspondant que l’on appelera avec l’argument <code>shape=</code>, ci-dessous un récapitulatif : <img src="images/Liste_symboles_Ggplot2.png" class="img-fluid"></p>
+<p>Et voici pour la liste des types de lignes, avec <code>linetype=</code> : <img src="images/Type_de_lignes_Ggplot2.png" class="img-fluid"></p>
 </section>
-<section id="enregistrement-des-tables" class="level2" data-number="4.2">
-<h2 data-number="4.2" class="anchored" data-anchor-id="enregistrement-des-tables"><span class="header-section-number">4.2</span> Enregistrement des tables</h2>
-<p>Et voilà, on a bien “trituré” ces deux bases de données, maintenant on peut les enregistrer dans notre projet pour pouvoir les réutiliser lors de la prochaine séance.</p>
+<section id="les-géométries" class="level3" data-number="7.1.2">
+<h3 data-number="7.1.2" class="anchored" data-anchor-id="les-géométries"><span class="header-section-number">7.1.2</span> Les géométries</h3>
+<p>Une fois les variables appelées, il faut définir le type de graphique. Il y a beaucoup de choix possibles inclus dans <strong><code>ggplot2</code></strong>, le tout est de bien comprendre quel type de graphique convient le mieux à ou aux variables utilisées et à ce que l’on veut montrer (cf.&nbsp;section suivante sur les grands principes de la data visualization). Voici un tableau récapitulant les principales “geometries”.</p>
+<table class="caption-top table">
+<caption><strong>Tableau : Les principales fonctions “geometries” de Ggplot</strong></caption>
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Fonction</th>
+<th style="text-align: left;">Type de graphique</th>
+<th style="text-align: left;">Type de variable(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><code>geom_histogram()</code></td>
+<td style="text-align: left;">Histogramme</td>
+<td style="text-align: left;">1 variable continue</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>geom_density()</code></td>
+<td style="text-align: left;">Courbe de densité</td>
+<td style="text-align: left;">1 variable continue</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>geom_area()</code></td>
+<td style="text-align: left;">Graphique en aires empilées</td>
+<td style="text-align: left;">1 variable continue</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>geom_col()</code></td>
+<td style="text-align: left;">Graphique en bâtons</td>
+<td style="text-align: left;">1 variable discrète</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>geom_point()</code></td>
+<td style="text-align: left;">Nuage de points</td>
+<td style="text-align: left;">2 variables continues</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>geom_jitter()</code></td>
+<td style="text-align: left;">Nuage de points dispersés</td>
+<td style="text-align: left;">2 variables continues</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>geom_boxplot()</code></td>
+<td style="text-align: left;">Boîte à moustache</td>
+<td style="text-align: left;">1 variable continue, sans ou avec 1 variable discrète</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>geom_violin()</code></td>
+<td style="text-align: left;">Graphes en violon</td>
+<td style="text-align: left;">1 variable continue, sans ou avec 1 variable discrète</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>geom_bar()</code></td>
+<td style="text-align: left;">Graphique en bâtons</td>
+<td style="text-align: left;">1 variable continue, sans ou avec 1 variable discrète</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>geom_line()</code></td>
+<td style="text-align: left;">Lignes</td>
+<td style="text-align: left;">Fonction continue selon une variable de date</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>geom_area()</code></td>
+<td style="text-align: left;">Graphique en aires empilées</td>
+<td style="text-align: left;">Fonction continue selon une variable de date</td>
+</tr>
+</tbody>
+</table>
+<p>Certaines d’entre elles ont des options à préciser, presque de façon obligatoire comme nous l’avons déjà vu avec <code>geom_histogram()</code> et l’option <code>bins=</code>, si elle n’est pas précisée, elle sera “forcée” par <code>R</code> mais un message d’avertissement en rouge apparaîtra.<br>
+Il en existe bien sûr plein d’autres, il faut dans ce cas rechercher sur internet ou aller voir sur la “cheatsheet” de ggplot2 disponible sur internet.</p>
+<p>Il est possible de faire suivre plusieurs fonctions <code>geom_***()</code> : par exemple un <code>geom_line()</code> après un <code>geom_point()</code>, un <code>geom_text()</code> après un <code>geom_bar()</code>, etc. Dans ce cas, des variables supplémentaires peuvent être ajoutées (ou remplacer les précédentes) avec une nouvelle fonction <code>aes</code> à l’intérieur de ce <code>geom_***()</code> ; un exemple assez courant est la construction d’un graphique en bâtons avec l’ajout des valeurs de la variable à l’intérieur des bâtons (ou juste au-dessus), on fera alors appel à deux fonction <code>geom_***()</code> comme ceci : <code>data %&gt;% ggplot() + aes(x=, y=) + geom_bar() + geom_text(aes(label=))</code>. De même, il est possible de spécifier des données (<code>data</code>) différentes pour chaque <code>geom_***()</code> .</p>
+</section>
+<section id="les-facettes" class="level3" data-number="7.1.3">
+<h3 data-number="7.1.3" class="anchored" data-anchor-id="les-facettes"><span class="header-section-number">7.1.3</span> Les facettes</h3>
+<p>Il y a deux types de facettes (en réalité trois, avec celle par défaut qui s’intitule <code>facet_null()</code> et produit un seul graphe) :</p>
+<ul>
+<li><code>facet_wrap()</code> : produit une suite de graphiques et a un argument principal <code>facets=vars()</code> et éventuellement <code>ncol=</code> et <code>nrow=</code> ;</li>
+<li><code>facet_grid()</code> : produit une grille ou matrice de graphiques définies par une ou deux variables qui forment les lignes et les colonnes, définies avec les deux arguments principaux <code>cols=</code> et <code>row=</code>, ou en indiquant un <code>~</code> entre les deux variables.<br>
+À savoir, il y a des options pour contrôler les échelles avec l’argument <code>scales=</code>.<br>
+Les facettes sont ainsi une autre façon, par rapport aux “aesthetics”, de représenter deux variables par rapport à une troisième variable.</li>
+</ul>
+</section>
+<section id="les-statistiques" class="level3" data-number="7.1.4">
+<h3 data-number="7.1.4" class="anchored" data-anchor-id="les-statistiques"><span class="header-section-number">7.1.4</span> Les statistiques</h3>
+<p>On peut vouloir ajouter sur un graphique des statistiques particulières ou supplémentaires, comme la moyenne ou médiane d’une variable quantitative, ou encore représenter la régression linéaire dans le cas d’une variable fonction d’une autre, etc.<br>
+Par exemple, si l’on projette des boîtes à moustache, la moyenne n’étant pas affichée on peut la rajouter avec la fonction <code>stat_summary()</code> et l’option <code>fun = mean</code>.<br>
+Si l’on souhaite ajouter une régression linéaire sur un graphique de nuage de points, il faut utiliser la fonction <code>geom_smooth()</code> et l’option <code>method=lm</code>.<br>
+Certaines statistiques peuvent aussi être calculées ou transformées directement dans certaines fonctions : c’est par exemple le cas avec la fonction <code>geom_histogramm()</code> où l’on peut produire un histogramme de la densité en spécifiant <code>y=..density..</code> dans l’<code>aes()</code> ou en la superposant à l’aide d’une courbe à l’histogramme initial en ajoutant alors ensuite un <code>geom_density()</code> ; ou encore avec la fonction <code>geom_bar()</code> avec les arguments <code>stat = "summary_bin", fun = mean</code> (par défaut, <code>stat = "count"</code>, dans ce cas la hauteur des barres représente le comptage des cas dans chaque catégorie).</p>
+</section>
+<section id="les-coordonnées" class="level3" data-number="7.1.5">
+<h3 data-number="7.1.5" class="anchored" data-anchor-id="les-coordonnées"><span class="header-section-number">7.1.5</span> Les coordonnées</h3>
+<p>Les systèmes de coordonnées linéaires permettent de changer le sens du graphique ou de “zoomer” sur le graphique :</p>
+<ul>
+<li><code>coord_cartesian()</code> : c’est le système de coordonnées par défaut (repère “cartésien”), en changeant les arguments <code>xlim=</code> ou <code>ylim=</code>, on procède à un zoom sur l’axe des abscisses et/ou celui des ordonnées ; cela permet de ne pas supprimer des données comme le ferait les fonctions <code>scale_x_continuous()</code> ou <code>scale_y_continuous</code> mais juste de ne pas les afficher sur le graphe ;</li>
+<li><code>coord_flip()</code> : permet d’inverser les axes ;</li>
+<li><code>coord_fixed()</code> : produit un système de coordonnées cartésiennes avec un “ratio d’aspect” fixe.</li>
+</ul>
+<p>Il existe également des systèmes de coordonnées non-linéaires, comme <code>coord_polar()</code> par exemple.</p>
+</section>
+<section id="les-thèmes" class="level3" data-number="7.1.6">
+<h3 data-number="7.1.6" class="anchored" data-anchor-id="les-thèmes"><span class="header-section-number">7.1.6</span> Les thèmes</h3>
+<p>Il y a plusieurs thèmes existants dans le package <strong><code>ggplot2</code></strong>, <code>theme_gray()</code> est le thème par défaut ; les autres sont présentés dans la figure ci-dessous. <img src="Images/Liste_Themes_Ggplot.png" class="img-fluid"></p>
+<p>Ensuite, la fonction <code>theme()</code> permet de modifier les aspects du graphique : il y a un certain nombre d’arguments disponibles qui permettent de modifier les éléments entourant le graphique comme les titre et sous-titre, les éléments à l’intérieur du graphique c’est-à-dire de la grille, les éléments des axes, ou encore les éléments de la légende (ou sa position sur la figure), etc.<br>
+La figure ci-dessous est une bonne synthèse de la manière dont il faut programmer ces différentes éléments du thème d’un graphique (téléchargeable directement <a href="https://github.com/claragranell/ggplot2/blob/main/ggplot_theme_system_cheatsheet.pdf" target="_blank">ici</a>) :<br>
+<img src="Images/ggplot_theme_system_cheatsheet.png" class="img-fluid"></p>
+</section>
+<section id="les-autres-options-graphiques-titres-échelles-des-axes-etc." class="level3" data-number="7.1.7">
+<h3 data-number="7.1.7" class="anchored" data-anchor-id="les-autres-options-graphiques-titres-échelles-des-axes-etc."><span class="header-section-number">7.1.7</span> Les autres options graphiques : titres, échelles des axes, etc.</h3>
+<p>Pour le titre général, mais aussi les titres des axes, ainsi qu’une éventuelle légende, source, etc., on peut les rassembler dans la fonction <code>labs()</code> :</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># On enregistre les tables de données pour les utiliser ultérieurement</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(<span class="at">object =</span> RP_final,  <span class="at">file =</span> <span class="st">"data/RP_final.Rdata"</span>)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(<span class="at">object =</span> meta,  <span class="at">file =</span> <span class="st">"data/meta.Rdata"</span>)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(<span class="at">object =</span> dvf_ParisPC, <span class="at">file =</span> <span class="st">"data/dvf_ParisPC.Rdata"</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">labs</span>(</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">title    =</span> <span class="st">" "</span>,</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">subtitle =</span> <span class="st">" "</span>,</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">x        =</span> <span class="st">" "</span>,</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">y        =</span> <span class="st">" "</span>,</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">caption  =</span> <span class="st">" "</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
+<p>Les axes des échelles peuvent être changés, ainsi que les valeurs affichées, avec les fonctions <code>scale</code> : si les variables sont quantitatives/continues, avec <code>scale_x_continous()</code> et <code>scale_y_continuous()</code> ; si les variables sont qualitatives/discrètes, avec <code>scale_x_discrete()</code> et <code>scale_x_discrete()</code> ; dont les options les plus souvent utilisées sont <code>limits=</code>, <code>breaks=</code>, <code>labels=</code>, ou encore <code>trans=</code> qui permet de transformer la mesure de l’échelle (exponentielle, log, …). Lorsqu’une option <code>fill=</code> ou <code>color=</code> est utilisée dans un <code>aes</code>, alors on peut modifier le type de couleurs ou palettes utilisées avec par exemple <code>scale_fill_brewer()</code> pour la pallette de couleur <code>RBrewer</code> ou <code>scale_fill_viridis()</code> pour la palette <code>Viridis</code>, etc.</p>
+<p>Il y a encore d’autres fonctions qui permettent de “customiser” à votre goût un graphique <code>ggplot</code>, il faut s’aventurer dans les diverses documentations plus complètes sur le package <strong><code>ggplot2</code></strong>.</p>
+</section>
+<section id="code-minimal" class="level3" data-number="7.1.8">
+<h3 data-number="7.1.8" class="anchored" data-anchor-id="code-minimal"><span class="header-section-number">7.1.8</span> Code minimal</h3>
+<p>Après l’appel de la fonction <code>ggplot()</code>, chaque “couche” supplémentaire utilisée est précisée par le signe <strong><code>+</code></strong> et non l’habituel pipe <code>%&gt;%</code> pour bien signifier qu’on est toujours dans la fonction <code>ggplot()</code>, par ailleurs il faut faire attention de mettre le signe <strong><code>+</code></strong> à la fin d’une ligne et ensuite de faire un saut de ligne (le contraire saut de ligne et début de la ligne suivante avec le <code>+</code> ne fonctionnera pas). Les trois arguments obligatoires sont donc les 3 premières : “data”, “aesthethics” et “geometries”. En langage tidyverse, il existe plusieurs façons d’écrire le code :</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Les 4 façons d'écrire suivantes sont similaires :</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>data <span class="sc">%&gt;%</span>              <span class="co"># on spécifie la table de données</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span>          <span class="co"># on appelle la fonction ggplot()</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x =</span> , <span class="at">y =</span> ) <span class="sc">+</span>   <span class="co"># on spécifie dans l'aes() les variables à mettre dans l'axe  </span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>                      <span class="co"># des abcisses (x=) et dans l'axe des ordonnées (y=)</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>()    <span class="co"># on trace l'histogramme</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>data <span class="sc">%&gt;%</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> , <span class="at">y =</span> )) <span class="sc">+</span> <span class="fu">geom_histogram</span>() </span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data) <span class="sc">+</span> <span class="fu">aes</span>(<span class="at">x =</span> , <span class="at">y =</span> ) <span class="sc">+</span> <span class="fu">geom_histogram</span>() </span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> , <span class="at">y =</span> ))  <span class="sc">+</span> <span class="fu">geom_histogram</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Nous privilégierons ici la 1ère d’entre elles, mais vous pouvez en choisir une autre !</p>
+</section>
+<section id="liens-utiles-pour-aller-plus-loin" class="level3" data-number="7.1.9">
+<h3 data-number="7.1.9" class="anchored" data-anchor-id="liens-utiles-pour-aller-plus-loin"><span class="header-section-number">7.1.9</span> Liens utiles pour aller plus loin</h3>
+<p>Nous ne pouvons pas résumer l’ensemble des possibilités données par <strong>ggplot2</strong> ; il faudra donc rechercher par soi-même si besoin. Voici pour cela deux sites très complets sur le package :</p>
+<ul>
+<li><a href="https://ggplot2-book.org/toolbox.html">https://ggplot2-book.org/toolbox.html</a><br>
+</li>
+<li><a href="https://bookdown.org/ael/rexplor/chap8.html#aes">https://bookdown.org/ael/rexplor/chap8.html#aes</a></li>
+</ul>
+</section>
+</section>
+<section id="les-grands-principes-de-data-visualization" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="les-grands-principes-de-data-visualization"><span class="header-section-number">7.2</span> Les grands principes de data visualization</h2>
+<p>Sans prétendre, ni pouvoir, faire un cours complet de data visualization, voici quelques grands principes à essayer de respecter quand on souhaite représenter graphiquement des résultats issus du traitement de données :</p>
+<ul>
+<li>savoir au préalable le message principal que l’on souhaite faire passer : cela peut sembler évident, mais il faut toujour avoir cela en tête ;</li>
+<li>construire un graphique intelligible par le plus grand nombre : des graphiques trop sophistiqués, trop chargés d’informations, etc., ne permettront pas de transmettre le message souhaité. Cela peut bien sûr varier selon le public, mais… ;</li>
+<li>situer le graphique : avec un titre explicite, éventuellement un sous-titre, ensuite avec une légende reprenant le champ et/ou la source, etc. ;</li>
+<li>choisir le “bon” graphique selon le type de variables à représenter : variable continue ou discrète, croisement d’un type de variable avec un autre type, variables dépendant du temps (évolution), etc. ;</li>
+<li>présenter le graphique de manière la plus objective possible : ne pas “tordre” le graphique pour faire apparaître un résultat qui n’est pas si évident que cela (c’est typiquement l’exemple d’un changement d’échelle ; d’un “zoom” sur l’axe des ‘y’ sur un graphique en évolution par exemple, pour montrer des variations qui ne seraient pas visibles si l’axe commençait à 0) ;</li>
+<li>rajouter des informations (étiquettes de nom, valeur, etc.) sans trop surcharger le graphique néanmoins ;</li>
+<li>être logique dans la contruction des éléments extérieurs au graphe : par exemple, ordre des modalités d’une légende située à droite selon le point d’arrivée des courbes ; ordre des modalités d’une variable discrète (par exemple le niveau de diplôme) ou selon la moyenne/médiane d’une autre variable par ordre croissant ou décroissant ; utiliser (le plus possible) des axes similaires pour comparer deux grahes côte à cote.</li>
+</ul>
+<p>Ce chapitre de cours donne des conseils synthétiques : cf.&nbsp;<a href="https://rafalab.github.io/dsbook/data-visualization-principles.html" target="_blank">ici</a> ; ou cet article-<a href="https://www.sciencedirect.com/science/article/pii/S2666389920301896" target="_blank">là</a>.</p>
 
 
 </section>
@@ -879,13 +1067,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./03-Manipulation-variables.html" class="pagination-link" aria-label="Manipulation des variables">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Manipulation des variables</span></span>
+      <a href="./06-Fonctions.html" class="pagination-link" aria-label="Systématiser nos procédures : construire une fonction">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Systématiser nos procédures : construire une fonction</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./05-Questions-fouille-donnees.html" class="pagination-link" aria-label="Quelles questions intéressantes pour une &quot;fouille de données&quot; sur la base des RP ?">
-        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Quelles questions intéressantes pour une “fouille de données” sur la base des RP ?</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./08-Ggplot-pratique.html" class="pagination-link" aria-label="Data Mining et Data Visualization en pratique">
+        <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Data Mining et Data Visualization en pratique</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

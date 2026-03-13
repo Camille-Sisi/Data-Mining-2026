@@ -96,7 +96,7 @@ RP_final  <- RP %>% filter(DEPT %in% c("75","92","93","94")) %>%
                         select(-c("NUMMI","INPERF","DEROU","LIENF","INFAM",
                                   "NE17FR","INPER",	"NE24FR","NPERR",	"NE3FR",
                                   "SFM",	"NE5FR", "TYPMC",	"NENFR","TYPMR",
-                                  "NUMF","VOIT",	"TYPFC"))
+                                  "NUMF", "VOIT",	"TYPFC"))
 ```
 :::
 

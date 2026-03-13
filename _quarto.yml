@@ -24,6 +24,11 @@ book:
     - part: "Séance 2"
       chapters:      
       - 05-Questions-fouille-donnees.qmd
+      - 06-Fonctions.qmd
+    - part: "Séance 3"
+      chapters:      
+      - 07-Ggplot-theorique.qmd
+      - 08-Ggplot-pratique.qmd
 
 format:
   bookup-html:
