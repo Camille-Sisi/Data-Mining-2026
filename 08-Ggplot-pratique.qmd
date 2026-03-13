@@ -73,3 +73,511 @@ On observe ainsi des différences entre la moyenne et la médiane, puisque la mo
 
 On peut aussi vouloir enlever les outliers avec l'option `outlier.shape` de `geom_boxplot()` comme ceci : `geom_boxplot(outlier.shape = NA)` [ou avec l'option `outliers=FALSE`].
 
+On peut encore vouloir **ordonner l'affichage des années par ordre décroissant de la médiane** ou de **la moyenne** (ordre décroissant ici = valeur la plus élevée en haut du graphique). Nous pouvons, entre autres, utiliser pour cela la fonction `fct_reorder()` du package **`forcats`** déjà présenté dans la section 3.2 de ce cours (Séance 1) : nous pouvons alors directement l'intégrer dans l'`aes` de **ggplot** dans la variable en ordonnée `y=fct_reorder()`, il faut pour cela mettre entre parenthèses la variable utilisée en ordonnée, suivie de la variable par laquelle on ordonne (la même que celle utilisée dans `x=`). Utilisée dans un boxplot, cela ordonne par défaut selon la médiane ; si on veut que la variable en ordonnée (année) soit triée par la moyenne, il faut rajouter l'option `.fun=mean` dans la fonction `fct_reorder()`, cf. le code en-dessous (mais ici cela ne change rien).
+
+```{r}
+dvf_ParisPC_final %>% 
+  ggplot() + 
+  aes(x = prix_metre_carrez, y=fct_reorder(factor(annee_vente), 
+                                           prix_metre_carrez)) + 
+  geom_boxplot() + 
+  stat_summary(fun=mean, geom="point", color="gray50", size=2) + 
+  coord_cartesian(xlim=c(1250,22500)) + 
+  scale_x_continuous(breaks=seq(1250,22500,1750))
+
+# dvf_ParisPC_final %>%
+#   ggplot() +
+#   aes(x = prix_metre_carrez, y=fct_reorder(factor(annee_vente), 
+#                                            prix_metre_carrez, .fun=mean)) +
+#   geom_boxplot() +
+#   stat_summary(fun=mean, geom="point", color="gray50", size=2) +
+#   coord_cartesian(xlim=c(1250,22500)) +
+#   scale_x_continuous(breaks=seq(1250,22500,1750))
+```
+
+Attention, comme ici notre seconde variable est l'année, cela n'est pas forcément pertinent de modifier l'ordre du graphique pour le mettre selon la moyenne car cela pourrait perturber la lecture du graphique. On va revenir sur le graphique précédent donc. 
+\ 
+Nous arrivons à un graphique intéressant, il faut **maintenant améliorer la description autour** : noms des axes, titres, légende informative sous le graphique (avec notamment un avertissement sur les valeurs non affichées sur le graphique), éventuellement un peu de couleur (avec `fill=` non pas dans l'`aes()` mais dans la fonction `geom_boxplot()` pour qu'elle soit identique quel que soit le département), etc.  
+Cela se fait avec la fonction `labs()`, et ensuite la fonction `theme()`.  
+Une petite astuce pour les titres pour qu'ils ne soient pas coupés sur le graphe : `\n` collé à un mot (sans espace) permet de mettre à la ligne à partir de ce mot ! 
+
+```{r}
+dvf_ParisPC_final %>% 
+  ggplot() + 
+  aes(x = prix_metre_carrez, y=factor(annee_vente)) + 
+  geom_boxplot(outlier.shape = NA, fill="khaki") + 
+  stat_summary(fun=mean, geom="point", color="gray50", size=2) + 
+  coord_cartesian(xlim=c(1250,22500)) + 
+  scale_x_continuous(breaks=seq(1250,22500,1750)) +
+  labs(title="Distribution du prix au m2 des ventes d'appartements et de maisons dans Paris et sa petite \ncouronne sur la période 2018-2023", 
+       x="Prix au m2", y="Année",
+       caption="Remarques : Les valeurs en-dessous de 1250€ et au-dessus de 22500€ au m2 ne sont pas affichées ; les points \nau-delà du minimum et du maximum non plus ; les points en gris représentent la moyenne. \nSource : Base 'demande de valeurs foncières', 2018-2023. \nCalculs : Camille Signoretto.") +
+  theme(plot.caption = element_text(hjust=0),
+        plot.title = element_text(size=11.5),
+        axis.title.x = element_text(size=10),
+        axis.title.y = element_text(size=10))
+```
+
+Voilà un premier graphique construit avec la grammaire de `ggplot()`. À vous maintenant de construire vous-mêmes les graphiques qui vous sont suggérés dans la section suivante !
+
+
+
+## D'autres exemples à travers des exercices
+
+### Distribution du prix au m2 selon le département
+Construisez le même type de graphique mais cette fois à partir d'une densité de distribution selon cette fois le département. N'hésitez pas à changer les options pour le mettre à votre goût !! 
+
+```{r echo=FALSE}
+dvf_ParisPC_final %>% 
+  ggplot() + 
+  aes(x = prix_metre_carrez, fill = factor(code_INSEE_dept)) + 
+  geom_density(alpha = 0.4, color=NA) +
+  coord_cartesian(xlim=c(1250,22500)) + 
+  labs(title="Distribution du prix au m2 des ventes d'appartements et de maisons sur la période 2018-2023", 
+       x="Prix au m2", y=" ", fill= "Département",
+       caption="Remarques : Les valeurs en-dessous de 1250€ et au-dessus de 22500€ au m2 ne sont pas affichées. \nSource : Base 'demande de valeurs foncières', 2018-2023. \nCalculs : Camille Signoretto.") +
+  theme(plot.caption = element_text(hjust=0),
+        plot.title = element_text(size=11),
+        axis.title.x = element_text(size=10),
+        axis.title.y = element_text(size=10))
+```
+
+::: {.callout-tip collapse="true"}
+## Solution
+
+```{r eval=FALSE}
+dvf_ParisPC_final %>% 
+  ggplot() + 
+  aes(x = prix_metre_carrez, fill = factor(code_INSEE_dept)) + 
+  geom_density(alpha = 0.4, color=NA) +
+  coord_cartesian(xlim=c(1250,22500)) + 
+  labs(title="Distribution du prix au m2 des ventes d'appartements et de maison sur la période 2018-2023", 
+       x="Prix au m2", y=" ", fill= "Département",
+       caption="Remarques : Les valeurs en-dessous de 1250€ et au-dessus de 22500€ au m2 ne sont pas affichées. \nSource : Base 'demande de valeurs foncières', 2018-2023. \nCalculs : Camille Signoretto.") +
+  theme(plot.caption = element_text(hjust=0),
+        plot.title = element_text(size=11),
+        axis.title.x = element_text(size=10),
+        axis.title.y = element_text(size=10))
+```
+:::
+
+### Comparaison des montants moyen et médian du prix au m2, par arrondissement de Paris
+Construisez maintenant un graphique mettant l'un en-dessous de l'autre deux graphes en bâtons représentant respectivement le prix au m2 moyen et le prix au m2 médian des ventes d'appartements à Paris par *arrondissement*. 
+
+Pour vous aider si besoin, réfléchissez par étapes :
+
+- créer un premier graphe que vous assignerez à un nouvel objet et qui représentera celui de la moyenne par arrondissement ;
+- vous pouvez pour cela créer une nouvelle variable qui constituera la moyenne pour chaque département (un conseil : arrondir à l'unité) ;
+- sélectionnez les variables qui seront utilisées dans le graphique et vérifier (ou corriger sinon) qu'il n'y ait pas des doublons (lignes identiques) car cela peut fausser le graphique ensuite ; 
+- construisez le graphique avec `ggplot()` et la bonne fonction `geom_***()`, les données doivent être affichées par ordre décroissant ;
+- faîtes de même pour la médiane par arrondissement ;
+- vous pouvez ensuite mettre ces graphiques côte à côté avec le package **`patchwork`** (qu'il vous faudra probablement installer si c'est la première fois que vous l'utilisez), recherchez sur internet comment faire ensuite (c'est très simple !), puis mettez le même axe des ordonnées pour gagner de la place avec l'argument `plot_layout(axes = "collect")`, enfin ajoutez un titre et une légende générale avec la fonction `plot_annotation()`.
+
+
+```{r warning=FALSE, message=FALSE, echo=FALSE}
+p1 <- dvf_ParisPC_final %>% 
+  filter(code_INSEE_dept=="75" & type_local=="Appartement" & !is.na(code_postal)) %>% 
+  group_by(code_postal) %>% 
+  mutate(moy_prixm2 = round(mean(prix_metre_carrez),0),
+         code_postal=as.factor(code_postal)) %>% 
+  select(moy_prixm2, code_postal) %>% 
+  unique() %>% 
+  ggplot() + aes(x = fct_reorder(code_postal, desc(moy_prixm2)), y = moy_prixm2) +
+  geom_bar(stat="identity", fill="honeydew") + 
+  geom_text(aes(label = moy_prixm2), position = position_stack(vjust = 0.5), color="gray25", size=2.7, angle=90) +
+  labs(title = "Moyenne", x = " ", y = " ") +
+  theme(axis.text.x = element_text(angle=90, vjust=0.5, size=9),
+        plot.title = element_text(size=10.5))
+
+p2 <- dvf_ParisPC_final %>% 
+  filter(code_INSEE_dept=="75" & type_local=="Appartement" & !is.na(code_postal)) %>% 
+  group_by(code_postal) %>% 
+  mutate(median_prixm2 = round(mean(prix_metre_carrez),0),
+         code_postal=as.factor(code_postal)) %>% 
+  select(median_prixm2, code_postal) %>% 
+  unique() %>% 
+  ggplot() + aes(x = fct_reorder(code_postal, desc(median_prixm2)), y = median_prixm2) +
+  geom_bar(stat="identity", fill="honeydew") + 
+  geom_text(aes(label = median_prixm2), position = position_stack(vjust = 0.5), color="gray25", size=2.7, angle=90) +
+  labs(title = "Médiane", x = " ", y = " ") +
+  theme(axis.text.x = element_text(angle=90, vjust=0.5, size=9),
+        plot.title = element_text(size=10.5))
+
+library(patchwork)
+(p1 + p2) + plot_layout(axes = "collect") +
+plot_annotation(title = "Montants moyens et médians du prix au m2 des ventes d'appartements sur Paris, selon \nl'arrondissement sur la période 2018-2023",
+                caption = "Source : Base 'demande de valeurs foncières', 2018-2023. \nCalculs : Camille Signoretto.", 
+                theme = theme(plot.title = element_text(size = 12),
+                              plot.caption = element_text(hjust = 0)))
+```
+
+::: {.callout-tip collapse="true"}
+## Solution
+
+```{r warning=FALSE, message=FALSE, eval=FALSE}
+p1 <- dvf_ParisPC_final %>% 
+  filter(code_INSEE_dept=="75" & type_local=="Appartement" & !is.na(code_postal)) %>% 
+  group_by(code_postal) %>% 
+  mutate(moy_prixm2 = round(mean(prix_metre_carrez),0),
+         code_postal=as.factor(code_postal)) %>% 
+  select(moy_prixm2, code_postal) %>% 
+  unique() %>% 
+  ggplot() + aes(x = fct_reorder(code_postal, desc(moy_prixm2)), y = moy_prixm2) +
+  geom_bar(stat="identity", fill="honeydew") + 
+  geom_text(aes(label = moy_prixm2), position = position_stack(vjust = 0.5), color="gray25", size=2.7, angle=90) +
+  labs(title = "Moyenne", x = " ", y = " ") +
+  theme(axis.text.x = element_text(angle=90, vjust=0.5, size=9),
+        plot.title = element_text(size=10.5))
+
+p2 <- dvf_ParisPC_final %>% 
+  filter(code_INSEE_dept=="75" & type_local=="Appartement" & !is.na(code_postal)) %>% 
+  group_by(code_postal) %>% 
+  mutate(median_prixm2 = round(mean(prix_metre_carrez),0),
+         code_postal=as.factor(code_postal)) %>% 
+  select(median_prixm2, code_postal) %>% 
+  unique() %>% 
+  ggplot() + aes(x = fct_reorder(code_postal, desc(median_prixm2)), y = median_prixm2) +
+  geom_bar(stat="identity", fill="honeydew") + 
+  geom_text(aes(label = median_prixm2), position = position_stack(vjust = 0.5), color="gray25", size=2.7, angle=90) +
+  labs(title = "Médiane", x = " ", y = " ") +
+  theme(axis.text.x = element_text(angle=90, vjust=0.5, size=9),
+        plot.title = element_text(size=10.5))
+
+library(patchwork)
+(p1 + p2) + plot_layout(axes = "collect") +
+plot_annotation(title = "Montants moyens et médians du prix au m2 des ventes d'appartements sur Paris, selon \nl'arrondissement sur la période 2018-2023",
+                caption = "Source : Base 'demande de valeurs foncières', 2018-2023. \nCalculs : Camille Signoretto.", 
+                theme = theme(plot.title = element_text(size = 12),
+                              plot.caption = element_text(hjust = 0)))
+```
+:::
+
+On observe que les 6ème, 7ème, 4ème, et 1er arrondissements sont les plus chers, que ce soit en moyenne ou en médiane, le classement ne change même selon l'indicateur.  
+Il faut vraiment se demander quel type de public serait visé par ces informations, si c'est le grand public, la moyenne et la médiane suffisent si l'on veut montrer qu'il y a quand même une certaine dispersion des valeurs selon les ventes, même si souvent seule la moyenne est représentée.   
+\ 
+\    
+On aurait pu sinon utiliser un "dot plot", comme ci-dessous. Cherchez comment l'on peut construire ce type de graphique (rq : cela ne correspond par à une fonction en tant que telle). Le début du code est le même, ce sont les fonctions `geom_***` qui changent...  
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+library("ggrepel")
+p3 <- dvf_ParisPC_final %>% 
+  filter(code_INSEE_dept=="75" & type_local=="Appartement" & !is.na(code_postal)) %>% 
+  group_by(code_postal) %>% 
+  mutate(moy_prixm2 = round(mean(prix_metre_carrez),0),
+         code_postal=as.factor(code_postal)) %>% 
+  select(moy_prixm2, code_postal) %>% 
+  unique() %>% 
+  ggplot() + aes(x = moy_prixm2,
+                 y = fct_reorder(code_postal, moy_prixm2)) +
+  geom_point(color="burlywood4", size=2) + 
+  geom_segment(aes(x=0, xend=moy_prixm2, 
+                   y=fct_reorder(code_postal, moy_prixm2),
+                   yend=fct_reorder(code_postal, moy_prixm2)),
+               color="snow4") +
+  geom_text_repel(aes(label = moy_prixm2), size = 3) +
+  labs(title = "Prix au m2 moyen", x = " ", y = " ") +
+  theme(plot.title = element_text(size=10),
+        axis.text.y = element_text(size=9))
+
+p4 <- dvf_ParisPC_final %>% 
+  filter(code_INSEE_dept=="75" & type_local=="Appartement" & !is.na(code_postal)) %>% 
+  group_by(code_postal) %>% 
+  mutate(median_prixm2 = round(median(prix_metre_carrez),0),
+         code_postal=as.factor(code_postal)) %>% 
+  select(median_prixm2, code_postal) %>% 
+  unique() %>% 
+  ggplot() + aes(x = median_prixm2,
+                 y = fct_reorder(code_postal, median_prixm2)) +
+  geom_point(color="burlywood4", size=2) + 
+  geom_segment(aes(x=0, xend=median_prixm2, 
+                   y=fct_reorder(code_postal, median_prixm2),
+                   yend=fct_reorder(code_postal, median_prixm2)),
+               color="snow4") +
+  geom_text_repel(aes(label = median_prixm2), size = 3) +
+  labs(title = "Prix au m2 médian", x = " ", y = " ") +
+  theme(plot.title = element_text(size=10),
+        axis.text.y = element_text(size=9))
+
+(p3 + p4) + 
+plot_annotation(title = "Montants moyens et médians du prix au m2 des ventes d'appartements sur Paris, selon \nl'arrondissement sur la période 2018-2023", 
+                caption = "Source : Base 'demande de valeurs foncières', 2018-2023. \nCalculs : Camille Signoretto.", 
+                theme = theme(plot.title = element_text(size = 12),
+                              plot.caption = element_text(hjust = 0)))
+```
+
+::: {.callout-tip collapse="true"}
+## Solution
+
+```{r eval=FALSE, message=FALSE, warning=FALSE}
+library("ggrepel")
+p3 <- dvf_ParisPC_final %>% 
+  filter(code_INSEE_dept=="75" & type_local=="Appartement" & !is.na(code_postal)) %>% 
+  group_by(code_postal) %>% 
+  mutate(moy_prixm2 = round(mean(prix_metre_carrez),0),
+         code_postal=as.factor(code_postal)) %>% 
+  select(moy_prixm2, code_postal) %>% 
+  unique() %>% 
+  ggplot() + aes(x = moy_prixm2,
+                 y = fct_reorder(code_postal, moy_prixm2)) +
+  geom_point(color="burlywood4", size=2) + 
+  geom_segment(aes(x=0, xend=moy_prixm2, 
+                   y=fct_reorder(code_postal, moy_prixm2),
+                   yend=fct_reorder(code_postal, moy_prixm2)),
+               color="snow4") +
+  geom_text_repel(aes(label = moy_prixm2), size = 3) +
+  labs(title = "Prix au m2 moyen", x = " ", y = " ") +
+  theme(plot.title = element_text(size=10),
+        axis.text.y = element_text(size=9))
+
+p4 <- dvf_ParisPC_final %>% 
+  filter(code_INSEE_dept=="75" & type_local=="Appartement" & !is.na(code_postal)) %>% 
+  group_by(code_postal) %>% 
+  mutate(median_prixm2 = round(median(prix_metre_carrez),0),
+         code_postal=as.factor(code_postal)) %>% 
+  select(median_prixm2, code_postal) %>% 
+  unique() %>% 
+  ggplot() + aes(x = median_prixm2,
+                 y = fct_reorder(code_postal, median_prixm2)) +
+  geom_point(color="burlywood4", size=2) + 
+  geom_segment(aes(x=0, xend=median_prixm2, 
+                   y=fct_reorder(code_postal, median_prixm2),
+                   yend=fct_reorder(code_postal, median_prixm2)),
+               color="snow4") +
+  geom_text_repel(aes(label = median_prixm2), size = 3) +
+  labs(title = "Prix au m2 médian", x = " ", y = " ") +
+  theme(plot.title = element_text(size=10),
+        axis.text.y = element_text(size=9))
+
+(p3 + p4) + 
+plot_annotation(title = "Montants moyens et médians du prix au m2 des ventes d'appartements sur Paris, selon \nl'arrondissement sur la période 2018-2023", 
+                caption = "Source : Base 'demande de valeurs foncières', 2018-2023. \nCalculs : Camille Signoretto.", 
+                theme = theme(plot.title = element_text(size = 12),
+                              plot.caption = element_text(hjust = 0)))
+```
+:::
+
+### Evolution du prix médian au m2 des ventes d'appartements à Paris
+
+Changeons un peu de perspective et construisez cette fois un graphique montrant l'évolution du prix médian au m2 des ventes d'appartements à Paris, de manière générale et ensuite selon 6 arrondissements choisis selon leur prix médian mis en avant un peu plus haut : les 3 ayant les prix les plus élevés (6ème, 7ème et 4ème arrondissement), et les 3 ayant les prix les moins élevés (13ème, 19ème et 20ème arrdt).  
+On peut vouloir le rendre interactif de telle sorte que l'utilisateur puisse voir les valeurs des points en passant la souris dessus : pour cela, il faut installer et charger le package **`plotly`** puis utiliserla fonction `ggplotly()` ; cela nécessite de stocker le graphique dans un objet.
+
+De même, il faut procéder par étapes :
+
+- créer ensuite la variable de prix médian au m2 selon l'année ;
+- ne garder que ces variables, supprimer les lignes doublons le cas échéant ;
+- construir un graphique sous forme de courbes avec des points représentants les valeurs en le stockant dans un objet ; 
+- appeler la fonction `ggplotly()` en utilisant l'argument `tooltip()` pour que seule la valeur des "y" soit affichée. 
+
+```{r echo=FALSE, warning=FALSE, message=FALSE}
+g_evo <- dvf_ParisPC_final %>% 
+  filter(code_INSEE_dept=="75" & type_local=="Appartement") %>%
+  group_by(annee_vente) %>% 
+  mutate(med_prixm2 = round(median(prix_metre_carrez),0),
+         annee_vente = as.factor(annee_vente)) %>% 
+  select(med_prixm2, annee_vente) %>% 
+  unique() %>% 
+  ggplot() + aes(x=annee_vente, y=med_prixm2) + geom_point() + geom_line(group=1)  +
+  scale_y_continuous(limits=c(1250,22500), breaks = seq(1250,22500,1750)) +
+  labs(title = "Evolution du prix médian au m2 des appartements vendus à Paris", 
+       x = " ", y = " ") +
+  theme(plot.title = element_text(size=12), 
+        plot.caption = element_text(hjust=0))
+
+#install.packages("plotly")
+library(plotly)
+ggplotly(g_evo, tooltip = c("med_prixm2")) %>% 
+ layout(margin = list(l = 50, r = 50, b = 80, t = 50),
+        annotations = list(text = "Source : base 'demande de valeurs foncières', 2018-2023. \nCalculs : Camille Signoretto. \nNote : l'axe des ordonnées ne commence qu'à 1250€.",
+                           showarrow = F, x = 0, y = -0.2, 
+                           xref='paper', yref='paper', xanchor='left', yanchor='auto',  
+                           xshift=0, yshift=0, font=list(size=10.5), align="left"))
+```
+
+::: {.callout-tip collapse="true"}
+## Solution
+
+```{r eval=FALSE, message=FALSE}
+g_evo <- dvf_ParisPC_final %>% 
+  filter(code_INSEE_dept=="75" & type_local=="Appartement") %>%
+  group_by(annee_vente) %>% 
+  mutate(med_prixm2 = round(median(prix_metre_carrez),0),
+         annee_vente = as.factor(annee_vente)) %>% 
+  select(med_prixm2, annee_vente) %>% 
+  unique() %>% 
+  ggplot() + aes(x=annee_vente, y=med_prixm2) + geom_point() + geom_line(group=1)  +
+  scale_y_continuous(limits=c(1250,22500), breaks = seq(1250,22500,1750)) +
+  labs(title = "Evolution du prix médian au m2 des appartements vendus à Paris", 
+       x = " ", y = " ") +
+  theme(plot.title = element_text(size=12), 
+        plot.caption = element_text(hjust=0))
+
+#install.packages("plotly")
+library(plotly)
+ggplotly(g_evo, tooltip = c("med_prixm2")) %>% 
+ layout(margin = list(l = 50, r = 50, b = 80, t = 50),
+        annotations = list(text = "Source : base 'demande de valeurs foncières', 2018-2023. \nCalculs : Camille Signoretto. \nNote : l'axe des ordonnées ne commence qu'à 1250€.",
+                           showarrow = F, x = 0, y = -0.2, 
+                           xref='paper', yref='paper', xanchor='left', yanchor='auto',  
+                           xshift=0, yshift=0, font=list(size=10.5), align="left"))
+```
+:::
+
+On retrouve un résultat que l'on avait observé précédemment avec la boxplot, à savoir que le prix médian au m2 des appartements vendus à Paris a augmenté entre 2018 et 2020, puis s'est stabilisé, et a légèrement baissé entre 2022 et 2023. 
+
+Regardons maintenant selon quelques arrondissements de Paris (dans les 6 mentionnés au-dessus), pour étudier si cette évolution est différente selon la position de l'arrondissement dans l'échelle des prix médians.  
+
+```{r echo=FALSE, message=FALSE}
+g_evo_pls <- dvf_ParisPC_final %>% 
+  filter(code_INSEE_dept=="75" & type_local=="Appartement" & code_postal %in% c("75004","75006","75007","75013","75019","75020")) %>% 
+  group_by(annee_vente, code_postal) %>% 
+  mutate(med_prixm2 = round(median(prix_metre_carrez),0)) %>% 
+  select(med_prixm2, annee_vente, code_postal) %>% 
+  unique() %>% 
+  mutate(code_postal=factor(code_postal, 
+                          levels = c("75006","75007","75004","75013","75020","75019"))) %>% 
+  ggplot() + aes(x=annee_vente, y=med_prixm2, color=code_postal) + 
+  geom_line(aes(group=code_postal), linewidth=1) +
+  scale_y_continuous(limits=c(6000,16000), breaks = seq(6000,16000,1000)) +
+  labs(title="Evolution du prix médian au m2 des appartements vendus à Paris, dans les 3 arrondissements \nayant les prix les plus élevés et les 3 arrondissements ayant les prix les moins élevés", x = " ", y = " ", color="Arrondissement") +
+  theme(plot.title = element_text(size=10.3), 
+        legend.title = element_text(size=9),
+        plot.caption = element_text(hjust=0))
+
+ggplotly(g_evo_pls, tooltip = c("med_prixm2")) %>% 
+ layout(margin = list(l = 50, r = 50, b = 80, t = 50),
+        annotations = list(text = "Source : Base 'demande de valeurs foncières', 2018-2023. \nCalculs : Camille Signoretto. \nNote : l'axe des ordonnées ne commence qu'à 6000€",
+                           showarrow = F, x = 0, y = -0.2, 
+                           xref='paper', yref='paper', xanchor='left', yanchor='auto',  
+                           xshift=0, yshift=0, font=list(size=10.3), align="left"))
+```
+
+::: {.callout-tip collapse="true"}
+## Solution
+
+```{r eval=FALSE, message=FALSE}
+g_evo_pls <- dvf_ParisPC_final %>% 
+  filter(code_INSEE_dept=="75" & type_local=="Appartement" & code_postal %in% c("75004","75006","75007","75013","75019","75020")) %>% 
+  group_by(annee_vente, code_postal) %>% 
+  mutate(med_prixm2 = round(median(prix_metre_carrez),0)) %>% 
+  select(med_prixm2, annee_vente, code_postal) %>% 
+  unique() %>% 
+  mutate(code_postal=factor(code_postal, 
+                          levels = c("75006","75007","75004","75013","75020","75019"))) %>% 
+  ggplot() + aes(x=annee_vente, y=med_prixm2, color=code_postal) + 
+  geom_line(aes(group=code_postal), linewidth=1) +
+  scale_y_continuous(limits=c(6000,16000), breaks = seq(6000,16000,1000)) +
+  labs(title="Evolution du prix médian au m2 des appartements vendus à Paris, dans les 3 arrondissements \nayant les prix les plus élevés et les 3 arrondissements ayant les prix les moins élevés", x = " ", y = " ", color="Arrondissement") +
+  theme(plot.title = element_text(size=10.3), 
+        legend.title = element_text(size=9),
+        plot.caption = element_text(hjust=0))
+
+ggplotly(g_evo_pls, tooltip = c("med_prixm2")) %>% 
+ layout(margin = list(l = 50, r = 50, b = 80, t = 50),
+        annotations = list(text = "Source : Base 'demande de valeurs foncières', 2018-2023. \nCalculs : Camille Signoretto. \nNote : l'axe des ordonnées ne commence qu'à 6000€",
+                           showarrow = F, x = 0, y = -0.2, 
+                           xref='paper', yref='paper', xanchor='left', yanchor='auto',  
+                           xshift=0, yshift=0, font=list(size=10.3), align="left"))
+```
+:::
+Pour tous les arrondissements, les prix médians au m2 sont à la hausse entre 2018 et 2020, mais connaissent ensuite parfois des stagnations, alors que d'autres continuent d'augmenter (surtout pour les 19 et 20ème arrondissements), entre 2021 et 2022, le 7èmearrondissement se démarque puisque le prix médian continue d'augmenter contrairement aux autres.
+\ 
+
+### Top 5 du prix au m2 des ventes d'appartements selon les arrondissements
+Enfin, construisez un graphique en bâtons indiquant les seuls 5 premiers arrondissements ayant les prix moyens au m2 des ventes d'appartements les plus élevés, puis les prix médians, et les mettre côte à côte.
+
+```{r echo=FALSE, message=FALSE}
+p5 <- dvf_ParisPC_final %>% 
+  filter(code_INSEE_dept=="75" & type_local=="Appartement" & !is.na(code_postal)) %>%
+  group_by(code_postal) %>%  
+  summarise(moy_prixm2 = round(mean(prix_metre_carrez))) %>% 
+  arrange(desc(moy_prixm2)) %>% slice(1:5) %>% 
+  ggplot() + aes(x = moy_prixm2, y = fct_reorder(factor(code_postal), moy_prixm2))  + 
+  geom_bar(stat="identity", fill="darkgoldenrod1")  +
+  geom_text(aes(label=moy_prixm2), position = position_stack(vjust=0.5), size=2.8) +
+  labs(title="Prix moyens",
+       x = "", y = " ") +
+  theme_classic() +
+  theme(legend.position = "none", plot.title=element_text(size=9),
+        axis.text.y = element_text(size=8),
+        axis.text.x = element_text(size=8),
+        axis.title.x = element_text(size=8))
+
+p6 <- dvf_ParisPC_final %>% 
+  filter(code_INSEE_dept=="75" & type_local=="Appartement" & !is.na(code_postal)) %>%
+  group_by(code_postal) %>%  
+  summarise(med_prixm2 = round(median(prix_metre_carrez))) %>% 
+      arrange(desc(med_prixm2)) %>% slice(1:5) %>% 
+      ggplot() + aes(x = med_prixm2, y = fct_reorder(factor(code_postal), med_prixm2))  + 
+      geom_bar(stat="identity", fill="coral1")  +
+      geom_text(aes(label=med_prixm2), position = position_stack(vjust=0.5), 
+                size=2.8) +
+      labs(title="Prix médians",
+           x = "", y = " ") +
+      theme_classic() +
+      theme(legend.position = "none", plot.title=element_text(size=9),
+            axis.text.y = element_text(size=8),
+            axis.text.x = element_text(size=8),
+            axis.title.x = element_text(size=8))
+
+(p5 + p6) +
+  plot_annotation(title =  "Top 5 des arrondissements ayant les prix au m2 des ventes d'appartements les plus élevés", 
+                caption = "Source : Base 'demande de valeurs foncières', 2018-2023. \nCalculs : Camille Signoretto.", 
+                theme = theme(plot.title = element_text(size = 12))) &
+  theme(plot.caption = element_text(hjust = 0))
+```
+
+::: {.callout-tip collapse="true"}
+## Solution
+
+```{r eval=FALSE, message=FALSE}
+p5 <- dvf_ParisPC_final %>% 
+  filter(code_INSEE_dept=="75" & type_local=="Appartement" & !is.na(code_postal)) %>%
+  group_by(code_postal) %>%  
+  summarise(moy_prixm2 = round(mean(prix_metre_carrez))) %>% 
+  arrange(desc(moy_prixm2)) %>% slice(1:5) %>% 
+  ggplot() + aes(x = moy_prixm2, y = fct_reorder(factor(code_postal), moy_prixm2))  + 
+  geom_bar(stat="identity", fill="darkgoldenrod1")  +
+  geom_text(aes(label=moy_prixm2), position = position_stack(vjust=0.5), size=2.8) +
+  labs(title="Prix moyens",
+       x = "", y = " ") +
+  theme_classic() +
+  theme(legend.position = "none", plot.title=element_text(size=9),
+        axis.text.y = element_text(size=8),
+        axis.text.x = element_text(size=8),
+        axis.title.x = element_text(size=8))
+
+p6 <- dvf_ParisPC_final %>% 
+  filter(code_INSEE_dept=="75" & type_local=="Appartement" & !is.na(code_postal)) %>%
+  group_by(code_postal) %>%  
+  summarise(med_prixm2 = round(median(prix_metre_carrez))) %>% 
+      arrange(desc(med_prixm2)) %>% slice(1:5) %>% 
+      ggplot() + aes(x = med_prixm2, y = fct_reorder(factor(code_postal), med_prixm2))  + 
+      geom_bar(stat="identity", fill="coral1")  +
+      geom_text(aes(label=med_prixm2), position = position_stack(vjust=0.5), 
+                size=2.8) +
+      labs(title="Prix médians",
+           x = "", y = " ") +
+      theme_classic() +
+      theme(legend.position = "none", plot.title=element_text(size=9),
+            axis.text.y = element_text(size=8),
+            axis.text.x = element_text(size=8),
+            axis.title.x = element_text(size=8))
+
+(p5 + p6) +
+  plot_annotation(title =  "Top 5 des arrondissements ayant les prix au m2 des ventes d'appartements les plus élevés", 
+                caption = "Source : Base 'demande de valeurs foncières', 2018-2023. \nCalculs : Camille Signoretto.", 
+                theme = theme(plot.title = element_text(size = 12))) &
+  theme(plot.caption = element_text(hjust = 0))
+```
+:::
+
+On retrouve les mêmes résultats.
+
+### À vous de "jouer" !
+
+Bien sûr, vous pouvez créer des fonctions sur ces graphiques ; puis "jouez" avec d'autres variables ; ou encore construire des cartes sur le niveau commune ; utiliser d'autres types de graphiques ; etc. ; etc.
+
+```{r eval=FALSE, include=FALSE}
+saveRDS(object = dvf_ParisPC_final,
+        file = "data/dvf_ParisPC_final.Rdata")
+```

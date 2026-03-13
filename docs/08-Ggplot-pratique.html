@@ -109,6 +109,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
+<link href="site_libs/htmltools-fill-0.5.9/fill.css" rel="stylesheet">
+
+<script src="site_libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+
+<script src="site_libs/plotly-binding-4.12.0/plotly.js"></script>
+
+<script src="site_libs/typedarray-0.1/typedarray.min.js"></script>
+
+<script src="site_libs/jquery-3.5.1/jquery.min.js"></script>
+
+<link href="site_libs/crosstalk-1.2.2/css/crosstalk.min.css" rel="stylesheet">
+
+<script src="site_libs/crosstalk-1.2.2/js/crosstalk.min.js"></script>
+
+<link href="site_libs/plotly-htmlwidgets-css-2.25.2/plotly-htmlwidgets.css" rel="stylesheet">
+
+<script src="site_libs/plotly-main-2.25.2/plotly-latest.min.js"></script>
+
 
 
 </head>
@@ -411,6 +429,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#exemple-de-la-construction-dun-graphique-pas-à-pas" id="toc-exemple-de-la-construction-dun-graphique-pas-à-pas" class="nav-link active" data-scroll-target="#exemple-de-la-construction-dun-graphique-pas-à-pas"><span class="header-section-number">8.1</span> Exemple de la construction d’un graphique pas à pas</a></li>
+  <li><a href="#dautres-exemples-à-travers-des-exercices" id="toc-dautres-exemples-à-travers-des-exercices" class="nav-link" data-scroll-target="#dautres-exemples-à-travers-des-exercices"><span class="header-section-number">8.2</span> D’autres exemples à travers des exercices</a>
+  <ul class="collapse">
+  <li><a href="#distribution-du-prix-au-m2-selon-le-département" id="toc-distribution-du-prix-au-m2-selon-le-département" class="nav-link" data-scroll-target="#distribution-du-prix-au-m2-selon-le-département"><span class="header-section-number">8.2.1</span> Distribution du prix au m2 selon le département</a></li>
+  <li><a href="#comparaison-des-montants-moyen-et-médian-du-prix-au-m2-par-arrondissement-de-paris" id="toc-comparaison-des-montants-moyen-et-médian-du-prix-au-m2-par-arrondissement-de-paris" class="nav-link" data-scroll-target="#comparaison-des-montants-moyen-et-médian-du-prix-au-m2-par-arrondissement-de-paris"><span class="header-section-number">8.2.2</span> Comparaison des montants moyen et médian du prix au m2, par arrondissement de Paris</a></li>
+  <li><a href="#evolution-du-prix-médian-au-m2-des-ventes-dappartements-à-paris" id="toc-evolution-du-prix-médian-au-m2-des-ventes-dappartements-à-paris" class="nav-link" data-scroll-target="#evolution-du-prix-médian-au-m2-des-ventes-dappartements-à-paris"><span class="header-section-number">8.2.3</span> Evolution du prix médian au m2 des ventes d’appartements à Paris</a></li>
+  <li><a href="#top-5-du-prix-au-m2-des-ventes-dappartements-selon-les-arrondissements" id="toc-top-5-du-prix-au-m2-des-ventes-dappartements-selon-les-arrondissements" class="nav-link" data-scroll-target="#top-5-du-prix-au-m2-des-ventes-dappartements-selon-les-arrondissements"><span class="header-section-number">8.2.4</span> Top 5 du prix au m2 des ventes d’appartements selon les arrondissements</a></li>
+  <li><a href="#à-vous-de-jouer" id="toc-à-vous-de-jouer" class="nav-link" data-scroll-target="#à-vous-de-jouer"><span class="header-section-number">8.2.5</span> À vous de “jouer” !</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -560,8 +586,431 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>On observe ainsi des différences entre la moyenne et la médiane, puisque la moyenne est toujours supérieure à la médiane puisque tirée par des valeurs plus souvent très élevées que très faibles (plus de points au-delà du maximum que l’inverse). Elle suit en revanche la même évolution.</p>
 <p>On peut aussi vouloir enlever les outliers avec l’option <code>outlier.shape</code> de <code>geom_boxplot()</code> comme ceci : <code>geom_boxplot(outlier.shape = NA)</code> [ou avec l’option <code>outliers=FALSE</code>].</p>
+<p>On peut encore vouloir <strong>ordonner l’affichage des années par ordre décroissant de la médiane</strong> ou de <strong>la moyenne</strong> (ordre décroissant ici = valeur la plus élevée en haut du graphique). Nous pouvons, entre autres, utiliser pour cela la fonction <code>fct_reorder()</code> du package <strong><code>forcats</code></strong> déjà présenté dans la section 3.2 de ce cours (Séance 1) : nous pouvons alors directement l’intégrer dans l’<code>aes</code> de <strong>ggplot</strong> dans la variable en ordonnée <code>y=fct_reorder()</code>, il faut pour cela mettre entre parenthèses la variable utilisée en ordonnée, suivie de la variable par laquelle on ordonne (la même que celle utilisée dans <code>x=</code>). Utilisée dans un boxplot, cela ordonne par défaut selon la médiane ; si on veut que la variable en ordonnée (année) soit triée par la moyenne, il faut rajouter l’option <code>.fun=mean</code> dans la fonction <code>fct_reorder()</code>, cf.&nbsp;le code en-dessous (mais ici cela ne change rien).</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>dvf_ParisPC_final <span class="sc">%&gt;%</span> </span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span> </span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x =</span> prix_metre_carrez, <span class="at">y=</span><span class="fu">fct_reorder</span>(<span class="fu">factor</span>(annee_vente), </span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>                                           prix_metre_carrez)) <span class="sc">+</span> </span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span> </span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">fun=</span>mean, <span class="at">geom=</span><span class="st">"point"</span>, <span class="at">color=</span><span class="st">"gray50"</span>, <span class="at">size=</span><span class="dv">2</span>) <span class="sc">+</span> </span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_cartesian</span>(<span class="at">xlim=</span><span class="fu">c</span>(<span class="dv">1250</span>,<span class="dv">22500</span>)) <span class="sc">+</span> </span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks=</span><span class="fu">seq</span>(<span class="dv">1250</span>,<span class="dv">22500</span>,<span class="dv">1750</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="08-Ggplot-pratique_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># dvf_ParisPC_final %&gt;%</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co">#   ggplot() +</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co">#   aes(x = prix_metre_carrez, y=fct_reorder(factor(annee_vente), </span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co">#                                            prix_metre_carrez, .fun=mean)) +</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="co">#   geom_boxplot() +</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="co">#   stat_summary(fun=mean, geom="point", color="gray50", size=2) +</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="co">#   coord_cartesian(xlim=c(1250,22500)) +</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="co">#   scale_x_continuous(breaks=seq(1250,22500,1750))</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Attention, comme ici notre seconde variable est l’année, cela n’est pas forcément pertinent de modifier l’ordre du graphique pour le mettre selon la moyenne car cela pourrait perturber la lecture du graphique. On va revenir sur le graphique précédent donc. &nbsp; Nous arrivons à un graphique intéressant, il faut <strong>maintenant améliorer la description autour</strong> : noms des axes, titres, légende informative sous le graphique (avec notamment un avertissement sur les valeurs non affichées sur le graphique), éventuellement un peu de couleur (avec <code>fill=</code> non pas dans l’<code>aes()</code> mais dans la fonction <code>geom_boxplot()</code> pour qu’elle soit identique quel que soit le département), etc.<br>
+Cela se fait avec la fonction <code>labs()</code>, et ensuite la fonction <code>theme()</code>.<br>
+Une petite astuce pour les titres pour qu’ils ne soient pas coupés sur le graphe : <code>\n</code> collé à un mot (sans espace) permet de mettre à la ligne à partir de ce mot !</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>dvf_ParisPC_final <span class="sc">%&gt;%</span> </span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span> </span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x =</span> prix_metre_carrez, <span class="at">y=</span><span class="fu">factor</span>(annee_vente)) <span class="sc">+</span> </span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">outlier.shape =</span> <span class="cn">NA</span>, <span class="at">fill=</span><span class="st">"khaki"</span>) <span class="sc">+</span> </span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">fun=</span>mean, <span class="at">geom=</span><span class="st">"point"</span>, <span class="at">color=</span><span class="st">"gray50"</span>, <span class="at">size=</span><span class="dv">2</span>) <span class="sc">+</span> </span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_cartesian</span>(<span class="at">xlim=</span><span class="fu">c</span>(<span class="dv">1250</span>,<span class="dv">22500</span>)) <span class="sc">+</span> </span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks=</span><span class="fu">seq</span>(<span class="dv">1250</span>,<span class="dv">22500</span>,<span class="dv">1750</span>)) <span class="sc">+</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title=</span><span class="st">"Distribution du prix au m2 des ventes d'appartements et de maisons dans Paris et sa petite </span><span class="sc">\n</span><span class="st">couronne sur la période 2018-2023"</span>, </span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">x=</span><span class="st">"Prix au m2"</span>, <span class="at">y=</span><span class="st">"Année"</span>,</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption=</span><span class="st">"Remarques : Les valeurs en-dessous de 1250€ et au-dessus de 22500€ au m2 ne sont pas affichées ; les points </span><span class="sc">\n</span><span class="st">au-delà du minimum et du maximum non plus ; les points en gris représentent la moyenne. </span><span class="sc">\n</span><span class="st">Source : Base 'demande de valeurs foncières', 2018-2023. </span><span class="sc">\n</span><span class="st">Calculs : Camille Signoretto."</span>) <span class="sc">+</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">plot.caption =</span> <span class="fu">element_text</span>(<span class="at">hjust=</span><span class="dv">0</span>),</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="fl">11.5</span>),</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.title.x =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">10</span>),</span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.title.y =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">10</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="08-Ggplot-pratique_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Voilà un premier graphique construit avec la grammaire de <code>ggplot()</code>. À vous maintenant de construire vous-mêmes les graphiques qui vous sont suggérés dans la section suivante !</p>
+</section>
+<section id="dautres-exemples-à-travers-des-exercices" class="level2" data-number="8.2">
+<h2 data-number="8.2" class="anchored" data-anchor-id="dautres-exemples-à-travers-des-exercices"><span class="header-section-number">8.2</span> D’autres exemples à travers des exercices</h2>
+<section id="distribution-du-prix-au-m2-selon-le-département" class="level3" data-number="8.2.1">
+<h3 data-number="8.2.1" class="anchored" data-anchor-id="distribution-du-prix-au-m2-selon-le-département"><span class="header-section-number">8.2.1</span> Distribution du prix au m2 selon le département</h3>
+<p>Construisez le même type de graphique mais cette fois à partir d’une densité de distribution selon cette fois le département. N’hésitez pas à changer les options pour le mettre à votre goût !!</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="08-Ggplot-pratique_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>dvf_ParisPC_final <span class="sc">%&gt;%</span> </span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span> </span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x =</span> prix_metre_carrez, <span class="at">fill =</span> <span class="fu">factor</span>(code_INSEE_dept)) <span class="sc">+</span> </span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">alpha =</span> <span class="fl">0.4</span>, <span class="at">color=</span><span class="cn">NA</span>) <span class="sc">+</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_cartesian</span>(<span class="at">xlim=</span><span class="fu">c</span>(<span class="dv">1250</span>,<span class="dv">22500</span>)) <span class="sc">+</span> </span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title=</span><span class="st">"Distribution du prix au m2 des ventes d'appartements et de maison sur la période 2018-2023"</span>, </span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">x=</span><span class="st">"Prix au m2"</span>, <span class="at">y=</span><span class="st">" "</span>, <span class="at">fill=</span> <span class="st">"Département"</span>,</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption=</span><span class="st">"Remarques : Les valeurs en-dessous de 1250€ et au-dessus de 22500€ au m2 ne sont pas affichées. </span><span class="sc">\n</span><span class="st">Source : Base 'demande de valeurs foncières', 2018-2023. </span><span class="sc">\n</span><span class="st">Calculs : Camille Signoretto."</span>) <span class="sc">+</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">plot.caption =</span> <span class="fu">element_text</span>(<span class="at">hjust=</span><span class="dv">0</span>),</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">11</span>),</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.title.x =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">10</span>),</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.title.y =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">10</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="comparaison-des-montants-moyen-et-médian-du-prix-au-m2-par-arrondissement-de-paris" class="level3" data-number="8.2.2">
+<h3 data-number="8.2.2" class="anchored" data-anchor-id="comparaison-des-montants-moyen-et-médian-du-prix-au-m2-par-arrondissement-de-paris"><span class="header-section-number">8.2.2</span> Comparaison des montants moyen et médian du prix au m2, par arrondissement de Paris</h3>
+<p>Construisez maintenant un graphique mettant l’un en-dessous de l’autre deux graphes en bâtons représentant respectivement le prix au m2 moyen et le prix au m2 médian des ventes d’appartements à Paris par <em>arrondissement</em>.</p>
+<p>Pour vous aider si besoin, réfléchissez par étapes :</p>
+<ul>
+<li>créer un premier graphe que vous assignerez à un nouvel objet et qui représentera celui de la moyenne par arrondissement ;</li>
+<li>vous pouvez pour cela créer une nouvelle variable qui constituera la moyenne pour chaque département (un conseil : arrondir à l’unité) ;</li>
+<li>sélectionnez les variables qui seront utilisées dans le graphique et vérifier (ou corriger sinon) qu’il n’y ait pas des doublons (lignes identiques) car cela peut fausser le graphique ensuite ;</li>
+<li>construisez le graphique avec <code>ggplot()</code> et la bonne fonction <code>geom_***()</code>, les données doivent être affichées par ordre décroissant ;</li>
+<li>faîtes de même pour la médiane par arrondissement ;</li>
+<li>vous pouvez ensuite mettre ces graphiques côte à côté avec le package <strong><code>patchwork</code></strong> (qu’il vous faudra probablement installer si c’est la première fois que vous l’utilisez), recherchez sur internet comment faire ensuite (c’est très simple !), puis mettez le même axe des ordonnées pour gagner de la place avec l’argument <code>plot_layout(axes = "collect")</code>, enfin ajoutez un titre et une légende générale avec la fonction <code>plot_annotation()</code>.</li>
+</ul>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="08-Ggplot-pratique_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> dvf_ParisPC_final <span class="sc">%&gt;%</span> </span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(code_INSEE_dept<span class="sc">==</span><span class="st">"75"</span> <span class="sc">&amp;</span> type_local<span class="sc">==</span><span class="st">"Appartement"</span> <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(code_postal)) <span class="sc">%&gt;%</span> </span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(code_postal) <span class="sc">%&gt;%</span> </span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">moy_prixm2 =</span> <span class="fu">round</span>(<span class="fu">mean</span>(prix_metre_carrez),<span class="dv">0</span>),</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>         <span class="at">code_postal=</span><span class="fu">as.factor</span>(code_postal)) <span class="sc">%&gt;%</span> </span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(moy_prixm2, code_postal) <span class="sc">%&gt;%</span> </span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unique</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span> <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">fct_reorder</span>(code_postal, <span class="fu">desc</span>(moy_prixm2)), <span class="at">y =</span> moy_prixm2) <span class="sc">+</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">"identity"</span>, <span class="at">fill=</span><span class="st">"honeydew"</span>) <span class="sc">+</span> </span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> moy_prixm2), <span class="at">position =</span> <span class="fu">position_stack</span>(<span class="at">vjust =</span> <span class="fl">0.5</span>), <span class="at">color=</span><span class="st">"gray25"</span>, <span class="at">size=</span><span class="fl">2.7</span>, <span class="at">angle=</span><span class="dv">90</span>) <span class="sc">+</span></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Moyenne"</span>, <span class="at">x =</span> <span class="st">" "</span>, <span class="at">y =</span> <span class="st">" "</span>) <span class="sc">+</span></span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle=</span><span class="dv">90</span>, <span class="at">vjust=</span><span class="fl">0.5</span>, <span class="at">size=</span><span class="dv">9</span>),</span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="fl">10.5</span>))</span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> dvf_ParisPC_final <span class="sc">%&gt;%</span> </span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(code_INSEE_dept<span class="sc">==</span><span class="st">"75"</span> <span class="sc">&amp;</span> type_local<span class="sc">==</span><span class="st">"Appartement"</span> <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(code_postal)) <span class="sc">%&gt;%</span> </span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(code_postal) <span class="sc">%&gt;%</span> </span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">median_prixm2 =</span> <span class="fu">round</span>(<span class="fu">mean</span>(prix_metre_carrez),<span class="dv">0</span>),</span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a>         <span class="at">code_postal=</span><span class="fu">as.factor</span>(code_postal)) <span class="sc">%&gt;%</span> </span>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(median_prixm2, code_postal) <span class="sc">%&gt;%</span> </span>
+<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unique</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span> <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">fct_reorder</span>(code_postal, <span class="fu">desc</span>(median_prixm2)), <span class="at">y =</span> median_prixm2) <span class="sc">+</span></span>
+<span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">"identity"</span>, <span class="at">fill=</span><span class="st">"honeydew"</span>) <span class="sc">+</span> </span>
+<span id="cb11-24"><a href="#cb11-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> median_prixm2), <span class="at">position =</span> <span class="fu">position_stack</span>(<span class="at">vjust =</span> <span class="fl">0.5</span>), <span class="at">color=</span><span class="st">"gray25"</span>, <span class="at">size=</span><span class="fl">2.7</span>, <span class="at">angle=</span><span class="dv">90</span>) <span class="sc">+</span></span>
+<span id="cb11-25"><a href="#cb11-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Médiane"</span>, <span class="at">x =</span> <span class="st">" "</span>, <span class="at">y =</span> <span class="st">" "</span>) <span class="sc">+</span></span>
+<span id="cb11-26"><a href="#cb11-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle=</span><span class="dv">90</span>, <span class="at">vjust=</span><span class="fl">0.5</span>, <span class="at">size=</span><span class="dv">9</span>),</span>
+<span id="cb11-27"><a href="#cb11-27" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="fl">10.5</span>))</span>
+<span id="cb11-28"><a href="#cb11-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-29"><a href="#cb11-29" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(patchwork)</span>
+<span id="cb11-30"><a href="#cb11-30" aria-hidden="true" tabindex="-1"></a>(p1 <span class="sc">+</span> p2) <span class="sc">+</span> <span class="fu">plot_layout</span>(<span class="at">axes =</span> <span class="st">"collect"</span>) <span class="sc">+</span></span>
+<span id="cb11-31"><a href="#cb11-31" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_annotation</span>(<span class="at">title =</span> <span class="st">"Montants moyens et médians du prix au m2 des ventes d'appartements sur Paris, selon </span><span class="sc">\n</span><span class="st">l'arrondissement sur la période 2018-2023"</span>,</span>
+<span id="cb11-32"><a href="#cb11-32" aria-hidden="true" tabindex="-1"></a>                <span class="at">caption =</span> <span class="st">"Source : Base 'demande de valeurs foncières', 2018-2023. </span><span class="sc">\n</span><span class="st">Calculs : Camille Signoretto."</span>, </span>
+<span id="cb11-33"><a href="#cb11-33" aria-hidden="true" tabindex="-1"></a>                <span class="at">theme =</span> <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">12</span>),</span>
+<span id="cb11-34"><a href="#cb11-34" aria-hidden="true" tabindex="-1"></a>                              <span class="at">plot.caption =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="dv">0</span>)))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
+</div>
+<p>On observe que les 6ème, 7ème, 4ème, et 1er arrondissements sont les plus chers, que ce soit en moyenne ou en médiane, le classement ne change même selon l’indicateur.<br>
+Il faut vraiment se demander quel type de public serait visé par ces informations, si c’est le grand public, la moyenne et la médiane suffisent si l’on veut montrer qu’il y a quand même une certaine dispersion des valeurs selon les ventes, même si souvent seule la moyenne est représentée.<br>
+&nbsp; &nbsp;<br>
+On aurait pu sinon utiliser un “dot plot”, comme ci-dessous. Cherchez comment l’on peut construire ce type de graphique (rq : cela ne correspond par à une fonction en tant que telle). Le début du code est le même, ce sont les fonctions <code>geom_***</code> qui changent…</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="08-Ggplot-pratique_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"ggrepel"</span>)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>p3 <span class="ot">&lt;-</span> dvf_ParisPC_final <span class="sc">%&gt;%</span> </span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(code_INSEE_dept<span class="sc">==</span><span class="st">"75"</span> <span class="sc">&amp;</span> type_local<span class="sc">==</span><span class="st">"Appartement"</span> <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(code_postal)) <span class="sc">%&gt;%</span> </span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(code_postal) <span class="sc">%&gt;%</span> </span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">moy_prixm2 =</span> <span class="fu">round</span>(<span class="fu">mean</span>(prix_metre_carrez),<span class="dv">0</span>),</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>         <span class="at">code_postal=</span><span class="fu">as.factor</span>(code_postal)) <span class="sc">%&gt;%</span> </span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(moy_prixm2, code_postal) <span class="sc">%&gt;%</span> </span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unique</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span> <span class="fu">aes</span>(<span class="at">x =</span> moy_prixm2,</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>                 <span class="at">y =</span> <span class="fu">fct_reorder</span>(code_postal, moy_prixm2)) <span class="sc">+</span></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">color=</span><span class="st">"burlywood4"</span>, <span class="at">size=</span><span class="dv">2</span>) <span class="sc">+</span> </span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="fu">aes</span>(<span class="at">x=</span><span class="dv">0</span>, <span class="at">xend=</span>moy_prixm2, </span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>                   <span class="at">y=</span><span class="fu">fct_reorder</span>(code_postal, moy_prixm2),</span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>                   <span class="at">yend=</span><span class="fu">fct_reorder</span>(code_postal, moy_prixm2)),</span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>               <span class="at">color=</span><span class="st">"snow4"</span>) <span class="sc">+</span></span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text_repel</span>(<span class="fu">aes</span>(<span class="at">label =</span> moy_prixm2), <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Prix au m2 moyen"</span>, <span class="at">x =</span> <span class="st">" "</span>, <span class="at">y =</span> <span class="st">" "</span>) <span class="sc">+</span></span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">10</span>),</span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.text.y =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">9</span>))</span>
+<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a>p4 <span class="ot">&lt;-</span> dvf_ParisPC_final <span class="sc">%&gt;%</span> </span>
+<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(code_INSEE_dept<span class="sc">==</span><span class="st">"75"</span> <span class="sc">&amp;</span> type_local<span class="sc">==</span><span class="st">"Appartement"</span> <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(code_postal)) <span class="sc">%&gt;%</span> </span>
+<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(code_postal) <span class="sc">%&gt;%</span> </span>
+<span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">median_prixm2 =</span> <span class="fu">round</span>(<span class="fu">median</span>(prix_metre_carrez),<span class="dv">0</span>),</span>
+<span id="cb12-25"><a href="#cb12-25" aria-hidden="true" tabindex="-1"></a>         <span class="at">code_postal=</span><span class="fu">as.factor</span>(code_postal)) <span class="sc">%&gt;%</span> </span>
+<span id="cb12-26"><a href="#cb12-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(median_prixm2, code_postal) <span class="sc">%&gt;%</span> </span>
+<span id="cb12-27"><a href="#cb12-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unique</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb12-28"><a href="#cb12-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span> <span class="fu">aes</span>(<span class="at">x =</span> median_prixm2,</span>
+<span id="cb12-29"><a href="#cb12-29" aria-hidden="true" tabindex="-1"></a>                 <span class="at">y =</span> <span class="fu">fct_reorder</span>(code_postal, median_prixm2)) <span class="sc">+</span></span>
+<span id="cb12-30"><a href="#cb12-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">color=</span><span class="st">"burlywood4"</span>, <span class="at">size=</span><span class="dv">2</span>) <span class="sc">+</span> </span>
+<span id="cb12-31"><a href="#cb12-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="fu">aes</span>(<span class="at">x=</span><span class="dv">0</span>, <span class="at">xend=</span>median_prixm2, </span>
+<span id="cb12-32"><a href="#cb12-32" aria-hidden="true" tabindex="-1"></a>                   <span class="at">y=</span><span class="fu">fct_reorder</span>(code_postal, median_prixm2),</span>
+<span id="cb12-33"><a href="#cb12-33" aria-hidden="true" tabindex="-1"></a>                   <span class="at">yend=</span><span class="fu">fct_reorder</span>(code_postal, median_prixm2)),</span>
+<span id="cb12-34"><a href="#cb12-34" aria-hidden="true" tabindex="-1"></a>               <span class="at">color=</span><span class="st">"snow4"</span>) <span class="sc">+</span></span>
+<span id="cb12-35"><a href="#cb12-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text_repel</span>(<span class="fu">aes</span>(<span class="at">label =</span> median_prixm2), <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb12-36"><a href="#cb12-36" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Prix au m2 médian"</span>, <span class="at">x =</span> <span class="st">" "</span>, <span class="at">y =</span> <span class="st">" "</span>) <span class="sc">+</span></span>
+<span id="cb12-37"><a href="#cb12-37" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">10</span>),</span>
+<span id="cb12-38"><a href="#cb12-38" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.text.y =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">9</span>))</span>
+<span id="cb12-39"><a href="#cb12-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-40"><a href="#cb12-40" aria-hidden="true" tabindex="-1"></a>(p3 <span class="sc">+</span> p4) <span class="sc">+</span> </span>
+<span id="cb12-41"><a href="#cb12-41" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_annotation</span>(<span class="at">title =</span> <span class="st">"Montants moyens et médians du prix au m2 des ventes d'appartements sur Paris, selon </span><span class="sc">\n</span><span class="st">l'arrondissement sur la période 2018-2023"</span>, </span>
+<span id="cb12-42"><a href="#cb12-42" aria-hidden="true" tabindex="-1"></a>                <span class="at">caption =</span> <span class="st">"Source : Base 'demande de valeurs foncières', 2018-2023. </span><span class="sc">\n</span><span class="st">Calculs : Camille Signoretto."</span>, </span>
+<span id="cb12-43"><a href="#cb12-43" aria-hidden="true" tabindex="-1"></a>                <span class="at">theme =</span> <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">12</span>),</span>
+<span id="cb12-44"><a href="#cb12-44" aria-hidden="true" tabindex="-1"></a>                              <span class="at">plot.caption =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="dv">0</span>)))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="evolution-du-prix-médian-au-m2-des-ventes-dappartements-à-paris" class="level3" data-number="8.2.3">
+<h3 data-number="8.2.3" class="anchored" data-anchor-id="evolution-du-prix-médian-au-m2-des-ventes-dappartements-à-paris"><span class="header-section-number">8.2.3</span> Evolution du prix médian au m2 des ventes d’appartements à Paris</h3>
+<p>Changeons un peu de perspective et construisez cette fois un graphique montrant l’évolution du prix médian au m2 des ventes d’appartements à Paris, de manière générale et ensuite selon 6 arrondissements choisis selon leur prix médian mis en avant un peu plus haut : les 3 ayant les prix les plus élevés (6ème, 7ème et 4ème arrondissement), et les 3 ayant les prix les moins élevés (13ème, 19ème et 20ème arrdt).<br>
+On peut vouloir le rendre interactif de telle sorte que l’utilisateur puisse voir les valeurs des points en passant la souris dessus : pour cela, il faut installer et charger le package <strong><code>plotly</code></strong> puis utiliserla fonction <code>ggplotly()</code> ; cela nécessite de stocker le graphique dans un objet.</p>
+<p>De même, il faut procéder par étapes :</p>
+<ul>
+<li>créer ensuite la variable de prix médian au m2 selon l’année ;</li>
+<li>ne garder que ces variables, supprimer les lignes doublons le cas échéant ;</li>
+<li>construir un graphique sous forme de courbes avec des points représentants les valeurs en le stockant dans un objet ;</li>
+<li>appeler la fonction <code>ggplotly()</code> en utilisant l’argument <code>tooltip()</code> pour que seule la valeur des “y” soit affichée.</li>
+</ul>
+<div class="cell">
+<div class="cell-output-display">
+<div class="plotly html-widget html-fill-item" id="htmlwidget-03f7ff712cc55c2f8205" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-03f7ff712cc55c2f8205">{"x":{"data":[{"x":[3,6,5,1,2,4],"y":[10894,10211,10789,9530,10361,10909],"text":["med_prixm2: 10894","med_prixm2: 10211","med_prixm2: 10789","med_prixm2:  9530","med_prixm2: 10361","med_prixm2: 10909"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(0,0,0,1)","opacity":1,"size":5.6692913385826778,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(0,0,0,1)"}},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[1,2,3,4,5,6],"y":[9530,10361,10894,10909,10789,10211],"text":["med_prixm2:  9530","med_prixm2: 10361","med_prixm2: 10894","med_prixm2: 10909","med_prixm2: 10789","med_prixm2: 10211"],"type":"scatter","mode":"lines","line":{"width":1.8897637795275593,"color":"rgba(0,0,0,1)","dash":"solid"},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":50,"r":50,"b":80,"l":50},"plot_bgcolor":"rgba(235,235,235,1)","paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724},"title":{"text":"Evolution du prix médian au m2 des appartements vendus à Paris","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402243},"x":0,"xref":"paper"},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.40000000000000002,6.5999999999999996],"tickmode":"array","ticktext":["2018","2019","2020","2021","2022","2023"],"tickvals":[1,2,3,3.9999999999999996,5,6],"categoryorder":"array","categoryarray":["2018","2019","2020","2021","2022","2023"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.6529680365296811,"tickwidth":0.66417600664176002,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.68949771689498},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(255,255,255,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"y","title":{"text":" ","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[187.5,23562.5],"tickmode":"array","ticktext":["1250","3000","4750","6500","8250","10000","11750","13500","15250","17000","18750","20500","22250"],"tickvals":[1250,3000,4750,6500.0000000000009,8250,10000,11750,13499.999999999998,15250,17000,18750,20500,22250],"categoryorder":"array","categoryarray":["1250","3000","4750","6500","8250","10000","11750","13500","15250","17000","18750","20500","22250"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.6529680365296811,"tickwidth":0.66417600664176002,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.68949771689498},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(255,255,255,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"x","title":{"text":" ","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724}},"hoverformat":".2f"},"shapes":[],"showlegend":false,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.8897637795275593,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.68949771689498}},"hovermode":"closest","barmode":"relative","annotations":[{"text":"Source : base 'demande de valeurs foncières', 2018-2023. <br />Calculs : Camille Signoretto. <br />Note : l'axe des ordonnées ne commence qu'à 1250€.","showarrow":false,"x":0,"y":-0.20000000000000001,"xref":"paper","yref":"paper","xanchor":"left","yanchor":"auto","xshift":0,"yshift":0,"font":{"size":10.5},"align":"left"}]},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"5bc8d2d6b6e":{"x":{},"y":{},"type":"scatter"},"5bc888b2108":{"x":{},"y":{}}},"cur_data":"5bc8d2d6b6e","visdat":{"5bc8d2d6b6e":["function (y) ","x"],"5bc888b2108":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>g_evo <span class="ot">&lt;-</span> dvf_ParisPC_final <span class="sc">%&gt;%</span> </span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(code_INSEE_dept<span class="sc">==</span><span class="st">"75"</span> <span class="sc">&amp;</span> type_local<span class="sc">==</span><span class="st">"Appartement"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(annee_vente) <span class="sc">%&gt;%</span> </span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">med_prixm2 =</span> <span class="fu">round</span>(<span class="fu">median</span>(prix_metre_carrez),<span class="dv">0</span>),</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>         <span class="at">annee_vente =</span> <span class="fu">as.factor</span>(annee_vente)) <span class="sc">%&gt;%</span> </span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(med_prixm2, annee_vente) <span class="sc">%&gt;%</span> </span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unique</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span> <span class="fu">aes</span>(<span class="at">x=</span>annee_vente, <span class="at">y=</span>med_prixm2) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">geom_line</span>(<span class="at">group=</span><span class="dv">1</span>)  <span class="sc">+</span></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits=</span><span class="fu">c</span>(<span class="dv">1250</span>,<span class="dv">22500</span>), <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">1250</span>,<span class="dv">22500</span>,<span class="dv">1750</span>)) <span class="sc">+</span></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Evolution du prix médian au m2 des appartements vendus à Paris"</span>, </span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">" "</span>, <span class="at">y =</span> <span class="st">" "</span>) <span class="sc">+</span></span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">12</span>), </span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.caption =</span> <span class="fu">element_text</span>(<span class="at">hjust=</span><span class="dv">0</span>))</span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages("plotly")</span></span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(plotly)</span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplotly</span>(g_evo, <span class="at">tooltip =</span> <span class="fu">c</span>(<span class="st">"med_prixm2"</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a> <span class="fu">layout</span>(<span class="at">margin =</span> <span class="fu">list</span>(<span class="at">l =</span> <span class="dv">50</span>, <span class="at">r =</span> <span class="dv">50</span>, <span class="at">b =</span> <span class="dv">80</span>, <span class="at">t =</span> <span class="dv">50</span>),</span>
+<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a>        <span class="at">annotations =</span> <span class="fu">list</span>(<span class="at">text =</span> <span class="st">"Source : base 'demande de valeurs foncières', 2018-2023. </span><span class="sc">\n</span><span class="st">Calculs : Camille Signoretto. </span><span class="sc">\n</span><span class="st">Note : l'axe des ordonnées ne commence qu'à 1250€."</span>,</span>
+<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a>                           <span class="at">showarrow =</span> F, <span class="at">x =</span> <span class="dv">0</span>, <span class="at">y =</span> <span class="sc">-</span><span class="fl">0.2</span>, </span>
+<span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a>                           <span class="at">xref=</span><span class="st">'paper'</span>, <span class="at">yref=</span><span class="st">'paper'</span>, <span class="at">xanchor=</span><span class="st">'left'</span>, <span class="at">yanchor=</span><span class="st">'auto'</span>,  </span>
+<span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a>                           <span class="at">xshift=</span><span class="dv">0</span>, <span class="at">yshift=</span><span class="dv">0</span>, <span class="at">font=</span><span class="fu">list</span>(<span class="at">size=</span><span class="fl">10.5</span>), <span class="at">align=</span><span class="st">"left"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
+</div>
+<p>On retrouve un résultat que l’on avait observé précédemment avec la boxplot, à savoir que le prix médian au m2 des appartements vendus à Paris a augmenté entre 2018 et 2020, puis s’est stabilisé, et a légèrement baissé entre 2022 et 2023.</p>
+<p>Regardons maintenant selon quelques arrondissements de Paris (dans les 6 mentionnés au-dessus), pour étudier si cette évolution est différente selon la position de l’arrondissement dans l’échelle des prix médians.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="plotly html-widget html-fill-item" id="htmlwidget-631682806075fe11bee4" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-631682806075fe11bee4">{"x":{"data":[{"x":[2018,2019,2020,2021,2022,2023],"y":[13311,14677,15017,15000,15000,14872],"text":["med_prixm2: 13311","med_prixm2: 14677","med_prixm2: 15017","med_prixm2: 15000","med_prixm2: 15000","med_prixm2: 14872"],"type":"scatter","mode":"lines","line":{"width":3.7795275590551185,"color":"rgba(248,118,109,1)","dash":"solid"},"hoveron":"points","name":"75006","legendgroup":"75006","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[2018,2019,2020,2021,2022,2023],"y":[12987,13946,14624,14625,14958,14488],"text":["med_prixm2: 12987","med_prixm2: 13946","med_prixm2: 14624","med_prixm2: 14625","med_prixm2: 14958","med_prixm2: 14488"],"type":"scatter","mode":"lines","line":{"width":3.7795275590551185,"color":"rgba(183,159,0,1)","dash":"solid"},"hoveron":"points","name":"75007","legendgroup":"75007","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[2018,2019,2020,2021,2022,2023],"y":[12180,13131,13260,12976,13162,13140],"text":["med_prixm2: 12180","med_prixm2: 13131","med_prixm2: 13260","med_prixm2: 12976","med_prixm2: 13162","med_prixm2: 13140"],"type":"scatter","mode":"lines","line":{"width":3.7795275590551185,"color":"rgba(0,186,56,1)","dash":"solid"},"hoveron":"points","name":"75004","legendgroup":"75004","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[2018,2019,2020,2021,2022,2023],"y":[8581,9464,9792,9817,9708,9071],"text":["med_prixm2:  8581","med_prixm2:  9464","med_prixm2:  9792","med_prixm2:  9817","med_prixm2:  9708","med_prixm2:  9071"],"type":"scatter","mode":"lines","line":{"width":3.7795275590551185,"color":"rgba(0,191,196,1)","dash":"solid"},"hoveron":"points","name":"75013","legendgroup":"75013","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[2018,2019,2020,2021,2022,2023],"y":[8077,8958,9450,9615,9356,8796],"text":["med_prixm2:  8077","med_prixm2:  8958","med_prixm2:  9450","med_prixm2:  9615","med_prixm2:  9356","med_prixm2:  8796"],"type":"scatter","mode":"lines","line":{"width":3.7795275590551185,"color":"rgba(97,156,255,1)","dash":"solid"},"hoveron":"points","name":"75020","legendgroup":"75020","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[2018,2019,2020,2021,2022,2023],"y":[7898,8550,9211,9370,9130,8660],"text":["med_prixm2:  7898","med_prixm2:  8550","med_prixm2:  9211","med_prixm2:  9370","med_prixm2:  9130","med_prixm2:  8660"],"type":"scatter","mode":"lines","line":{"width":3.7795275590551185,"color":"rgba(245,100,227,1)","dash":"solid"},"hoveron":"points","name":"75019","legendgroup":"75019","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":50,"r":50,"b":80,"l":50},"plot_bgcolor":"rgba(235,235,235,1)","paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724},"title":{"text":"Evolution du prix médian au m2 des appartements vendus à Paris, dans les 3 arrondissements <br />ayant les prix les plus élevés et les 3 arrondissements ayant les prix les moins élevés","font":{"color":"rgba(0,0,0,1)","family":"","size":13.682025736820261},"x":0,"xref":"paper"},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[2017.75,2023.25],"tickmode":"array","ticktext":["2018","2019","2020","2021","2022","2023"],"tickvals":[2018,2019,2020,2021,2022,2023],"categoryorder":"array","categoryarray":["2018","2019","2020","2021","2022","2023"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.6529680365296811,"tickwidth":0.66417600664176002,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.68949771689498},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(255,255,255,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"y","title":{"text":" ","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[5500,16500],"tickmode":"array","ticktext":["6000","7000","8000","9000","10000","11000","12000","13000","14000","15000","16000"],"tickvals":[6000,7000,8000,9000,10000,11000,12000,13000,14000,15000,16000],"categoryorder":"array","categoryarray":["6000","7000","8000","9000","10000","11000","12000","13000","14000","15000","16000"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.6529680365296811,"tickwidth":0.66417600664176002,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.68949771689498},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(255,255,255,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"x","title":{"text":" ","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724}},"hoverformat":".2f"},"shapes":[],"showlegend":true,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.8897637795275593,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.68949771689498},"title":{"text":"Arrondissement","font":{"color":"rgba(0,0,0,1)","family":"","size":11.955168119551683}}},"hovermode":"closest","barmode":"relative","annotations":[{"text":"Source : Base 'demande de valeurs foncières', 2018-2023. <br />Calculs : Camille Signoretto. <br />Note : l'axe des ordonnées ne commence qu'à 6000€","showarrow":false,"x":0,"y":-0.20000000000000001,"xref":"paper","yref":"paper","xanchor":"left","yanchor":"auto","xshift":0,"yshift":0,"font":{"size":10.300000000000001},"align":"left"}]},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"5bc8530f7d58":{"x":{},"y":{},"colour":{},"type":"scatter"}},"cur_data":"5bc8530f7d58","visdat":{"5bc8530f7d58":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>g_evo_pls <span class="ot">&lt;-</span> dvf_ParisPC_final <span class="sc">%&gt;%</span> </span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(code_INSEE_dept<span class="sc">==</span><span class="st">"75"</span> <span class="sc">&amp;</span> type_local<span class="sc">==</span><span class="st">"Appartement"</span> <span class="sc">&amp;</span> code_postal <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"75004"</span>,<span class="st">"75006"</span>,<span class="st">"75007"</span>,<span class="st">"75013"</span>,<span class="st">"75019"</span>,<span class="st">"75020"</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(annee_vente, code_postal) <span class="sc">%&gt;%</span> </span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">med_prixm2 =</span> <span class="fu">round</span>(<span class="fu">median</span>(prix_metre_carrez),<span class="dv">0</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(med_prixm2, annee_vente, code_postal) <span class="sc">%&gt;%</span> </span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unique</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">code_postal=</span><span class="fu">factor</span>(code_postal, </span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>                          <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"75006"</span>,<span class="st">"75007"</span>,<span class="st">"75004"</span>,<span class="st">"75013"</span>,<span class="st">"75020"</span>,<span class="st">"75019"</span>))) <span class="sc">%&gt;%</span> </span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span> <span class="fu">aes</span>(<span class="at">x=</span>annee_vente, <span class="at">y=</span>med_prixm2, <span class="at">color=</span>code_postal) <span class="sc">+</span> </span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">group=</span>code_postal), <span class="at">linewidth=</span><span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits=</span><span class="fu">c</span>(<span class="dv">6000</span>,<span class="dv">16000</span>), <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">6000</span>,<span class="dv">16000</span>,<span class="dv">1000</span>)) <span class="sc">+</span></span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title=</span><span class="st">"Evolution du prix médian au m2 des appartements vendus à Paris, dans les 3 arrondissements </span><span class="sc">\n</span><span class="st">ayant les prix les plus élevés et les 3 arrondissements ayant les prix les moins élevés"</span>, <span class="at">x =</span> <span class="st">" "</span>, <span class="at">y =</span> <span class="st">" "</span>, <span class="at">color=</span><span class="st">"Arrondissement"</span>) <span class="sc">+</span></span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="fl">10.3</span>), </span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.title =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">9</span>),</span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.caption =</span> <span class="fu">element_text</span>(<span class="at">hjust=</span><span class="dv">0</span>))</span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplotly</span>(g_evo_pls, <span class="at">tooltip =</span> <span class="fu">c</span>(<span class="st">"med_prixm2"</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a> <span class="fu">layout</span>(<span class="at">margin =</span> <span class="fu">list</span>(<span class="at">l =</span> <span class="dv">50</span>, <span class="at">r =</span> <span class="dv">50</span>, <span class="at">b =</span> <span class="dv">80</span>, <span class="at">t =</span> <span class="dv">50</span>),</span>
+<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a>        <span class="at">annotations =</span> <span class="fu">list</span>(<span class="at">text =</span> <span class="st">"Source : Base 'demande de valeurs foncières', 2018-2023. </span><span class="sc">\n</span><span class="st">Calculs : Camille Signoretto. </span><span class="sc">\n</span><span class="st">Note : l'axe des ordonnées ne commence qu'à 6000€"</span>,</span>
+<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a>                           <span class="at">showarrow =</span> F, <span class="at">x =</span> <span class="dv">0</span>, <span class="at">y =</span> <span class="sc">-</span><span class="fl">0.2</span>, </span>
+<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a>                           <span class="at">xref=</span><span class="st">'paper'</span>, <span class="at">yref=</span><span class="st">'paper'</span>, <span class="at">xanchor=</span><span class="st">'left'</span>, <span class="at">yanchor=</span><span class="st">'auto'</span>,  </span>
+<span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a>                           <span class="at">xshift=</span><span class="dv">0</span>, <span class="at">yshift=</span><span class="dv">0</span>, <span class="at">font=</span><span class="fu">list</span>(<span class="at">size=</span><span class="fl">10.3</span>), <span class="at">align=</span><span class="st">"left"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
+</div>
+<p>Pour tous les arrondissements, les prix médians au m2 sont à la hausse entre 2018 et 2020, mais connaissent ensuite parfois des stagnations, alors que d’autres continuent d’augmenter (surtout pour les 19 et 20ème arrondissements), entre 2021 et 2022, le 7èmearrondissement se démarque puisque le prix médian continue d’augmenter contrairement aux autres. &nbsp;</p>
+</section>
+<section id="top-5-du-prix-au-m2-des-ventes-dappartements-selon-les-arrondissements" class="level3" data-number="8.2.4">
+<h3 data-number="8.2.4" class="anchored" data-anchor-id="top-5-du-prix-au-m2-des-ventes-dappartements-selon-les-arrondissements"><span class="header-section-number">8.2.4</span> Top 5 du prix au m2 des ventes d’appartements selon les arrondissements</h3>
+<p>Enfin, construisez un graphique en bâtons indiquant les seuls 5 premiers arrondissements ayant les prix moyens au m2 des ventes d’appartements les plus élevés, puis les prix médians, et les mettre côte à côte.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="08-Ggplot-pratique_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>p5 <span class="ot">&lt;-</span> dvf_ParisPC_final <span class="sc">%&gt;%</span> </span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(code_INSEE_dept<span class="sc">==</span><span class="st">"75"</span> <span class="sc">&amp;</span> type_local<span class="sc">==</span><span class="st">"Appartement"</span> <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(code_postal)) <span class="sc">%&gt;%</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(code_postal) <span class="sc">%&gt;%</span>  </span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">moy_prixm2 =</span> <span class="fu">round</span>(<span class="fu">mean</span>(prix_metre_carrez))) <span class="sc">%&gt;%</span> </span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(moy_prixm2)) <span class="sc">%&gt;%</span> <span class="fu">slice</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span> <span class="fu">aes</span>(<span class="at">x =</span> moy_prixm2, <span class="at">y =</span> <span class="fu">fct_reorder</span>(<span class="fu">factor</span>(code_postal), moy_prixm2))  <span class="sc">+</span> </span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">"identity"</span>, <span class="at">fill=</span><span class="st">"darkgoldenrod1"</span>)  <span class="sc">+</span></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label=</span>moy_prixm2), <span class="at">position =</span> <span class="fu">position_stack</span>(<span class="at">vjust=</span><span class="fl">0.5</span>), <span class="at">size=</span><span class="fl">2.8</span>) <span class="sc">+</span></span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title=</span><span class="st">"Prix moyens"</span>,</span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">""</span>, <span class="at">y =</span> <span class="st">" "</span>) <span class="sc">+</span></span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>, <span class="at">plot.title=</span><span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">9</span>),</span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.text.y =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">8</span>),</span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">8</span>),</span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.title.x =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">8</span>))</span>
+<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a>p6 <span class="ot">&lt;-</span> dvf_ParisPC_final <span class="sc">%&gt;%</span> </span>
+<span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(code_INSEE_dept<span class="sc">==</span><span class="st">"75"</span> <span class="sc">&amp;</span> type_local<span class="sc">==</span><span class="st">"Appartement"</span> <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(code_postal)) <span class="sc">%&gt;%</span></span>
+<span id="cb15-19"><a href="#cb15-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(code_postal) <span class="sc">%&gt;%</span>  </span>
+<span id="cb15-20"><a href="#cb15-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">med_prixm2 =</span> <span class="fu">round</span>(<span class="fu">median</span>(prix_metre_carrez))) <span class="sc">%&gt;%</span> </span>
+<span id="cb15-21"><a href="#cb15-21" aria-hidden="true" tabindex="-1"></a>      <span class="fu">arrange</span>(<span class="fu">desc</span>(med_prixm2)) <span class="sc">%&gt;%</span> <span class="fu">slice</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb15-22"><a href="#cb15-22" aria-hidden="true" tabindex="-1"></a>      <span class="fu">ggplot</span>() <span class="sc">+</span> <span class="fu">aes</span>(<span class="at">x =</span> med_prixm2, <span class="at">y =</span> <span class="fu">fct_reorder</span>(<span class="fu">factor</span>(code_postal), med_prixm2))  <span class="sc">+</span> </span>
+<span id="cb15-23"><a href="#cb15-23" aria-hidden="true" tabindex="-1"></a>      <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">"identity"</span>, <span class="at">fill=</span><span class="st">"coral1"</span>)  <span class="sc">+</span></span>
+<span id="cb15-24"><a href="#cb15-24" aria-hidden="true" tabindex="-1"></a>      <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label=</span>med_prixm2), <span class="at">position =</span> <span class="fu">position_stack</span>(<span class="at">vjust=</span><span class="fl">0.5</span>), </span>
+<span id="cb15-25"><a href="#cb15-25" aria-hidden="true" tabindex="-1"></a>                <span class="at">size=</span><span class="fl">2.8</span>) <span class="sc">+</span></span>
+<span id="cb15-26"><a href="#cb15-26" aria-hidden="true" tabindex="-1"></a>      <span class="fu">labs</span>(<span class="at">title=</span><span class="st">"Prix médians"</span>,</span>
+<span id="cb15-27"><a href="#cb15-27" aria-hidden="true" tabindex="-1"></a>           <span class="at">x =</span> <span class="st">""</span>, <span class="at">y =</span> <span class="st">" "</span>) <span class="sc">+</span></span>
+<span id="cb15-28"><a href="#cb15-28" aria-hidden="true" tabindex="-1"></a>      <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
+<span id="cb15-29"><a href="#cb15-29" aria-hidden="true" tabindex="-1"></a>      <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>, <span class="at">plot.title=</span><span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">9</span>),</span>
+<span id="cb15-30"><a href="#cb15-30" aria-hidden="true" tabindex="-1"></a>            <span class="at">axis.text.y =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">8</span>),</span>
+<span id="cb15-31"><a href="#cb15-31" aria-hidden="true" tabindex="-1"></a>            <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">8</span>),</span>
+<span id="cb15-32"><a href="#cb15-32" aria-hidden="true" tabindex="-1"></a>            <span class="at">axis.title.x =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">8</span>))</span>
+<span id="cb15-33"><a href="#cb15-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-34"><a href="#cb15-34" aria-hidden="true" tabindex="-1"></a>(p5 <span class="sc">+</span> p6) <span class="sc">+</span></span>
+<span id="cb15-35"><a href="#cb15-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plot_annotation</span>(<span class="at">title =</span>  <span class="st">"Top 5 des arrondissements ayant les prix au m2 des ventes d'appartements les plus élevés"</span>, </span>
+<span id="cb15-36"><a href="#cb15-36" aria-hidden="true" tabindex="-1"></a>                <span class="at">caption =</span> <span class="st">"Source : Base 'demande de valeurs foncières', 2018-2023. </span><span class="sc">\n</span><span class="st">Calculs : Camille Signoretto."</span>, </span>
+<span id="cb15-37"><a href="#cb15-37" aria-hidden="true" tabindex="-1"></a>                <span class="at">theme =</span> <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">12</span>))) <span class="sc">&amp;</span></span>
+<span id="cb15-38"><a href="#cb15-38" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">plot.caption =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="dv">0</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
+</div>
+<p>On retrouve les mêmes résultats.</p>
+</section>
+<section id="à-vous-de-jouer" class="level3" data-number="8.2.5">
+<h3 data-number="8.2.5" class="anchored" data-anchor-id="à-vous-de-jouer"><span class="header-section-number">8.2.5</span> À vous de “jouer” !</h3>
+<p>Bien sûr, vous pouvez créer des fonctions sur ces graphiques ; puis “jouez” avec d’autres variables ; ou encore construire des cartes sur le niveau commune ; utiliser d’autres types de graphiques ; etc. ; etc.</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
