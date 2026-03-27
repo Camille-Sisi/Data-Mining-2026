@@ -88,7 +88,8 @@ Il existe également des systèmes de coordonnées non-linéaires, comme `coord_
 
 ### Les thèmes
 
-Il y a plusieurs thèmes existants dans le package **`ggplot2`**, `theme_gray()` est le thème par défaut ; les autres sont présentés dans la figure ci-dessous. ![](Images/Liste_Themes_Ggplot.png)
+Il y a plusieurs thèmes existants dans le package **`ggplot2`**, `theme_gray()` est le thème par défaut ; les autres sont présentés dans la figure ci-dessous. \ 
+![](Images/Liste_Themes_Ggplot.png)
 
 Ensuite, la fonction `theme()` permet de modifier les aspects du graphique : il y a un certain nombre d'arguments disponibles qui permettent de modifier les éléments entourant le graphique comme les titre et sous-titre, les éléments à l'intérieur du graphique c'est-à-dire de la grille, les éléments des axes, ou encore les éléments de la légende (ou sa position sur la figure), etc.\
 La figure ci-dessous est une bonne synthèse de la manière dont il faut programmer ces différentes éléments du thème d'un graphique (téléchargeable directement <a href="https://github.com/claragranell/ggplot2/blob/main/ggplot_theme_system_cheatsheet.pdf" target="_blank">ici</a>) :\

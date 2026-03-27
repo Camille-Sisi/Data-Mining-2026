@@ -539,10 +539,11 @@ On a une classe majoritaire (du Q1 à la moyenne), mais cela nous permet de dist
 
 \ 
 \ 
-on enregistre la base plus propre des DVF pour la garder dans notre projet :
+on enregistre la base plus propre des DVF pour la garder dans notre projet, ainsi que la base RP (variable créée "COM") :
 ```{r eval=FALSE}
 # Enregistrement des fichiers
 saveRDS(object = dvf_ParisPC_final , file = "data/dvf_ParisPC_final.Rdata") 
+saveRDS(object = RP_final , file = "data/RP_final.Rdata") 
 ```
 
 

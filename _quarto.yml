@@ -29,7 +29,11 @@ book:
       chapters:      
       - 07-Ggplot-theorique.qmd
       - 08-Ggplot-pratique.qmd
-
+    - part: "Séance 4"
+      chapters:      
+      - 09-Intro-a-Shiny-theorique.qmd
+      - 10-Intro-a-Shiny-exemples.qmd
+      
 format:
   bookup-html:
     toc: true
