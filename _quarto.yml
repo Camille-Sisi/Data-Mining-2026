@@ -33,7 +33,11 @@ book:
       chapters:      
       - 09-Intro-a-Shiny-theorique.qmd
       - 10-Intro-a-Shiny-exemples.qmd
-      
+    - part: "Séance 5"
+      chapters:      
+      - 11-Clustering-theorique.qmd
+      - 12-Clustering-application.qmd
+     
 format:
   bookup-html:
     toc: true

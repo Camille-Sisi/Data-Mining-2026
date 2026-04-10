@@ -661,3 +661,281 @@ shinyApp(ui = ui, server = server)
 ```
 
 Par rapport aux exemples précédents déjà réalisés sur Shiny, nous n'avons pas beaucoup ajouté de choses nouvelles : un peu de langage html (`br()`) pour insérer des espaces entre le tableau et le graphique, ou le titre général et le reste des éléments de l'application ; puis une fonction de condition à l'intérieur du `labs()` de **`Ggplot`** et avec la fonction `paste()` pour, d'une part, que le titre change selon le nombre de pièces choisi par l'utilisateur (plusieurs fonctions `ifelse()`), et, d'autre part, que le titre change selon l'année choisie).
+
+\ 
+
+On va maintenant rendre le tableau réactif selon l'année choisie.
+
+```{r eval=FALSE}
+# Définition UI et Server de l'application Shiny
+ui <- fluidPage(
+  # Titre de l'application
+  titlePanel("Caractéristiques des ventes d'appartements dans Paris sur la période 2018-2023"),
+  
+  br(),
+  
+  # Définition du Widget
+  sidebarLayout(
+    sidebarPanel(
+      selectInput(inputId = "annee", 
+                  label = "Choix de l'année de vente pour le tableau et le graphique", 
+                  choices = levels(dvf_Paris$annee_vente),
+                  selected = "2018"),
+      radioButtons(inputId = "nb_pieces", 
+                   label = "Choix du nombre de pièces pour le graphique",
+                   choices = levels(dvf_Paris$nbpieces_cat),
+                   selected = "Deux pièces")
+      ),
+    
+    # Tableau et graphe montré à l'utilisateur
+    mainPanel(
+      gt_output("tab"),
+
+      br(),
+      br(),
+      
+      plotOutput("barplot")    
+    )
+  )
+)
+
+
+server <- function(input, output) {
+  
+  output$tab <- render_gt({
+  dvf_Paris %>% 
+      filter(annee_vente == input$annee) %>%
+      summarise("Nombre de ventes d'appartements" = sum(no_disposition),
+                "Prix moyen au m2 des appartements, en €" = round(mean(prix_metre_carrez)),
+                "Prix médian au m2 des appartements, en €" = round(median(prix_metre_carrez)),
+                "Nombre moyen de pièces" = round(mean(nb_pieces))) %>% 
+      gt() %>%  
+      fmt_number(columns= 1:3, sep_mark = " ", decimals = 0) %>% 
+      tab_header(title=paste('Principaux indicateurs en',input$annee))
+  })
+
+
+  output$barplot <- renderPlot({
+  dvf_Paris %>% 
+      filter(annee_vente == input$annee & nbpieces_cat==input$nb_pieces) %>% 
+      group_by(code_postal) %>% 
+      summarise(med_prixm2 = round(median(prix_metre_carrez))) %>% 
+      arrange(desc(med_prixm2)) %>% slice(1:5) %>% 
+      ggplot() + aes(x = med_prixm2, y = fct_reorder(code_postal, med_prixm2))  + 
+      geom_bar(stat="identity", fill="darkgoldenrod1")  +
+      geom_text(aes(label=med_prixm2), position = position_stack(vjust=0.5), size=3.8) +
+      labs(title = paste("Top 5 des arrondissements ayant les prix médians au m2 des ventes \nd'appartements", 
+                         ifelse(input$nb_pieces=="Une pièce", "d'une pièce", 
+                              ifelse(input$nb_pieces=="Deux pièces", "de deux pièces",
+                                     ifelse(input$nb_pieces=="Trois pièces ou plus", "de trois pièces ou plus"))),
+                         "les plus élevés en", input$annee),
+           x=" ", y=" ",
+           caption = "Source : Base 'demande de valeurs foncières', 2018-2023.") +
+      theme_classic() +
+      theme(plot.title = element_text(size=17),
+            plot.caption = element_text(hjust = 0, size=12),
+            axis.text.y = element_text(size=12.5),
+            axis.text.x = element_text(size=12.5))
+  })
+  
+}
+
+
+shinyApp(ui = ui, server = server)
+```
+\ 
+\ 
+## Introduction d'une réactivité appliquée à la table de données
+
+On peut rendre maintenant la base de données réactive avec la fonction `reactive({})`. On l'avait vu, la fonction `reactive()` permet de créer un objet réactif qui est à la fois une entrée réactive et une sortie réactive, l’objet va donc se mettre à jour automatiquement si les entrées qu’il utilise changent, et il va automatiquement déclencher la mise à jour des sorties où il est utilisé.
+\ 
+La fonction permet techniquement de décomposer du code réactif et est utile lorsque certaines parties du code sont utilisées par plusieurs outputs car elle va permettre alors d'éviter des redondances. Cela peut être le cas lorsqu'on doit filtrer et/ou sélectionner des mêmes variables en input pour plusieurs outputs.\
+Ici, on va décomposer la partie 'data' du code précédent de la partie construction du graphique ; le rendu sera strictement le même ; mais cela peut être plus efficace en cas de long code et d'application complexe car en gros on va exécuter qu'une seule fois l'opération 'data' réalisée ici.
+\ 
+Attention, la base réactive créée est une fonction, il faut donc l'appeler avec des parenthèses !
+
+```{r eval=FALSE}
+# Définition UI et Server de l'application Shiny
+ui <- fluidPage(
+  # Titre de l'application
+  titlePanel("Caractéristiques des ventes d'appartements dans Paris sur la période 2018-2023"),
+  
+  br(),
+  
+  # Définition du Widget
+  sidebarLayout(
+    sidebarPanel(
+      selectInput(inputId = "annee", 
+                  label = "Choix de l'année de vente pour le tableau et le graphique", 
+                  choices = levels(dvf_Paris$annee_vente),
+                  selected = "2018"),
+      radioButtons(inputId = "nb_pieces", 
+                   label = "Choix du nombre de pièces pour le graphique",
+                   choices = levels(dvf_Paris$nbpieces_cat),
+                   selected = "Deux pièces")
+      ),
+    
+    # Tableau et graphe montré à l'utilisateur
+    mainPanel(
+      gt_output("tab"),
+
+      br(),
+      br(),
+      
+      plotOutput("barplot")    
+    )
+  )
+)
+
+
+server <- function(input, output) {
+  
+  output$tab <- render_gt({
+  dvf_Paris %>% 
+      filter(annee_vente == input$annee) %>%
+      summarise("Nombre de ventes d'appartements" = sum(no_disposition),
+                "Prix moyen au m2 des appartements, en €" = round(mean(prix_metre_carrez)),
+                "Prix médian au m2 des appartements, en €" = round(median(prix_metre_carrez)),
+                "Nombre moyen de pièces" = round(mean(nb_pieces))) %>% 
+      gt() %>%  
+      fmt_number(columns= 1:3, sep_mark = " ", decimals = 0) %>% 
+      tab_header(title=paste('Principaux indicateurs en',input$annee))
+  })
+
+
+dvf_Paris_react <- reactive({
+    dvf_Paris %>% 
+      filter(annee_vente == input$annee & nbpieces_cat==input$nb_pieces) %>% 
+      group_by(code_postal) %>%  
+      summarise(med_prixm2 = round(median(prix_metre_carrez))) %>% 
+      arrange(desc(med_prixm2)) %>% slice(1:5)
+  })
+  
+  output$barplot <- renderPlot({
+  dvf_Paris_react() %>% 
+      ggplot() + aes(x = med_prixm2, y = fct_reorder(code_postal, med_prixm2))  + 
+      geom_bar(stat="identity", fill="darkgoldenrod1")  +
+      geom_text(aes(label=med_prixm2), position = position_stack(vjust=0.5), size=3.8) +
+      labs(title = paste("Top 5 des arrondissements ayant les prix médians au m2 des ventes \nd'appartements", 
+                         ifelse(input$nb_pieces=="Une pièce", "d'une pièce", 
+                              ifelse(input$nb_pieces=="Deux pièces", "de deux pièces",
+                                     ifelse(input$nb_pieces=="Trois pièces ou plus", "de trois pièces ou plus"))),
+                         "les plus élevés en", input$annee),
+           x=" ", y=" ",
+           caption = "Source : Base 'demande de valeurs foncières', 2018-2023.") +
+      theme_classic() +
+      theme(plot.title = element_text(size=17),
+            plot.caption = element_text(hjust = 0, size=12),
+            axis.text.y = element_text(size=12.5),
+            axis.text.x = element_text(size=12.5))
+  })
+  
+}
+
+
+shinyApp(ui = ui, server = server)
+```
+\ 
+\ 
+
+## Introduction d'une réactivité sur les inputs (contexte réactif)
+
+On va maintenant introduire un contexte réactif. 
+\ 
+Pour cela, on va repartir de la base du RP, puisqu'on peut y distinguer les départements et les communes, en s'intéressant à la répartition de la population de 15-64 ans selon le type d'activité, et donc par département et commune. On va de façon comparable à ce qu'on a fait précédemment, créer en haut un tableau qui donnera cette répartition pour le département ; puis en-dessous un graphique qui montrera cette répartition pour une des communes de ce département. 
+On aura donc deux widgets, un pour le choix du département et un pour le choix de la commune. On veut que lorsqu'on choisit Paris en département par exemple, le widget de la commune ne nous montre que les arrondissements de Paris (et non toutes les communes des 4 départements de notre champ), etc.
+
+On peut pour cela utiliser la fonction `observe()` : on l'utilise donc quand un input change.\ 
+Il va falloir ici utiliser à l'intérieur de la fonction `observe()` une condition `if ... else ...` : on part du principe qu'on affiche d'abord automatiquement le département "75", lorsque l'utilisateur appuie sur le bouton du choix de département du widget `radioButtons`, le widget `selectInput` doit être actualisé en permettant les seuls choix de communes de Paris donc les arrondissements ; de même pour les autres départements.
+
+Il faut donc utiliser la fonction `observe()`, une condition `if ... else ...` et une actualisation des widgets avec la fonction `updateSelectInput()`.
+
+L'image suivante vous donne un aperçu de ce qu'on devrait avoir pour Paris :
+
+![](images/Ex.2_Shiny.png)
+
+```{r eval=FALSE}
+# Définition UI et Server de l'application Shiny
+ui <- fluidPage(
+  # Titre de l'application
+  titlePanel("Caractéristiques des ventes d'appartements et de maisons sur la période 2018-2023"),
+  
+  br(),
+  
+  # Définition du Widget
+  sidebarLayout(
+    sidebarPanel(
+      radioButtons (inputId = "dept", 
+                  label = "Choix du département pour le tableau et le graphique", 
+                  choices = levels(dvf_ParisPC$code_INSEE_dept),
+                  selected = "75"),
+      selectInput(inputId = "commune", 
+                   label = "Choix de la commune pour le graphique",
+                   choices = levels(dvf_ParisPC$code_postal),
+                   selected = "75012")
+      ),
+    
+    # Tableau et graphe montré à l'utilisateur
+    mainPanel(
+      gt_output("tab"),
+
+      br(),
+      br(),
+      
+      plotOutput("barplot")    
+    )
+  )
+)
+
+
+server <- function(input, output) {
+  
+  observe({
+    input$dept
+    if(input$dept == "75"){
+      updateSelectInput(inputId = "commune",
+                        choices = unique(dvf_ParisPC[dvf_ParisPC$code_INSEE_dept=="75", ]$code_postal),
+                        selected = "75012")
+      }
+    else {updateSelectInput(inputId = "commune",
+                            choices = unique(dvf_ParisPC[dvf_ParisPC$code_INSEE_dept==input$dept, ]$code_postal),
+                            selected = input$variable)
+    }
+  })
+
+  output$tab <- render_gt({
+  dvf_ParisPC %>% 
+      filter(code_INSEE_dept == input$dept) %>%
+      summarise("Nombre de ventes" = sum(no_disposition),
+                "Prix moyen au m2, en €" = round(mean(prix_metre_carrez)),
+                "Prix médian au m2, en €" = round(median(prix_metre_carrez)),
+                "Nombre moyen de pièces" = round(mean(nb_pieces))) %>% 
+      gt() %>%  
+      fmt_number(columns= 1:3, sep_mark = " ", decimals = 0) %>% 
+      tab_header(title=paste('Principaux indicateurs du département',input$dept))
+  })
+
+
+  output$barplot <- renderPlot({
+    dvf_ParisPC %>% 
+      filter(code_postal==input$commune) %>% 
+      count(nbpieces_cat) %>% 
+      mutate(Pourcentage=round(prop.table(n)*100,0)) %>% 
+      select(-n) %>% 
+      ggplot() + aes(x=nbpieces_cat, y=Pourcentage) + 
+      geom_bar(stat = "identity", fill="darkgoldenrod1") +
+      geom_text(aes(label=Pourcentage), position = position_stack(vjust=0.5), size=4.7) +
+      labs(title=paste("Répartition en % des ventes selon le nombre de pièces dans le", input$commune),
+           x = "", y = " ") +
+      theme_classic() +
+      theme(plot.title=element_text(size=17),
+            axis.text.x = element_text(size=12, angle=45, hjust=1))
+    
+  })  
+
+  
+}
+
+
+shinyApp(ui = ui, server = server)
+```

@@ -1,0 +1,3616 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.26">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>12&nbsp; Clustering : application sur le RP 2021 – Data Mining 2026</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./11-Clustering-theorique.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-03e2afb5cd7388593a0fdb3df1e9c110.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-bcc59033a7e2c7a840f06155df22da50.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-03e2afb5cd7388593a0fdb3df1e9c110.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-18c4c02f2e0c35b6cc6a137a251bffe3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-98d67fd4a94d75c92ed86be1e8f4ff03.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-18c4c02f2e0c35b6cc6a137a251bffe3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/quarto-contrib/bookup_fonts_gwf-0.0/fonts-embed.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar docked quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./11-Clustering-theorique.html">Séance 5</a></li><li class="breadcrumb-item"><a href="./12-Clustering-application.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Clustering : application sur le RP 2021</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Data Mining 2026</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/Camille-Sisi/Data-Mining-2026" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Présentation</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Séance 1</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-Base-de-donnees.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Récupération de la base de données</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02-Manipulation-base.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Manipulation de la base</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03-Manipulation-variables.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Manipulation des variables</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-Récapitulatif.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Récapitulatif séance 1 - Data Wrangling</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Séance 2</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05-Questions-fouille-donnees.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Quelles questions intéressantes pour une “fouille de données” sur la base des RP ?</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06-Fonctions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Systématiser nos procédures : construire une fonction</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Séance 3</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07-Ggplot-theorique.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Data Visualization et Ggplot2 : aspects théoriques</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08-Ggplot-pratique.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Data Mining et Data Visualization en pratique</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Séance 4</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./09-Intro-a-Shiny-theorique.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Les applications interactives avec Shiny App</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./10-Intro-a-Shiny-exemples.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">La création d’une application Shiny “pas à pas” avec l’une de nos bases de données</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Séance 5</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./11-Clustering-theorique.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Clustering : aspects théoriques</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./12-Clustering-application.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Clustering : application sur le RP 2021</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Sur cette page</h2>
+   
+  <ul>
+  <li><a href="#choix-des-variables-et-préparation-du-tableau-final" id="toc-choix-des-variables-et-préparation-du-tableau-final" class="nav-link active" data-scroll-target="#choix-des-variables-et-préparation-du-tableau-final"><span class="header-section-number">12.1</span> Choix des variables et préparation du tableau final</a>
+  <ul class="collapse">
+  <li><a href="#variable-socio-professionnelle-caractérisant-la-personne-de-référence-du-ménage" id="toc-variable-socio-professionnelle-caractérisant-la-personne-de-référence-du-ménage" class="nav-link" data-scroll-target="#variable-socio-professionnelle-caractérisant-la-personne-de-référence-du-ménage"><span class="header-section-number">12.1.1</span> Variable socio-professionnelle caractérisant la personne de référence du ménage</a></li>
+  <li><a href="#création-du-tableau-de-contingence" id="toc-création-du-tableau-de-contingence" class="nav-link" data-scroll-target="#création-du-tableau-de-contingence"><span class="header-section-number">12.1.2</span> Création du tableau de contingence</a></li>
+  </ul></li>
+  <li><a href="#la-méthode-de-la-cah-appliquée-à-nos-données" id="toc-la-méthode-de-la-cah-appliquée-à-nos-données" class="nav-link" data-scroll-target="#la-méthode-de-la-cah-appliquée-à-nos-données"><span class="header-section-number">12.2</span> La méthode de la CAH appliquée à nos données</a>
+  <ul class="collapse">
+  <li><a href="#constitution-des-classes" id="toc-constitution-des-classes" class="nav-link" data-scroll-target="#constitution-des-classes"><span class="header-section-number">12.2.1</span> Constitution des classes</a></li>
+  <li><a href="#visualisation-sur-la-carte-des-communes-et-départements" id="toc-visualisation-sur-la-carte-des-communes-et-départements" class="nav-link" data-scroll-target="#visualisation-sur-la-carte-des-communes-et-départements"><span class="header-section-number">12.2.2</span> Visualisation sur la carte des communes et départements</a></li>
+  <li><a href="#interprétation" id="toc-interprétation" class="nav-link" data-scroll-target="#interprétation"><span class="header-section-number">12.2.3</span> Interprétation</a></li>
+  </ul></li>
+  <li><a href="#la-méthode-des-k-means-appliquée-à-nos-données" id="toc-la-méthode-des-k-means-appliquée-à-nos-données" class="nav-link" data-scroll-target="#la-méthode-des-k-means-appliquée-à-nos-données"><span class="header-section-number">12.3</span> La méthode des <em>k-means</em> appliquée à nos données</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./11-Clustering-theorique.html">Séance 5</a></li><li class="breadcrumb-item"><a href="./12-Clustering-application.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Clustering : application sur le RP 2021</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span id="sec-Clustering-application" class="quarto-section-identifier"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Clustering : application sur le RP 2021</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<!--Pour un rappel des fondements théoriques des techniques de clustering, voir par exemple <a href="https://camille-sisi.github.io/Data-Mining-2022/14-Clustering-theorique.html" target="_blank">ici</a>, ou <a href="https://larmarange.github.io/analyse-R/classification-ascendante-hierarchique.html" target="_blank">là</a>.  
+Ces techniques font partie des méthodes d'apprentissage dit non supervisé, il n'y a pas de variable d'intérêt ou variable cible, on cherche plutôt à rassembler des observations qui "se ressemblent" mais pas d'expliquer une variable/un phénomène par rapport à d'autres.-->
+<section id="choix-des-variables-et-préparation-du-tableau-final" class="level2" data-number="12.1">
+<h2 data-number="12.1" class="anchored" data-anchor-id="choix-des-variables-et-préparation-du-tableau-final"><span class="header-section-number">12.1</span> Choix des variables et préparation du tableau final</h2>
+<p>A partir de la base du RP2021, l’objectif de notre analyse est de décrire des groupes de communes qui se ressemblent ou sont relativement homogènes, c’est-à-dire qui ont des caractéristiques proches. Mais, bien sûr, les méthodes de clustering peuvent être appliquées à toutes sortes de problématiques et de données.</p>
+<p>Pour cela, on doit avoir un tableau avec <strong>n</strong> individus ou observations (lignes) et <strong>p</strong> variables (colonnes), la mesure des variables peut être des effectifs, mais aussi des proportions. L’idée étant de regrouper nos communes en classes homogènes (=<em>clusters</em>) en un nombre plus restreint, nos observations sont donc constituées ici par les communes. Il faut ensuite choisir sur quelles caractéristiques on va les regrouper et chercher une certaine homogénéité. Cela peut être à partir de différentes choses selon notre base de données : caractéristiques socio-professionnelles de la personne de référence du ménage, caractéristiques des logements, etc.</p>
+<section id="variable-socio-professionnelle-caractérisant-la-personne-de-référence-du-ménage" class="level3" data-number="12.1.1">
+<h3 data-number="12.1.1" class="anchored" data-anchor-id="variable-socio-professionnelle-caractérisant-la-personne-de-référence-du-ménage"><span class="header-section-number">12.1.1</span> Variable socio-professionnelle caractérisant la personne de référence du ménage</h3>
+<p>On va dans cet exemple (communes de Paris et sa petite couronne) s’intéresser aux caractéristiques socio-professionnelles de la population de 15 ans ou plus : on aura en lignes nos <strong>n</strong> communes des 4 départements et en colonnes nos <strong>p</strong> variables d’entrées, soient par exemple le nombre d’habitants, le nombre d’individus qui sont actuellement chômeurs, le nombre de personnes en emploi, le nombre de cadres, etc.</p>
+<p>On va réaliser ici un exemple très simple en ne prenant qu’une variable reconstruite à partir de celle de la catégorie socio-professionnnelle (<code>CS1</code>) qui a actuellement 8 modalités et de celle du type d’activité (<code>TACT</code>), cela permettant de distinguer les actifs en emploi des chômeurs. Si l’on prend plus de variables, il faut faire attention à ce que certaines modalités ne se recoupent pas entre elles, ou quand l’information est trop proche - par exemple la condition d’emploi et le type d’activité. Pour cela, il faut étudier les corrélations entre les variables finalement obtenues, avec les fonctions <code>cor()</code> ou <code>corrplot(cor())</code> du package <strong><code>corrplot</code></strong> par exemple. Mais si le nombre de variables prises en compte est importante, il peut être également plus pertinent de procéder avant la méthode de clustering à une méthode d’analyse factorielle. &nbsp;</p>
+<p>Regardons d’abord pour cette variable - <code>CS1</code> - si un regroupement et un recodage des modalités est nécessaire.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Chargement des librairies</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gt)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Chargement des tables</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>RP_final <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="at">file =</span> <span class="st">"data/RP_final.Rdata"</span>)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>meta <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="at">file =</span> <span class="st">"data/meta.Rdata"</span>)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Appel fonctions</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"fonctions/fonctions.R"</span>)</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>meta <span class="sc">%&gt;%</span> </span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(COD_VAR, COD_MOD, LIB_MOD) <span class="sc">%&gt;%</span> </span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(COD_VAR <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"CS1"</span>, <span class="st">"TACT"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   COD_VAR COD_MOD
+1      CS1       1
+2      CS1       2
+3      CS1       3
+4      CS1       4
+5      CS1       5
+6      CS1       6
+7      CS1       7
+8      CS1       8
+9     TACT      11
+10    TACT      12
+11    TACT      21
+12    TACT      22
+13    TACT      23
+14    TACT      24
+15    TACT      25
+                                                                      LIB_MOD
+1                                                    Agriculteurs exploitants
+2                                 Artisans, commerçants et chefs d'entreprise
+3                           Cadres et professions intellectuelles supérieures
+4                                                  Professions Intermédiaires
+5                                                                    Employés
+6                                                                    Ouvriers
+7                                                                   Retraités
+8                              Autres personnes sans activité professionnelle
+9  Actifs ayant un emploi, y compris sous apprentissage ou en stage rémunéré.
+10                                                                   Chômeurs
+11                                                  Retraités ou préretraités
+12               Élèves, étudiants, stagiaires non rémunéré de 14 ans ou plus
+13                                                            Moins de 14 ans
+14                                                  Femmes ou hommes au foyer
+15                                                            Autres inactifs</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Fonction "tableau" créée dans la section 6</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>RP_final <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="sc">!</span>AGER20 <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"2"</span>,<span class="st">"5"</span>, <span class="st">"10"</span>,<span class="st">"14"</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tableau</span>(<span class="at">var_quali =</span> CS1, <span class="at">nom_var_quali =</span> <span class="st">"PCS"</span>) <span class="sc">%&gt;%</span> <span class="fu">gt</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div id="srvgpjdizc" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#srvgpjdizc table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#srvgpjdizc thead, #srvgpjdizc tbody, #srvgpjdizc tfoot, #srvgpjdizc tr, #srvgpjdizc td, #srvgpjdizc th {
+  border-style: none;
+}
+
+#srvgpjdizc p {
+  margin: 0;
+  padding: 0;
+}
+
+#srvgpjdizc .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#srvgpjdizc .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#srvgpjdizc .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#srvgpjdizc .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#srvgpjdizc .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#srvgpjdizc .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#srvgpjdizc .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#srvgpjdizc .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#srvgpjdizc .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#srvgpjdizc .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#srvgpjdizc .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#srvgpjdizc .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#srvgpjdizc .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#srvgpjdizc .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#srvgpjdizc .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#srvgpjdizc .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#srvgpjdizc .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#srvgpjdizc .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#srvgpjdizc .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#srvgpjdizc .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#srvgpjdizc .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#srvgpjdizc .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#srvgpjdizc .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#srvgpjdizc .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#srvgpjdizc .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#srvgpjdizc .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#srvgpjdizc .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#srvgpjdizc .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#srvgpjdizc .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#srvgpjdizc .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#srvgpjdizc .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#srvgpjdizc .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#srvgpjdizc .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#srvgpjdizc .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#srvgpjdizc .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#srvgpjdizc .gt_left {
+  text-align: left;
+}
+
+#srvgpjdizc .gt_center {
+  text-align: center;
+}
+
+#srvgpjdizc .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#srvgpjdizc .gt_font_normal {
+  font-weight: normal;
+}
+
+#srvgpjdizc .gt_font_bold {
+  font-weight: bold;
+}
+
+#srvgpjdizc .gt_font_italic {
+  font-style: italic;
+}
+
+#srvgpjdizc .gt_super {
+  font-size: 65%;
+}
+
+#srvgpjdizc .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#srvgpjdizc .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#srvgpjdizc .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#srvgpjdizc .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#srvgpjdizc .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#srvgpjdizc .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#srvgpjdizc .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#srvgpjdizc .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#srvgpjdizc div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+
+<table class="gt_table caption-top table table-sm table-striped small" data-quarto-bootstrap="false">
+<thead>
+<tr class="gt_col_headings header">
+<th id="PCS" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">PCS</th>
+<th id="Effectif" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Effectif</th>
+<th id="Pourcentage" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Pourcentage</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_left" headers="PCS">1</td>
+<td class="gt_row gt_right" headers="Effectif">839.5423</td>
+<td class="gt_row gt_right" headers="Pourcentage">0.0</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="PCS">2</td>
+<td class="gt_row gt_right" headers="Effectif">194735.9117</td>
+<td class="gt_row gt_right" headers="Pourcentage">3.5</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="PCS">3</td>
+<td class="gt_row gt_right" headers="Effectif">1260585.4270</td>
+<td class="gt_row gt_right" headers="Pourcentage">22.4</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="PCS">4</td>
+<td class="gt_row gt_right" headers="Effectif">839124.9816</td>
+<td class="gt_row gt_right" headers="Pourcentage">14.9</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="PCS">5</td>
+<td class="gt_row gt_right" headers="Effectif">840698.0699</td>
+<td class="gt_row gt_right" headers="Pourcentage">14.9</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="PCS">6</td>
+<td class="gt_row gt_right" headers="Effectif">405244.2191</td>
+<td class="gt_row gt_right" headers="Pourcentage">7.2</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="PCS">7</td>
+<td class="gt_row gt_right" headers="Effectif">998208.9163</td>
+<td class="gt_row gt_right" headers="Pourcentage">17.7</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="PCS">8</td>
+<td class="gt_row gt_right" headers="Effectif">1085350.0895</td>
+<td class="gt_row gt_right" headers="Pourcentage">19.3</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="PCS">Total</td>
+<td class="gt_row gt_right" headers="Effectif">5624787.1574</td>
+<td class="gt_row gt_right" headers="Pourcentage">99.9</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>Il faut donc supprimer la modalité “1” qui correspond aux agriculteurs car trop peu représentés sur ce champ, mais pour le reste on peut laisser comme cela.</p>
+</section>
+<section id="création-du-tableau-de-contingence" class="level3" data-number="12.1.2">
+<h3 data-number="12.1.2" class="anchored" data-anchor-id="création-du-tableau-de-contingence"><span class="header-section-number">12.1.2</span> Création du tableau de contingence</h3>
+<p>Pour créer le tableau de contigence donnant le nombre d’individus pour chacune des modalités de cette variable et pour chaque commune, on va créer une fonction qu’on va appeler <code>tab_cont_n</code>, pour avoir en ligne les communes et en colonne chaque modalité de la variable en question :</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>tab_cont_n <span class="ot">&lt;-</span> <span class="cf">function</span>(data, ..., nom_var, var, prefix_var)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>{</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  tab_n <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span> </span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>            <span class="fu">group_by</span>(...) <span class="sc">%&gt;%</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>            <span class="fu">summarise</span>({{ nom_var }} <span class="sc">:</span><span class="er">=</span> <span class="fu">round</span>(<span class="fu">sum</span>(IPONDI))) <span class="sc">%&gt;%</span> </span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>            <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> {{ var }}, <span class="at">values_from =</span> {{ nom_var }},</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>                        <span class="at">values_fill =</span> <span class="dv">0</span>, <span class="at">names_prefix =</span> prefix_var)</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(tab_n)</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>On peut l’intégrer dans notre script <code>fonctions.R</code> pour pouvoir l’utiliser plus tard en appelant simplement ce fichier en début de code.</p>
+<p>On crée maintenant notre tableau de contingence, en créant comme déjà mentionné une variable croisant l’information sur la catégorie socio-professionnelle et celle sur le statut d’activité regroupé en emploi, chômage, retraités ou autres inactifs.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># On enlève les agriculteurs, , la commune sans dénomination et les moins de 15 ans</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>cat_soc <span class="ot">&lt;-</span> RP_final <span class="sc">%&gt;%</span> </span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(CS1<span class="sc">!=</span><span class="st">"1"</span> <span class="sc">&amp;</span> COM<span class="sc">!=</span><span class="st">"ZZZZZ"</span> <span class="sc">&amp;!</span>AGER20 <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"2"</span>,<span class="st">"5"</span>, <span class="st">"10"</span>,<span class="st">"14"</span>)) <span class="sc">%&gt;%</span>  </span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">CS_empcho =</span> <span class="fu">as.factor</span>(<span class="fu">case_when</span>(CS1 <span class="sc">==</span> <span class="st">"2"</span> <span class="sc">&amp;</span> TACT<span class="sc">==</span><span class="st">"11"</span> <span class="sc">~</span> <span class="st">"Arti_com"</span>,</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>                                         CS1 <span class="sc">==</span> <span class="st">"3"</span> <span class="sc">&amp;</span> TACT<span class="sc">==</span><span class="st">"11"</span> <span class="sc">~</span> <span class="st">"Cadres"</span>,</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>                                         CS1 <span class="sc">==</span> <span class="st">"4"</span> <span class="sc">&amp;</span> TACT<span class="sc">==</span><span class="st">"11"</span> <span class="sc">~</span> <span class="st">"PI"</span>,</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>                                         CS1 <span class="sc">==</span> <span class="st">"5"</span> <span class="sc">&amp;</span> TACT<span class="sc">==</span><span class="st">"11"</span> <span class="sc">~</span> <span class="st">"Employés"</span>,</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>                                         CS1 <span class="sc">==</span> <span class="st">"6"</span> <span class="sc">&amp;</span> TACT<span class="sc">==</span><span class="st">"11"</span> <span class="sc">~</span> <span class="st">"Ouvriers"</span>,</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>                                         TACT<span class="sc">==</span><span class="st">"12"</span> <span class="sc">~</span> <span class="st">"Chômeurs"</span>,</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>                                         CS1 <span class="sc">==</span> <span class="st">"7"</span> <span class="sc">&amp;</span> TACT<span class="sc">==</span><span class="st">"21"</span> <span class="sc">~</span> <span class="st">"Retraités"</span>,</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>                                         <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">"Autres inactifs"</span>))) <span class="sc">%&gt;%</span> </span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_cont_n</span>(COM, CS_empcho, <span class="at">nom_var=</span>cat_soc, <span class="at">var=</span>CS_empcho, <span class="at">prefix_var=</span><span class="st">"nb_"</span>)</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>cat_soc <span class="sc">%&gt;%</span> <span class="fu">head</span>(<span class="dv">10</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 10 × 9
+# Groups:   COM [10]
+   COM   nb_Arti_com `nb_Autres inactifs` nb_Cadres nb_Chômeurs nb_Employés
+   &lt;chr&gt;       &lt;dbl&gt;                &lt;dbl&gt;     &lt;dbl&gt;       &lt;dbl&gt;       &lt;dbl&gt;
+ 1 75101         933                 2012      4783         795        1145
+ 2 75102         910                 2463      7179        1247        1546
+ 3 75103        1521                 4337     10292        1803        2400
+ 4 75104        1229                 4075      7808        1727        2154
+ 5 75105        1802                11381     15592        2464        3459
+ 6 75106        1926                 8288     10347        1430        2439
+ 7 75107        2423                 8237     12711        1825        3248
+ 8 75108        1813                 5353      9925        1465        2587
+ 9 75109        2573                 6948     19872        3188        3772
+10 75110        2606                10903     24228        5481        6601
+# ℹ 3 more variables: nb_Ouvriers &lt;dbl&gt;, nb_PI &lt;dbl&gt;, nb_Retraités &lt;dbl&gt;</code></pre>
+</div>
+</div>
+<p>On a donc 136 lignes correspondant à 136 communes de nos 4 départements, et 9 variables.</p>
+<p>On va rajouter le nom des communes comme identifiant dans le tableau, c’est-à-dire dans le nom de la 1ère colonne, avec la fonction <code>column_to_rownames()</code>. Cela peut être conseillé pour la procédure de clustering, afin que chaque commune soit bien identifiée par son nom (label) ; on verra toutefois dans notre exemple que cela devient illisible si on a trop de communes/individus.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>cat_soc <span class="ot">&lt;-</span> cat_soc <span class="sc">%&gt;%</span> <span class="fu">column_to_rownames</span>(<span class="at">var =</span> <span class="st">"COM"</span>)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>cat_soc <span class="sc">%&gt;%</span> <span class="fu">head</span>(<span class="dv">10</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      nb_Arti_com nb_Autres inactifs nb_Cadres nb_Chômeurs nb_Employés
+75101         933               2012      4783         795        1145
+75102         910               2463      7179        1247        1546
+75103        1521               4337     10292        1803        2400
+75104        1229               4075      7808        1727        2154
+75105        1802              11381     15592        2464        3459
+75106        1926               8288     10347        1430        2439
+75107        2423               8237     12711        1825        3248
+75108        1813               5353      9925        1465        2587
+75109        2573               6948     19872        3188        3772
+75110        2606              10903     24228        5481        6601
+      nb_Ouvriers nb_PI nb_Retraités
+75101         355  1817         2473
+75102         530  2554         2240
+75103         576  3900         4585
+75104         501  3198         4532
+75105         885  5189         9825
+75106         545  3165         8034
+75107         742  4029         9286
+75108         722  3249         4926
+75109        1193  6647         6985
+75110        2503  9575        10472</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="la-méthode-de-la-cah-appliquée-à-nos-données" class="level2" data-number="12.2">
+<h2 data-number="12.2" class="anchored" data-anchor-id="la-méthode-de-la-cah-appliquée-à-nos-données"><span class="header-section-number">12.2</span> La méthode de la CAH appliquée à nos données</h2>
+<section id="constitution-des-classes" class="level3" data-number="12.2.1">
+<h3 data-number="12.2.1" class="anchored" data-anchor-id="constitution-des-classes"><span class="header-section-number">12.2.1</span> Constitution des classes</h3>
+<!-- On reprend les étapes de la méthode décrite <a href="https://camille-sisi.github.io/Data-Mining-2022/14-Clustering-theorique.html" target="_blank">ici</a>, une par une. -->
+<p>Comme nos communes ont plus d’habitants que d’autres, pour éviter un effet taille de nos communes, on va utiliser la distance du khi-2. Pour cela, deux façons de faire avec deux packages différents : soit le package <strong><code>vegan()</code></strong> et la fonction <code>decostand()</code> avec l’argument <code>method="chi.square"</code> qui crée un tableau sur lequel on applique ensuite la méthode de distance euclidienne et dans ce cas on aura des distinces similaires à celles du khi-2 (voir <a href="https://pmarchand1.github.io/ECL7102/notes_cours/14-Analyses_multivariees_Partie2.html#mesures_de_distance_pour_les_abondances%5D">ici</a>) ; soit le package <strong><code>ade4</code></strong> et les fonctions combinées <code>dist.dudi(dudi.coa())</code> avec l’argument <code>amongrow=TRUE</code> (pour préciser que les distances doivent être calculées entre lignes, ici les communes).</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Etape 1 : on transforme la table sur laquelle on obtiendra des distances du khi-deux</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("vegan")</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(vegan)</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>cat_soc_chi2 <span class="ot">&lt;-</span> <span class="fu">decostand</span>(cat_soc, <span class="at">method =</span> <span class="st">"chi.square"</span>)</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Etape 2 : on crée la matrice de distance, en utilisant la distance euclidienne </span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="co"># standard sur la table transformée, ce qui nous donnera des distances similaires </span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="co"># à celle du khi-2</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>dist_mat <span class="ot">&lt;-</span> <span class="fu">dist</span>(cat_soc_chi2, <span class="at">method =</span> <span class="st">'euclidean'</span>)</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a><span class="co"># on peut vérifier qu'on obtient la même matrice avec la seconde méthode évoquée</span></span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("ade4")</span></span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ade4)</span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>dist_mat_bis <span class="ot">&lt;-</span> <span class="fu">dist.dudi</span>(<span class="fu">dudi.coa</span>(cat_soc, <span class="at">scannf=</span><span class="cn">FALSE</span>, <span class="at">nf=</span><span class="dv">7</span>), <span class="at">amongrow=</span><span class="cn">TRUE</span>)</span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a><span class="co"># si on souhaite voir et comparer les matrices de distances, </span></span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a><span class="co"># on doit les transformer en matrice avec la fonction 'as.matrix' :</span></span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>cat_soc_chi2_m <span class="ot">&lt;-</span> <span class="fu">as.matrix</span>(dist_mat)</span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>cat_soc_chi2_bis_m <span class="ot">&lt;-</span> <span class="fu">as.matrix</span>(dist_mat_bis)</span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a><span class="co"># elles sont bien similaires -&gt; on peut supprimer de l'environnement la seconde</span></span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(cat_soc_chi2_bis_m, cat_soc_chi2_m, dist_mat_bis)</span>
+<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a><span class="co">#Etape 3 : on choisit la méthode d'agrégation, ici la plus standard, le critère de Ward</span></span>
+<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a>classif_socioprof <span class="ot">&lt;-</span> <span class="fu">hclust</span>(dist_mat, <span class="at">method =</span> <span class="st">"ward.D2"</span>)</span>
+<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-30"><a href="#cb9-30" aria-hidden="true" tabindex="-1"></a><span class="co">#Etape 4 : on visualise l'arbre de classification ou dendogramme</span></span>
+<span id="cb9-31"><a href="#cb9-31" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(classif_socioprof, <span class="at">xlab=</span><span class="st">"Commune"</span>,  <span class="at">main=</span><span class="st">"Dendogramme"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="12-Clustering-application_files/figure-html/Etapes_CAH-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># plot(classif_socioprof, xlab="Commune",  main="Dendogramme", labels=FALSE)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>On remarque ici que comme nous avons mis en label le nom des communes, on peut tout de suite savoir quelles communes sont proches et vont former des classes. Toutefois, avec 136 communes ce n’est absolument pas lisible !! Donc on peut aussi les enlever avec l’option <code>label=FALSE</code> dans la fonction <code>plot()</code>.<br>
+Il existe aussi une fonction <em>via</em> <strong><code>ggplot2</code></strong> pour dessiner l’abre, mais il faut installer avant le package <strong><code>ggdendro</code></strong>.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggdendro)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggdendrogram</span>(classif_socioprof, <span class="at">labels=</span><span class="cn">FALSE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="12-Clustering-application_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Il faut maintenant prendre une décision : où coupe-t-on l’arbre pour obtenir une partition de la population (ici nos communes), autrement dit combien de classes choisissons-nous ? &nbsp; On peut d’abord s’appuyer sur la forme du dendogramme : plus une “branche” est haute et plus on perd en distance ou ici (critère de Ward) en inertie intraclasse<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>, il faudra donc couper l’arbre au niveau de cette branche. Il faut également prendre en compte ce qui peut être le mieux pour l’analyse : si on aboutit à une classification en 2 classes, cela risque d’être peu intéressant à analyser, mais si on a une classification en 5 classes ou plus, cela va devenir compliqué à interpréter…&nbsp; Ici, dans les deux cas, il semble que choisir 2 classes soit très pertinent, mais on voit qu’on pourrait aussi choisir 4 classes (ou même 3 éventuellement) si l’on veut rentrer un peu plus dans le détail de l’analyse.</p>
+<p>On peut également s’aider de représentations des sauts d’inertie du dendrogramme selon le nombre de classes qui peut être retenu, avec la fonction plot et en récupérant l’information sur l’inertie (<code>height</code>).</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># On stocke l'attribut `$height` dans l'objet `inertie` en triant les valeurs par </span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="co"># ordre décroissant.</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>inertie_socioprof <span class="ot">&lt;-</span> <span class="fu">sort</span>(classif_socioprof<span class="sc">$</span>height, <span class="at">decreasing=</span><span class="cn">TRUE</span>)</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(inertie_socioprof, <span class="at">type=</span><span class="st">"s"</span>, <span class="at">xlab=</span><span class="st">"Nombre de classes"</span>, <span class="at">ylab=</span><span class="st">"Inertie"</span>, </span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">15</span>), <span class="at">xaxp =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">15</span>,<span class="dv">14</span>))</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(<span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>), inertie_socioprof[<span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>)], </span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">col =</span> <span class="fu">c</span>(<span class="st">"blue3"</span>, <span class="st">"brown3"</span>, <span class="st">"chartreuse3"</span>), <span class="at">cex =</span> <span class="dv">2</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="12-Clustering-application_files/figure-html/Plot_inertie-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Ou encore créer d’autres indicateurs plus rigoureux, comme la part de la perte d’inertie interclasse dans l’inertie totale (on parle aussi de “semi-partial R-squared”).</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co">#on crée un indicateur de part en %</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>partinertie_socioprof <span class="ot">&lt;-</span> inertie_socioprof<span class="sc">/</span><span class="fu">sum</span>(inertie_socioprof)<span class="sc">*</span><span class="dv">100</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(partinertie_socioprof, <span class="at">type=</span><span class="st">"b"</span>, <span class="at">xlab=</span><span class="st">"Nombre de classes"</span>, </span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab=</span><span class="st">"Part dans l'inertie totale en %"</span>, <span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">15</span>), <span class="at">xaxp =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">15</span>,<span class="dv">14</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="12-Clustering-application_files/figure-html/Plot_inertie_bis-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>On voit que les graphiques sont assez proches, qu’ils soient construits à partir de la mesure en valeur absolue ou en valeur relative. Il y a un saut important après 2 classes (hauteur sur le 1er graphique, ou importance de la pente sur le 2ème graphique) par exemple.</p>
+<p>Enfin, à savoir que des fonctions existent donnant une indication de la “meilleure” partition à choisir, mais attention le choix se fait aussi (et peut-être surtout) en fonction de l’analyse que l’on veut mener et de l’interprétation que l’on pourra faire des classes obtenues ! Pour l’exemple, je vous mets ci-dessous le code de Julien Larmarange pour tester ce type de fonctions ; la “meilleure” partition selon la perte d’inertie relative est représentée par un point noir et la seconde par un point gris. On voit qu’ici il est bien indiqué d’abord 2 classes, puis comme seconde “meilleure” partition 3 classes, ce qui correspond plutôt bien aux graphiques précédents.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(devtools)</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="fu">url</span>(<span class="st">"https://raw.githubusercontent.com/larmarange/JLutils/master/R/clustering.R"</span>))</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="co">#On a choisi un maximum de 15 classes ici...</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="fu">best.cutree</span>(classif_socioprof, <span class="at">min=</span><span class="dv">2</span>, <span class="at">max=</span><span class="dv">15</span>, <span class="at">graph =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">xlab =</span> <span class="st">"Nombre de classes"</span>, <span class="at">ylab =</span> <span class="st">"Inertie relative"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="12-Clustering-application_files/figure-html/Best_cutree-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2</code></pre>
+</div>
+</div>
+<p>Finalement, au vu de la forme du dendogramme et des graphes sur l’inertie (et de la fonction d’aide à la décision précédente), on choisit de prendre 4 classes pour une analyse plus fine, mais on va stocker également les résultats pour 3 classes. On peut de nouveau visualiser le dendogramme en matérialisant les différents choix du nombre de classes.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>), <span class="at">mar=</span><span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">9</span>, <span class="dv">1</span>, <span class="dv">1</span>))</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(classif_socioprof, <span class="at">xlab=</span><span class="st">"Commune"</span>,  <span class="at">main=</span><span class="st">"Dendogramme"</span>, <span class="at">label=</span><span class="cn">FALSE</span>)</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="fu">rect.hclust</span>(classif_socioprof, <span class="at">k=</span><span class="dv">3</span>, <span class="at">border =</span> <span class="st">'blue3'</span>)</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="fu">rect.hclust</span>(classif_socioprof, <span class="at">k=</span><span class="dv">4</span>, <span class="at">border =</span> <span class="st">'brown3'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="12-Clustering-application_files/figure-html/Choix_cut-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>On peut également utiliser la fonction <code>color_branches()</code> du package <code>dendextend()</code>, mais il faut appeler de nouveau <code>ggplot2</code> après.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># On peut encore également utiliser la fonction `color_branches()` du package </span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="co"># `dendextend()` mais il faut appeler de nouveau `ggplot2` après</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dendextend)</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">color_branches</span>(classif_socioprof, <span class="at">k =</span> <span class="dv">4</span>), <span class="at">labels =</span> <span class="cn">FALSE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="12-Clustering-application_files/figure-html/dendogramme coloré-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>On choisit donc d’abord d’analyser notre clustering en 3 ou 4 classes : pour découper l’arbre et obtenir la partition souhaitée, on utilise la fonction <code>cutree()</code>, et on peut ensuite visualiser quelle commune est dans quelle classe et le nombre (et la part) de communes par classe.<br>
+On intègre ensuite la variable au tableau initial “cat_soc_chi2” qui contient les variables utilisées, mais on pourra ensuite fusionner la table avec notre table initiale “RP_final” pour mener des analyses plus approfondies des classes, y compris avec des variables non utilisées dans le clustering.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Découpage en k classes</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>classe3_socioprof <span class="ot">&lt;-</span> <span class="fu">cutree</span>(classif_socioprof, <span class="at">k=</span><span class="dv">3</span>)</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>classe4_socioprof <span class="ot">&lt;-</span> <span class="fu">cutree</span>(classif_socioprof, <span class="at">k=</span><span class="dv">4</span>)</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="co">#Liste des groupes</span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="co">#library(janitor)</span></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="fu">tabyl</span>(classe3_socioprof) <span class="sc">%&gt;%</span> <span class="fu">adorn_pct_formatting</span>() <span class="sc">%&gt;%</span> <span class="fu">gt</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div id="ksucpnmxnu" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#ksucpnmxnu table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#ksucpnmxnu thead, #ksucpnmxnu tbody, #ksucpnmxnu tfoot, #ksucpnmxnu tr, #ksucpnmxnu td, #ksucpnmxnu th {
+  border-style: none;
+}
+
+#ksucpnmxnu p {
+  margin: 0;
+  padding: 0;
+}
+
+#ksucpnmxnu .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#ksucpnmxnu .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#ksucpnmxnu .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#ksucpnmxnu .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#ksucpnmxnu .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#ksucpnmxnu .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#ksucpnmxnu .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#ksucpnmxnu .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#ksucpnmxnu .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#ksucpnmxnu .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#ksucpnmxnu .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#ksucpnmxnu .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#ksucpnmxnu .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#ksucpnmxnu .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#ksucpnmxnu .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#ksucpnmxnu .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#ksucpnmxnu .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#ksucpnmxnu .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#ksucpnmxnu .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ksucpnmxnu .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#ksucpnmxnu .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#ksucpnmxnu .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#ksucpnmxnu .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ksucpnmxnu .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#ksucpnmxnu .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#ksucpnmxnu .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#ksucpnmxnu .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ksucpnmxnu .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#ksucpnmxnu .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#ksucpnmxnu .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#ksucpnmxnu .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#ksucpnmxnu .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#ksucpnmxnu .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ksucpnmxnu .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#ksucpnmxnu .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ksucpnmxnu .gt_left {
+  text-align: left;
+}
+
+#ksucpnmxnu .gt_center {
+  text-align: center;
+}
+
+#ksucpnmxnu .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#ksucpnmxnu .gt_font_normal {
+  font-weight: normal;
+}
+
+#ksucpnmxnu .gt_font_bold {
+  font-weight: bold;
+}
+
+#ksucpnmxnu .gt_font_italic {
+  font-style: italic;
+}
+
+#ksucpnmxnu .gt_super {
+  font-size: 65%;
+}
+
+#ksucpnmxnu .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#ksucpnmxnu .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#ksucpnmxnu .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#ksucpnmxnu .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#ksucpnmxnu .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#ksucpnmxnu .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#ksucpnmxnu .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#ksucpnmxnu .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#ksucpnmxnu div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+
+<table class="gt_table caption-top table table-sm table-striped small" data-quarto-bootstrap="false">
+<thead>
+<tr class="gt_col_headings header">
+<th id="classe3_socioprof" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">classe3_socioprof</th>
+<th id="n" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">n</th>
+<th id="percent" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">percent</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_right" headers="classe3_socioprof">1</td>
+<td class="gt_row gt_right" headers="n">45</td>
+<td class="gt_row gt_right" headers="percent">33.1%</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="classe3_socioprof">2</td>
+<td class="gt_row gt_right" headers="n">65</td>
+<td class="gt_row gt_right" headers="percent">47.8%</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="classe3_socioprof">3</td>
+<td class="gt_row gt_right" headers="n">26</td>
+<td class="gt_row gt_right" headers="percent">19.1%</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tabyl</span>(classe4_socioprof) <span class="sc">%&gt;%</span> <span class="fu">adorn_pct_formatting</span>() <span class="sc">%&gt;%</span> <span class="fu">gt</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div id="txheozbfsc" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#txheozbfsc table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#txheozbfsc thead, #txheozbfsc tbody, #txheozbfsc tfoot, #txheozbfsc tr, #txheozbfsc td, #txheozbfsc th {
+  border-style: none;
+}
+
+#txheozbfsc p {
+  margin: 0;
+  padding: 0;
+}
+
+#txheozbfsc .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#txheozbfsc .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#txheozbfsc .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#txheozbfsc .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#txheozbfsc .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#txheozbfsc .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#txheozbfsc .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#txheozbfsc .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#txheozbfsc .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#txheozbfsc .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#txheozbfsc .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#txheozbfsc .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#txheozbfsc .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#txheozbfsc .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#txheozbfsc .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#txheozbfsc .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#txheozbfsc .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#txheozbfsc .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#txheozbfsc .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#txheozbfsc .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#txheozbfsc .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#txheozbfsc .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#txheozbfsc .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#txheozbfsc .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#txheozbfsc .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#txheozbfsc .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#txheozbfsc .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#txheozbfsc .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#txheozbfsc .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#txheozbfsc .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#txheozbfsc .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#txheozbfsc .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#txheozbfsc .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#txheozbfsc .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#txheozbfsc .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#txheozbfsc .gt_left {
+  text-align: left;
+}
+
+#txheozbfsc .gt_center {
+  text-align: center;
+}
+
+#txheozbfsc .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#txheozbfsc .gt_font_normal {
+  font-weight: normal;
+}
+
+#txheozbfsc .gt_font_bold {
+  font-weight: bold;
+}
+
+#txheozbfsc .gt_font_italic {
+  font-style: italic;
+}
+
+#txheozbfsc .gt_super {
+  font-size: 65%;
+}
+
+#txheozbfsc .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#txheozbfsc .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#txheozbfsc .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#txheozbfsc .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#txheozbfsc .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#txheozbfsc .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#txheozbfsc .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#txheozbfsc .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#txheozbfsc div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+
+<table class="gt_table caption-top table table-sm table-striped small" data-quarto-bootstrap="false">
+<thead>
+<tr class="gt_col_headings header">
+<th id="classe4_socioprof" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">classe4_socioprof</th>
+<th id="n" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">n</th>
+<th id="percent" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">percent</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_right" headers="classe4_socioprof">1</td>
+<td class="gt_row gt_right" headers="n">45</td>
+<td class="gt_row gt_right" headers="percent">33.1%</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="classe4_socioprof">2</td>
+<td class="gt_row gt_right" headers="n">36</td>
+<td class="gt_row gt_right" headers="percent">26.5%</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="classe4_socioprof">3</td>
+<td class="gt_row gt_right" headers="n">29</td>
+<td class="gt_row gt_right" headers="percent">21.3%</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="classe4_socioprof">4</td>
+<td class="gt_row gt_right" headers="n">26</td>
+<td class="gt_row gt_right" headers="percent">19.1%</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sort</span>(classe4_socioprof) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>75101 75102 75103 75104 75105 75106 75107 75108 75109 75110 75111 75112 75114 
+    1     1     1     1     1     1     1     1     1     1     1     1     1 
+75115 75116 75117 75118 92002 92004 92009 92012 92014 92020 92022 92026 92033 
+    1     1     1     1     1     1     1     1     1     1     1     1     1 
+92035 92040 92044 92048 92049 92051 92062 92063 92064 92071 92072 92073 92075 
+    1     1     1     1     1     1     1     1     1     1     1     1     1 
+92076 92077 94052 94067 94068 94080 75113 75119 75120 92019 92023 92024 92025 
+    1     1     1     1     1     1     2     2     2     2     2     2     2 
+92032 92046 92060 93033 93045 93049 93062 93077 94003 94015 94016 94018 94019 
+    2     2     2     2     2     2     2     2     2     2     2     2     2 
+94033 94037 94038 94042 94043 94046 94048 94055 94058 94059 94065 94069 94071 
+    2     2     2     2     2     2     2     2     2     2     2     2     2 
+94073 94075 94079 92007 92050 93006 93032 93039 93046 93048 93050 93051 93055 
+    2     2     2     3     3     3     3     3     3     3     3     3     3 
+93057 93061 93063 93064 93070 93073 93074 94002 94004 94017 94021 94022 94028 
+    3     3     3     3     3     3     3     3     3     3     3     3     3 
+94034 94041 94044 94060 94076 94077 92036 92078 93001 93005 93007 93008 93010 
+    3     3     3     3     3     3     4     4     4     4     4     4     4 
+93013 93014 93027 93029 93030 93031 93047 93053 93059 93066 93071 93072 93078 
+    4     4     4     4     4     4     4     4     4     4     4     4     4 
+93079 94011 94054 94074 94078 94081 
+    4     4     4     4     4     4 </code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Ajout des variables de classe dans la table initiale de clustering : on ne crée qu'une</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="co"># seule table qui aura nos 2 variables de typo selon 3 ou 4 classes</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>clust_socioprof <span class="ot">&lt;-</span> <span class="fu">cbind.data.frame</span>(cat_soc_chi2, <span class="at">classe3_socioprof=</span><span class="fu">as.factor</span>(classe3_socioprof))</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>clust_socioprof <span class="ot">&lt;-</span> <span class="fu">cbind.data.frame</span>(clust_socioprof, <span class="at">classe4_socioprof=</span><span class="fu">as.factor</span>(classe4_socioprof))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Dans la partition en 3 classes, la 1ère classe comprend donc 45 communes soit 33% de l’ensemble des communes de Paris et sa petite couronne, la 2ème classe 65 communes ou 48%, et la 3ème classe rassemble 26 communes soit 19% ; dans la partition en 4 classes, la 1ère classe rassemble 45 communes comme dans la partition précédente, la seconde et la troisième 36 et 29, et la quatrième rassemblent de nouveau 26 communes chacune. La dernière sortie nous donne la place de chaque commune dans chacune des 4 classes, mais ce n’est pas super lisible comme cela.</p>
+</section>
+<section id="visualisation-sur-la-carte-des-communes-et-départements" class="level3" data-number="12.2.2">
+<h3 data-number="12.2.2" class="anchored" data-anchor-id="visualisation-sur-la-carte-des-communes-et-départements"><span class="header-section-number">12.2.2</span> Visualisation sur la carte des communes et départements</h3>
+<p>Enfin, on peut visualiser sur la carte des communes et départements les quatre classes construites et choisies.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co">#library(geojsonsf)</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sf)</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mapsf)</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a><span class="co"># on charge le fonds de carte des communes -&gt; vous pouvez reprendre les tables utilisées dans le cours de Claude Grasland, sinon la télécharger sur opendatasoft</span></span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a><span class="co"># map_com &lt;- geojson_sf("https://public.opendatasoft.com/api/explore/v2.1/catalog/datasets/geoflar-communes-2015/exports/geojson?lang=fr&amp;refine=nom_reg%3A%22ILE-DE-FRANCE%22&amp;timezone=Europe%2FBerlin")</span></span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>map_com <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/map_com.RDS"</span>)</span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>map_com <span class="ot">&lt;-</span> map_com <span class="sc">%&gt;%</span> </span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">COM=</span>com_code) <span class="sc">%&gt;%</span> </span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">COM=</span><span class="fu">as.character</span>(COM))</span>
+<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a>map_dept <span class="ot">&lt;-</span> map_com <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(dep_code, dep_name) <span class="sc">%&gt;%</span> </span>
+<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">summarise</span>()</span>
+<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a><span class="co"># si ajout contours établissements publics territoriaux (EPT)</span></span>
+<span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a><span class="co"># map_ept &lt;- readRDS("data/map_ept.RDS")</span></span>
+<span id="cb23-15"><a href="#cb23-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-16"><a href="#cb23-16" aria-hidden="true" tabindex="-1"></a>typo3 <span class="ot">&lt;-</span> clust_socioprof <span class="sc">%&gt;%</span> <span class="fu">rownames_to_column</span>(<span class="at">var =</span> <span class="st">"COM"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb23-17"><a href="#cb23-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(COM, classe3_socioprof)</span>
+<span id="cb23-18"><a href="#cb23-18" aria-hidden="true" tabindex="-1"></a>map_com_typo3 <span class="ot">&lt;-</span> map_com <span class="sc">%&gt;%</span> <span class="fu">select</span>(COM, com_name, geometry) <span class="sc">%&gt;%</span> </span>
+<span id="cb23-19"><a href="#cb23-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(typo3)</span>
+<span id="cb23-20"><a href="#cb23-20" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_theme</span>(<span class="st">"agolalight"</span>)</span>
+<span id="cb23-21"><a href="#cb23-21" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(map_com_typo3, <span class="at">var=</span><span class="st">"classe3_socioprof"</span>, <span class="at">type=</span><span class="st">"typo"</span>, </span>
+<span id="cb23-22"><a href="#cb23-22" aria-hidden="true" tabindex="-1"></a>       <span class="at">pal =</span> <span class="fu">c</span>(<span class="st">"aquamarine3"</span>, <span class="st">"coral"</span>, <span class="st">"skyblue3"</span>),</span>
+<span id="cb23-23"><a href="#cb23-23" aria-hidden="true" tabindex="-1"></a>       <span class="at">leg_pos =</span> <span class="st">"bottomleft"</span>, <span class="at">leg_title=</span><span class="st">"Cluster"</span>,</span>
+<span id="cb23-24"><a href="#cb23-24" aria-hidden="true" tabindex="-1"></a>       <span class="at">col_na =</span> <span class="st">"gray80"</span>, <span class="at">leg_no_data =</span> <span class="st">"Données manquantes"</span>)</span>
+<span id="cb23-25"><a href="#cb23-25" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(map_dept, <span class="at">var=</span><span class="st">"nom_dep"</span>,  <span class="at">type =</span> <span class="st">"base"</span>,</span>
+<span id="cb23-26"><a href="#cb23-26" aria-hidden="true" tabindex="-1"></a>       <span class="at">col =</span> <span class="cn">NA</span>, <span class="at">col_na =</span> <span class="st">"gray80"</span>,</span>
+<span id="cb23-27"><a href="#cb23-27" aria-hidden="true" tabindex="-1"></a>       <span class="at">border=</span><span class="st">"black"</span>,<span class="at">lwd=</span><span class="dv">1</span>, <span class="at">add =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb23-28"><a href="#cb23-28" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_layout</span>(<span class="at">frame =</span> <span class="cn">TRUE</span>, <span class="at">credits=</span><span class="st">" "</span>, <span class="at">arrow =</span> F)</span>
+<span id="cb23-29"><a href="#cb23-29" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_title</span>(<span class="st">"Profils socioprofessionnels des communes de Paris et sa petite couronne"</span>, <span class="at">cex =</span> <span class="fl">1.25</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="12-Clustering-application_files/figure-html/carto_clust-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>typo4 <span class="ot">&lt;-</span> clust_socioprof <span class="sc">%&gt;%</span> <span class="fu">rownames_to_column</span>(<span class="at">var =</span> <span class="st">"COM"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(COM, classe4_socioprof)</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>map_com_typo4 <span class="ot">&lt;-</span> map_com <span class="sc">%&gt;%</span> <span class="fu">select</span>(COM, com_name, geometry) <span class="sc">%&gt;%</span> </span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(typo4)</span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_theme</span>(<span class="st">"agolalight"</span>)</span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(map_com_typo4, <span class="at">var=</span><span class="st">"classe4_socioprof"</span>, <span class="at">type=</span><span class="st">"typo"</span>, </span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">pal =</span> <span class="fu">c</span>(<span class="st">"aquamarine3"</span>, <span class="st">"coral"</span>, <span class="st">"brown4"</span>, <span class="st">"skyblue3"</span>),</span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">leg_pos =</span> <span class="st">"bottomleft"</span>, <span class="at">leg_title=</span><span class="st">"Cluster"</span>,</span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">col_na =</span> <span class="st">"gray80"</span>, <span class="at">leg_no_data =</span> <span class="st">"Données manquantes"</span>)</span>
+<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a><span class="co"># mf_map(map_ept, var="ept_name",  type = "base",</span></span>
+<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a><span class="co">#        col = NA, col_na = "gray80",</span></span>
+<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a><span class="co">#        border="blue",lwd=1, add = TRUE)</span></span>
+<span id="cb24-13"><a href="#cb24-13" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(map_dept, <span class="at">var=</span><span class="st">"nom_dep"</span>,  <span class="at">type =</span> <span class="st">"base"</span>,</span>
+<span id="cb24-14"><a href="#cb24-14" aria-hidden="true" tabindex="-1"></a>       <span class="at">col =</span> <span class="cn">NA</span>, <span class="at">col_na =</span> <span class="st">"gray80"</span>,</span>
+<span id="cb24-15"><a href="#cb24-15" aria-hidden="true" tabindex="-1"></a>       <span class="at">border=</span><span class="st">"black"</span>,<span class="at">lwd=</span><span class="dv">1</span>, <span class="at">add =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb24-16"><a href="#cb24-16" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_layout</span>(<span class="at">frame =</span> <span class="cn">TRUE</span>, <span class="at">credits=</span><span class="st">" "</span>, <span class="at">arrow =</span> F)</span>
+<span id="cb24-17"><a href="#cb24-17" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_title</span>(<span class="st">"Profils socioprofessionnels des communes de Paris et sa petite couronne"</span>, <span class="at">cex =</span> <span class="fl">1.25</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="12-Clustering-application_files/figure-html/carto_clust-2.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>On voit avec la seconde carte que la partition en 4 classes permet de préciser le clustering en particulier pour les communes du département du Val-de-Marne. On va retenir définitivement cette partition en 4 classes pour l’interprétation.</p>
+</section>
+<section id="interprétation" class="level3" data-number="12.2.3">
+<h3 data-number="12.2.3" class="anchored" data-anchor-id="interprétation"><span class="header-section-number">12.2.3</span> Interprétation</h3>
+<p>Il faut maintenant comprendre la partition obtenue et interpréter nos 4 classes en les décrivant principalement ici à partir des variables utilisées dans le clustering. On peut pour cela utiliser le package <strong><code>FactoMineR</code></strong> qui permet avec la fonction <code>catdes</code> de sortir des résultats sur, d’une part, les liens les plus significatifs entre les variables actives de la CAH et la variable globale de cluster/classes, et, d’autre part de manière plus précise, sur les liens les plus significatifs entre les variables et chacune des classes. De manière générale, le package <strong><code>FactoMineR</code></strong> est presque indispensable pour toute analyse factorielle de données et/ou clustering (voir <a href="https://larmarange.github.io/guide-R/analyses_avancees/analyse-factorielle.html">ici</a>).</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(FactoMineR)</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="co"># on retire la variable de classe qui ne nous intéresse pas (la type en 3 classes ici)</span></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="fu">catdes</span>(clust_socioprof[, <span class="sc">-</span><span class="dv">9</span>], <span class="at">num.var =</span> <span class="dv">9</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Link between the cluster variable and the quantitative variables
+================================================================
+                        Eta2      P-value
+nb_Cadres          0.9037338 7.117399e-67
+nb_Ouvriers        0.8669882 1.291061e-57
+nb_Employés        0.8223736 2.457007e-49
+nb_Autres.inactifs 0.6847185 6.280891e-33
+nb_Chômeurs        0.6838843 7.473191e-33
+nb_PI              0.4926856 2.304406e-19
+nb_Retraités       0.3622962 7.155888e-13
+nb_Arti_com        0.1770772 1.039479e-05
+
+Description of each cluster by quantitative variables
+=====================================================
+$`1`
+                      v.test Mean in category Overall mean sd in category
+nb_Cadres           9.706185        0.6678590    0.4133138     0.06572401
+nb_Arti_com         4.747971        0.2128814    0.1824953     0.06689661
+nb_Retraités        2.188075        0.4516955    0.4299984     0.07145262
+nb_PI              -2.491877        0.3563352    0.3745471     0.04942651
+nb_Autres.inactifs -5.320200        0.3649826    0.4322444     0.05565348
+nb_Chômeurs        -6.605754        0.2055332    0.2672388     0.02999883
+nb_Ouvriers        -8.346143        0.1137460    0.2708144     0.03248650
+nb_Employés        -9.482968        0.2604233    0.3780707     0.03752677
+                   Overall sd      p.value
+nb_Cadres          0.21427368 2.837600e-22
+nb_Arti_com        0.05229024 2.054671e-06
+nb_Retraités       0.08102020 2.866415e-02
+nb_PI              0.05971448 1.270700e-02
+nb_Autres.inactifs 0.10329833 1.036532e-07
+nb_Chômeurs        0.07632289 3.954981e-11
+nb_Ouvriers        0.15376429 7.052819e-17
+nb_Employés        0.10136557 2.471524e-21
+
+$`2`
+                      v.test Mean in category Overall mean sd in category
+nb_PI               5.321422        0.4201286    0.3745471     0.03989170
+nb_Retraités        4.758882        0.4853054    0.4299984     0.07510435
+nb_Chômeurs        -2.698633        0.2376941    0.2672388     0.04701634
+nb_Autres.inactifs -3.505642        0.3802995    0.4322444     0.05309014
+                   Overall sd      p.value
+nb_PI              0.05971448 1.029593e-07
+nb_Retraités       0.08102020 1.946680e-06
+nb_Chômeurs        0.07632289 6.962486e-03
+nb_Autres.inactifs 0.10329833 4.555080e-04
+
+$`3`
+                v.test Mean in category Overall mean sd in category Overall sd
+nb_Employés   5.101834        0.4635661    0.3780707     0.04648101 0.10136557
+nb_Ouvriers   3.426446        0.3579159    0.2708144     0.06041042 0.15376429
+nb_PI         3.273094        0.4068591    0.3745471     0.03692672 0.05971448
+nb_Chômeurs   2.840086        0.3030742    0.2672388     0.05119760 0.07632289
+nb_Retraités -2.322100        0.3988955    0.4299984     0.04638620 0.08102020
+nb_Arti_com  -2.436415        0.1614333    0.1824953     0.03292194 0.05229024
+nb_Cadres    -4.072608        0.2690466    0.4133138     0.06310945 0.21427368
+                  p.value
+nb_Employés  3.363770e-07
+nb_Ouvriers  6.115355e-04
+nb_PI        1.063769e-03
+nb_Chômeurs  4.510132e-03
+nb_Retraités 2.022757e-02
+nb_Arti_com  1.483364e-02
+nb_Cadres    4.648953e-05
+
+$`4`
+                      v.test Mean in category Overall mean sd in category
+nb_Autres.inactifs  8.816251        0.5934648    0.4322444     0.07702486
+nb_Ouvriers         8.514002        0.5025710    0.2708144     0.06640240
+nb_Chômeurs         7.973767        0.3749749    0.2672388     0.04571822
+nb_Employés         6.127194        0.4880206    0.3780707     0.04715015
+nb_Arti_com        -2.075736        0.1632805    0.1824953     0.02406550
+nb_Retraités       -5.538645        0.3505583    0.4299984     0.05338369
+nb_PI              -6.397861        0.3069143    0.3745471     0.03885688
+nb_Cadres          -7.533356        0.1275547    0.4133138     0.04063899
+                   Overall sd      p.value
+nb_Autres.inactifs 0.10329833 1.183555e-18
+nb_Ouvriers        0.15376429 1.680308e-17
+nb_Chômeurs        0.07632289 1.539090e-15
+nb_Employés        0.10136557 8.944237e-10
+nb_Arti_com        0.05229024 3.791839e-02
+nb_Retraités       0.08102020 3.048200e-08
+nb_PI              0.05971448 1.575688e-10
+nb_Cadres          0.21427368 4.945255e-14</code></pre>
+</div>
+</div>
+<p>On peut voir que la 1ère classe est marquée par une surreprésentation du nombre de personnes (de référence du ménage) cadres, puis artisans-commerçants, et dans une moindre mesure retraités ; et au contraire, une sous-représentation des employés, ouvriers, chômeurs ou encore autres inactifs. Sur la carte, on avait vu que cette classe était présente dans 17 des 20 arrondissements de Paris, ainsi que dans des communes des Hauts-de-Seine. C’est donc la classe correspondant aux communes des catégories d’actifs en emploi et d’inactifs favorisées.&nbsp;</p>
+<p>La seconde classe est, elle, caractérisée par une surreprésentation du nombre de professions intermédiaires et de retraités, et par une sous-représentation du nombte d’autres inactifs et de chômeurs. Géographiquement, on avait vu qu’elle correspondait aux 3 autres arrondissements de Paris et à des communes disséminées surtout dans les Hauts-de-Seine et le Val-de-Marne. Cette classe pourrait correspondre à des classes moyennes supérieures soit en emploi (professions intermédiaires) soit à la retraite.&nbsp;</p>
+<p>Dans la troisième classe, on note une surreprésentation des employés, des professions intermédiaires, des ouvriers et des chômeurs, et au contraire une sous-représentation des cadres, retraités et artisans-commerçants. Elle semble ainsi à l’opposé de la 1ère classe. Elle est davantage présente dans les communes du Val-de-Marne et de la Seine-Saint-Denis. Cette troisième classe correspond probablement ainsi à des catégories sociales moyennes basses, voire à des défavorisées. &nbsp;</p>
+<p>Enfin, la quatrième classe se caractérise par une surreprésentation des autres inactifs, des chômeurs, des ouvriers et des employés. Elle se retrouve plutôt dans les communes de la Seine-Saint-Denis, et un peu dans le Val-de-Marne. Elle correspondrait alors aux catégories sociales les plus défavorisées.</p>
+<p>On peut recupérer les statistiques de la moyenne de ces variables pour les visualiser sur un graphique comparant les 3 classes, ainsi que l’ensemble des communes, on va plutôt le faire à partir des variables centrées réduites, ce qui permet une une comparaison directe des profils de classe à partir de variables dont l’ordre de grandeur (l’écart-type) peut être différent.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># La fonction `scale()` permet de normaliser par colonne les valeurs numériques</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>clust_socioprof_sc <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">scale</span>(clust_socioprof[, <span class="sc">-</span><span class="fu">c</span>(<span class="dv">9</span>, <span class="dv">10</span>)])) </span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>clust_socioprof_1 <span class="ot">&lt;-</span> <span class="fu">cbind.data.frame</span>(clust_socioprof_sc, </span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">classe=</span><span class="fu">as.factor</span>(classe4_socioprof))</span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>mean_var <span class="ot">&lt;-</span> clust_socioprof_1 <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(classe) <span class="sc">%&gt;%</span> </span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarise_all</span>(<span class="fu">list</span>(mean))</span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a>mean_var <span class="sc">%&gt;%</span> <span class="fu">pivot_longer</span>(<span class="at">cols=</span><span class="sc">-</span>classe, <span class="at">names_to=</span><span class="st">"Variable"</span>, <span class="at">values_to=</span><span class="st">"Value"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span> <span class="fu">aes</span>(<span class="at">x=</span>Variable, <span class="at">y=</span>Value, <span class="at">fill=</span>classe) <span class="sc">+</span> <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">"identity"</span>) <span class="sc">+</span></span>
+<span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>classe) <span class="sc">+</span>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">"Set2"</span>) <span class="sc">+</span></span>
+<span id="cb27-12"><a href="#cb27-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_grey</span>() <span class="sc">+</span> <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
+<span id="cb27-13"><a href="#cb27-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Moyenne des variables actives selon les classes"</span>,</span>
+<span id="cb27-14"><a href="#cb27-14" aria-hidden="true" tabindex="-1"></a>       <span class="at">x=</span><span class="st">"Variables"</span>, <span class="at">y=</span><span class="st">""</span>) <span class="sc">+</span></span>
+<span id="cb27-15"><a href="#cb27-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="12-Clustering-application_files/figure-html/Compar_mean_bis-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Cela nous dit la même chose que la description précédente mais dans un format plus visuelle.</p>
+<p>Pour aller plus loin dans la compréhension des classes, il faut utiliser d’autres variables et procéder de même à des analyses descriptives croisant ces variables avec les 4 classes de la typologie obtenue. Pour cela, il faut récupérer des variables de la table initiale du RP et sortir des tableaux de statistiques ou des graphiques comme précédemment. <!--On peut aussi construire d'autres graphiques plus généraux et sur d'autres variables.--></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Pour d'autres variables, tableau croisé en pourcentage à partir d'une nouvelle</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="co"># fonction</span></span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>Tabcr_pctcol <span class="ot">&lt;-</span> <span class="cf">function</span>(data, var1, var2, <span class="at">pond=</span>IPONDI, <span class="at">nom_var1=</span><span class="st">"classe"</span>){</span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>  tabcroisefin <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span> <span class="fu">group_by</span>({{var2}})  <span class="sc">%&gt;%</span> </span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">count</span>({{var1}}, <span class="at">wt=</span>{{pond}}) <span class="sc">%&gt;%</span> <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> {{var1}},</span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>                                                 <span class="at">values_from =</span> <span class="st">"n"</span>, </span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a>                                                 <span class="at">names_prefix =</span> <span class="fu">paste0</span>(nom_var1,<span class="st">"_"</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">adorn_totals</span>(<span class="fu">c</span>(<span class="st">"row"</span>,<span class="st">'col'</span>)) <span class="sc">%&gt;%</span> <span class="fu">adorn_percentages</span>(<span class="st">"col"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">adorn_pct_formatting</span>(<span class="at">digits=</span><span class="dv">2</span>) </span>
+<span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb28-11"><a href="#cb28-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(tabcroisefin)</span>
+<span id="cb28-12"><a href="#cb28-12" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb28-13"><a href="#cb28-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-14"><a href="#cb28-14" aria-hidden="true" tabindex="-1"></a>clust_socioprof <span class="ot">&lt;-</span> clust_socioprof <span class="sc">%&gt;%</span> <span class="fu">rownames_to_column</span>(<span class="at">var=</span><span class="st">"COM"</span>)</span>
+<span id="cb28-15"><a href="#cb28-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-16"><a href="#cb28-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Liste variable à étudier plus en détails par exemple: "HLML","AGER20", "DIPL", IMMI,</span></span>
+<span id="cb28-17"><a href="#cb28-17" aria-hidden="true" tabindex="-1"></a><span class="co"># "EMPL", "RECH",  "STAT_CONJ", "STOCD",  "TACTD16", "TP",  "TYPL", "ETUD", SURF, CATL</span></span>
+<span id="cb28-18"><a href="#cb28-18" aria-hidden="true" tabindex="-1"></a>clust_socioprof <span class="sc">%&gt;%</span> <span class="fu">left_join</span>(RP_final[RP_final<span class="sc">$</span>CS1<span class="sc">!=</span><span class="st">"1"</span> <span class="sc">&amp;</span> </span>
+<span id="cb28-19"><a href="#cb28-19" aria-hidden="true" tabindex="-1"></a>                                         RP_final<span class="sc">$</span>COM<span class="sc">!=</span><span class="st">"ZZZZZ"</span> <span class="sc">&amp;</span> </span>
+<span id="cb28-20"><a href="#cb28-20" aria-hidden="true" tabindex="-1"></a>                                         <span class="sc">!</span>RP_final<span class="sc">$</span>AGER20 <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"2"</span>,<span class="st">"5"</span>,<span class="st">"10"</span>,<span class="st">"14"</span>),</span>
+<span id="cb28-21"><a href="#cb28-21" aria-hidden="true" tabindex="-1"></a>                                       <span class="fu">c</span>(<span class="st">"COM"</span>, <span class="st">"IPONDI"</span>, <span class="st">"IMMI"</span>)],</span>
+<span id="cb28-22"><a href="#cb28-22" aria-hidden="true" tabindex="-1"></a>                                   <span class="at">by=</span><span class="st">"COM"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb28-23"><a href="#cb28-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">libelles_var</span>(<span class="at">cod_var=</span><span class="st">"IMMI"</span>, <span class="at">new_var =</span> Immi_nom) <span class="sc">%&gt;%</span>  </span>
+<span id="cb28-24"><a href="#cb28-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">Tabcr_pctcol</span>(<span class="at">var1=</span>classe4_socioprof, <span class="at">var2=</span>Immi_nom) <span class="sc">%&gt;%</span> <span class="fu">gt</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div id="kugfkxgypg" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#kugfkxgypg table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#kugfkxgypg thead, #kugfkxgypg tbody, #kugfkxgypg tfoot, #kugfkxgypg tr, #kugfkxgypg td, #kugfkxgypg th {
+  border-style: none;
+}
+
+#kugfkxgypg p {
+  margin: 0;
+  padding: 0;
+}
+
+#kugfkxgypg .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#kugfkxgypg .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#kugfkxgypg .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#kugfkxgypg .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#kugfkxgypg .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#kugfkxgypg .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#kugfkxgypg .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#kugfkxgypg .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#kugfkxgypg .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#kugfkxgypg .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#kugfkxgypg .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#kugfkxgypg .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#kugfkxgypg .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#kugfkxgypg .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#kugfkxgypg .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#kugfkxgypg .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#kugfkxgypg .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#kugfkxgypg .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#kugfkxgypg .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#kugfkxgypg .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#kugfkxgypg .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#kugfkxgypg .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#kugfkxgypg .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#kugfkxgypg .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#kugfkxgypg .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#kugfkxgypg .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#kugfkxgypg .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#kugfkxgypg .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#kugfkxgypg .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#kugfkxgypg .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#kugfkxgypg .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#kugfkxgypg .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#kugfkxgypg .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#kugfkxgypg .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#kugfkxgypg .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#kugfkxgypg .gt_left {
+  text-align: left;
+}
+
+#kugfkxgypg .gt_center {
+  text-align: center;
+}
+
+#kugfkxgypg .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#kugfkxgypg .gt_font_normal {
+  font-weight: normal;
+}
+
+#kugfkxgypg .gt_font_bold {
+  font-weight: bold;
+}
+
+#kugfkxgypg .gt_font_italic {
+  font-style: italic;
+}
+
+#kugfkxgypg .gt_super {
+  font-size: 65%;
+}
+
+#kugfkxgypg .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#kugfkxgypg .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#kugfkxgypg .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#kugfkxgypg .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#kugfkxgypg .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#kugfkxgypg .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#kugfkxgypg .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#kugfkxgypg .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#kugfkxgypg div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+
+<table class="gt_table caption-top table table-sm table-striped small" data-quarto-bootstrap="false">
+<thead>
+<tr class="gt_col_headings header">
+<th id="Immi_nom" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">Immi_nom</th>
+<th id="classe_1" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">classe_1</th>
+<th id="classe_2" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">classe_2</th>
+<th id="classe_3" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">classe_3</th>
+<th id="classe_4" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">classe_4</th>
+<th id="Total" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Total</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_center" headers="Immi_nom">Immigrés</td>
+<td class="gt_row gt_right" headers="classe_1">21.00%</td>
+<td class="gt_row gt_right" headers="classe_2">24.71%</td>
+<td class="gt_row gt_right" headers="classe_3">31.97%</td>
+<td class="gt_row gt_right" headers="classe_4">43.94%</td>
+<td class="gt_row gt_right" headers="Total">27.61%</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="Immi_nom">Non immigrés</td>
+<td class="gt_row gt_right" headers="classe_1">79.00%</td>
+<td class="gt_row gt_right" headers="classe_2">75.29%</td>
+<td class="gt_row gt_right" headers="classe_3">68.03%</td>
+<td class="gt_row gt_right" headers="classe_4">56.06%</td>
+<td class="gt_row gt_right" headers="Total">72.39%</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_center" headers="Immi_nom">Total</td>
+<td class="gt_row gt_right" headers="classe_1">100.00%</td>
+<td class="gt_row gt_right" headers="classe_2">100.00%</td>
+<td class="gt_row gt_right" headers="classe_3">100.00%</td>
+<td class="gt_row gt_right" headers="classe_4">100.00%</td>
+<td class="gt_row gt_right" headers="Total">100.00%</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>Enfin, on a vu qu’il y avait plusieurs méthodes d’agrégation, ici nous avons utilisé le critère de Ward. Il est possible de tester d’autres méthodes et de comparer les dendogrammes alors obtenus.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Etape 3 bis : on choisit d'autres méthodes d'agrégation</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>classif.s <span class="ot">&lt;-</span> <span class="fu">hclust</span>(dist_mat, <span class="at">method =</span> <span class="st">"single"</span>)</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>classif.c <span class="ot">&lt;-</span> <span class="fu">hclust</span>(dist_mat, <span class="at">method =</span> <span class="st">"complete"</span>)</span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>classif.a <span class="ot">&lt;-</span> <span class="fu">hclust</span>(dist_mat, <span class="at">method =</span> <span class="st">"average"</span>)</span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>classif.cd <span class="ot">&lt;-</span> <span class="fu">hclust</span>(dist_mat, <span class="at">method =</span> <span class="st">"centroid"</span>)</span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a><span class="co">#Etape 4 bis : on visualise les dendogrammes des 4 nouvelles méthodes + la 1ère utilisée précédemment, et on les compare sur un même graphique</span></span>
+<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>))</span>
+<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(classif.s, <span class="at">xlab=</span><span class="st">"Commune"</span>, <span class="at">main =</span> <span class="st">"Single"</span>, <span class="at">label=</span><span class="cn">FALSE</span>)</span>
+<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(classif.c, <span class="at">xlab=</span><span class="st">"Commune"</span>, <span class="at">main =</span> <span class="st">"Complete"</span>, <span class="at">label=</span><span class="cn">FALSE</span>)</span>
+<span id="cb29-11"><a href="#cb29-11" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(classif.a, <span class="at">xlab=</span><span class="st">"Commune"</span>, <span class="at">main =</span> <span class="st">"Average"</span>, <span class="at">label=</span><span class="cn">FALSE</span>)</span>
+<span id="cb29-12"><a href="#cb29-12" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(classif.cd, <span class="at">xlab=</span><span class="st">"Commune"</span>, <span class="at">main =</span> <span class="st">"Centroid"</span>, <span class="at">label=</span><span class="cn">FALSE</span>)</span>
+<span id="cb29-13"><a href="#cb29-13" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(classif_socioprof, <span class="at">xlab=</span><span class="st">"Commune"</span>, <span class="at">main =</span> <span class="st">"Ward"</span>, <span class="at">label=</span><span class="cn">FALSE</span>)</span>
+<span id="cb29-14"><a href="#cb29-14" aria-hidden="true" tabindex="-1"></a><span class="co">#par(mfrow = c(1, 1)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="12-Clustering-application_files/figure-html/Cght_agr-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>On observe donc de fortes différences entre les dendogrammes. Par exemple, la méthode du “lien simple” ou “minimum” va avoir tendance à construire une grosse classe et une autre plus petite, c’est bien ce que l’on voit ici ; alors qu’au contraire, la méthode d’agrégation dite “complete” tend à construire des groupes plutôt de taille égale, en revanche, il faut savoir qu’elle est sensible aux points aberrants (on voit que ce n’est pas le cas ici). Enfin, on voit également que la méthode du “centroïd” (barycentre/centre de gravité des classes) produit un dendogramme particulier et un peu déséquilibré comme le premier graphe (méthode du “lien simple”). C’est bien la méthode de Ward qui est la plus utilisée en pratique.</p>
+</section>
+</section>
+<section id="la-méthode-des-k-means-appliquée-à-nos-données" class="level2" data-number="12.3">
+<h2 data-number="12.3" class="anchored" data-anchor-id="la-méthode-des-k-means-appliquée-à-nos-données"><span class="header-section-number">12.3</span> La méthode des <em>k-means</em> appliquée à nos données</h2>
+<p>On repart de notre table de données transformée (“cat_soc_chi2”) et on lui applique la fonction <code>kmeans</code> de <code>R</code>. Comme décrit dans la section précédente de manière théorique, il faut : i) choisir le nombre de classes que l’on souhaite avoir avec l’option <code>centers=k</code>, pour pouvoir comparer avec la méthode précédente de la CAH, on va donc choisir le même nombre de groupe, soit 4 ; ii) et réitérer toute la procédure plusieurs fois avec des individus pris au départ qui soient différents, avec l’option <code>nstart=</code>, ici on choisit 100 essais, et la fonction prendra le meilleur pour l’algorithme.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>clust.kmeans <span class="ot">&lt;-</span> <span class="fu">kmeans</span>(cat_soc_chi2, <span class="at">centers=</span><span class="dv">4</span>, <span class="at">nstart=</span><span class="dv">100</span>)</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="co"># On affiche ensuite les résultats principaux : effectif des classes, moyenne des </span></span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a><span class="co"># variables actives, groupes d'affectation des individus, </span></span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a><span class="co"># proportion d'inertie expliquée par la partition (ici 62%)</span></span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>clust.kmeans</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>K-means clustering with 4 clusters of sizes 25, 32, 35, 44
+
+Cluster means:
+  nb_Arti_com nb_Autres inactifs nb_Cadres nb_Chômeurs nb_Employés nb_Ouvriers
+1   0.1628033          0.5960445 0.1244789   0.3772366   0.4889990   0.5053904
+2   0.1773898          0.3772092 0.4399331   0.2344054   0.3646341   0.2085446
+3   0.1632631          0.4492721 0.2708982   0.2950802   0.4593574   0.3586570
+4   0.2126952          0.3656571 0.6713502   0.2064724   0.2601554   0.1129449
+      nb_PI nb_Retraités
+1 0.3056823    0.3486745
+2 0.4168261    0.4907071
+3 0.4090532    0.4098472
+4 0.3554784    0.4480826
+
+Clustering vector:
+75101 75102 75103 75104 75105 75106 75107 75108 75109 75110 75111 75112 75113 
+    4     4     4     4     4     4     4     4     4     4     4     4     2 
+75114 75115 75116 75117 75118 75119 75120 92002 92004 92007 92009 92012 92014 
+    4     4     4     4     4     2     2     4     4     3     4     4     4 
+92019 92020 92022 92023 92024 92025 92026 92032 92033 92035 92036 92040 92044 
+    2     4     4     2     2     2     4     2     4     4     1     4     4 
+92046 92048 92049 92050 92051 92060 92062 92063 92064 92071 92072 92073 92075 
+    2     4     4     3     4     2     4     4     4     4     4     4     4 
+92076 92077 92078 93001 93005 93006 93007 93008 93010 93013 93014 93027 93029 
+    4     4     1     1     1     3     1     1     1     1     1     1     1 
+93030 93031 93032 93033 93039 93045 93046 93047 93048 93049 93050 93051 93053 
+    1     1     3     2     3     2     3     1     3     2     3     3     1 
+93055 93057 93059 93061 93062 93063 93064 93066 93070 93071 93072 93073 93074 
+    3     3     1     3     2     3     3     1     3     1     1     3     3 
+93077 93078 93079 94002 94003 94004 94011 94015 94016 94017 94018 94019 94021 
+    3     1     1     3     2     3     1     2     2     3     2     3     3 
+94022 94028 94033 94034 94037 94038 94041 94042 94043 94044 94046 94048 94052 
+    3     3     2     3     2     2     3     2     2     3     2     2     4 
+94054 94055 94058 94059 94060 94065 94067 94068 94069 94071 94073 94074 94075 
+    1     2     2     3     3     2     4     2     2     2     3     1     2 
+94076 94077 94078 94079 94080 94081 
+    3     3     1     3     4     3 
+
+Within cluster sum of squares by cluster:
+[1] 0.5293592 0.7928106 0.6781738 0.9706255
+ (between_SS / total_SS =  80.0 %)
+
+Available components:
+
+[1] "cluster"      "centers"      "totss"        "withinss"     "tot.withinss"
+[6] "betweenss"    "size"         "iter"         "ifault"      </code></pre>
+</div>
+</div>
+<p>On peut comparer avec les classes obtenues précédemment avec la CAH, simplement en croisant les deux variables de classe :</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co">#correspondance avec les groupes de la CAH</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(classe4_socioprof, clust.kmeans<span class="sc">$</span>cluster)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                 
+classe4_socioprof  1  2  3  4
+                1  0  1  0 44
+                2  0 31  5  0
+                3  0  0 29  0
+                4 25  0  1  0</code></pre>
+</div>
+</div>
+<p>On voit ainsi que certaines classes de la <em>CAH</em> (les 4 lignes du tableau) coïncident exactement ou quasi-exactement avec les classes des <em>K-means</em> (en colonne), et une un peu moins car un peu plus distribuée entre plusieurs classes de la typologie des <em>K-means</em> . Autrement dit, on conclut à un changement de classes à la marge.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>clust_kmeans <span class="ot">&lt;-</span> clust.kmeans<span class="sc">$</span>cluster <span class="sc">%&gt;%</span> <span class="fu">as.data.frame</span>() <span class="sc">%&gt;%</span> <span class="fu">rename</span>(<span class="st">"classe4_socioprof"</span><span class="ot">=</span><span class="st">"."</span>) <span class="sc">%&gt;%</span> <span class="fu">rownames_to_column</span>(<span class="st">"COM"</span>)</span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>map_com_typo_1 <span class="ot">&lt;-</span> map_com <span class="sc">%&gt;%</span> <span class="fu">select</span>(COM, com_name, geometry) <span class="sc">%&gt;%</span> </span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(clust_kmeans)</span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_theme</span>(<span class="st">"agolalight"</span>)</span>
+<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(map_com_typo_1, <span class="at">var=</span><span class="st">"classe4_socioprof"</span>, <span class="at">type=</span><span class="st">"typo"</span>, </span>
+<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">pal =</span> <span class="fu">c</span>(<span class="st">"aquamarine3"</span>, <span class="st">"coral"</span>, <span class="st">"skyblue3"</span>, <span class="st">"brown4"</span>),</span>
+<span id="cb34-8"><a href="#cb34-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">leg_pos =</span> <span class="st">"bottomleft"</span>, <span class="at">leg_title=</span><span class="st">"Cluster"</span>,</span>
+<span id="cb34-9"><a href="#cb34-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">col_na =</span> <span class="st">"gray80"</span>, <span class="at">leg_no_data =</span> <span class="st">"Données manquantes"</span>)</span>
+<span id="cb34-10"><a href="#cb34-10" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(map_dept, <span class="at">var=</span><span class="st">"nom_dep"</span>,  <span class="at">type =</span> <span class="st">"base"</span>,</span>
+<span id="cb34-11"><a href="#cb34-11" aria-hidden="true" tabindex="-1"></a>       <span class="at">col =</span> <span class="cn">NA</span>, <span class="at">col_na =</span> <span class="st">"gray80"</span>,</span>
+<span id="cb34-12"><a href="#cb34-12" aria-hidden="true" tabindex="-1"></a>       <span class="at">border=</span><span class="st">"black"</span>,<span class="at">lwd=</span><span class="dv">1</span>, <span class="at">add =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb34-13"><a href="#cb34-13" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_layout</span>(<span class="at">frame =</span> <span class="cn">TRUE</span>, <span class="at">credits=</span><span class="st">" "</span>, <span class="at">arrow =</span> F)</span>
+<span id="cb34-14"><a href="#cb34-14" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_title</span>(<span class="st">"Profils socioprofessionnels des communes de Paris et sa petite couronne"</span>, <span class="at">cex =</span> <span class="fl">1.25</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="12-Clustering-application_files/figure-html/carto kmeans-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>On a vu avec la description de la méthode, que ce qui est difficile ici c’est qu’on choisit nous-mêmes le nombre de classes dans une première étape sans savoir parfois pourquoi. Il faut donc souvent faire varier le nombre de classes de départ (<code>centers=k</code>), à ne pas confondre avec les individus centres initiaux de classes (ce que l’on a fait précédemment en indiquant l’option <code>nstart=100</code>). A partir d’un exemple de code récupéré sur un document de cours externe (<a href="https://eric.univ-lyon2.fr/ricco/cours/didacticiels/R/cah_kmeans_avec_r.pdf">ici</a>), on peut créer une boucle pour répéter la procédure en changeant le nombre de classes, et ensuite construire un graphique visualisant l’indicateur de pourcentage d’inertie expliquée. Plus précisément, on fait tourner plusieurs fois la méthode des K-means sur notre base de données centrées-réduites pour un nombre de classes souhaitées variant entre 2 et 6, et on récupère la part de l’inertie expliquée par la partition obtenue (indicateur <code>between_SS / total_SS</code> que l’on a vu dans la sortie précédente). Puis, on crée un graphique représentant cette part pour chacune des partitions construites.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Boucle pour calculer la part de l'inertie expliquée par la partition, selon le  </span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="co"># nombre de classes souhaitées</span></span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>inertie.expl <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">0</span>, <span class="at">times=</span><span class="dv">6</span>)</span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (k <span class="cf">in</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">6</span>){</span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a>  clus <span class="ot">&lt;-</span> <span class="fu">kmeans</span>(cat_soc_chi2, <span class="at">centers=</span>k, <span class="at">nstart=</span><span class="dv">100</span>)  </span>
+<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a>  inertie.expl[k] <span class="ot">&lt;-</span> clus<span class="sc">$</span>betweenss<span class="sc">/</span>clus<span class="sc">$</span>totss}</span>
+<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-8"><a href="#cb35-8" aria-hidden="true" tabindex="-1"></a><span class="co">#Création du graphique</span></span>
+<span id="cb35-9"><a href="#cb35-9" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>, inertie.expl, <span class="at">type=</span><span class="st">"b"</span>, <span class="at">xlab=</span><span class="st">"Nombre de classes choisies"</span>, </span>
+<span id="cb35-10"><a href="#cb35-10" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab=</span><span class="st">"Pourcentage d'inertie expliquée par la partition"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="12-Clustering-application_files/figure-html/Compar_clK-means-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>On observe sur ce graphique qu’à partir de k=3, autrement dit de 3 classes, la “création” d’une classe supplémentaire ne semble pas augmenter significativement la part d’inertie expliquée par la partition. Pour comprendre ce que revêt ce “significativement”, on peut regarder notamment la pente de chaque droite reliant les points d’une partition à une autre : pour la droite reliant le nombre de classes “2” et “3”, on voit que sa pente diminue déjà pas mal par rapport à la droite reliant les deux classes précédentes, et cela est encore plus visible pour les pentes suivantes.</p>
+<p>Une autre méthode évoquée par le même document de cours propose d’utiliser le package <code>fpc</code> qui propose une fonction <code>kmeansruns</code> évaluant les différentes partitions à partir de 2 critères à choisir : l’indice de Calinski Harabasz - option <code>criterion="ch"</code>, ou celui de la “average silhouette width” (largeur moyenne de la silhouette) - option <code>criterion="asw"</code>. On peut ensuite construire un graphique comme précédemment pour visualiser l’évolution de cet indice selon le nombre de classes de la partition.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co"># OU utilisation du package fpc et de l'indice de Calinski Harabasz  </span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(fpc)</span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a><span class="co">#Evaluation des solutions</span></span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>eval.kmeans <span class="ot">&lt;-</span> <span class="fu">kmeansruns</span>(cat_soc_chi2,</span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a>                         <span class="at">krange=</span><span class="dv">2</span><span class="sc">:</span><span class="dv">6</span>,</span>
+<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a>                         <span class="at">criterion=</span><span class="st">"ch"</span>,)</span>
+<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-8"><a href="#cb36-8" aria-hidden="true" tabindex="-1"></a><span class="co">#Graphique</span></span>
+<span id="cb36-9"><a href="#cb36-9" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>, eval.kmeans<span class="sc">$</span>crit,<span class="at">type=</span><span class="st">"b"</span>, <span class="at">xlab=</span><span class="st">"Nombre de classes"</span>, </span>
+<span id="cb36-10"><a href="#cb36-10" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab=</span><span class="st">"Indice de Calinski Harabasz "</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="12-Clustering-application_files/figure-html/Compar_clK-means_bis-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Pour lire et choisir le “bon” nombre de classes selon ce critère, il faut maximiser l’indice donc trouver le point le plus haut : ici, c’est la partition à 2 classes qui semble la “meilleure” typologie comme on l’avait vu dans la CAH avec le dendogramme, mais une partition a minima en 3 classes semble plus intéressante pour l’interprétation.</p>
+
+
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>Plus précisément, à chaque étape d’agrégation, la part de l’inertie interclasse passe en inertie intraclasse.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./11-Clustering-theorique.html" class="pagination-link" aria-label="Clustering : aspects théoriques">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Clustering : aspects théoriques</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

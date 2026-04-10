@@ -65,6 +65,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<link href="./11-Clustering-theorique.html" rel="next">
 <link href="./09-Intro-a-Shiny-theorique.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -423,6 +424,29 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
       </ul>
   </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Séance 5</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./11-Clustering-theorique.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Clustering : aspects théoriques</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./12-Clustering-application.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Clustering : application sur le RP 2021</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
     </ul>
     </div>
 </nav>
@@ -441,6 +465,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#applications-plus-poussées-sur-shiny" id="toc-applications-plus-poussées-sur-shiny" class="nav-link" data-scroll-target="#applications-plus-poussées-sur-shiny"><span class="header-section-number">11</span> Applications plus poussées sur Shiny</a>
   <ul class="collapse">
   <li><a href="#application-avec-un-tableau-et-un-graphique-sur-une-autre-base-de-données" id="toc-application-avec-un-tableau-et-un-graphique-sur-une-autre-base-de-données" class="nav-link" data-scroll-target="#application-avec-un-tableau-et-un-graphique-sur-une-autre-base-de-données"><span class="header-section-number">11.1</span> Application avec un tableau et un graphique sur une autre base de données</a></li>
+  <li><a href="#introduction-dune-réactivité-sur-les-inputs-contexte-réactif" id="toc-introduction-dune-réactivité-sur-les-inputs-contexte-réactif" class="nav-link" data-scroll-target="#introduction-dune-réactivité-sur-les-inputs-contexte-réactif"><span class="header-section-number">11.2</span> Introduction d’une réactivité sur les inputs (contexte réactif)</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -1087,6 +1112,263 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb11-96"><a href="#cb11-96" aria-hidden="true" tabindex="-1"></a><span class="fu">shinyApp</span>(<span class="at">ui =</span> ui, <span class="at">server =</span> server)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Par rapport aux exemples précédents déjà réalisés sur Shiny, nous n’avons pas beaucoup ajouté de choses nouvelles : un peu de langage html (<code>br()</code>) pour insérer des espaces entre le tableau et le graphique, ou le titre général et le reste des éléments de l’application ; puis une fonction de condition à l’intérieur du <code>labs()</code> de <strong><code>Ggplot</code></strong> et avec la fonction <code>paste()</code> pour, d’une part, que le titre change selon le nombre de pièces choisi par l’utilisateur (plusieurs fonctions <code>ifelse()</code>), et, d’autre part, que le titre change selon l’année choisie).</p>
+<p>&nbsp;</p>
+<p>On va maintenant rendre le tableau réactif selon l’année choisie.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Définition UI et Server de l'application Shiny</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>ui <span class="ot">&lt;-</span> <span class="fu">fluidPage</span>(</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Titre de l'application</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">titlePanel</span>(<span class="st">"Caractéristiques des ventes d'appartements dans Paris sur la période 2018-2023"</span>),</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">br</span>(),</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Définition du Widget</span></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sidebarLayout</span>(</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">sidebarPanel</span>(</span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>      <span class="fu">selectInput</span>(<span class="at">inputId =</span> <span class="st">"annee"</span>, </span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>                  <span class="at">label =</span> <span class="st">"Choix de l'année de vente pour le tableau et le graphique"</span>, </span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>                  <span class="at">choices =</span> <span class="fu">levels</span>(dvf_Paris<span class="sc">$</span>annee_vente),</span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>                  <span class="at">selected =</span> <span class="st">"2018"</span>),</span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>      <span class="fu">radioButtons</span>(<span class="at">inputId =</span> <span class="st">"nb_pieces"</span>, </span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>                   <span class="at">label =</span> <span class="st">"Choix du nombre de pièces pour le graphique"</span>,</span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>                   <span class="at">choices =</span> <span class="fu">levels</span>(dvf_Paris<span class="sc">$</span>nbpieces_cat),</span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>                   <span class="at">selected =</span> <span class="st">"Deux pièces"</span>)</span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a>      ),</span>
+<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Tableau et graphe montré à l'utilisateur</span></span>
+<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mainPanel</span>(</span>
+<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a>      <span class="fu">gt_output</span>(<span class="st">"tab"</span>),</span>
+<span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-25"><a href="#cb12-25" aria-hidden="true" tabindex="-1"></a>      <span class="fu">br</span>(),</span>
+<span id="cb12-26"><a href="#cb12-26" aria-hidden="true" tabindex="-1"></a>      <span class="fu">br</span>(),</span>
+<span id="cb12-27"><a href="#cb12-27" aria-hidden="true" tabindex="-1"></a>      </span>
+<span id="cb12-28"><a href="#cb12-28" aria-hidden="true" tabindex="-1"></a>      <span class="fu">plotOutput</span>(<span class="st">"barplot"</span>)    </span>
+<span id="cb12-29"><a href="#cb12-29" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb12-30"><a href="#cb12-30" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb12-31"><a href="#cb12-31" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb12-32"><a href="#cb12-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-33"><a href="#cb12-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-34"><a href="#cb12-34" aria-hidden="true" tabindex="-1"></a>server <span class="ot">&lt;-</span> <span class="cf">function</span>(input, output) {</span>
+<span id="cb12-35"><a href="#cb12-35" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb12-36"><a href="#cb12-36" aria-hidden="true" tabindex="-1"></a>  output<span class="sc">$</span>tab <span class="ot">&lt;-</span> <span class="fu">render_gt</span>({</span>
+<span id="cb12-37"><a href="#cb12-37" aria-hidden="true" tabindex="-1"></a>  dvf_Paris <span class="sc">%&gt;%</span> </span>
+<span id="cb12-38"><a href="#cb12-38" aria-hidden="true" tabindex="-1"></a>      <span class="fu">filter</span>(annee_vente <span class="sc">==</span> input<span class="sc">$</span>annee) <span class="sc">%&gt;%</span></span>
+<span id="cb12-39"><a href="#cb12-39" aria-hidden="true" tabindex="-1"></a>      <span class="fu">summarise</span>(<span class="st">"Nombre de ventes d'appartements"</span> <span class="ot">=</span> <span class="fu">sum</span>(no_disposition),</span>
+<span id="cb12-40"><a href="#cb12-40" aria-hidden="true" tabindex="-1"></a>                <span class="st">"Prix moyen au m2 des appartements, en €"</span> <span class="ot">=</span> <span class="fu">round</span>(<span class="fu">mean</span>(prix_metre_carrez)),</span>
+<span id="cb12-41"><a href="#cb12-41" aria-hidden="true" tabindex="-1"></a>                <span class="st">"Prix médian au m2 des appartements, en €"</span> <span class="ot">=</span> <span class="fu">round</span>(<span class="fu">median</span>(prix_metre_carrez)),</span>
+<span id="cb12-42"><a href="#cb12-42" aria-hidden="true" tabindex="-1"></a>                <span class="st">"Nombre moyen de pièces"</span> <span class="ot">=</span> <span class="fu">round</span>(<span class="fu">mean</span>(nb_pieces))) <span class="sc">%&gt;%</span> </span>
+<span id="cb12-43"><a href="#cb12-43" aria-hidden="true" tabindex="-1"></a>      <span class="fu">gt</span>() <span class="sc">%&gt;%</span>  </span>
+<span id="cb12-44"><a href="#cb12-44" aria-hidden="true" tabindex="-1"></a>      <span class="fu">fmt_number</span>(<span class="at">columns=</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="at">sep_mark =</span> <span class="st">" "</span>, <span class="at">decimals =</span> <span class="dv">0</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb12-45"><a href="#cb12-45" aria-hidden="true" tabindex="-1"></a>      <span class="fu">tab_header</span>(<span class="at">title=</span><span class="fu">paste</span>(<span class="st">'Principaux indicateurs en'</span>,input<span class="sc">$</span>annee))</span>
+<span id="cb12-46"><a href="#cb12-46" aria-hidden="true" tabindex="-1"></a>  })</span>
+<span id="cb12-47"><a href="#cb12-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-48"><a href="#cb12-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-49"><a href="#cb12-49" aria-hidden="true" tabindex="-1"></a>  output<span class="sc">$</span>barplot <span class="ot">&lt;-</span> <span class="fu">renderPlot</span>({</span>
+<span id="cb12-50"><a href="#cb12-50" aria-hidden="true" tabindex="-1"></a>  dvf_Paris <span class="sc">%&gt;%</span> </span>
+<span id="cb12-51"><a href="#cb12-51" aria-hidden="true" tabindex="-1"></a>      <span class="fu">filter</span>(annee_vente <span class="sc">==</span> input<span class="sc">$</span>annee <span class="sc">&amp;</span> nbpieces_cat<span class="sc">==</span>input<span class="sc">$</span>nb_pieces) <span class="sc">%&gt;%</span> </span>
+<span id="cb12-52"><a href="#cb12-52" aria-hidden="true" tabindex="-1"></a>      <span class="fu">group_by</span>(code_postal) <span class="sc">%&gt;%</span> </span>
+<span id="cb12-53"><a href="#cb12-53" aria-hidden="true" tabindex="-1"></a>      <span class="fu">summarise</span>(<span class="at">med_prixm2 =</span> <span class="fu">round</span>(<span class="fu">median</span>(prix_metre_carrez))) <span class="sc">%&gt;%</span> </span>
+<span id="cb12-54"><a href="#cb12-54" aria-hidden="true" tabindex="-1"></a>      <span class="fu">arrange</span>(<span class="fu">desc</span>(med_prixm2)) <span class="sc">%&gt;%</span> <span class="fu">slice</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb12-55"><a href="#cb12-55" aria-hidden="true" tabindex="-1"></a>      <span class="fu">ggplot</span>() <span class="sc">+</span> <span class="fu">aes</span>(<span class="at">x =</span> med_prixm2, <span class="at">y =</span> <span class="fu">fct_reorder</span>(code_postal, med_prixm2))  <span class="sc">+</span> </span>
+<span id="cb12-56"><a href="#cb12-56" aria-hidden="true" tabindex="-1"></a>      <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">"identity"</span>, <span class="at">fill=</span><span class="st">"darkgoldenrod1"</span>)  <span class="sc">+</span></span>
+<span id="cb12-57"><a href="#cb12-57" aria-hidden="true" tabindex="-1"></a>      <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label=</span>med_prixm2), <span class="at">position =</span> <span class="fu">position_stack</span>(<span class="at">vjust=</span><span class="fl">0.5</span>), <span class="at">size=</span><span class="fl">3.8</span>) <span class="sc">+</span></span>
+<span id="cb12-58"><a href="#cb12-58" aria-hidden="true" tabindex="-1"></a>      <span class="fu">labs</span>(<span class="at">title =</span> <span class="fu">paste</span>(<span class="st">"Top 5 des arrondissements ayant les prix médians au m2 des ventes </span><span class="sc">\n</span><span class="st">d'appartements"</span>, </span>
+<span id="cb12-59"><a href="#cb12-59" aria-hidden="true" tabindex="-1"></a>                         <span class="fu">ifelse</span>(input<span class="sc">$</span>nb_pieces<span class="sc">==</span><span class="st">"Une pièce"</span>, <span class="st">"d'une pièce"</span>, </span>
+<span id="cb12-60"><a href="#cb12-60" aria-hidden="true" tabindex="-1"></a>                              <span class="fu">ifelse</span>(input<span class="sc">$</span>nb_pieces<span class="sc">==</span><span class="st">"Deux pièces"</span>, <span class="st">"de deux pièces"</span>,</span>
+<span id="cb12-61"><a href="#cb12-61" aria-hidden="true" tabindex="-1"></a>                                     <span class="fu">ifelse</span>(input<span class="sc">$</span>nb_pieces<span class="sc">==</span><span class="st">"Trois pièces ou plus"</span>, <span class="st">"de trois pièces ou plus"</span>))),</span>
+<span id="cb12-62"><a href="#cb12-62" aria-hidden="true" tabindex="-1"></a>                         <span class="st">"les plus élevés en"</span>, input<span class="sc">$</span>annee),</span>
+<span id="cb12-63"><a href="#cb12-63" aria-hidden="true" tabindex="-1"></a>           <span class="at">x=</span><span class="st">" "</span>, <span class="at">y=</span><span class="st">" "</span>,</span>
+<span id="cb12-64"><a href="#cb12-64" aria-hidden="true" tabindex="-1"></a>           <span class="at">caption =</span> <span class="st">"Source : Base 'demande de valeurs foncières', 2018-2023."</span>) <span class="sc">+</span></span>
+<span id="cb12-65"><a href="#cb12-65" aria-hidden="true" tabindex="-1"></a>      <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
+<span id="cb12-66"><a href="#cb12-66" aria-hidden="true" tabindex="-1"></a>      <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">17</span>),</span>
+<span id="cb12-67"><a href="#cb12-67" aria-hidden="true" tabindex="-1"></a>            <span class="at">plot.caption =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="dv">0</span>, <span class="at">size=</span><span class="dv">12</span>),</span>
+<span id="cb12-68"><a href="#cb12-68" aria-hidden="true" tabindex="-1"></a>            <span class="at">axis.text.y =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="fl">12.5</span>),</span>
+<span id="cb12-69"><a href="#cb12-69" aria-hidden="true" tabindex="-1"></a>            <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="fl">12.5</span>))</span>
+<span id="cb12-70"><a href="#cb12-70" aria-hidden="true" tabindex="-1"></a>  })</span>
+<span id="cb12-71"><a href="#cb12-71" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb12-72"><a href="#cb12-72" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb12-73"><a href="#cb12-73" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-74"><a href="#cb12-74" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-75"><a href="#cb12-75" aria-hidden="true" tabindex="-1"></a><span class="fu">shinyApp</span>(<span class="at">ui =</span> ui, <span class="at">server =</span> server)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>&nbsp; &nbsp; ## Introduction d’une réactivité appliquée à la table de données</p>
+<p>On peut rendre maintenant la base de données réactive avec la fonction <code>reactive({})</code>. On l’avait vu, la fonction <code>reactive()</code> permet de créer un objet réactif qui est à la fois une entrée réactive et une sortie réactive, l’objet va donc se mettre à jour automatiquement si les entrées qu’il utilise changent, et il va automatiquement déclencher la mise à jour des sorties où il est utilisé. &nbsp; La fonction permet techniquement de décomposer du code réactif et est utile lorsque certaines parties du code sont utilisées par plusieurs outputs car elle va permettre alors d’éviter des redondances. Cela peut être le cas lorsqu’on doit filtrer et/ou sélectionner des mêmes variables en input pour plusieurs outputs.<br>
+Ici, on va décomposer la partie ‘data’ du code précédent de la partie construction du graphique ; le rendu sera strictement le même ; mais cela peut être plus efficace en cas de long code et d’application complexe car en gros on va exécuter qu’une seule fois l’opération ‘data’ réalisée ici. &nbsp; Attention, la base réactive créée est une fonction, il faut donc l’appeler avec des parenthèses !</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Définition UI et Server de l'application Shiny</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>ui <span class="ot">&lt;-</span> <span class="fu">fluidPage</span>(</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Titre de l'application</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">titlePanel</span>(<span class="st">"Caractéristiques des ventes d'appartements dans Paris sur la période 2018-2023"</span>),</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">br</span>(),</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Définition du Widget</span></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sidebarLayout</span>(</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">sidebarPanel</span>(</span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>      <span class="fu">selectInput</span>(<span class="at">inputId =</span> <span class="st">"annee"</span>, </span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>                  <span class="at">label =</span> <span class="st">"Choix de l'année de vente pour le tableau et le graphique"</span>, </span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>                  <span class="at">choices =</span> <span class="fu">levels</span>(dvf_Paris<span class="sc">$</span>annee_vente),</span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>                  <span class="at">selected =</span> <span class="st">"2018"</span>),</span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>      <span class="fu">radioButtons</span>(<span class="at">inputId =</span> <span class="st">"nb_pieces"</span>, </span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>                   <span class="at">label =</span> <span class="st">"Choix du nombre de pièces pour le graphique"</span>,</span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>                   <span class="at">choices =</span> <span class="fu">levels</span>(dvf_Paris<span class="sc">$</span>nbpieces_cat),</span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a>                   <span class="at">selected =</span> <span class="st">"Deux pièces"</span>)</span>
+<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a>      ),</span>
+<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Tableau et graphe montré à l'utilisateur</span></span>
+<span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mainPanel</span>(</span>
+<span id="cb13-23"><a href="#cb13-23" aria-hidden="true" tabindex="-1"></a>      <span class="fu">gt_output</span>(<span class="st">"tab"</span>),</span>
+<span id="cb13-24"><a href="#cb13-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-25"><a href="#cb13-25" aria-hidden="true" tabindex="-1"></a>      <span class="fu">br</span>(),</span>
+<span id="cb13-26"><a href="#cb13-26" aria-hidden="true" tabindex="-1"></a>      <span class="fu">br</span>(),</span>
+<span id="cb13-27"><a href="#cb13-27" aria-hidden="true" tabindex="-1"></a>      </span>
+<span id="cb13-28"><a href="#cb13-28" aria-hidden="true" tabindex="-1"></a>      <span class="fu">plotOutput</span>(<span class="st">"barplot"</span>)    </span>
+<span id="cb13-29"><a href="#cb13-29" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb13-30"><a href="#cb13-30" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb13-31"><a href="#cb13-31" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb13-32"><a href="#cb13-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-33"><a href="#cb13-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-34"><a href="#cb13-34" aria-hidden="true" tabindex="-1"></a>server <span class="ot">&lt;-</span> <span class="cf">function</span>(input, output) {</span>
+<span id="cb13-35"><a href="#cb13-35" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb13-36"><a href="#cb13-36" aria-hidden="true" tabindex="-1"></a>  output<span class="sc">$</span>tab <span class="ot">&lt;-</span> <span class="fu">render_gt</span>({</span>
+<span id="cb13-37"><a href="#cb13-37" aria-hidden="true" tabindex="-1"></a>  dvf_Paris <span class="sc">%&gt;%</span> </span>
+<span id="cb13-38"><a href="#cb13-38" aria-hidden="true" tabindex="-1"></a>      <span class="fu">filter</span>(annee_vente <span class="sc">==</span> input<span class="sc">$</span>annee) <span class="sc">%&gt;%</span></span>
+<span id="cb13-39"><a href="#cb13-39" aria-hidden="true" tabindex="-1"></a>      <span class="fu">summarise</span>(<span class="st">"Nombre de ventes d'appartements"</span> <span class="ot">=</span> <span class="fu">sum</span>(no_disposition),</span>
+<span id="cb13-40"><a href="#cb13-40" aria-hidden="true" tabindex="-1"></a>                <span class="st">"Prix moyen au m2 des appartements, en €"</span> <span class="ot">=</span> <span class="fu">round</span>(<span class="fu">mean</span>(prix_metre_carrez)),</span>
+<span id="cb13-41"><a href="#cb13-41" aria-hidden="true" tabindex="-1"></a>                <span class="st">"Prix médian au m2 des appartements, en €"</span> <span class="ot">=</span> <span class="fu">round</span>(<span class="fu">median</span>(prix_metre_carrez)),</span>
+<span id="cb13-42"><a href="#cb13-42" aria-hidden="true" tabindex="-1"></a>                <span class="st">"Nombre moyen de pièces"</span> <span class="ot">=</span> <span class="fu">round</span>(<span class="fu">mean</span>(nb_pieces))) <span class="sc">%&gt;%</span> </span>
+<span id="cb13-43"><a href="#cb13-43" aria-hidden="true" tabindex="-1"></a>      <span class="fu">gt</span>() <span class="sc">%&gt;%</span>  </span>
+<span id="cb13-44"><a href="#cb13-44" aria-hidden="true" tabindex="-1"></a>      <span class="fu">fmt_number</span>(<span class="at">columns=</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="at">sep_mark =</span> <span class="st">" "</span>, <span class="at">decimals =</span> <span class="dv">0</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb13-45"><a href="#cb13-45" aria-hidden="true" tabindex="-1"></a>      <span class="fu">tab_header</span>(<span class="at">title=</span><span class="fu">paste</span>(<span class="st">'Principaux indicateurs en'</span>,input<span class="sc">$</span>annee))</span>
+<span id="cb13-46"><a href="#cb13-46" aria-hidden="true" tabindex="-1"></a>  })</span>
+<span id="cb13-47"><a href="#cb13-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-48"><a href="#cb13-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-49"><a href="#cb13-49" aria-hidden="true" tabindex="-1"></a>dvf_Paris_react <span class="ot">&lt;-</span> <span class="fu">reactive</span>({</span>
+<span id="cb13-50"><a href="#cb13-50" aria-hidden="true" tabindex="-1"></a>    dvf_Paris <span class="sc">%&gt;%</span> </span>
+<span id="cb13-51"><a href="#cb13-51" aria-hidden="true" tabindex="-1"></a>      <span class="fu">filter</span>(annee_vente <span class="sc">==</span> input<span class="sc">$</span>annee <span class="sc">&amp;</span> nbpieces_cat<span class="sc">==</span>input<span class="sc">$</span>nb_pieces) <span class="sc">%&gt;%</span> </span>
+<span id="cb13-52"><a href="#cb13-52" aria-hidden="true" tabindex="-1"></a>      <span class="fu">group_by</span>(code_postal) <span class="sc">%&gt;%</span>  </span>
+<span id="cb13-53"><a href="#cb13-53" aria-hidden="true" tabindex="-1"></a>      <span class="fu">summarise</span>(<span class="at">med_prixm2 =</span> <span class="fu">round</span>(<span class="fu">median</span>(prix_metre_carrez))) <span class="sc">%&gt;%</span> </span>
+<span id="cb13-54"><a href="#cb13-54" aria-hidden="true" tabindex="-1"></a>      <span class="fu">arrange</span>(<span class="fu">desc</span>(med_prixm2)) <span class="sc">%&gt;%</span> <span class="fu">slice</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>)</span>
+<span id="cb13-55"><a href="#cb13-55" aria-hidden="true" tabindex="-1"></a>  })</span>
+<span id="cb13-56"><a href="#cb13-56" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb13-57"><a href="#cb13-57" aria-hidden="true" tabindex="-1"></a>  output<span class="sc">$</span>barplot <span class="ot">&lt;-</span> <span class="fu">renderPlot</span>({</span>
+<span id="cb13-58"><a href="#cb13-58" aria-hidden="true" tabindex="-1"></a>  <span class="fu">dvf_Paris_react</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb13-59"><a href="#cb13-59" aria-hidden="true" tabindex="-1"></a>      <span class="fu">ggplot</span>() <span class="sc">+</span> <span class="fu">aes</span>(<span class="at">x =</span> med_prixm2, <span class="at">y =</span> <span class="fu">fct_reorder</span>(code_postal, med_prixm2))  <span class="sc">+</span> </span>
+<span id="cb13-60"><a href="#cb13-60" aria-hidden="true" tabindex="-1"></a>      <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">"identity"</span>, <span class="at">fill=</span><span class="st">"darkgoldenrod1"</span>)  <span class="sc">+</span></span>
+<span id="cb13-61"><a href="#cb13-61" aria-hidden="true" tabindex="-1"></a>      <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label=</span>med_prixm2), <span class="at">position =</span> <span class="fu">position_stack</span>(<span class="at">vjust=</span><span class="fl">0.5</span>), <span class="at">size=</span><span class="fl">3.8</span>) <span class="sc">+</span></span>
+<span id="cb13-62"><a href="#cb13-62" aria-hidden="true" tabindex="-1"></a>      <span class="fu">labs</span>(<span class="at">title =</span> <span class="fu">paste</span>(<span class="st">"Top 5 des arrondissements ayant les prix médians au m2 des ventes </span><span class="sc">\n</span><span class="st">d'appartements"</span>, </span>
+<span id="cb13-63"><a href="#cb13-63" aria-hidden="true" tabindex="-1"></a>                         <span class="fu">ifelse</span>(input<span class="sc">$</span>nb_pieces<span class="sc">==</span><span class="st">"Une pièce"</span>, <span class="st">"d'une pièce"</span>, </span>
+<span id="cb13-64"><a href="#cb13-64" aria-hidden="true" tabindex="-1"></a>                              <span class="fu">ifelse</span>(input<span class="sc">$</span>nb_pieces<span class="sc">==</span><span class="st">"Deux pièces"</span>, <span class="st">"de deux pièces"</span>,</span>
+<span id="cb13-65"><a href="#cb13-65" aria-hidden="true" tabindex="-1"></a>                                     <span class="fu">ifelse</span>(input<span class="sc">$</span>nb_pieces<span class="sc">==</span><span class="st">"Trois pièces ou plus"</span>, <span class="st">"de trois pièces ou plus"</span>))),</span>
+<span id="cb13-66"><a href="#cb13-66" aria-hidden="true" tabindex="-1"></a>                         <span class="st">"les plus élevés en"</span>, input<span class="sc">$</span>annee),</span>
+<span id="cb13-67"><a href="#cb13-67" aria-hidden="true" tabindex="-1"></a>           <span class="at">x=</span><span class="st">" "</span>, <span class="at">y=</span><span class="st">" "</span>,</span>
+<span id="cb13-68"><a href="#cb13-68" aria-hidden="true" tabindex="-1"></a>           <span class="at">caption =</span> <span class="st">"Source : Base 'demande de valeurs foncières', 2018-2023."</span>) <span class="sc">+</span></span>
+<span id="cb13-69"><a href="#cb13-69" aria-hidden="true" tabindex="-1"></a>      <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
+<span id="cb13-70"><a href="#cb13-70" aria-hidden="true" tabindex="-1"></a>      <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">17</span>),</span>
+<span id="cb13-71"><a href="#cb13-71" aria-hidden="true" tabindex="-1"></a>            <span class="at">plot.caption =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="dv">0</span>, <span class="at">size=</span><span class="dv">12</span>),</span>
+<span id="cb13-72"><a href="#cb13-72" aria-hidden="true" tabindex="-1"></a>            <span class="at">axis.text.y =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="fl">12.5</span>),</span>
+<span id="cb13-73"><a href="#cb13-73" aria-hidden="true" tabindex="-1"></a>            <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="fl">12.5</span>))</span>
+<span id="cb13-74"><a href="#cb13-74" aria-hidden="true" tabindex="-1"></a>  })</span>
+<span id="cb13-75"><a href="#cb13-75" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb13-76"><a href="#cb13-76" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb13-77"><a href="#cb13-77" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-78"><a href="#cb13-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-79"><a href="#cb13-79" aria-hidden="true" tabindex="-1"></a><span class="fu">shinyApp</span>(<span class="at">ui =</span> ui, <span class="at">server =</span> server)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>&nbsp; &nbsp;</p>
+</section>
+<section id="introduction-dune-réactivité-sur-les-inputs-contexte-réactif" class="level2" data-number="11.2">
+<h2 data-number="11.2" class="anchored" data-anchor-id="introduction-dune-réactivité-sur-les-inputs-contexte-réactif"><span class="header-section-number">11.2</span> Introduction d’une réactivité sur les inputs (contexte réactif)</h2>
+<p>On va maintenant introduire un contexte réactif. &nbsp; Pour cela, on va repartir de la base du RP, puisqu’on peut y distinguer les départements et les communes, en s’intéressant à la répartition de la population de 15-64 ans selon le type d’activité, et donc par département et commune. On va de façon comparable à ce qu’on a fait précédemment, créer en haut un tableau qui donnera cette répartition pour le département ; puis en-dessous un graphique qui montrera cette répartition pour une des communes de ce département. On aura donc deux widgets, un pour le choix du département et un pour le choix de la commune. On veut que lorsqu’on choisit Paris en département par exemple, le widget de la commune ne nous montre que les arrondissements de Paris (et non toutes les communes des 4 départements de notre champ), etc.</p>
+<p>On peut pour cela utiliser la fonction <code>observe()</code> : on l’utilise donc quand un input change.&nbsp; Il va falloir ici utiliser à l’intérieur de la fonction <code>observe()</code> une condition <code>if ... else ...</code> : on part du principe qu’on affiche d’abord automatiquement le département “75”, lorsque l’utilisateur appuie sur le bouton du choix de département du widget <code>radioButtons</code>, le widget <code>selectInput</code> doit être actualisé en permettant les seuls choix de communes de Paris donc les arrondissements ; de même pour les autres départements.</p>
+<p>Il faut donc utiliser la fonction <code>observe()</code>, une condition <code>if ... else ...</code> et une actualisation des widgets avec la fonction <code>updateSelectInput()</code>.</p>
+<p>L’image suivante vous donne un aperçu de ce qu’on devrait avoir pour Paris :</p>
+<p><img src="images/Ex.2_Shiny.png" class="img-fluid"></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Définition UI et Server de l'application Shiny</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>ui <span class="ot">&lt;-</span> <span class="fu">fluidPage</span>(</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Titre de l'application</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">titlePanel</span>(<span class="st">"Caractéristiques des ventes d'appartements et de maisons sur la période 2018-2023"</span>),</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">br</span>(),</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Définition du Widget</span></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sidebarLayout</span>(</span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">sidebarPanel</span>(</span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>      <span class="fu">radioButtons</span> (<span class="at">inputId =</span> <span class="st">"dept"</span>, </span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>                  <span class="at">label =</span> <span class="st">"Choix du département pour le tableau et le graphique"</span>, </span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>                  <span class="at">choices =</span> <span class="fu">levels</span>(dvf_ParisPC<span class="sc">$</span>code_INSEE_dept),</span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>                  <span class="at">selected =</span> <span class="st">"75"</span>),</span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>      <span class="fu">selectInput</span>(<span class="at">inputId =</span> <span class="st">"commune"</span>, </span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a>                   <span class="at">label =</span> <span class="st">"Choix de la commune pour le graphique"</span>,</span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a>                   <span class="at">choices =</span> <span class="fu">levels</span>(dvf_ParisPC<span class="sc">$</span>code_postal),</span>
+<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a>                   <span class="at">selected =</span> <span class="st">"75012"</span>)</span>
+<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a>      ),</span>
+<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Tableau et graphe montré à l'utilisateur</span></span>
+<span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mainPanel</span>(</span>
+<span id="cb14-23"><a href="#cb14-23" aria-hidden="true" tabindex="-1"></a>      <span class="fu">gt_output</span>(<span class="st">"tab"</span>),</span>
+<span id="cb14-24"><a href="#cb14-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-25"><a href="#cb14-25" aria-hidden="true" tabindex="-1"></a>      <span class="fu">br</span>(),</span>
+<span id="cb14-26"><a href="#cb14-26" aria-hidden="true" tabindex="-1"></a>      <span class="fu">br</span>(),</span>
+<span id="cb14-27"><a href="#cb14-27" aria-hidden="true" tabindex="-1"></a>      </span>
+<span id="cb14-28"><a href="#cb14-28" aria-hidden="true" tabindex="-1"></a>      <span class="fu">plotOutput</span>(<span class="st">"barplot"</span>)    </span>
+<span id="cb14-29"><a href="#cb14-29" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb14-30"><a href="#cb14-30" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb14-31"><a href="#cb14-31" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb14-32"><a href="#cb14-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-33"><a href="#cb14-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-34"><a href="#cb14-34" aria-hidden="true" tabindex="-1"></a>server <span class="ot">&lt;-</span> <span class="cf">function</span>(input, output) {</span>
+<span id="cb14-35"><a href="#cb14-35" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb14-36"><a href="#cb14-36" aria-hidden="true" tabindex="-1"></a>  <span class="fu">observe</span>({</span>
+<span id="cb14-37"><a href="#cb14-37" aria-hidden="true" tabindex="-1"></a>    input<span class="sc">$</span>dept</span>
+<span id="cb14-38"><a href="#cb14-38" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span>(input<span class="sc">$</span>dept <span class="sc">==</span> <span class="st">"75"</span>){</span>
+<span id="cb14-39"><a href="#cb14-39" aria-hidden="true" tabindex="-1"></a>      <span class="fu">updateSelectInput</span>(<span class="at">inputId =</span> <span class="st">"commune"</span>,</span>
+<span id="cb14-40"><a href="#cb14-40" aria-hidden="true" tabindex="-1"></a>                        <span class="at">choices =</span> <span class="fu">unique</span>(dvf_ParisPC[dvf_ParisPC<span class="sc">$</span>code_INSEE_dept<span class="sc">==</span><span class="st">"75"</span>, ]<span class="sc">$</span>code_postal),</span>
+<span id="cb14-41"><a href="#cb14-41" aria-hidden="true" tabindex="-1"></a>                        <span class="at">selected =</span> <span class="st">"75012"</span>)</span>
+<span id="cb14-42"><a href="#cb14-42" aria-hidden="true" tabindex="-1"></a>      }</span>
+<span id="cb14-43"><a href="#cb14-43" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span> {<span class="fu">updateSelectInput</span>(<span class="at">inputId =</span> <span class="st">"commune"</span>,</span>
+<span id="cb14-44"><a href="#cb14-44" aria-hidden="true" tabindex="-1"></a>                            <span class="at">choices =</span> <span class="fu">unique</span>(dvf_ParisPC[dvf_ParisPC<span class="sc">$</span>code_INSEE_dept<span class="sc">==</span>input<span class="sc">$</span>dept, ]<span class="sc">$</span>code_postal),</span>
+<span id="cb14-45"><a href="#cb14-45" aria-hidden="true" tabindex="-1"></a>                            <span class="at">selected =</span> input<span class="sc">$</span>variable)</span>
+<span id="cb14-46"><a href="#cb14-46" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb14-47"><a href="#cb14-47" aria-hidden="true" tabindex="-1"></a>  })</span>
+<span id="cb14-48"><a href="#cb14-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-49"><a href="#cb14-49" aria-hidden="true" tabindex="-1"></a>  output<span class="sc">$</span>tab <span class="ot">&lt;-</span> <span class="fu">render_gt</span>({</span>
+<span id="cb14-50"><a href="#cb14-50" aria-hidden="true" tabindex="-1"></a>  dvf_ParisPC <span class="sc">%&gt;%</span> </span>
+<span id="cb14-51"><a href="#cb14-51" aria-hidden="true" tabindex="-1"></a>      <span class="fu">filter</span>(code_INSEE_dept <span class="sc">==</span> input<span class="sc">$</span>dept) <span class="sc">%&gt;%</span></span>
+<span id="cb14-52"><a href="#cb14-52" aria-hidden="true" tabindex="-1"></a>      <span class="fu">summarise</span>(<span class="st">"Nombre de ventes"</span> <span class="ot">=</span> <span class="fu">sum</span>(no_disposition),</span>
+<span id="cb14-53"><a href="#cb14-53" aria-hidden="true" tabindex="-1"></a>                <span class="st">"Prix moyen au m2, en €"</span> <span class="ot">=</span> <span class="fu">round</span>(<span class="fu">mean</span>(prix_metre_carrez)),</span>
+<span id="cb14-54"><a href="#cb14-54" aria-hidden="true" tabindex="-1"></a>                <span class="st">"Prix médian au m2, en €"</span> <span class="ot">=</span> <span class="fu">round</span>(<span class="fu">median</span>(prix_metre_carrez)),</span>
+<span id="cb14-55"><a href="#cb14-55" aria-hidden="true" tabindex="-1"></a>                <span class="st">"Nombre moyen de pièces"</span> <span class="ot">=</span> <span class="fu">round</span>(<span class="fu">mean</span>(nb_pieces))) <span class="sc">%&gt;%</span> </span>
+<span id="cb14-56"><a href="#cb14-56" aria-hidden="true" tabindex="-1"></a>      <span class="fu">gt</span>() <span class="sc">%&gt;%</span>  </span>
+<span id="cb14-57"><a href="#cb14-57" aria-hidden="true" tabindex="-1"></a>      <span class="fu">fmt_number</span>(<span class="at">columns=</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="at">sep_mark =</span> <span class="st">" "</span>, <span class="at">decimals =</span> <span class="dv">0</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb14-58"><a href="#cb14-58" aria-hidden="true" tabindex="-1"></a>      <span class="fu">tab_header</span>(<span class="at">title=</span><span class="fu">paste</span>(<span class="st">'Principaux indicateurs du département'</span>,input<span class="sc">$</span>dept))</span>
+<span id="cb14-59"><a href="#cb14-59" aria-hidden="true" tabindex="-1"></a>  })</span>
+<span id="cb14-60"><a href="#cb14-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-61"><a href="#cb14-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-62"><a href="#cb14-62" aria-hidden="true" tabindex="-1"></a>  output<span class="sc">$</span>barplot <span class="ot">&lt;-</span> <span class="fu">renderPlot</span>({</span>
+<span id="cb14-63"><a href="#cb14-63" aria-hidden="true" tabindex="-1"></a>    dvf_ParisPC <span class="sc">%&gt;%</span> </span>
+<span id="cb14-64"><a href="#cb14-64" aria-hidden="true" tabindex="-1"></a>      <span class="fu">filter</span>(code_postal<span class="sc">==</span>input<span class="sc">$</span>commune) <span class="sc">%&gt;%</span> </span>
+<span id="cb14-65"><a href="#cb14-65" aria-hidden="true" tabindex="-1"></a>      <span class="fu">count</span>(nbpieces_cat) <span class="sc">%&gt;%</span> </span>
+<span id="cb14-66"><a href="#cb14-66" aria-hidden="true" tabindex="-1"></a>      <span class="fu">mutate</span>(<span class="at">Pourcentage=</span><span class="fu">round</span>(<span class="fu">prop.table</span>(n)<span class="sc">*</span><span class="dv">100</span>,<span class="dv">0</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb14-67"><a href="#cb14-67" aria-hidden="true" tabindex="-1"></a>      <span class="fu">select</span>(<span class="sc">-</span>n) <span class="sc">%&gt;%</span> </span>
+<span id="cb14-68"><a href="#cb14-68" aria-hidden="true" tabindex="-1"></a>      <span class="fu">ggplot</span>() <span class="sc">+</span> <span class="fu">aes</span>(<span class="at">x=</span>nbpieces_cat, <span class="at">y=</span>Pourcentage) <span class="sc">+</span> </span>
+<span id="cb14-69"><a href="#cb14-69" aria-hidden="true" tabindex="-1"></a>      <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>, <span class="at">fill=</span><span class="st">"darkgoldenrod1"</span>) <span class="sc">+</span></span>
+<span id="cb14-70"><a href="#cb14-70" aria-hidden="true" tabindex="-1"></a>      <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label=</span>Pourcentage), <span class="at">position =</span> <span class="fu">position_stack</span>(<span class="at">vjust=</span><span class="fl">0.5</span>), <span class="at">size=</span><span class="fl">4.7</span>) <span class="sc">+</span></span>
+<span id="cb14-71"><a href="#cb14-71" aria-hidden="true" tabindex="-1"></a>      <span class="fu">labs</span>(<span class="at">title=</span><span class="fu">paste</span>(<span class="st">"Répartition en % des ventes selon le nombre de pièces dans le"</span>, input<span class="sc">$</span>commune),</span>
+<span id="cb14-72"><a href="#cb14-72" aria-hidden="true" tabindex="-1"></a>           <span class="at">x =</span> <span class="st">""</span>, <span class="at">y =</span> <span class="st">" "</span>) <span class="sc">+</span></span>
+<span id="cb14-73"><a href="#cb14-73" aria-hidden="true" tabindex="-1"></a>      <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
+<span id="cb14-74"><a href="#cb14-74" aria-hidden="true" tabindex="-1"></a>      <span class="fu">theme</span>(<span class="at">plot.title=</span><span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">17</span>),</span>
+<span id="cb14-75"><a href="#cb14-75" aria-hidden="true" tabindex="-1"></a>            <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">12</span>, <span class="at">angle=</span><span class="dv">45</span>, <span class="at">hjust=</span><span class="dv">1</span>))</span>
+<span id="cb14-76"><a href="#cb14-76" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb14-77"><a href="#cb14-77" aria-hidden="true" tabindex="-1"></a>  })  </span>
+<span id="cb14-78"><a href="#cb14-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-79"><a href="#cb14-79" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb14-80"><a href="#cb14-80" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb14-81"><a href="#cb14-81" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-82"><a href="#cb14-82" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-83"><a href="#cb14-83" aria-hidden="true" tabindex="-1"></a><span class="fu">shinyApp</span>(<span class="at">ui =</span> ui, <span class="at">server =</span> server)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 
 
 </section>
@@ -1513,6 +1795,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="./11-Clustering-theorique.html" class="pagination-link" aria-label="Clustering : aspects théoriques">
+        <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Clustering : aspects théoriques</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->
