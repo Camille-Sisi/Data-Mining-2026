@@ -8,3 +8,11 @@ data
 
 /.quarto/
 **/*.quarto_ipynb
+.Rproj.user
+.positai
+.Rproj.user
+.positai
+.Rproj.user
+.positai
+.Rproj.user
+.positai

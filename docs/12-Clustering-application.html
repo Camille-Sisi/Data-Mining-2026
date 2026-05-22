@@ -65,6 +65,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<link href="./13-Modeles-regression.html" rel="next">
 <link href="./11-Clustering-theorique.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -446,6 +447,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
       </ul>
   </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
+ <span class="menu-text">Séance 6</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./13-Modeles-regression.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Modèles de régression : application sur le RP 2019 (ou sur la base dvf)</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
     </ul>
     </div>
 </nav>
@@ -559,23 +577,23 @@ Ces techniques font partie des méthodes d'apprentissage dit non supervisé, il 
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>RP_final <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="sc">!</span>AGER20 <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"2"</span>,<span class="st">"5"</span>, <span class="st">"10"</span>,<span class="st">"14"</span>)) <span class="sc">%&gt;%</span> </span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tableau</span>(<span class="at">var_quali =</span> CS1, <span class="at">nom_var_quali =</span> <span class="st">"PCS"</span>) <span class="sc">%&gt;%</span> <span class="fu">gt</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
-<div id="srvgpjdizc" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#srvgpjdizc table {
+<div id="qbobcfwxzn" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#qbobcfwxzn table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#srvgpjdizc thead, #srvgpjdizc tbody, #srvgpjdizc tfoot, #srvgpjdizc tr, #srvgpjdizc td, #srvgpjdizc th {
+#qbobcfwxzn thead, #qbobcfwxzn tbody, #qbobcfwxzn tfoot, #qbobcfwxzn tr, #qbobcfwxzn td, #qbobcfwxzn th {
   border-style: none;
 }
 
-#srvgpjdizc p {
+#qbobcfwxzn p {
   margin: 0;
   padding: 0;
 }
 
-#srvgpjdizc .gt_table {
+#qbobcfwxzn .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -601,12 +619,12 @@ Ces techniques font partie des méthodes d'apprentissage dit non supervisé, il 
   border-left-color: #D3D3D3;
 }
 
-#srvgpjdizc .gt_caption {
+#qbobcfwxzn .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#srvgpjdizc .gt_title {
+#qbobcfwxzn .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -618,7 +636,7 @@ Ces techniques font partie des méthodes d'apprentissage dit non supervisé, il 
   border-bottom-width: 0;
 }
 
-#srvgpjdizc .gt_subtitle {
+#qbobcfwxzn .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -630,7 +648,7 @@ Ces techniques font partie des méthodes d'apprentissage dit non supervisé, il 
   border-top-width: 0;
 }
 
-#srvgpjdizc .gt_heading {
+#qbobcfwxzn .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -642,13 +660,13 @@ Ces techniques font partie des méthodes d'apprentissage dit non supervisé, il 
   border-right-color: #D3D3D3;
 }
 
-#srvgpjdizc .gt_bottom_border {
+#qbobcfwxzn .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#srvgpjdizc .gt_col_headings {
+#qbobcfwxzn .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -663,7 +681,7 @@ Ces techniques font partie des méthodes d'apprentissage dit non supervisé, il 
   border-right-color: #D3D3D3;
 }
 
-#srvgpjdizc .gt_col_heading {
+#qbobcfwxzn .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -683,7 +701,7 @@ Ces techniques font partie des méthodes d'apprentissage dit non supervisé, il 
   overflow-x: hidden;
 }
 
-#srvgpjdizc .gt_column_spanner_outer {
+#qbobcfwxzn .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -695,15 +713,15 @@ Ces techniques font partie des méthodes d'apprentissage dit non supervisé, il 
   padding-right: 4px;
 }
 
-#srvgpjdizc .gt_column_spanner_outer:first-child {
+#qbobcfwxzn .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#srvgpjdizc .gt_column_spanner_outer:last-child {
+#qbobcfwxzn .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#srvgpjdizc .gt_column_spanner {
+#qbobcfwxzn .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -715,11 +733,11 @@ Ces techniques font partie des méthodes d'apprentissage dit non supervisé, il 
   width: 100%;
 }
 
-#srvgpjdizc .gt_spanner_row {
+#qbobcfwxzn .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#srvgpjdizc .gt_group_heading {
+#qbobcfwxzn .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -745,7 +763,7 @@ Ces techniques font partie des méthodes d'apprentissage dit non supervisé, il 
   text-align: left;
 }
 
-#srvgpjdizc .gt_empty_group_heading {
+#qbobcfwxzn .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -760,15 +778,15 @@ Ces techniques font partie des méthodes d'apprentissage dit non supervisé, il 
   vertical-align: middle;
 }
 
-#srvgpjdizc .gt_from_md > :first-child {
+#qbobcfwxzn .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#srvgpjdizc .gt_from_md > :last-child {
+#qbobcfwxzn .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#srvgpjdizc .gt_row {
+#qbobcfwxzn .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -787,7 +805,7 @@ Ces techniques font partie des méthodes d'apprentissage dit non supervisé, il 
   overflow-x: hidden;
 }
 
-#srvgpjdizc .gt_stub {
+#qbobcfwxzn .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -800,7 +818,7 @@ Ces techniques font partie des méthodes d'apprentissage dit non supervisé, il 
   padding-right: 5px;
 }
 
-#srvgpjdizc .gt_stub_row_group {
+#qbobcfwxzn .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -814,15 +832,15 @@ Ces techniques font partie des méthodes d'apprentissage dit non supervisé, il 
   vertical-align: top;
 }
 
-#srvgpjdizc .gt_row_group_first td {
+#qbobcfwxzn .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#srvgpjdizc .gt_row_group_first th {
+#qbobcfwxzn .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#srvgpjdizc .gt_summary_row {
+#qbobcfwxzn .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -832,16 +850,16 @@ Ces techniques font partie des méthodes d'apprentissage dit non supervisé, il 
   padding-right: 5px;
 }
 
-#srvgpjdizc .gt_first_summary_row {
+#qbobcfwxzn .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#srvgpjdizc .gt_first_summary_row.thick {
+#qbobcfwxzn .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#srvgpjdizc .gt_last_summary_row {
+#qbobcfwxzn .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -851,7 +869,7 @@ Ces techniques font partie des méthodes d'apprentissage dit non supervisé, il 
   border-bottom-color: #D3D3D3;
 }
 
-#srvgpjdizc .gt_grand_summary_row {
+#qbobcfwxzn .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -861,7 +879,7 @@ Ces techniques font partie des méthodes d'apprentissage dit non supervisé, il 
   padding-right: 5px;
 }
 
-#srvgpjdizc .gt_first_grand_summary_row {
+#qbobcfwxzn .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -871,7 +889,7 @@ Ces techniques font partie des méthodes d'apprentissage dit non supervisé, il 
   border-top-color: #D3D3D3;
 }
 
-#srvgpjdizc .gt_last_grand_summary_row_top {
+#qbobcfwxzn .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -881,11 +899,11 @@ Ces techniques font partie des méthodes d'apprentissage dit non supervisé, il 
   border-bottom-color: #D3D3D3;
 }
 
-#srvgpjdizc .gt_striped {
+#qbobcfwxzn .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#srvgpjdizc .gt_table_body {
+#qbobcfwxzn .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -894,7 +912,7 @@ Ces techniques font partie des méthodes d'apprentissage dit non supervisé, il 
   border-bottom-color: #D3D3D3;
 }
 
-#srvgpjdizc .gt_footnotes {
+#qbobcfwxzn .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -908,7 +926,7 @@ Ces techniques font partie des méthodes d'apprentissage dit non supervisé, il 
   border-right-color: #D3D3D3;
 }
 
-#srvgpjdizc .gt_footnote {
+#qbobcfwxzn .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -917,7 +935,7 @@ Ces techniques font partie des méthodes d'apprentissage dit non supervisé, il 
   padding-right: 5px;
 }
 
-#srvgpjdizc .gt_sourcenotes {
+#qbobcfwxzn .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -931,7 +949,7 @@ Ces techniques font partie des méthodes d'apprentissage dit non supervisé, il 
   border-right-color: #D3D3D3;
 }
 
-#srvgpjdizc .gt_sourcenote {
+#qbobcfwxzn .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -939,72 +957,72 @@ Ces techniques font partie des méthodes d'apprentissage dit non supervisé, il 
   padding-right: 5px;
 }
 
-#srvgpjdizc .gt_left {
+#qbobcfwxzn .gt_left {
   text-align: left;
 }
 
-#srvgpjdizc .gt_center {
+#qbobcfwxzn .gt_center {
   text-align: center;
 }
 
-#srvgpjdizc .gt_right {
+#qbobcfwxzn .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#srvgpjdizc .gt_font_normal {
+#qbobcfwxzn .gt_font_normal {
   font-weight: normal;
 }
 
-#srvgpjdizc .gt_font_bold {
+#qbobcfwxzn .gt_font_bold {
   font-weight: bold;
 }
 
-#srvgpjdizc .gt_font_italic {
+#qbobcfwxzn .gt_font_italic {
   font-style: italic;
 }
 
-#srvgpjdizc .gt_super {
+#qbobcfwxzn .gt_super {
   font-size: 65%;
 }
 
-#srvgpjdizc .gt_footnote_marks {
+#qbobcfwxzn .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#srvgpjdizc .gt_asterisk {
+#qbobcfwxzn .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#srvgpjdizc .gt_indent_1 {
+#qbobcfwxzn .gt_indent_1 {
   text-indent: 5px;
 }
 
-#srvgpjdizc .gt_indent_2 {
+#qbobcfwxzn .gt_indent_2 {
   text-indent: 10px;
 }
 
-#srvgpjdizc .gt_indent_3 {
+#qbobcfwxzn .gt_indent_3 {
   text-indent: 15px;
 }
 
-#srvgpjdizc .gt_indent_4 {
+#qbobcfwxzn .gt_indent_4 {
   text-indent: 20px;
 }
 
-#srvgpjdizc .gt_indent_5 {
+#qbobcfwxzn .gt_indent_5 {
   text-indent: 25px;
 }
 
-#srvgpjdizc .katex-display {
+#qbobcfwxzn .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#srvgpjdizc div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#qbobcfwxzn div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -1212,7 +1230,7 @@ Il existe aussi une fonction <em>via</em> <strong><code>ggplot2</code></strong> 
 </div>
 </div>
 </div>
-<p>Il faut maintenant prendre une décision : où coupe-t-on l’arbre pour obtenir une partition de la population (ici nos communes), autrement dit combien de classes choisissons-nous ? &nbsp; On peut d’abord s’appuyer sur la forme du dendogramme : plus une “branche” est haute et plus on perd en distance ou ici (critère de Ward) en inertie intraclasse<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>, il faudra donc couper l’arbre au niveau de cette branche. Il faut également prendre en compte ce qui peut être le mieux pour l’analyse : si on aboutit à une classification en 2 classes, cela risque d’être peu intéressant à analyser, mais si on a une classification en 5 classes ou plus, cela va devenir compliqué à interpréter…&nbsp; Ici, dans les deux cas, il semble que choisir 2 classes soit très pertinent, mais on voit qu’on pourrait aussi choisir 4 classes (ou même 3 éventuellement) si l’on veut rentrer un peu plus dans le détail de l’analyse.</p>
+<p>On peut d’abord s’appuyer sur la forme du dendogramme : plus une “branche” est haute et plus on perd en distance ou ici (critère de Ward) en inertie intraclasse<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>, il faudra donc couper l’arbre au niveau de cette branche. Il faut également prendre en compte ce qui peut être le mieux pour l’analyse : si on aboutit à une classification en 2 classes, cela risque d’être peu intéressant à analyser, mais si on a une classification en 5 classes ou plus, cela va devenir compliqué à interpréter…&nbsp; Ici, dans les deux cas, il semble que choisir 2 classes soit très pertinent, mais on voit qu’on pourrait aussi choisir 4 classes (ou même 3 éventuellement) si l’on veut rentrer un peu plus dans le détail de l’analyse.</p>
 <p>On peut également s’aider de représentations des sauts d’inertie du dendrogramme selon le nombre de classes qui peut être retenu, avec la fonction plot et en récupérant l’information sur l’inertie (<code>height</code>).</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># On stocke l'attribut `$height` dans l'objet `inertie` en triant les valeurs par </span></span>
@@ -1303,23 +1321,23 @@ On intègre ensuite la variable au tableau initial “cat_soc_chi2” qui contie
 <span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="co">#library(janitor)</span></span>
 <span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="fu">tabyl</span>(classe3_socioprof) <span class="sc">%&gt;%</span> <span class="fu">adorn_pct_formatting</span>() <span class="sc">%&gt;%</span> <span class="fu">gt</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
-<div id="ksucpnmxnu" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#ksucpnmxnu table {
+<div id="tcerhszebe" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#tcerhszebe table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#ksucpnmxnu thead, #ksucpnmxnu tbody, #ksucpnmxnu tfoot, #ksucpnmxnu tr, #ksucpnmxnu td, #ksucpnmxnu th {
+#tcerhszebe thead, #tcerhszebe tbody, #tcerhszebe tfoot, #tcerhszebe tr, #tcerhszebe td, #tcerhszebe th {
   border-style: none;
 }
 
-#ksucpnmxnu p {
+#tcerhszebe p {
   margin: 0;
   padding: 0;
 }
 
-#ksucpnmxnu .gt_table {
+#tcerhszebe .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -1345,12 +1363,12 @@ On intègre ensuite la variable au tableau initial “cat_soc_chi2” qui contie
   border-left-color: #D3D3D3;
 }
 
-#ksucpnmxnu .gt_caption {
+#tcerhszebe .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#ksucpnmxnu .gt_title {
+#tcerhszebe .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1362,7 +1380,7 @@ On intègre ensuite la variable au tableau initial “cat_soc_chi2” qui contie
   border-bottom-width: 0;
 }
 
-#ksucpnmxnu .gt_subtitle {
+#tcerhszebe .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1374,7 +1392,7 @@ On intègre ensuite la variable au tableau initial “cat_soc_chi2” qui contie
   border-top-width: 0;
 }
 
-#ksucpnmxnu .gt_heading {
+#tcerhszebe .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1386,13 +1404,13 @@ On intègre ensuite la variable au tableau initial “cat_soc_chi2” qui contie
   border-right-color: #D3D3D3;
 }
 
-#ksucpnmxnu .gt_bottom_border {
+#tcerhszebe .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#ksucpnmxnu .gt_col_headings {
+#tcerhszebe .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1407,7 +1425,7 @@ On intègre ensuite la variable au tableau initial “cat_soc_chi2” qui contie
   border-right-color: #D3D3D3;
 }
 
-#ksucpnmxnu .gt_col_heading {
+#tcerhszebe .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1427,7 +1445,7 @@ On intègre ensuite la variable au tableau initial “cat_soc_chi2” qui contie
   overflow-x: hidden;
 }
 
-#ksucpnmxnu .gt_column_spanner_outer {
+#tcerhszebe .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1439,15 +1457,15 @@ On intègre ensuite la variable au tableau initial “cat_soc_chi2” qui contie
   padding-right: 4px;
 }
 
-#ksucpnmxnu .gt_column_spanner_outer:first-child {
+#tcerhszebe .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#ksucpnmxnu .gt_column_spanner_outer:last-child {
+#tcerhszebe .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#ksucpnmxnu .gt_column_spanner {
+#tcerhszebe .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1459,11 +1477,11 @@ On intègre ensuite la variable au tableau initial “cat_soc_chi2” qui contie
   width: 100%;
 }
 
-#ksucpnmxnu .gt_spanner_row {
+#tcerhszebe .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#ksucpnmxnu .gt_group_heading {
+#tcerhszebe .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1489,7 +1507,7 @@ On intègre ensuite la variable au tableau initial “cat_soc_chi2” qui contie
   text-align: left;
 }
 
-#ksucpnmxnu .gt_empty_group_heading {
+#tcerhszebe .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1504,15 +1522,15 @@ On intègre ensuite la variable au tableau initial “cat_soc_chi2” qui contie
   vertical-align: middle;
 }
 
-#ksucpnmxnu .gt_from_md > :first-child {
+#tcerhszebe .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#ksucpnmxnu .gt_from_md > :last-child {
+#tcerhszebe .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#ksucpnmxnu .gt_row {
+#tcerhszebe .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1531,7 +1549,7 @@ On intègre ensuite la variable au tableau initial “cat_soc_chi2” qui contie
   overflow-x: hidden;
 }
 
-#ksucpnmxnu .gt_stub {
+#tcerhszebe .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1544,7 +1562,7 @@ On intègre ensuite la variable au tableau initial “cat_soc_chi2” qui contie
   padding-right: 5px;
 }
 
-#ksucpnmxnu .gt_stub_row_group {
+#tcerhszebe .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1558,15 +1576,15 @@ On intègre ensuite la variable au tableau initial “cat_soc_chi2” qui contie
   vertical-align: top;
 }
 
-#ksucpnmxnu .gt_row_group_first td {
+#tcerhszebe .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#ksucpnmxnu .gt_row_group_first th {
+#tcerhszebe .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#ksucpnmxnu .gt_summary_row {
+#tcerhszebe .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1576,16 +1594,16 @@ On intègre ensuite la variable au tableau initial “cat_soc_chi2” qui contie
   padding-right: 5px;
 }
 
-#ksucpnmxnu .gt_first_summary_row {
+#tcerhszebe .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#ksucpnmxnu .gt_first_summary_row.thick {
+#tcerhszebe .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#ksucpnmxnu .gt_last_summary_row {
+#tcerhszebe .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1595,7 +1613,7 @@ On intègre ensuite la variable au tableau initial “cat_soc_chi2” qui contie
   border-bottom-color: #D3D3D3;
 }
 
-#ksucpnmxnu .gt_grand_summary_row {
+#tcerhszebe .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1605,7 +1623,7 @@ On intègre ensuite la variable au tableau initial “cat_soc_chi2” qui contie
   padding-right: 5px;
 }
 
-#ksucpnmxnu .gt_first_grand_summary_row {
+#tcerhszebe .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1615,7 +1633,7 @@ On intègre ensuite la variable au tableau initial “cat_soc_chi2” qui contie
   border-top-color: #D3D3D3;
 }
 
-#ksucpnmxnu .gt_last_grand_summary_row_top {
+#tcerhszebe .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1625,11 +1643,11 @@ On intègre ensuite la variable au tableau initial “cat_soc_chi2” qui contie
   border-bottom-color: #D3D3D3;
 }
 
-#ksucpnmxnu .gt_striped {
+#tcerhszebe .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#ksucpnmxnu .gt_table_body {
+#tcerhszebe .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1638,7 +1656,7 @@ On intègre ensuite la variable au tableau initial “cat_soc_chi2” qui contie
   border-bottom-color: #D3D3D3;
 }
 
-#ksucpnmxnu .gt_footnotes {
+#tcerhszebe .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1652,7 +1670,7 @@ On intègre ensuite la variable au tableau initial “cat_soc_chi2” qui contie
   border-right-color: #D3D3D3;
 }
 
-#ksucpnmxnu .gt_footnote {
+#tcerhszebe .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1661,7 +1679,7 @@ On intègre ensuite la variable au tableau initial “cat_soc_chi2” qui contie
   padding-right: 5px;
 }
 
-#ksucpnmxnu .gt_sourcenotes {
+#tcerhszebe .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1675,7 +1693,7 @@ On intègre ensuite la variable au tableau initial “cat_soc_chi2” qui contie
   border-right-color: #D3D3D3;
 }
 
-#ksucpnmxnu .gt_sourcenote {
+#tcerhszebe .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1683,72 +1701,72 @@ On intègre ensuite la variable au tableau initial “cat_soc_chi2” qui contie
   padding-right: 5px;
 }
 
-#ksucpnmxnu .gt_left {
+#tcerhszebe .gt_left {
   text-align: left;
 }
 
-#ksucpnmxnu .gt_center {
+#tcerhszebe .gt_center {
   text-align: center;
 }
 
-#ksucpnmxnu .gt_right {
+#tcerhszebe .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#ksucpnmxnu .gt_font_normal {
+#tcerhszebe .gt_font_normal {
   font-weight: normal;
 }
 
-#ksucpnmxnu .gt_font_bold {
+#tcerhszebe .gt_font_bold {
   font-weight: bold;
 }
 
-#ksucpnmxnu .gt_font_italic {
+#tcerhszebe .gt_font_italic {
   font-style: italic;
 }
 
-#ksucpnmxnu .gt_super {
+#tcerhszebe .gt_super {
   font-size: 65%;
 }
 
-#ksucpnmxnu .gt_footnote_marks {
+#tcerhszebe .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#ksucpnmxnu .gt_asterisk {
+#tcerhszebe .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#ksucpnmxnu .gt_indent_1 {
+#tcerhszebe .gt_indent_1 {
   text-indent: 5px;
 }
 
-#ksucpnmxnu .gt_indent_2 {
+#tcerhszebe .gt_indent_2 {
   text-indent: 10px;
 }
 
-#ksucpnmxnu .gt_indent_3 {
+#tcerhszebe .gt_indent_3 {
   text-indent: 15px;
 }
 
-#ksucpnmxnu .gt_indent_4 {
+#tcerhszebe .gt_indent_4 {
   text-indent: 20px;
 }
 
-#ksucpnmxnu .gt_indent_5 {
+#tcerhszebe .gt_indent_5 {
   text-indent: 25px;
 }
 
-#ksucpnmxnu .katex-display {
+#tcerhszebe .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#ksucpnmxnu div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#tcerhszebe div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -1784,23 +1802,23 @@ On intègre ensuite la variable au tableau initial “cat_soc_chi2” qui contie
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tabyl</span>(classe4_socioprof) <span class="sc">%&gt;%</span> <span class="fu">adorn_pct_formatting</span>() <span class="sc">%&gt;%</span> <span class="fu">gt</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
-<div id="txheozbfsc" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#txheozbfsc table {
+<div id="yptezlvsbr" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#yptezlvsbr table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#txheozbfsc thead, #txheozbfsc tbody, #txheozbfsc tfoot, #txheozbfsc tr, #txheozbfsc td, #txheozbfsc th {
+#yptezlvsbr thead, #yptezlvsbr tbody, #yptezlvsbr tfoot, #yptezlvsbr tr, #yptezlvsbr td, #yptezlvsbr th {
   border-style: none;
 }
 
-#txheozbfsc p {
+#yptezlvsbr p {
   margin: 0;
   padding: 0;
 }
 
-#txheozbfsc .gt_table {
+#yptezlvsbr .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -1826,12 +1844,12 @@ On intègre ensuite la variable au tableau initial “cat_soc_chi2” qui contie
   border-left-color: #D3D3D3;
 }
 
-#txheozbfsc .gt_caption {
+#yptezlvsbr .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#txheozbfsc .gt_title {
+#yptezlvsbr .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1843,7 +1861,7 @@ On intègre ensuite la variable au tableau initial “cat_soc_chi2” qui contie
   border-bottom-width: 0;
 }
 
-#txheozbfsc .gt_subtitle {
+#yptezlvsbr .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1855,7 +1873,7 @@ On intègre ensuite la variable au tableau initial “cat_soc_chi2” qui contie
   border-top-width: 0;
 }
 
-#txheozbfsc .gt_heading {
+#yptezlvsbr .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1867,13 +1885,13 @@ On intègre ensuite la variable au tableau initial “cat_soc_chi2” qui contie
   border-right-color: #D3D3D3;
 }
 
-#txheozbfsc .gt_bottom_border {
+#yptezlvsbr .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#txheozbfsc .gt_col_headings {
+#yptezlvsbr .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1888,7 +1906,7 @@ On intègre ensuite la variable au tableau initial “cat_soc_chi2” qui contie
   border-right-color: #D3D3D3;
 }
 
-#txheozbfsc .gt_col_heading {
+#yptezlvsbr .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1908,7 +1926,7 @@ On intègre ensuite la variable au tableau initial “cat_soc_chi2” qui contie
   overflow-x: hidden;
 }
 
-#txheozbfsc .gt_column_spanner_outer {
+#yptezlvsbr .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1920,15 +1938,15 @@ On intègre ensuite la variable au tableau initial “cat_soc_chi2” qui contie
   padding-right: 4px;
 }
 
-#txheozbfsc .gt_column_spanner_outer:first-child {
+#yptezlvsbr .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#txheozbfsc .gt_column_spanner_outer:last-child {
+#yptezlvsbr .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#txheozbfsc .gt_column_spanner {
+#yptezlvsbr .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1940,11 +1958,11 @@ On intègre ensuite la variable au tableau initial “cat_soc_chi2” qui contie
   width: 100%;
 }
 
-#txheozbfsc .gt_spanner_row {
+#yptezlvsbr .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#txheozbfsc .gt_group_heading {
+#yptezlvsbr .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1970,7 +1988,7 @@ On intègre ensuite la variable au tableau initial “cat_soc_chi2” qui contie
   text-align: left;
 }
 
-#txheozbfsc .gt_empty_group_heading {
+#yptezlvsbr .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1985,15 +2003,15 @@ On intègre ensuite la variable au tableau initial “cat_soc_chi2” qui contie
   vertical-align: middle;
 }
 
-#txheozbfsc .gt_from_md > :first-child {
+#yptezlvsbr .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#txheozbfsc .gt_from_md > :last-child {
+#yptezlvsbr .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#txheozbfsc .gt_row {
+#yptezlvsbr .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2012,7 +2030,7 @@ On intègre ensuite la variable au tableau initial “cat_soc_chi2” qui contie
   overflow-x: hidden;
 }
 
-#txheozbfsc .gt_stub {
+#yptezlvsbr .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2025,7 +2043,7 @@ On intègre ensuite la variable au tableau initial “cat_soc_chi2” qui contie
   padding-right: 5px;
 }
 
-#txheozbfsc .gt_stub_row_group {
+#yptezlvsbr .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2039,15 +2057,15 @@ On intègre ensuite la variable au tableau initial “cat_soc_chi2” qui contie
   vertical-align: top;
 }
 
-#txheozbfsc .gt_row_group_first td {
+#yptezlvsbr .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#txheozbfsc .gt_row_group_first th {
+#yptezlvsbr .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#txheozbfsc .gt_summary_row {
+#yptezlvsbr .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2057,16 +2075,16 @@ On intègre ensuite la variable au tableau initial “cat_soc_chi2” qui contie
   padding-right: 5px;
 }
 
-#txheozbfsc .gt_first_summary_row {
+#yptezlvsbr .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#txheozbfsc .gt_first_summary_row.thick {
+#yptezlvsbr .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#txheozbfsc .gt_last_summary_row {
+#yptezlvsbr .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2076,7 +2094,7 @@ On intègre ensuite la variable au tableau initial “cat_soc_chi2” qui contie
   border-bottom-color: #D3D3D3;
 }
 
-#txheozbfsc .gt_grand_summary_row {
+#yptezlvsbr .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2086,7 +2104,7 @@ On intègre ensuite la variable au tableau initial “cat_soc_chi2” qui contie
   padding-right: 5px;
 }
 
-#txheozbfsc .gt_first_grand_summary_row {
+#yptezlvsbr .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2096,7 +2114,7 @@ On intègre ensuite la variable au tableau initial “cat_soc_chi2” qui contie
   border-top-color: #D3D3D3;
 }
 
-#txheozbfsc .gt_last_grand_summary_row_top {
+#yptezlvsbr .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2106,11 +2124,11 @@ On intègre ensuite la variable au tableau initial “cat_soc_chi2” qui contie
   border-bottom-color: #D3D3D3;
 }
 
-#txheozbfsc .gt_striped {
+#yptezlvsbr .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#txheozbfsc .gt_table_body {
+#yptezlvsbr .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2119,7 +2137,7 @@ On intègre ensuite la variable au tableau initial “cat_soc_chi2” qui contie
   border-bottom-color: #D3D3D3;
 }
 
-#txheozbfsc .gt_footnotes {
+#yptezlvsbr .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2133,7 +2151,7 @@ On intègre ensuite la variable au tableau initial “cat_soc_chi2” qui contie
   border-right-color: #D3D3D3;
 }
 
-#txheozbfsc .gt_footnote {
+#yptezlvsbr .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -2142,7 +2160,7 @@ On intègre ensuite la variable au tableau initial “cat_soc_chi2” qui contie
   padding-right: 5px;
 }
 
-#txheozbfsc .gt_sourcenotes {
+#yptezlvsbr .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2156,7 +2174,7 @@ On intègre ensuite la variable au tableau initial “cat_soc_chi2” qui contie
   border-right-color: #D3D3D3;
 }
 
-#txheozbfsc .gt_sourcenote {
+#yptezlvsbr .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -2164,72 +2182,72 @@ On intègre ensuite la variable au tableau initial “cat_soc_chi2” qui contie
   padding-right: 5px;
 }
 
-#txheozbfsc .gt_left {
+#yptezlvsbr .gt_left {
   text-align: left;
 }
 
-#txheozbfsc .gt_center {
+#yptezlvsbr .gt_center {
   text-align: center;
 }
 
-#txheozbfsc .gt_right {
+#yptezlvsbr .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#txheozbfsc .gt_font_normal {
+#yptezlvsbr .gt_font_normal {
   font-weight: normal;
 }
 
-#txheozbfsc .gt_font_bold {
+#yptezlvsbr .gt_font_bold {
   font-weight: bold;
 }
 
-#txheozbfsc .gt_font_italic {
+#yptezlvsbr .gt_font_italic {
   font-style: italic;
 }
 
-#txheozbfsc .gt_super {
+#yptezlvsbr .gt_super {
   font-size: 65%;
 }
 
-#txheozbfsc .gt_footnote_marks {
+#yptezlvsbr .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#txheozbfsc .gt_asterisk {
+#yptezlvsbr .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#txheozbfsc .gt_indent_1 {
+#yptezlvsbr .gt_indent_1 {
   text-indent: 5px;
 }
 
-#txheozbfsc .gt_indent_2 {
+#yptezlvsbr .gt_indent_2 {
   text-indent: 10px;
 }
 
-#txheozbfsc .gt_indent_3 {
+#yptezlvsbr .gt_indent_3 {
   text-indent: 15px;
 }
 
-#txheozbfsc .gt_indent_4 {
+#yptezlvsbr .gt_indent_4 {
   text-indent: 20px;
 }
 
-#txheozbfsc .gt_indent_5 {
+#yptezlvsbr .gt_indent_5 {
   text-indent: 25px;
 }
 
-#txheozbfsc .katex-display {
+#yptezlvsbr .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#txheozbfsc div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#yptezlvsbr div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -2400,15 +2418,15 @@ nb_Autres.inactifs -5.320200        0.3649826    0.4322444     0.05565348
 nb_Chômeurs        -6.605754        0.2055332    0.2672388     0.02999883
 nb_Ouvriers        -8.346143        0.1137460    0.2708144     0.03248650
 nb_Employés        -9.482968        0.2604233    0.3780707     0.03752677
-                   Overall sd      p.value
-nb_Cadres          0.21427368 2.837600e-22
-nb_Arti_com        0.05229024 2.054671e-06
-nb_Retraités       0.08102020 2.866415e-02
-nb_PI              0.05971448 1.270700e-02
-nb_Autres.inactifs 0.10329833 1.036532e-07
-nb_Chômeurs        0.07632289 3.954981e-11
-nb_Ouvriers        0.15376429 7.052819e-17
-nb_Employés        0.10136557 2.471524e-21
+                   Overall sd      p.value  n
+nb_Cadres          0.21427368 2.837600e-22 45
+nb_Arti_com        0.05229024 2.054671e-06 45
+nb_Retraités       0.08102020 2.866415e-02 45
+nb_PI              0.05971448 1.270700e-02 45
+nb_Autres.inactifs 0.10329833 1.036532e-07 45
+nb_Chômeurs        0.07632289 3.954981e-11 45
+nb_Ouvriers        0.15376429 7.052819e-17 45
+nb_Employés        0.10136557 2.471524e-21 45
 
 $`2`
                       v.test Mean in category Overall mean sd in category
@@ -2416,11 +2434,11 @@ nb_PI               5.321422        0.4201286    0.3745471     0.03989170
 nb_Retraités        4.758882        0.4853054    0.4299984     0.07510435
 nb_Chômeurs        -2.698633        0.2376941    0.2672388     0.04701634
 nb_Autres.inactifs -3.505642        0.3802995    0.4322444     0.05309014
-                   Overall sd      p.value
-nb_PI              0.05971448 1.029593e-07
-nb_Retraités       0.08102020 1.946680e-06
-nb_Chômeurs        0.07632289 6.962486e-03
-nb_Autres.inactifs 0.10329833 4.555080e-04
+                   Overall sd      p.value  n
+nb_PI              0.05971448 1.029593e-07 36
+nb_Retraités       0.08102020 1.946680e-06 36
+nb_Chômeurs        0.07632289 6.962486e-03 36
+nb_Autres.inactifs 0.10329833 4.555080e-04 36
 
 $`3`
                 v.test Mean in category Overall mean sd in category Overall sd
@@ -2431,14 +2449,14 @@ nb_Chômeurs   2.840086        0.3030742    0.2672388     0.05119760 0.07632289
 nb_Retraités -2.322100        0.3988955    0.4299984     0.04638620 0.08102020
 nb_Arti_com  -2.436415        0.1614333    0.1824953     0.03292194 0.05229024
 nb_Cadres    -4.072608        0.2690466    0.4133138     0.06310945 0.21427368
-                  p.value
-nb_Employés  3.363770e-07
-nb_Ouvriers  6.115355e-04
-nb_PI        1.063769e-03
-nb_Chômeurs  4.510132e-03
-nb_Retraités 2.022757e-02
-nb_Arti_com  1.483364e-02
-nb_Cadres    4.648953e-05
+                  p.value  n
+nb_Employés  3.363770e-07 29
+nb_Ouvriers  6.115355e-04 29
+nb_PI        1.063769e-03 29
+nb_Chômeurs  4.510132e-03 29
+nb_Retraités 2.022757e-02 29
+nb_Arti_com  1.483364e-02 29
+nb_Cadres    4.648953e-05 29
 
 $`4`
                       v.test Mean in category Overall mean sd in category
@@ -2450,15 +2468,15 @@ nb_Arti_com        -2.075736        0.1632805    0.1824953     0.02406550
 nb_Retraités       -5.538645        0.3505583    0.4299984     0.05338369
 nb_PI              -6.397861        0.3069143    0.3745471     0.03885688
 nb_Cadres          -7.533356        0.1275547    0.4133138     0.04063899
-                   Overall sd      p.value
-nb_Autres.inactifs 0.10329833 1.183555e-18
-nb_Ouvriers        0.15376429 1.680308e-17
-nb_Chômeurs        0.07632289 1.539090e-15
-nb_Employés        0.10136557 8.944237e-10
-nb_Arti_com        0.05229024 3.791839e-02
-nb_Retraités       0.08102020 3.048200e-08
-nb_PI              0.05971448 1.575688e-10
-nb_Cadres          0.21427368 4.945255e-14</code></pre>
+                   Overall sd      p.value  n
+nb_Autres.inactifs 0.10329833 1.183555e-18 26
+nb_Ouvriers        0.15376429 1.680308e-17 26
+nb_Chômeurs        0.07632289 1.539090e-15 26
+nb_Employés        0.10136557 8.944237e-10 26
+nb_Arti_com        0.05229024 3.791839e-02 26
+nb_Retraités       0.08102020 3.048200e-08 26
+nb_PI              0.05971448 1.575688e-10 26
+nb_Cadres          0.21427368 4.945255e-14 26</code></pre>
 </div>
 </div>
 <p>On peut voir que la 1ère classe est marquée par une surreprésentation du nombre de personnes (de référence du ménage) cadres, puis artisans-commerçants, et dans une moindre mesure retraités ; et au contraire, une sous-représentation des employés, ouvriers, chômeurs ou encore autres inactifs. Sur la carte, on avait vu que cette classe était présente dans 17 des 20 arrondissements de Paris, ainsi que dans des communes des Hauts-de-Seine. C’est donc la classe correspondant aux communes des catégories d’actifs en emploi et d’inactifs favorisées.&nbsp;</p>
@@ -2518,23 +2536,23 @@ nb_Cadres          0.21427368 4.945255e-14</code></pre>
 <span id="cb28-23"><a href="#cb28-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">libelles_var</span>(<span class="at">cod_var=</span><span class="st">"IMMI"</span>, <span class="at">new_var =</span> Immi_nom) <span class="sc">%&gt;%</span>  </span>
 <span id="cb28-24"><a href="#cb28-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">Tabcr_pctcol</span>(<span class="at">var1=</span>classe4_socioprof, <span class="at">var2=</span>Immi_nom) <span class="sc">%&gt;%</span> <span class="fu">gt</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
-<div id="kugfkxgypg" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#kugfkxgypg table {
+<div id="hezfnutpfh" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#hezfnutpfh table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#kugfkxgypg thead, #kugfkxgypg tbody, #kugfkxgypg tfoot, #kugfkxgypg tr, #kugfkxgypg td, #kugfkxgypg th {
+#hezfnutpfh thead, #hezfnutpfh tbody, #hezfnutpfh tfoot, #hezfnutpfh tr, #hezfnutpfh td, #hezfnutpfh th {
   border-style: none;
 }
 
-#kugfkxgypg p {
+#hezfnutpfh p {
   margin: 0;
   padding: 0;
 }
 
-#kugfkxgypg .gt_table {
+#hezfnutpfh .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -2560,12 +2578,12 @@ nb_Cadres          0.21427368 4.945255e-14</code></pre>
   border-left-color: #D3D3D3;
 }
 
-#kugfkxgypg .gt_caption {
+#hezfnutpfh .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#kugfkxgypg .gt_title {
+#hezfnutpfh .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -2577,7 +2595,7 @@ nb_Cadres          0.21427368 4.945255e-14</code></pre>
   border-bottom-width: 0;
 }
 
-#kugfkxgypg .gt_subtitle {
+#hezfnutpfh .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -2589,7 +2607,7 @@ nb_Cadres          0.21427368 4.945255e-14</code></pre>
   border-top-width: 0;
 }
 
-#kugfkxgypg .gt_heading {
+#hezfnutpfh .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -2601,13 +2619,13 @@ nb_Cadres          0.21427368 4.945255e-14</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#kugfkxgypg .gt_bottom_border {
+#hezfnutpfh .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#kugfkxgypg .gt_col_headings {
+#hezfnutpfh .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2622,7 +2640,7 @@ nb_Cadres          0.21427368 4.945255e-14</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#kugfkxgypg .gt_col_heading {
+#hezfnutpfh .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2642,7 +2660,7 @@ nb_Cadres          0.21427368 4.945255e-14</code></pre>
   overflow-x: hidden;
 }
 
-#kugfkxgypg .gt_column_spanner_outer {
+#hezfnutpfh .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2654,15 +2672,15 @@ nb_Cadres          0.21427368 4.945255e-14</code></pre>
   padding-right: 4px;
 }
 
-#kugfkxgypg .gt_column_spanner_outer:first-child {
+#hezfnutpfh .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#kugfkxgypg .gt_column_spanner_outer:last-child {
+#hezfnutpfh .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#kugfkxgypg .gt_column_spanner {
+#hezfnutpfh .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -2674,11 +2692,11 @@ nb_Cadres          0.21427368 4.945255e-14</code></pre>
   width: 100%;
 }
 
-#kugfkxgypg .gt_spanner_row {
+#hezfnutpfh .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#kugfkxgypg .gt_group_heading {
+#hezfnutpfh .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2704,7 +2722,7 @@ nb_Cadres          0.21427368 4.945255e-14</code></pre>
   text-align: left;
 }
 
-#kugfkxgypg .gt_empty_group_heading {
+#hezfnutpfh .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -2719,15 +2737,15 @@ nb_Cadres          0.21427368 4.945255e-14</code></pre>
   vertical-align: middle;
 }
 
-#kugfkxgypg .gt_from_md > :first-child {
+#hezfnutpfh .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#kugfkxgypg .gt_from_md > :last-child {
+#hezfnutpfh .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#kugfkxgypg .gt_row {
+#hezfnutpfh .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2746,7 +2764,7 @@ nb_Cadres          0.21427368 4.945255e-14</code></pre>
   overflow-x: hidden;
 }
 
-#kugfkxgypg .gt_stub {
+#hezfnutpfh .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2759,7 +2777,7 @@ nb_Cadres          0.21427368 4.945255e-14</code></pre>
   padding-right: 5px;
 }
 
-#kugfkxgypg .gt_stub_row_group {
+#hezfnutpfh .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2773,15 +2791,15 @@ nb_Cadres          0.21427368 4.945255e-14</code></pre>
   vertical-align: top;
 }
 
-#kugfkxgypg .gt_row_group_first td {
+#hezfnutpfh .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#kugfkxgypg .gt_row_group_first th {
+#hezfnutpfh .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#kugfkxgypg .gt_summary_row {
+#hezfnutpfh .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2791,16 +2809,16 @@ nb_Cadres          0.21427368 4.945255e-14</code></pre>
   padding-right: 5px;
 }
 
-#kugfkxgypg .gt_first_summary_row {
+#hezfnutpfh .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#kugfkxgypg .gt_first_summary_row.thick {
+#hezfnutpfh .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#kugfkxgypg .gt_last_summary_row {
+#hezfnutpfh .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2810,7 +2828,7 @@ nb_Cadres          0.21427368 4.945255e-14</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-#kugfkxgypg .gt_grand_summary_row {
+#hezfnutpfh .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2820,7 +2838,7 @@ nb_Cadres          0.21427368 4.945255e-14</code></pre>
   padding-right: 5px;
 }
 
-#kugfkxgypg .gt_first_grand_summary_row {
+#hezfnutpfh .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2830,7 +2848,7 @@ nb_Cadres          0.21427368 4.945255e-14</code></pre>
   border-top-color: #D3D3D3;
 }
 
-#kugfkxgypg .gt_last_grand_summary_row_top {
+#hezfnutpfh .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2840,11 +2858,11 @@ nb_Cadres          0.21427368 4.945255e-14</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-#kugfkxgypg .gt_striped {
+#hezfnutpfh .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#kugfkxgypg .gt_table_body {
+#hezfnutpfh .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2853,7 +2871,7 @@ nb_Cadres          0.21427368 4.945255e-14</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-#kugfkxgypg .gt_footnotes {
+#hezfnutpfh .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2867,7 +2885,7 @@ nb_Cadres          0.21427368 4.945255e-14</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#kugfkxgypg .gt_footnote {
+#hezfnutpfh .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -2876,7 +2894,7 @@ nb_Cadres          0.21427368 4.945255e-14</code></pre>
   padding-right: 5px;
 }
 
-#kugfkxgypg .gt_sourcenotes {
+#hezfnutpfh .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2890,7 +2908,7 @@ nb_Cadres          0.21427368 4.945255e-14</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#kugfkxgypg .gt_sourcenote {
+#hezfnutpfh .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -2898,72 +2916,72 @@ nb_Cadres          0.21427368 4.945255e-14</code></pre>
   padding-right: 5px;
 }
 
-#kugfkxgypg .gt_left {
+#hezfnutpfh .gt_left {
   text-align: left;
 }
 
-#kugfkxgypg .gt_center {
+#hezfnutpfh .gt_center {
   text-align: center;
 }
 
-#kugfkxgypg .gt_right {
+#hezfnutpfh .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#kugfkxgypg .gt_font_normal {
+#hezfnutpfh .gt_font_normal {
   font-weight: normal;
 }
 
-#kugfkxgypg .gt_font_bold {
+#hezfnutpfh .gt_font_bold {
   font-weight: bold;
 }
 
-#kugfkxgypg .gt_font_italic {
+#hezfnutpfh .gt_font_italic {
   font-style: italic;
 }
 
-#kugfkxgypg .gt_super {
+#hezfnutpfh .gt_super {
   font-size: 65%;
 }
 
-#kugfkxgypg .gt_footnote_marks {
+#hezfnutpfh .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#kugfkxgypg .gt_asterisk {
+#hezfnutpfh .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#kugfkxgypg .gt_indent_1 {
+#hezfnutpfh .gt_indent_1 {
   text-indent: 5px;
 }
 
-#kugfkxgypg .gt_indent_2 {
+#hezfnutpfh .gt_indent_2 {
   text-indent: 10px;
 }
 
-#kugfkxgypg .gt_indent_3 {
+#hezfnutpfh .gt_indent_3 {
   text-indent: 15px;
 }
 
-#kugfkxgypg .gt_indent_4 {
+#hezfnutpfh .gt_indent_4 {
   text-indent: 20px;
 }
 
-#kugfkxgypg .gt_indent_5 {
+#hezfnutpfh .gt_indent_5 {
   text-indent: 25px;
 }
 
-#kugfkxgypg .katex-display {
+#hezfnutpfh .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#kugfkxgypg div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#hezfnutpfh div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -3048,46 +3066,46 @@ nb_Cadres          0.21427368 4.945255e-14</code></pre>
 <span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a><span class="co"># proportion d'inertie expliquée par la partition (ici 62%)</span></span>
 <span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>clust.kmeans</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>K-means clustering with 4 clusters of sizes 25, 32, 35, 44
+<pre><code>K-means clustering with 4 clusters of sizes 44, 25, 35, 32
 
 Cluster means:
   nb_Arti_com nb_Autres inactifs nb_Cadres nb_Chômeurs nb_Employés nb_Ouvriers
-1   0.1628033          0.5960445 0.1244789   0.3772366   0.4889990   0.5053904
-2   0.1773898          0.3772092 0.4399331   0.2344054   0.3646341   0.2085446
+1   0.2126952          0.3656571 0.6713502   0.2064724   0.2601554   0.1129449
+2   0.1628033          0.5960445 0.1244789   0.3772366   0.4889990   0.5053904
 3   0.1632631          0.4492721 0.2708982   0.2950802   0.4593574   0.3586570
-4   0.2126952          0.3656571 0.6713502   0.2064724   0.2601554   0.1129449
+4   0.1773898          0.3772092 0.4399331   0.2344054   0.3646341   0.2085446
       nb_PI nb_Retraités
-1 0.3056823    0.3486745
-2 0.4168261    0.4907071
+1 0.3554784    0.4480826
+2 0.3056823    0.3486745
 3 0.4090532    0.4098472
-4 0.3554784    0.4480826
+4 0.4168261    0.4907071
 
 Clustering vector:
 75101 75102 75103 75104 75105 75106 75107 75108 75109 75110 75111 75112 75113 
-    4     4     4     4     4     4     4     4     4     4     4     4     2 
+    1     1     1     1     1     1     1     1     1     1     1     1     4 
 75114 75115 75116 75117 75118 75119 75120 92002 92004 92007 92009 92012 92014 
-    4     4     4     4     4     2     2     4     4     3     4     4     4 
+    1     1     1     1     1     4     4     1     1     3     1     1     1 
 92019 92020 92022 92023 92024 92025 92026 92032 92033 92035 92036 92040 92044 
-    2     4     4     2     2     2     4     2     4     4     1     4     4 
+    4     1     1     4     4     4     1     4     1     1     2     1     1 
 92046 92048 92049 92050 92051 92060 92062 92063 92064 92071 92072 92073 92075 
-    2     4     4     3     4     2     4     4     4     4     4     4     4 
+    4     1     1     3     1     4     1     1     1     1     1     1     1 
 92076 92077 92078 93001 93005 93006 93007 93008 93010 93013 93014 93027 93029 
-    4     4     1     1     1     3     1     1     1     1     1     1     1 
+    1     1     2     2     2     3     2     2     2     2     2     2     2 
 93030 93031 93032 93033 93039 93045 93046 93047 93048 93049 93050 93051 93053 
-    1     1     3     2     3     2     3     1     3     2     3     3     1 
+    2     2     3     4     3     4     3     2     3     4     3     3     2 
 93055 93057 93059 93061 93062 93063 93064 93066 93070 93071 93072 93073 93074 
-    3     3     1     3     2     3     3     1     3     1     1     3     3 
+    3     3     2     3     4     3     3     2     3     2     2     3     3 
 93077 93078 93079 94002 94003 94004 94011 94015 94016 94017 94018 94019 94021 
-    3     1     1     3     2     3     1     2     2     3     2     3     3 
+    3     2     2     3     4     3     2     4     4     3     4     3     3 
 94022 94028 94033 94034 94037 94038 94041 94042 94043 94044 94046 94048 94052 
-    3     3     2     3     2     2     3     2     2     3     2     2     4 
+    3     3     4     3     4     4     3     4     4     3     4     4     1 
 94054 94055 94058 94059 94060 94065 94067 94068 94069 94071 94073 94074 94075 
-    1     2     2     3     3     2     4     2     2     2     3     1     2 
+    2     4     4     3     3     4     1     4     4     4     3     2     4 
 94076 94077 94078 94079 94080 94081 
-    3     3     1     3     4     3 
+    3     3     2     3     1     3 
 
 Within cluster sum of squares by cluster:
-[1] 0.5293592 0.7928106 0.6781738 0.9706255
+[1] 0.9706255 0.5293592 0.6781738 0.7928106
  (between_SS / total_SS =  80.0 %)
 
 Available components:
@@ -3103,10 +3121,10 @@ Available components:
 <div class="cell-output cell-output-stdout">
 <pre><code>                 
 classe4_socioprof  1  2  3  4
-                1  0  1  0 44
-                2  0 31  5  0
+                1 44  0  0  1
+                2  0  0  5 31
                 3  0  0 29  0
-                4 25  0  1  0</code></pre>
+                4  0 25  1  0</code></pre>
 </div>
 </div>
 <p>On voit ainsi que certaines classes de la <em>CAH</em> (les 4 lignes du tableau) coïncident exactement ou quasi-exactement avec les classes des <em>K-means</em> (en colonne), et une un peu moins car un peu plus distribuée entre plusieurs classes de la typologie des <em>K-means</em> . Autrement dit, on conclut à un changement de classes à la marge.</p>
@@ -3606,6 +3624,9 @@ classe4_socioprof  1  2  3  4
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="./13-Modeles-regression.html" class="pagination-link" aria-label="Modèles de régression : application sur le RP 2019 (ou sur la base dvf)">
+        <span class="nav-page-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Modèles de régression : application sur le RP 2019 (ou sur la base dvf)</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->

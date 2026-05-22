@@ -19,7 +19,7 @@ On va réaliser ici un exemple très simple en ne prenant qu'une variable recons
 
 Regardons d'abord pour cette variable - `CS1` - si un regroupement et un recodage des modalités est nécessaire.
 
-```{r Recod_dipl, message=FALSE, warning=FALSE}
+```{r appel_tables, message=FALSE, warning=FALSE}
 # Chargement des librairies
 library(tidyverse)
 library(janitor)
@@ -142,7 +142,6 @@ library(ggdendro)
 ggdendrogram(classif_socioprof, labels=FALSE)
 ```
 
-Il faut maintenant prendre une décision : où coupe-t-on l'arbre pour obtenir une partition de la population (ici nos communes), autrement dit combien de classes choisissons-nous ? \  
 On peut d'abord s'appuyer sur la forme du dendogramme : plus une "branche" est haute et plus on perd en distance ou ici (critère de Ward) en inertie intraclasse[^12-clustering-application-1], il faudra donc couper l'arbre au niveau de cette branche. Il faut également prendre en compte ce qui peut être le mieux pour l'analyse : si on aboutit à une classification en 2 classes, cela risque d'être peu intéressant à analyser, mais si on a une classification en 5 classes ou plus, cela va devenir compliqué à interpréter...\ 
 Ici, dans les deux cas, il semble que choisir 2 classes soit très pertinent, mais on voit qu'on pourrait aussi choisir 4 classes (ou même 3 éventuellement) si l'on veut rentrer un peu plus dans le détail de l'analyse.
 
