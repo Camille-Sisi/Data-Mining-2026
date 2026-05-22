@@ -1,5 +1,5 @@
 
-# Modèles de régression : application sur le RP 2019 (ou sur la base dvf) {#sec-Modeles-regression}
+# Modèles de régression : application sur les bases DVF et RP au niveau IRIS {#sec-Modeles-regression}
 
 On cherche maintenant à expliquer un phénomène ou une variable par rapport à d'autres. On va ici s'intéresser au prix moyen de vente d'un bien (appartement ou maison) sur une zone IRIS et ce qui peut expliquer que ce prix moyen sur un IRIS donné est supérieur à la moyenne du département. \  
 
